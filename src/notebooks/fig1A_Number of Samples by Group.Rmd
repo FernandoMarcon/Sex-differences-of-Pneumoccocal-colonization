@@ -1,0 +1,25 @@
+```{r}
+rm(list = ls())
+pkgs <- c('tidyverse','data.table','ggplot2')
+suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
+
+studies = c('MUCOSAL','LAIV1','LAIV2','AGES')
+```
+# Number of Samples by Group
+
+```{r}
+pheno.all <- list.files('data/tidy_data/tables/', pattern = 'pheno', full.names = T) %>%
+  lapply(fread, data.table = F) %>%
+  Reduce(rbind,.)
+head(pheno.all)
+```
+
+```{r}
+ggplot(pheno.all, aes(class, fill = class)) + geom_bar(show.legend = F) + coord_flip() +
+  facet_grid(study~., scales = 'free') + theme_linedraw() + 
+  geom_text(stat = 'count', aes(text = ..count.., label = ..count..), hjust = -.5) +
+  labs(x = 'Classes', y = 'Number of Samples', title = 'Fig. 1A', subtitle = 'Number of Samples by Group') +
+  ylim(c(0,30))
+  
+```
+
