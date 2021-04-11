@@ -1,0 +1,89 @@
+---
+title: "RNA-Seq Viewer"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+pkgs <- c('tidyverse','shiny','flexdashboard')
+suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
+```
+
+
+
+```{r global}
+#--- Functions
+classifyDEGs <- function(de_result, # DE Result Table (data.frame)
+                         pThrs = 0.01, fcThrs = 0) # Thresholds
+  {
+  with(de_result, ifelse(pvalue < pThrs & log2FoldChange < -fcThrs, "Down",
+                       ifelse(pvalue < pThrs & log2FoldChange > fcThrs, "Up","Unchanged")))
+}
+plotVolcano <- function(de_result) {
+  temp = de_result %>% mutate(logp = -log10(pvalue), score = logp*abs(log2FoldChange))
+  pal <- setNames(c("darkred", "grey", "dodgerblue"), c("Up", "Unchanged", 'Down'))
+  plt = plotly::plot_ly(data = temp, x = ~log2FoldChange, y = ~logp,
+                color = ~DEG, colors = pal, 
+                text = rownames(de_result), size = ~score)
+  plt
+}
+
+loadData <- function(file_path) {
+  require("MultiAssayExperiment")
+  ages = readRDS(file_path)
+  rnaseq = ages[["RNA-Seq"]]
+  return(rnaseq)
+}
+
+file_paths = c("~/Documents/work/SpnCarriage_Analysis/data/raw_data/AGES/Robj/AGES_studyObj.rds")
+```
+
+Inputs {.sidebar}
+-------------------------------------
+
+```{r}
+selectInput("selection", "Choose a file:",choices = file_paths)
+
+actionButton("update", "Load Data")
+
+actionButton("runDE", "Run DESeq2")
+```
+
+Column
+-------------------------------------
+    
+### Table
+    
+```{r}
+terms <- reactive({
+  # Change when the "update" button is pressed...
+  input$update
+  loadData(file_path = input$selection)
+})
+  
+renderTable({
+  data <- terms()
+  head(colData(data))
+})
+
+runDE <- reactive({
+  input$runDE
+  
+  data <- terms()
+  data_subset = data[,which(data$timepoint == "baseline" & data$sex == "F")]
+  
+  dds = DESeq2::DESeqDataSet(data_subset, design = ~ carriage)
+  dds = DESeq2::DESeq(dds)
+  de_result = DESeq2::results(dds) %>% as.data.frame %>% filter(complete.cases(log2FoldChange))
+  de_result$DEG <- classifyDEGs(de_result)
+  de_result
+})
+
+renderTable({
+  runDE()
+  })
+# plotVolcano(de_result)
+```

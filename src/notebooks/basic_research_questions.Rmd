@@ -1,0 +1,41 @@
+---
+title: "Research Questions"
+output: html_notebook
+---
+
+# Pneumococcal Carriage Load (*Spn Density*)
+
+1.  Quem tem maior chance de desenvolver *carriage*?
+2.  Existem outros grupos de risco?
+3.  Quais sao as variaveis importante p/ predizer *carriage*?
+4.  Existem agrupamentos de individuos baseado em seu perfil de expressao?
+
+# Gene Expression (*RNA-Seq*)
+
+## At Baseline
+
+1.  Which genes are perturbed between C+ and C- among man/woman?
+2.  Which pathways are enriched between C+ and C- among man/woman?
+3.  Which genes can predict *carriage* in men/women?
+
+## Day~x~ vs Baseline
+
+1.  Which genes are perturbed among C+ man/women?
+2.  Which pathways are perturbed among C+ man/women?
+3.  Which genes are perturbed among C- man/women?
+4.  Which pathways are perturbed among C- man/women?
+
+# Cytokines (*Luminex*)
+
+## At Baseline
+
+1.  Which cytokines are perturbed between C+ and C- among man/woman?
+
+## Day~x~ vs Baseline
+
+1.  Which cytokines are perturbed among C+ man/woman?
+2.  Which cytokines are perturbed among C- man/woman?
+
+# Hormone Levels
+
+# Cell Recruitment (*Flow Cytometry*)
