@@ -129,7 +129,7 @@ fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), s
 
 Elderly1 (Baseline, Day 2)
 ```{r}
-dataset.name = 'Adult3'
+dataset.name = 'Elderly1'
 comp = "D2vsBaseline"
 count <- studies[[dataset.name]]$counts
 pheno <- studies[[dataset.name]]$pheno
