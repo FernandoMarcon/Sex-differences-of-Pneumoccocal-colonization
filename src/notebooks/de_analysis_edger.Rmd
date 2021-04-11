@@ -1,3 +1,15 @@
+# 6) DEG per cohort (EdgeR use um FDR cutoff que dê entre 100 a 1000 DEGs).
+
+Adult1_Positive_Male_D2v0 (pareado)
+
+Adult2_Positive_Male_D2v0 (pareado)
+
+Adult3_Positive_Male_D2v0 (pareado)
+
+Elderly1_Positive_Male_D2v0 (pareado)
+
+...repetir para TODOS que tem pelo menos 2 amostras.
+
 ```{r "setup", include=FALSE}
 rm(list = ls())
 
@@ -12,22 +24,11 @@ suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
 studies = c('MUCOSAL','LAIV1','LAIV2','AGES')
 ```
 
-# 6) DEG per cohort (EdgeR use um FDR cutoff que dê entre 100 a 1000 DEGs). 
-
-Adult1_Positive_Male_D2v0 (pareado)
-
-Adult2_Positive_Male_D2v0 (pareado)
-
-Adult3_Positive_Male_D2v0 (pareado)
-
-Elderly1_Positive_Male_D2v0 (pareado)
-
-…repetir para TODOS que tem pelo menos 2 amostras.
-
 ```{r}
 fnames <- list.files('data/tidy_data/Rdata/', full.names = T)
 studies <- lapply(fnames, readRDS) %>% setNames(basename(gsub('\\.rds','',fnames)))
 ```
+
 ```{r}
 lapply(studies, function(df) table(df$pheno$timepoint))
 lapply(studies, function(df) message(paste0(ncol(df$counts), '\t-\t',nrow(df$pheno))))
@@ -53,6 +54,7 @@ run_edgeR <- function(counts, pheno) {
 ```
 
 Adult1 (Baseline, Day 2)
+
 ```{r}
 dataset.name = 'Adult1'
 comp = "D2vsBaseline"
@@ -78,6 +80,7 @@ fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), s
 ```
 
 Adult2 (TIV, Basline and Day 9)
+
 ```{r}
 dataset.name = 'Adult2'
 comp = "D9vsBaseline"
@@ -103,6 +106,7 @@ fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), s
 ```
 
 Adult3 (Baseline, Day 2)
+
 ```{r}
 dataset.name = 'Adult3'
 comp = "D2vsBaseline"
@@ -128,6 +132,7 @@ fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), s
 ```
 
 Elderly1 (Baseline, Day 2)
+
 ```{r}
 dataset.name = 'Elderly1'
 comp = "D2vsBaseline"
@@ -151,4 +156,3 @@ de.table <- lapply(groups, function(group) {
 
 fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
 ```
-
