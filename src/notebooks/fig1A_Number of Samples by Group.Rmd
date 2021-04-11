@@ -5,7 +5,7 @@ suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
 
 studies = c('MUCOSAL','LAIV1','LAIV2','AGES')
 ```
-# Number of Samples by Group
+# 5) Montar Fig1A com as informações do item 4. Quais desses grupos podem ser usados (N >= 2)?
 
 ```{r}
 pheno.all <- list.files('data/tidy_data/tables/', pattern = 'pheno', full.names = T) %>%
