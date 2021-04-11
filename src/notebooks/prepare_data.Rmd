@@ -38,8 +38,11 @@ Dataset 3 (LAIV2): Adult3_Positive_Male (N?),  Adult3_Negative_Male (N?), Ad
 
 Dataset 4  (AGES):  Elderly1_Positive_Male (N?),  Elderly1_Negative_Male (N?), Elderly1_Positive_Female (N?),  Elderly1_Negative_Female (N?)
 
-```{r }
+```{r "setup"}
 rm(list = ls())
+
+knitr::opts_knit$set(root.dir = '~/Documents/work/Sex-differences-of-Pneumoccocal-colonization/')
+
 pkgs <- c('tidyverse','data.table')
 suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
 
