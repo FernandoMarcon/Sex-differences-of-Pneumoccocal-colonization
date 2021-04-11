@@ -79,13 +79,13 @@ Adult1$counts %>% cbind(gene_id = rownames(.),.) %>% fwrite('data/tidy_data/tabl
 Adult1$pheno %>% fwrite('data/tidy_data/tables/Adult1_pheno.csv', row.names = F, sep = '\t')
 ```
 
-Adult2 (TIV, Basline and Day 6)
+Adult2 (TIV, Basline and Day 9)
 ```{r}
 laiv1.counts <- fread('data/raw_data/LAIV1_rnaseq_data.tsv') %>% data.frame(row.names = 1)
 laiv1.pheno <- fread('data/raw_data/LAIV1_rnaseq_meta.tsv', data.table = F) %>% mutate(sample_id = sample_id_original)
 identical(colnames(laiv1.counts), laiv1.pheno$sample_id)
 
-laiv1.pheno = laiv1.pheno %>% filter(vaccine == 'TIV', timepoint %in% c('baseline','D6')) %>%
+laiv1.pheno = laiv1.pheno %>% filter(vaccine == 'TIV', timepoint %in% c('baseline','D9')) %>%
   mutate(carriage = carriage_status) %>%
   merge(meta[c('volunteer_id', 'sex')], by = 'volunteer_id', all.x = T)
 laiv1.pheno = laiv1.pheno[,c('sample_id', 'volunteer_id', 'timepoint', 'study', 'carriage', 'sex', 'vaccine')]
@@ -115,6 +115,7 @@ laiv2.pheno = laiv2.pheno %>% filter(timepoint %in% c('baseline', 'D2')) %>%
   relocate(-class)
 head(laiv2.pheno)
 
+laiv2.counts = laiv2.counts[,laiv2.pheno$sample_id]
 identical(laiv2.pheno$sample_id, colnames(laiv2.counts))
 Adult3 <- list(counts = laiv2.counts, pheno = laiv2.pheno)
 saveRDS(Adult3, 'data/tidy_data/Rdata/Adult3.rds')

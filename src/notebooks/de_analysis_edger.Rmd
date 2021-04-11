@@ -1,0 +1,154 @@
+```{r "setup", include=FALSE}
+rm(list = ls())
+
+basedir <- '~/Documents/work/Sex-differences-of-Pneumoccocal-colonization/'
+outdir = file.path(basedir,'intermediate/item6_DEtables')
+knitr::opts_knit$set(root.dir = basedir)
+
+pkgs <- c('tidyverse','data.table','ggplot2','edgeR')
+suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
+
+
+studies = c('MUCOSAL','LAIV1','LAIV2','AGES')
+```
+
+# 6) DEG per cohort (EdgeR use um FDR cutoff que dê entre 100 a 1000 DEGs). 
+
+Adult1_Positive_Male_D2v0 (pareado)
+
+Adult2_Positive_Male_D2v0 (pareado)
+
+Adult3_Positive_Male_D2v0 (pareado)
+
+Elderly1_Positive_Male_D2v0 (pareado)
+
+…repetir para TODOS que tem pelo menos 2 amostras.
+
+```{r}
+fnames <- list.files('data/tidy_data/Rdata/', full.names = T)
+studies <- lapply(fnames, readRDS) %>% setNames(basename(gsub('\\.rds','',fnames)))
+```
+```{r}
+lapply(studies, function(df) table(df$pheno$timepoint))
+lapply(studies, function(df) message(paste0(ncol(df$counts), '\t-\t',nrow(df$pheno))))
+
+```
+
+```{r}
+run_edgeR <- function(counts, pheno) {
+  de <- DGEList(counts = counts, samples = pheno)
+
+  design <- model.matrix(~ volunteer_id + timepoint,data = pheno)
+  
+  keep <- filterByExpr(de, design)
+  de <- de[keep, , keep.lib.sizes=FALSE]
+  
+  de <- calcNormFactors(de)
+  de <- estimateDisp(de, design)
+  
+  fit <- glmQLFit(de, design)
+  qlf <- glmQLFTest(fit, coef = grep('timepoint',colnames(design), value = T))
+  return(qlf)
+}
+```
+
+Adult1 (Baseline, Day 2)
+```{r}
+dataset.name = 'Adult1'
+comp = "D2vsBaseline"
+count <- studies[[dataset.name]]$counts
+pheno <- studies[[dataset.name]]$pheno
+groups <- names(table(pheno$class)[table(pheno$class) > 1])
+
+de.table <- lapply(groups, function(group) {
+  message(group)
+  
+  pheno.sub = pheno %>% filter(class == group)
+  count.sub = count[,pheno.sub$sample_id]
+  identical(colnames(count.sub), pheno.sub$sample_id)
+  
+  de.res <- run_edgeR(counts = count.sub, pheno = pheno.sub)
+  de.table <- as.data.frame(topTags(de.res, n = Inf)) %>%
+    mutate(dataset = dataset.name, group_name = group, comparison = comp) %>%
+    rownames_to_column('gene_id')
+  return(de.table)
+}) %>% Reduce(rbind, .)
+
+fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
+```
+
+Adult2 (TIV, Basline and Day 9)
+```{r}
+dataset.name = 'Adult2'
+comp = "D9vsBaseline"
+count <- studies[[dataset.name]]$counts
+pheno <- studies[[dataset.name]]$pheno
+groups <- names(table(pheno$class)[table(pheno$class) > 2])
+
+de.table <- lapply(groups, function(group) {
+  message(group)
+  
+  pheno.sub = pheno %>% filter(class == group)
+  count.sub = count[,pheno.sub$sample_id]
+  identical(colnames(count.sub), pheno.sub$sample_id)
+  
+  de.res <- run_edgeR(counts = count.sub, pheno = pheno.sub)
+  de.table <- as.data.frame(topTags(de.res, n = Inf)) %>%
+    mutate(dataset = dataset.name, group_name = group, comparison = comp) %>%
+    rownames_to_column('gene_id')
+  return(de.table)
+}) %>% Reduce(rbind, .)
+
+fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
+```
+
+Adult3 (Baseline, Day 2)
+```{r}
+dataset.name = 'Adult3'
+comp = "D2vsBaseline"
+count <- studies[[dataset.name]]$counts
+pheno <- studies[[dataset.name]]$pheno
+groups <- names(table(pheno$class)[table(pheno$class) > 2])
+
+de.table <- lapply(groups, function(group) {
+  message(group)
+  
+  pheno.sub = pheno %>% filter(class == group)
+  count.sub = count[,pheno.sub$sample_id]
+  identical(colnames(count.sub), pheno.sub$sample_id)
+  
+  de.res <- run_edgeR(counts = count.sub, pheno = pheno.sub)
+  de.table <- as.data.frame(topTags(de.res, n = Inf)) %>%
+    mutate(dataset = dataset.name, group_name = group, comparison = comp) %>%
+    rownames_to_column('gene_id')
+  return(de.table)
+}) %>% Reduce(rbind, .)
+
+fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
+```
+
+Elderly1 (Baseline, Day 2)
+```{r}
+dataset.name = 'Adult3'
+comp = "D2vsBaseline"
+count <- studies[[dataset.name]]$counts
+pheno <- studies[[dataset.name]]$pheno
+groups <- names(table(pheno$class)[table(pheno$class) > 2])
+
+de.table <- lapply(groups, function(group) {
+  message(group)
+  
+  pheno.sub = pheno %>% filter(class == group)
+  count.sub = count[,pheno.sub$sample_id]
+  identical(colnames(count.sub), pheno.sub$sample_id)
+  
+  de.res <- run_edgeR(counts = count.sub, pheno = pheno.sub)
+  de.table <- as.data.frame(topTags(de.res, n = Inf)) %>%
+    mutate(dataset = dataset.name, group_name = group, comparison = comp) %>%
+    rownames_to_column('gene_id')
+  return(de.table)
+}) %>% Reduce(rbind, .)
+
+fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
+```
+
