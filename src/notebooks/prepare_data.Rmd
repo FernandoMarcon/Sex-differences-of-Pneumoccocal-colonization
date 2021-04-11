@@ -1,4 +1,42 @@
+# 1) Separar datasets
 
+Dataset 1 (Piloto): Usar Baseline e D2 post-challenge
+
+Dataset 2 (LAIV1): Usar apenas as pessoas que receberam TIV (controle) e pegar Baseline e D6 (post-challenge). NÃO pegar as pessoas que receberam LAIV e nem o time point D2 post-immunization.
+
+Dataset 3 (LAIV2): Usar todo mundo (já que as vacinas foram depois da inoculação) e o Baseline e D2 post-challenge
+
+Dataset 4  (AGES): Usar Baseline e D2 post-challenge
+
+# 2) Nomes das coortes:
+
+Dataset 1 (Piloto): Adult1
+
+Dataset 2 (LAIV1): Adult2
+
+Dataset 3 (LAIV2): Adult3
+
+Dataset 4  (AGES):  Elderly1
+
+# 3) Anotar as amostras pela classe: Positive or Negative 
+
+Dataset 1 (Piloto): Adult1_Positive e Adult1_Negative
+
+Dataset 2 (LAIV1): Adult2_Positive e Adult2_Negative
+
+Dataset 3 (LAIV2): Adult3_Positive e Adult3_Negative
+
+Dataset 4  (AGES):  Elderly1_Positive e Elderly1_Negative
+
+# 4) Contar o número de amostras por sexo
+
+Dataset 1 (Piloto): Adult1_Positive_Male (N?),  Adult1_Negative_Male (N?), Adult1_Positive_Female (N?),  Adult1_Negative_Female (N?)
+
+Dataset 2 (LAIV1): Adult2_Positive_Male (N?),  Adult2_Negative_Male (N?), Adult2_Positive_Female (N?),  Adult2_Negative_Female (N?)
+
+Dataset 3 (LAIV2): Adult3_Positive_Male (N?),  Adult3_Negative_Male (N?), Adult3_Positive_Female (N?),  Adult3_Negative_Female (N?)
+
+Dataset 4  (AGES):  Elderly1_Positive_Male (N?),  Elderly1_Negative_Male (N?), Elderly1_Positive_Female (N?),  Elderly1_Negative_Female (N?)
 
 ```{r }
 rm(list = ls())
