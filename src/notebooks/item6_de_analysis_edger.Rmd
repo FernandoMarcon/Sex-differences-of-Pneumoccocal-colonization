@@ -182,7 +182,7 @@ merge(G_list, de.table, by = 'gene_id', all.y = T) %>%
 
 # Evaluate p-value thresholds
 ```{r}
-fnames <- list.files(outdir, full.names = T)
+fnames <- list.files(outdir, full.names = T, pattern = 'detable_edger')
 de.table <- lapply(fnames, fread, data.table = F) %>% Reduce(rbind, .)
 ```
 
@@ -210,6 +210,29 @@ pdf(file.path(outdir, 'numDEGs_by_pval_thresholds_assessment.pdf'))
 plt
 dev.off()
 ```
+Color by sex
+```{r}
+deg_byPvalThrs$carriage <- sapply(strsplit(deg_byPvalThrs$group_name,'_'), `[[`,2)
+deg_byPvalThrs$sex <- sapply(strsplit(deg_byPvalThrs$group_name,'_'), `[[`,3)
+plt <- ggplot(deg_byPvalThrs, aes(-log10(pval_thrs), num_deg, group = paste0(dataset, group_name), col = sex)) + 
+  geom_point() + geom_line() +  labs(x = '-log10(p-value)', y = 'Number of DEGs', col = 'Sex') + theme_minimal() +
+  geom_hline(yintercept = c(100, 1000), col = 'red') +
+  geom_vline(xintercept = c(-log10(0.01),-log10(0.05),-log10(0.1)), linetype ='dashed')
+plt
+
+```
+Color by Sex and Carriage
+```{r}
+deg_byPvalThrs$carriage <- sapply(strsplit(deg_byPvalThrs$group_name,'_'), `[[`,2)
+deg_byPvalThrs$sex <- sapply(strsplit(deg_byPvalThrs$group_name,'_'), `[[`,3)
+plt <- ggplot(deg_byPvalThrs, aes(-log10(pval_thrs), num_deg, group = paste0(dataset, group_name), col = paste0(carriage, '_',sex))) + 
+  geom_point() + geom_line() +  labs(x = '-log10(p-value)', y = 'Number of DEGs', col = 'Carriage + Sex') + theme_minimal() +
+  geom_hline(yintercept = c(100, 1000), col = 'red') +
+  geom_vline(xintercept = c(-log10(0.01),-log10(0.05),-log10(0.1)), linetype ='dashed')
+plt
+
+```
+
 
 ## Adjusted p-value
 ```{r}

@@ -12,7 +12,7 @@
 rm(list = ls())
 
 basedir <- '~/Documents/work/Sex-differences-of-Pneumoccocal-colonization/'
-outdir = file.path(basedir,"intermediate/item5_metavolcano")
+outdir = file.path(basedir,"intermediate/item7_metavolcano/")
 knitr::opts_knit$set(root.dir = basedir)
 
 pkgs <- c('tidyverse','data.table','ggplot2','MetaVolcanoR')
@@ -20,6 +20,7 @@ suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
 
 
 studies = c('MUCOSAL','LAIV1','LAIV2','AGES')
+pval_thrs <- 0.01
 ```
 
 Input
