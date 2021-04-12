@@ -178,3 +178,82 @@ de.table <- lapply(groups, function(group) {
 merge(G_list, de.table, by = 'gene_id', all.y = T) %>% 
   fwrite(file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
 ```
+
+
+# Evaluate p-value thresholds
+```{r}
+fnames <- list.files(outdir, full.names = T)
+de.table <- lapply(fnames, fread, data.table = F) %>% Reduce(rbind, .)
+```
+
+## Non-adjusted p-value
+```{r}
+pvalues <- seq(0,.1,.01)
+
+deg_byPvalThrs <- lapply(pvalues, function(pval) {
+  de.table %>% mutate(deg = ifelse(PValue < pval, 1, 0)) %>% 
+  filter(deg == 1) %>% group_by(dataset, group_name) %>%
+  summarise(num_deg = n()) %>% 
+  mutate(pval_thrs = pval)
+}) %>% Reduce(rbind, .)
+```
+
+```{r}
+plt <- ggplot(deg_byPvalThrs, aes(-log10(pval_thrs), num_deg, group = paste0(dataset, group_name), col = dataset)) + 
+  geom_point() + geom_line() +  labs(x = '-log10(p-value)', y = 'Number of DEGs') + theme_minimal() +
+  geom_hline(yintercept = c(100, 1000), col = 'red') +
+  geom_vline(xintercept = c(-log10(0.01),-log10(0.05),-log10(0.1)), linetype ='dashed')
+plt
+```
+```{r}
+pdf(file.path(outdir, 'numDEGs_by_pval_thresholds_assessment.pdf'))
+plt
+dev.off()
+```
+
+## Adjusted p-value
+```{r}
+pvalues <- seq(0,.1,.01)
+
+deg_byPvalThrs <- lapply(pvalues, function(pval) {
+  de.table %>% mutate(deg = ifelse(FDR < pval, 1, 0)) %>% 
+  filter(deg == 1) %>% group_by(dataset, group_name) %>%
+  summarise(num_deg = n()) %>% 
+  mutate(pval_thrs = pval)
+}) %>% Reduce(rbind, .)
+```
+
+```{r}
+plt <- ggplot(deg_byPvalThrs, aes(-log10(pval_thrs), num_deg, group = paste0(dataset, group_name), col = dataset)) + 
+  geom_point() + geom_line() + labs(x = '-log10(FDR)', y = 'Number of DEGs') + theme_minimal() + 
+  geom_hline(yintercept = c(100, 1000), col = 'red') +
+  geom_vline(xintercept = c(-log10(0.01),-log10(0.05),-log10(0.1)), linetype ='dashed')
+plt
+```
+```{r}
+pdf(file.path(outdir, 'numDEGs_by_FDR_thresholds_assessment.pdf'))
+plt
+dev.off()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
