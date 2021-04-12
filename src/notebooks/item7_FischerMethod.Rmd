@@ -1,0 +1,68 @@
+# Calculate meta-DEGs using Fischer method
+
+```{r "setup", include=FALSE}
+rm(list = ls())
+
+basedir <- '~/Documents/work/Sex-differences-of-Pneumoccocal-colonization/'
+outdir = file.path(basedir,"intermediate/item7_metaDEGs_FischerMethod/")
+knitr::opts_knit$set(root.dir = basedir)
+
+pkgs <- c('tidyverse','data.table','ggplot2','metap')
+suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
+
+
+studies = c('MUCOSAL','LAIV1','LAIV2','AGES')
+pval_thrs <- 0.01
+```
+
+Input
+
+```{r}
+fnames <- list.files('intermediate/item6_DEtables/', full.names = T, pattern = 'detable_edger')
+de.table <- lapply(fnames, fread, data.table = F) %>% Reduce(rbind, .)
+```
+
+Including Elderly dataset
+
+```{r}
+de.table %>% select(gene_id, hgnc_symbol, group_name, PValue) %>% 
+  distinct() %>% 
+  group_by(group_name, hgnc_symbol) %>% 
+  filter(PValue == min(PValue, na.rm = T)) %>% 
+  spread(key = group_name, value = PValue) %>%
+  column_to_rownames('hgnc_symbol')
+```
+
+```{r}
+
+df = de.table %>% select(gene_id, hgnc_symbol, group_name, PValue) %>% 
+  distinct() %>% 
+  group_by(group_name, hgnc_symbol) %>% 
+  filter(PValue == min(PValue, na.rm = T)) %>% 
+  spread(key = group_name, value = PValue) 
+
+head(df)
+
+x = 4
+values <- as.numeric(df[x,])
+values[!is.na(values)]
+
+sumlog(values)
+
+```
+
+```{r}
+Pcombined <- unlist(lapply(rownames(df), function(x) { sumlog(as.numeric(df[x,])[!is.na(as.numeric(df[x,]))])$p } ))
+df$FisherMethodP <- Pcombined
+
+df$FDR <- p.adjust(Pcombined, method = "fdr", n = length(Pcombined))
+
+View(df)
+
+# write.table(df,file="FisherMethodPCombined.txt",sep="\t",col.names=NA)
+                    
+```
+
+```{r}
+table(df$FDR < 0.01)
+```

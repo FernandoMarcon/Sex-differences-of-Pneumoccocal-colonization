@@ -1,15 +1,13 @@
-# 6) DEG per cohort (EdgeR use um FDR cutoff que dê entre 100 a 1000 DEGs).
+# Item 6 - DEG per cohort
+EdgeR use um FDR cutoff que dê entre 100 a 1000 DEGs.
 
-Adult1_Positive_Male_D2v0 (pareado)
-
-Adult2_Positive_Male_D2v0 (pareado)
-
-Adult3_Positive_Male_D2v0 (pareado)
-
-Elderly1_Positive_Male_D2v0 (pareado)
-
+- Adult1_Positive_Male_D2v0 (pareado)
+- Adult2_Positive_Male_D2v0 (pareado)
+- Adult3_Positive_Male_D2v0 (pareado)
+- Elderly1_Positive_Male_D2v0 (pareado)
 ...repetir para TODOS que tem pelo menos 2 amostras.
 
+## Run edgeR to all groups and studies
 ```{r "setup", include=FALSE}
 rm(list = ls())
 
@@ -27,29 +25,6 @@ studies = c('MUCOSAL','LAIV1','LAIV2','AGES')
 ```{r}
 fnames <- list.files('data/tidy_data/Rdata/', full.names = T)
 studies <- lapply(fnames, readRDS) %>% setNames(basename(gsub('\\.rds','',fnames)))
-```
-
-```{r}
-lapply(studies, function(df) table(df$pheno$timepoint))
-lapply(studies, function(df) message(paste0(ncol(df$counts), '\t-\t',nrow(df$pheno))))
-
-```
-
-Add gene annotations
-
-```{r}
-library('biomaRt')
-
-mart <- useDataset("hsapiens_gene_ensembl", useMart("ensembl"))
-
-
-genes <- lapply(studies, function(df) rownames(df$counts)) %>% unlist %>% unique
-
-
-G_list <- getBM(filters= "ensembl_gene_id", attributes= c("ensembl_gene_id","hgnc_symbol"),values=genes,mart= mart)
-colnames(G_list)[1] <- 'gene_id'
-
-head(G_list)
 ```
 
 ```{r}
@@ -94,8 +69,7 @@ de.table <- lapply(groups, function(group) {
   return(de.table)
 }) %>% Reduce(rbind, .)
 
-merge(G_list, de.table, by = 'gene_id', all.y = T) %>% 
-  fwrite(file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
+fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
 ```
 
 Adult2 (TIV, Basline and Day 9)
@@ -121,8 +95,7 @@ de.table <- lapply(groups, function(group) {
   return(de.table)
 }) %>% Reduce(rbind, .)
 
-merge(G_list, de.table, by = 'gene_id', all.y = T) %>% 
-  fwrite(file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
+fwrite(de.table,file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
 ```
 
 Adult3 (Baseline, Day 2)
@@ -148,8 +121,7 @@ de.table <- lapply(groups, function(group) {
   return(de.table)
 }) %>% Reduce(rbind, .)
 
-merge(G_list, de.table, by = 'gene_id', all.y = T) %>% 
-  fwrite(file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
+fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
 ```
 
 Elderly1 (Baseline, Day 2)
@@ -175,18 +147,63 @@ de.table <- lapply(groups, function(group) {
   return(de.table)
 }) %>% Reduce(rbind, .)
 
-merge(G_list, de.table, by = 'gene_id', all.y = T) %>% 
-  fwrite(file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
+fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
 ```
 
 
-# Evaluate p-value thresholds
+
+
+## Add gene annotations
+
+```{r}
+library('biomaRt')
+
+fnames <- list.files(outdir, pattern = 'detable_edger', full.names = T)
+de.tables <- lapply(fnames, fread, data.table = T) %>% Reduce(rbind, .) %>% distinct()
+
+genes <- unique(de.tables$gene_id)
+
+mart <- useDataset("hsapiens_gene_ensembl", useMart("ensembl"))
+
+fdata <- getBM(filters= "ensembl_gene_id", attributes= c("ensembl_gene_id","hgnc_symbol"),values=genes,mart= mart)
+colnames(fdata) <- c('gene_id','symbol')
+head(fdata)
+```
+
+Number of repeated gene ids by group
+```{r}
+de.tables %>% group_by(group_name) %>% summarise(sum(duplicated(gene_id))) %>% View
+```
+
+Add Gene Symbol
+(missing Gene Symbol will be replaced by ensembl_id)
+```{r}
+de.tables <- de.tables %>% merge(fdata, ., by = 'gene_id', all.y = T) %>% 
+  mutate(symbol = ifelse(is.na(symbol), gene_id, symbol))
+```
+Number of repeated gene ids by group
+```{r}
+de.tables %>% group_by(group_name) %>% summarise(sum(duplicated(gene_id))) %>% View
+```
+
+Save tables (replacing the same files)
+```{r}
+split(de.tables, de.tables$dataset) %>% 
+  lapply(function(df) {
+    dataset.name = unique(df$dataset)
+    message(dataset.name)
+    fname = grep(dataset.name,fnames,value = T)
+    fwrite(df, fname, sep = '\t',row.names = F, quote = F)
+  })
+```
+
+## Evaluate p-value thresholds
 ```{r}
 fnames <- list.files(outdir, full.names = T, pattern = 'detable_edger')
 de.table <- lapply(fnames, fread, data.table = F) %>% Reduce(rbind, .)
 ```
 
-## Non-adjusted p-value
+### Non-adjusted p-value
 ```{r}
 pvalues <- seq(0,.1,.01)
 
@@ -199,42 +216,57 @@ deg_byPvalThrs <- lapply(pvalues, function(pval) {
 ```
 
 ```{r}
-plt <- ggplot(deg_byPvalThrs, aes(-log10(pval_thrs), num_deg, group = paste0(dataset, group_name), col = dataset)) + 
+plt_study <- ggplot(deg_byPvalThrs, aes(-log10(pval_thrs), num_deg, group = paste0(dataset, group_name), col = dataset)) +
   geom_point() + geom_line() +  labs(x = '-log10(p-value)', y = 'Number of DEGs') + theme_minimal() +
   geom_hline(yintercept = c(100, 1000), col = 'red') +
   geom_vline(xintercept = c(-log10(0.01),-log10(0.05),-log10(0.1)), linetype ='dashed')
-plt
-```
-```{r}
-pdf(file.path(outdir, 'numDEGs_by_pval_thresholds_assessment.pdf'))
-plt
-dev.off()
+plt_study
 ```
 Color by sex
 ```{r}
 deg_byPvalThrs$carriage <- sapply(strsplit(deg_byPvalThrs$group_name,'_'), `[[`,2)
 deg_byPvalThrs$sex <- sapply(strsplit(deg_byPvalThrs$group_name,'_'), `[[`,3)
-plt <- ggplot(deg_byPvalThrs, aes(-log10(pval_thrs), num_deg, group = paste0(dataset, group_name), col = sex)) + 
+plt_sex <- ggplot(deg_byPvalThrs, aes(-log10(pval_thrs), num_deg, group = paste0(dataset, group_name), col = sex)) + 
   geom_point() + geom_line() +  labs(x = '-log10(p-value)', y = 'Number of DEGs', col = 'Sex') + theme_minimal() +
   geom_hline(yintercept = c(100, 1000), col = 'red') +
   geom_vline(xintercept = c(-log10(0.01),-log10(0.05),-log10(0.1)), linetype ='dashed')
-plt
-
+plt_sex
 ```
+Color by carriage
+```{r}
+deg_byPvalThrs$carriage <- sapply(strsplit(deg_byPvalThrs$group_name,'_'), `[[`,2)
+deg_byPvalThrs$sex <- sapply(strsplit(deg_byPvalThrs$group_name,'_'), `[[`,3)
+plt_carriage <- ggplot(deg_byPvalThrs, aes(-log10(pval_thrs), num_deg, group = paste0(dataset, group_name), col = carriage)) + 
+  geom_point() + geom_line() +  labs(x = '-log10(p-value)', y = 'Number of DEGs', col = 'Carriage') + theme_minimal() +
+  geom_hline(yintercept = c(100, 1000), col = 'red') +
+  geom_vline(xintercept = c(-log10(0.01),-log10(0.05),-log10(0.1)), linetype ='dashed')
+plt_carriage
+```
+
 Color by Sex and Carriage
 ```{r}
 deg_byPvalThrs$carriage <- sapply(strsplit(deg_byPvalThrs$group_name,'_'), `[[`,2)
 deg_byPvalThrs$sex <- sapply(strsplit(deg_byPvalThrs$group_name,'_'), `[[`,3)
-plt <- ggplot(deg_byPvalThrs, aes(-log10(pval_thrs), num_deg, group = paste0(dataset, group_name), col = paste0(carriage, '_',sex))) + 
+
+plt_sex_carriage <- ggplot(deg_byPvalThrs, aes(-log10(pval_thrs), num_deg, group = paste0(dataset, group_name), col = paste0(carriage, '_',sex))) + 
   geom_point() + geom_line() +  labs(x = '-log10(p-value)', y = 'Number of DEGs', col = 'Carriage + Sex') + theme_minimal() +
   geom_hline(yintercept = c(100, 1000), col = 'red') +
   geom_vline(xintercept = c(-log10(0.01),-log10(0.05),-log10(0.1)), linetype ='dashed')
-plt
+plt_sex_carriage
 
 ```
 
+```{r}
+pdf(file.path(outdir, 'numDEGs_by_pval_thresholds_assessment.pdf'))
+plt_study
+plt_sex
+plt_carriage
+plt_sex_carriage
+dev.off()
+```
 
-## Adjusted p-value
+
+### Adjusted p-value
 ```{r}
 pvalues <- seq(0,.1,.01)
 
