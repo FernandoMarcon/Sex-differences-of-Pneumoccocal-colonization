@@ -19,7 +19,17 @@ Input
 
 ```{r}
 fnames <- list.files('intermediate/item6_DEtables/', full.names = T, pattern = 'detable_edger')
-de.table <- lapply(fnames, fread, data.table = F) %>% Reduce(rbind, .)
+de.tables <- lapply(fnames, fread, data.table = F) %>% Reduce(rbind, .)
+```
+
+Filter Genes
+
+$|log(FC)| > 0, p-value < 0.01$
+
+```{r}
+dim(de.tables)
+de.tables %>% filter(abs(logFC) > 0, PValue < 0.01) %>% 
+  spread(key = group_name, value = PValue)
 ```
 
 Including Elderly dataset

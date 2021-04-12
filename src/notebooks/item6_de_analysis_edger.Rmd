@@ -7,7 +7,6 @@ EdgeR use um FDR cutoff que dê entre 100 a 1000 DEGs.
 - Elderly1_Positive_Male_D2v0 (pareado)
 ...repetir para TODOS que tem pelo menos 2 amostras.
 
-## Run edgeR to all groups and studies
 ```{r "setup", include=FALSE}
 rm(list = ls())
 
@@ -22,6 +21,7 @@ suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
 studies = c('MUCOSAL','LAIV1','LAIV2','AGES')
 ```
 
+## Run edgeR to all groups and studies
 ```{r}
 fnames <- list.files('data/tidy_data/Rdata/', full.names = T)
 studies <- lapply(fnames, readRDS) %>% setNames(basename(gsub('\\.rds','',fnames)))
@@ -156,15 +156,14 @@ fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), s
 ## Add gene annotations
 
 ```{r}
-library('biomaRt')
-
 fnames <- list.files(outdir, pattern = 'detable_edger', full.names = T)
 de.tables <- lapply(fnames, fread, data.table = T) %>% Reduce(rbind, .) %>% distinct()
+```
 
+```{r}
+library('biomaRt')
 genes <- unique(de.tables$gene_id)
-
 mart <- useDataset("hsapiens_gene_ensembl", useMart("ensembl"))
-
 fdata <- getBM(filters= "ensembl_gene_id", attributes= c("ensembl_gene_id","hgnc_symbol"),values=genes,mart= mart)
 colnames(fdata) <- c('gene_id','symbol')
 head(fdata)
@@ -178,12 +177,17 @@ de.tables %>% group_by(group_name) %>% summarise(sum(duplicated(gene_id))) %>% V
 Add Gene Symbol
 (missing Gene Symbol will be replaced by ensembl_id)
 ```{r}
-de.tables <- de.tables %>% merge(fdata, ., by = 'gene_id', all.y = T) %>% 
-  mutate(symbol = ifelse(is.na(symbol), gene_id, symbol))
+de.tables <- de.tables %>% merge(fdata, ., by = 'gene_id', all.y = T) 
+de.tables$symbol[which(is.na(de.tables$symbol))] = de.tables$gene_id[which(is.na(de.tables$symbol))]
+de.tables$symbol[which(de.tables$symbol == '')] = de.tables$gene_id[which(de.tables$symbol == '')]
 ```
 Number of repeated gene ids by group
 ```{r}
-de.tables %>% group_by(group_name) %>% summarise(sum(duplicated(gene_id))) %>% View
+# de.tables %>% group_by(group_name) %>% summarise(sum(duplicated(gene_id))) %>% View
+# de.tables %>% group_by(group_name) %>% summarise(sum(duplicated(symbol))) %>% View
+table(is.na(de.tables$symbol))
+table(de.tables$symbol == '')
+head(de.tables)
 ```
 
 Save tables (replacing the same files)
@@ -201,6 +205,7 @@ split(de.tables, de.tables$dataset) %>%
 ```{r}
 fnames <- list.files(outdir, full.names = T, pattern = 'detable_edger')
 de.table <- lapply(fnames, fread, data.table = F) %>% Reduce(rbind, .)
+head(de.table)
 ```
 
 ### Non-adjusted p-value
