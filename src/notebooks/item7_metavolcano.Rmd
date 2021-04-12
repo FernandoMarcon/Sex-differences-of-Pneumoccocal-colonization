@@ -1,0 +1,85 @@
+## 7) Com as tabelas de DEG do item 6 (ou seja, contendo TODOS os genes e seus p, Adj P, log2FC e se é up (1) ou down (-1)), junte tudo em uma grande tabela.
+
+1.  Usar essa tabela pra plotar o vote-count de DEG (meta-volcano). Trate só os adults. Quantos DEGs aparecem em pelo menos 1, 2 ou nas 3 cohorts na mesma direção?
+
+2.  Usar essa tabela pra plotar o vote-count de DEG (meta-volcano). Trate só os adults + elderly. Quantos DEGs aparecem em pelo menos 1, 2, 3 ou nas 4 cohorts na mesma direção?
+
+3.  Rode o metavolcano OU o meta-P usando Fisher method para combinar os P-values e depois calcule o FDR BH. Trate só os adults. Quantos DEGs aparecem pra cada direção usando um FDR \< X (pegue um cutoff entre 100 a 1000)?
+
+4.  Rode o metavolcano OU o meta-P usando Fisher method para combinar os P-values e depois calcule o FDR BH. Trate só os adults + elderly. Quantos DEGs aparecem pra cada direção usando um FDR \< X (pegue um cutoff entre 100 a 1000)?
+
+```{r "setup", include=FALSE}
+rm(list = ls())
+
+basedir <- '~/Documents/work/Sex-differences-of-Pneumoccocal-colonization/'
+outdir = file.path(basedir,"intermediate/item5_metavolcano")
+knitr::opts_knit$set(root.dir = basedir)
+
+pkgs <- c('tidyverse','data.table','ggplot2','MetaVolcanoR')
+suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
+
+
+studies = c('MUCOSAL','LAIV1','LAIV2','AGES')
+```
+
+Input
+```{r}
+fnames <- list.files('intermediate/item6_DEtables/', full.names = T)
+de.list <- lapply(fnames, fread, data.table = F) %>% Reduce(rbind, .)
+datasets <- unique(de.list$dataset)
+```
+
+## Run MetaVolcano (vote-count) for all datasets
+```{r}
+comparisons <- c("NEG_M", "NEG_F", "POS_F", "POS_M")
+for(comp in comparisons) {# comp <- "NEG_M"
+  message('\n\n\n',comp,'\n\n')
+  temp_outdir <- file.path(comp,'wElderly')
+  dir.create(file.path(outdir,temp_outdir), recursive = T, showWarnings = F)
+  temp <- de.list[grep(comp, de.list$group_name),] %>% select(gene_id,hgnc_symbol, logFC, PValue, dataset) 
+  groupings <- temp$dataset
+  temp$dataset <- NULL
+  diffexplist <- split(temp, groupings)
+  
+  meta_degs_vote <- votecount_mv(diffexp=diffexplist,
+                     pcriteria='PValue',
+                     foldchangecol='logFC',
+                     genenamecol='hgnc_symbol',
+                     geneidcol='gene_id',
+                     pvalue=0.05,
+                     foldchange=0, 
+                     metathr=0.01,
+                     collaps=T,
+                     jobname="MetaVolcano", 
+                     outputfolder=file.path(outdir,temp_outdir),
+                     draw='HTML')
+}
+```
+## Run MetaVolcano (vote-count) for all datasets w/out Elderlies
+```{r}
+de.list = de.list %>% filter(dataset != 'Elderly1')
+comparisons <- c("NEG_M", "NEG_F", "POS_F", "POS_M")
+
+for(comp in comparisons) {# comp <- "NEG_M"
+  message('\n\n\n',comp,'\n\n')
+  temp_outdir <- file.path(comp,'Adults')
+  dir.create(file.path(outdir,temp_outdir), recursive = T, showWarnings = F)
+  temp <- de.list[grep(comp, de.list$group_name),] %>% select(gene_id,hgnc_symbol, logFC, PValue, dataset) 
+  groupings <- temp$dataset
+  temp$dataset <- NULL
+  diffexplist <- split(temp, groupings)
+  
+  meta_degs_vote <- votecount_mv(diffexp=diffexplist,
+                     pcriteria='PValue',
+                     foldchangecol='logFC',
+                     genenamecol='hgnc_symbol',
+                     geneidcol='gene_id',
+                     pvalue=0.05,
+                     foldchange=0, 
+                     metathr=0.01,
+                     collaps=T,
+                     jobname="MetaVolcano", 
+                     outputfolder=file.path(outdir,temp_outdir),
+                     draw='HTML')
+}
+```
