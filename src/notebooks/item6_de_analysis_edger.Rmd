@@ -14,7 +14,7 @@ Elderly1_Positive_Male_D2v0 (pareado)
 rm(list = ls())
 
 basedir <- '~/Documents/work/Sex-differences-of-Pneumoccocal-colonization/'
-outdir = file.path(basedir,'intermediate/item6_DEtables')
+outdir = file.path(basedir,'intermediate/item6_DEtables/')
 knitr::opts_knit$set(root.dir = basedir)
 
 pkgs <- c('tidyverse','data.table','ggplot2','edgeR')
@@ -35,8 +35,25 @@ lapply(studies, function(df) message(paste0(ncol(df$counts), '\t-\t',nrow(df$phe
 
 ```
 
+Add gene annotations
+
 ```{r}
-run_edgeR <- function(counts, pheno) {
+library('biomaRt')
+
+mart <- useDataset("hsapiens_gene_ensembl", useMart("ensembl"))
+
+
+genes <- lapply(studies, function(df) rownames(df$counts)) %>% unlist %>% unique
+
+
+G_list <- getBM(filters= "ensembl_gene_id", attributes= c("ensembl_gene_id","hgnc_symbol"),values=genes,mart= mart)
+colnames(G_list)[1] <- 'gene_id'
+
+head(G_list)
+```
+
+```{r}
+run_edgeR <- function(counts, pheno, G_list = G_list) {
   de <- DGEList(counts = counts, samples = pheno)
 
   design <- model.matrix(~ volunteer_id + timepoint,data = pheno)
@@ -63,6 +80,7 @@ pheno <- studies[[dataset.name]]$pheno
 groups <- names(table(pheno$class)[table(pheno$class) > 1])
 
 de.table <- lapply(groups, function(group) {
+  group = groups[1]
   message(group)
   
   pheno.sub = pheno %>% filter(class == group)
@@ -76,7 +94,8 @@ de.table <- lapply(groups, function(group) {
   return(de.table)
 }) %>% Reduce(rbind, .)
 
-fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
+merge(G_list, de.table, by = 'gene_id', all.y = T) %>% 
+  fwrite(file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
 ```
 
 Adult2 (TIV, Basline and Day 9)
@@ -102,7 +121,8 @@ de.table <- lapply(groups, function(group) {
   return(de.table)
 }) %>% Reduce(rbind, .)
 
-fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
+merge(G_list, de.table, by = 'gene_id', all.y = T) %>% 
+  fwrite(file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
 ```
 
 Adult3 (Baseline, Day 2)
@@ -128,7 +148,8 @@ de.table <- lapply(groups, function(group) {
   return(de.table)
 }) %>% Reduce(rbind, .)
 
-fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
+merge(G_list, de.table, by = 'gene_id', all.y = T) %>% 
+  fwrite(file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
 ```
 
 Elderly1 (Baseline, Day 2)
@@ -154,5 +175,6 @@ de.table <- lapply(groups, function(group) {
   return(de.table)
 }) %>% Reduce(rbind, .)
 
-fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
+merge(G_list, de.table, by = 'gene_id', all.y = T) %>% 
+  fwrite(file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
 ```
