@@ -1,6 +1,6 @@
 # Calculate meta-DEGs
 
-## Estimate meta-Pvalue using Fischer method
+### Settings
 
 ```{r "setup", include=FALSE}
 rm(list = ls())
@@ -23,6 +23,8 @@ if(!dir.exists(outdir)) dir.create(outdir)
 fnames <- list.files('intermediate/item6_DEtables/', pattern = 'edgeR_topTable', full.names = T)
 de.tables <- lapply(fnames, fread, data.table = F) %>% setNames(gsub('edgeR_topTable_|\\.csv','',basename(fnames)))
 ```
+
+## Estimate meta-Pvalue using Fischer method
 
 Bind PValue Columns
 
