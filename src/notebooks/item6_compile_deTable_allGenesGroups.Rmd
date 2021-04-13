@@ -1,0 +1,32 @@
+# Compile DE Table for all comparisons
+
+```{r "setup", include=FALSE}
+rm(list = ls())
+
+basedir <- '~/Documents/work/Sex-differences-of-Pneumoccocal-colonization/'
+outdir = file.path(basedir,'intermediate/item6_DEtables/')
+if(!dir.exists(outdir)) dir.create(outdir)
+knitr::opts_knit$set(root.dir = basedir)
+
+pkgs <- c('tidyverse','data.table')
+suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
+```
+
+### Load Data
+
+```{r}
+fnames <- list.files(outdir, full.names = T, pattern = 'edgeR_topTable')
+```
+
+```{r}
+de.table <- lapply(fnames, function(fname) {
+  df = fread(fname, select = c('gene_id','logFC','PValue','FDR','group_name')) 
+  colnames(df)[-1] <- paste0(colnames(df)[-1], '_',unique(df$group_name))
+  df[,-5]
+}) %>% Reduce(function(x, y) merge(x,y,by = 'gene_id',all = T), .)
+de.table
+```
+```{r}
+fwrite(de.table, file.path(outdir, 'DEtable_edgeR_allGroups.csv'), sep = '\t', quote= F, row.names = F)
+```
+

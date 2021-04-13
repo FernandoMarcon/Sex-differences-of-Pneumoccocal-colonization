@@ -14,68 +14,35 @@ Com as tabelas de DEG do item 6 (ou seja, contendo TODOS os genes e seus p, Adj 
 rm(list = ls())
 
 basedir <- '~/Documents/work/Sex-differences-of-Pneumoccocal-colonization/'
-outdir = file.path(basedir,"intermediate/item7_metavolcano/")
+outdir = file.path(basedir,"intermediate/item7_metaDEGs/")
 knitr::opts_knit$set(root.dir = basedir)
 
 pkgs <- c('tidyverse','data.table','ggplot2','MetaVolcanoR')
 suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
 
-
-studies = c('MUCOSAL','LAIV1','LAIV2','AGES')
 pval_thrs <- 0.01
 ```
 
 Input
 ```{r}
-fnames <- list.files('intermediate/item6_DEtables/', full.names = T, pattern = 'detable_edger')
+fnames <- list.files('intermediate/item6_DEtables/', full.names = T, pattern = 'edgeR_topTable')
 de.list <- lapply(fnames, fread, data.table = F) %>% Reduce(rbind, .)
-datasets <- unique(de.list$dataset)
+de.list
 ```
 
-## Run MetaVolcano (vote-count) for all datasets
+Define Comparisons
+```{r}
+comparisons <- c("NEG_M", "NEG_F", "POS_F", "POS_M")
+sapply(file.path(outdir,comparisons), dir.create,recursive = T)
+```
+## Run MetaVolcano (vote-count) for all Comparisons (groups)
 
 Including Elderly dataset
 ```{r}
-comparisons <- c("NEG_M", "NEG_F", "POS_F", "POS_M")
-for(comp in comparisons) {# comp <- "NEG_M"
+meta_degs_vote <- lapply(comparisons, function(comp) {
   message('\n\n\n',comp,'\n\n')
-  temp_outdir <- file.path(comp,'wElderly')
-  dir.create(file.path(outdir,temp_outdir), recursive = T, showWarnings = F)
-  temp <- de.list[grep(comp, de.list$group_name),] %>% select(gene_id,symbol, logFC, PValue, dataset) 
-  groupings <- temp$dataset
-  temp$dataset <- NULL
-  diffexplist <- split(temp, groupings)
   
-  meta_degs_vote <- votecount_mv(diffexp=diffexplist,
-                     pcriteria='PValue',
-                     foldchangecol='logFC',
-                     genenamecol='symbol',
-                     geneidcol='gene_id',
-                     pvalue=pval_thrs,
-                     foldchange=0, 
-                     metathr=0.01,
-                     collaps=T,
-                     jobname="MetaVolcano", 
-                     outputfolder=file.path(outdir,temp_outdir),
-                     draw='HTML')
-  
-  saveRDS(meta_degs_vote,file.path(outdir,temp_outdir,paste0('meta_degs_vote_wElderly_',comp,'.rds')))
-  
-}
-```
-## Run MetaVolcano (vote-count) for all datasets w/out Elderlies
-```{r}
-de.list = de.list %>% filter(dataset != 'Elderly1')
-comparisons <- c("NEG_M", "NEG_F", "POS_F", "POS_M")
-
-for(comp in comparisons) {# comp <- "NEG_M"
-  message('\n\n\n',comp,'\n\n')
-  temp_outdir <- file.path(comp,'Adults')
-  dir.create(file.path(outdir,temp_outdir), recursive = T, showWarnings = F)
-  temp <- de.list[grep(comp, de.list$group_name),] %>% select(gene_id,symbol, logFC, PValue, dataset) 
-  groupings <- temp$dataset
-  temp$dataset <- NULL
-  diffexplist <- split(temp, groupings)
+  diffexplist <- de.list %>% filter(grepl(comp, group_name)) %>% split(., .$group_name)
   
   meta_degs_vote <- votecount_mv(diffexp=diffexplist,
                      pcriteria='PValue',
@@ -85,12 +52,25 @@ for(comp in comparisons) {# comp <- "NEG_M"
                      pvalue=pval_thrs,
                      foldchange=0, 
                      metathr=0.01,
-                     collaps=T,
-                     jobname="MetaVolcano", 
-                     outputfolder=file.path(outdir,temp_outdir),
-                     draw='HTML')
-  meta_degs_vote@degfreq
-  saveRDS(meta_degs_vote,file.path(outdir,temp_outdir,paste0('meta_degs_vote_Adults_',comp,'.rds')))
+                     collaps=F,
+                     jobname="wElderly", 
+                     outputfolder=file.path(outdir,comp),
+                     draw='PDF')
+  list(meta_degs_vote) %>% setNames(comp)
+}) %>% unlist(recursive = F)
+```
+```{r}
+lapply(names(meta_degs_vote), function(comp) saveRDS(meta_degs_vote[[comp]], file.path(outdir,comp,paste0('metavolcano_vote_',comp, '_wElderly.rds'))))
+```
 
-}
+```{r}
+lapply(meta_degs_vote, function(x) x@metaresult)
+```
+
+```{r}
+lapply(meta_degs_vote, function(x) x@degfreq)
+```
+
+```{r}
+lapply(meta_degs_vote, function(x) x@MetaVolcano)
 ```
