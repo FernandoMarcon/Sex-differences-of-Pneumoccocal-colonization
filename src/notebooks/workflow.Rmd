@@ -59,7 +59,7 @@ output: html_notebook
 
     ...repetir para TODOS que tem pelo menos 2 amostras.
 
-## 7) Com as tabelas de DEG do item 6 (ou seja, contendo TODOS os genes e seus p, Adj P, log2FC e se é up (1) ou down (-1)), junte tudo em uma grande tabela.
+## 7) Com as tabelas de DEG do item 6 (ou seja, contendo TODOS os genes e seus p, Adj P, log2FC e se é up (1) ou down (-1)), junte tudo em uma grande tabela.
 
 1.  Usar essa tabela pra plotar o vote-count de DEG (meta-volcano). Trate só os adults. Quantos DEGs aparecem em pelo menos 1, 2 ou nas 3 cohorts na mesma direção?
 
@@ -77,7 +77,7 @@ output: html_notebook
 
 ...X. Pegue os DEGs do item 7.4 e rode enrichR (clusterProfile) com Reactome.   \
 
-## 9) Junte todos os pathways e seus -log10AdjP das tabelas do item 8
+## 9) Junte todos os pathways e seus -log10AdjP das tabelas do item 8
 
 Iremos olhar a tabela e decidir quais pathways destacar.
 
