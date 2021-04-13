@@ -1,0 +1,42 @@
+# Add Gene Annotation
+
+```{r "setup", include=FALSE}
+rm(list = ls())
+
+basedir <- '~/Documents/work/Sex-differences-of-Pneumoccocal-colonization/'
+outdir = file.path(basedir,'data/tidy_data/')
+knitr::opts_knit$set(root.dir = basedir)
+
+pkgs <- c('tidyverse','data.table','biomaRt')
+suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
+```
+
+```{r}
+if(!dir.exists(outdir)) dir.create(outdir)
+```
+
+```{r}
+fnames <- list.files('data/tidy_data/tables/', pattern = 'counts', full.names = T)
+fnames
+```
+```{r}
+genes <- lapply(fnames, fread, select = 1) %>% unlist %>% unique
+genes[1:5]
+```
+
+```{r}
+mart <- useDataset("hsapiens_gene_ensembl", useMart("ensembl"))
+```
+
+```{r}
+fdata <- getBM(filters= "ensembl_gene_id", attributes= c("ensembl_gene_id","hgnc_symbol"),values=genes,mart= mart)
+
+colnames(fdata) <- c('gene_id','symbol')
+
+head(fdata)
+```
+
+```{r}
+fwrite(fdata, file.path(outdir, 'gene_annotation.csv'), sep = '\t', row.names = F, quote = F)
+```
+

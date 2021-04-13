@@ -1,34 +1,39 @@
 # Item 6 - DEG per cohort
+
 EdgeR use um FDR cutoff que dê entre 100 a 1000 DEGs.
 
-- Adult1_Positive_Male_D2v0 (pareado)
-- Adult2_Positive_Male_D2v0 (pareado)
-- Adult3_Positive_Male_D2v0 (pareado)
-- Elderly1_Positive_Male_D2v0 (pareado)
-...repetir para TODOS que tem pelo menos 2 amostras.
+-   Adult1_Positive_Male_D2v0 (pareado)
+-   Adult2_Positive_Male_D2v0 (pareado)
+-   Adult3_Positive_Male_D2v0 (pareado)
+-   Elderly1_Positive_Male_D2v0 (pareado) ...repetir para TODOS que tem pelo menos 2 amostras.
+
+### Settings
 
 ```{r "setup", include=FALSE}
 rm(list = ls())
 
 basedir <- '~/Documents/work/Sex-differences-of-Pneumoccocal-colonization/'
 outdir = file.path(basedir,'intermediate/item6_DEtables/')
+if(!dir.exists(outdir)) dir.create(outdir)
 knitr::opts_knit$set(root.dir = basedir)
 
 pkgs <- c('tidyverse','data.table','ggplot2','edgeR')
 suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
 
-
 studies = c('MUCOSAL','LAIV1','LAIV2','AGES')
 ```
 
-## Run edgeR to all groups and studies
+### Load Data
+
 ```{r}
 fnames <- list.files('data/tidy_data/Rdata/', full.names = T)
 studies <- lapply(fnames, readRDS) %>% setNames(basename(gsub('\\.rds','',fnames)))
 ```
 
+### Functions
+
 ```{r}
-run_edgeR <- function(counts, pheno, G_list = G_list) {
+run_edgeR <- function(counts, pheno) {
   de <- DGEList(counts = counts, samples = pheno)
 
   design <- model.matrix(~ volunteer_id + timepoint,data = pheno)
@@ -45,275 +50,52 @@ run_edgeR <- function(counts, pheno, G_list = G_list) {
 }
 ```
 
-Adult1 (Baseline, Day 2)
+## Run edgeR to all groups and studies
+
+groups to skip:
+
+-   Adult1_POS_M (n = 1)
+
+-   Adults2_POS_M (n = 2)
 
 ```{r}
-dataset.name = 'Adult1'
-comp = "D2vsBaseline"
-count <- studies[[dataset.name]]$counts
-pheno <- studies[[dataset.name]]$pheno
-groups <- names(table(pheno$class)[table(pheno$class) > 1])
+comparisons <- lapply(studies, function(df) df$pheno) %>% Reduce(rbind,.) %>%
+  group_by(class) %>% summarise(num_samples = n()) %>% 
+  mutate(dataset = gsub('_.*','',class)) %>% 
+  relocate(dataset) %>% 
+  filter(num_samples > 2)
+```
 
-de.table <- lapply(groups, function(group) {
-  group = groups[1]
-  message(group)
+```{r}
+edger.res <- apply(comparisons, 1, function(df){
+  dataset.name = df[1]
+  comp.name = df[2]
   
-  pheno.sub = pheno %>% filter(class == group)
-  count.sub = count[,pheno.sub$sample_id]
-  identical(colnames(count.sub), pheno.sub$sample_id)
+  pheno.sub <- studies[[dataset.name]]$pheno[which(studies[[dataset.name]]$pheno$class == comp.name),]
+  counts.sub = studies[[dataset.name]]$counts[,pheno.sub$sample_id]
   
-  de.res <- run_edgeR(counts = count.sub, pheno = pheno.sub)
-  de.table <- as.data.frame(topTags(de.res, n = Inf)) %>%
-    mutate(dataset = dataset.name, group_name = group, comparison = comp) %>%
-    rownames_to_column('gene_id')
-  return(de.table)
-}) %>% Reduce(rbind, .)
-
-fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
-```
-
-Adult2 (TIV, Basline and Day 9)
-
-```{r}
-dataset.name = 'Adult2'
-comp = "D9vsBaseline"
-count <- studies[[dataset.name]]$counts
-pheno <- studies[[dataset.name]]$pheno
-groups <- names(table(pheno$class)[table(pheno$class) > 2])
-
-de.table <- lapply(groups, function(group) {
-  message(group)
+  message(dataset.name,'\t-\t',comp.name,'\t-\t',df[3],'\t-\t',
+          ncol(counts.sub),'\t-\t',nrow(pheno.sub),'\t-\t',
+          identical(pheno.sub$sample_id,colnames(counts.sub)))
   
-  pheno.sub = pheno %>% filter(class == group)
-  count.sub = count[,pheno.sub$sample_id]
-  identical(colnames(count.sub), pheno.sub$sample_id)
-  
-  de.res <- run_edgeR(counts = count.sub, pheno = pheno.sub)
-  de.table <- as.data.frame(topTags(de.res, n = Inf)) %>%
-    mutate(dataset = dataset.name, group_name = group, comparison = comp) %>%
-    rownames_to_column('gene_id')
-  return(de.table)
-}) %>% Reduce(rbind, .)
-
-fwrite(de.table,file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
+  list(run_edgeR(counts = counts.sub, pheno = pheno.sub)) %>% setNames(comp.name)
+}) %>% unlist(recursive = F)
 ```
 
-Adult3 (Baseline, Day 2)
+Extract topTags from edgeR result objects
 
 ```{r}
-dataset.name = 'Adult3'
-comp = "D2vsBaseline"
-count <- studies[[dataset.name]]$counts
-pheno <- studies[[dataset.name]]$pheno
-groups <- names(table(pheno$class)[table(pheno$class) > 2])
-
-de.table <- lapply(groups, function(group) {
-  message(group)
-  
-  pheno.sub = pheno %>% filter(class == group)
-  count.sub = count[,pheno.sub$sample_id]
-  identical(colnames(count.sub), pheno.sub$sample_id)
-  
-  de.res <- run_edgeR(counts = count.sub, pheno = pheno.sub)
-  de.table <- as.data.frame(topTags(de.res, n = Inf)) %>%
-    mutate(dataset = dataset.name, group_name = group, comparison = comp) %>%
-    rownames_to_column('gene_id')
-  return(de.table)
-}) %>% Reduce(rbind, .)
-
-fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
+top.tables <- lapply(names(edger.res), function(group_name) edger.res[[group_name]] %>% 
+                       topTags(n = Inf) %>% as.data.frame %>% 
+                       rownames_to_column('gene_id') %>%
+                       mutate(group_name = group_name)) %>% setNames(names(edger.res))
+top.tables
+# head()
 ```
 
-Elderly1 (Baseline, Day 2)
+Save topTags
 
 ```{r}
-dataset.name = 'Elderly1'
-comp = "D2vsBaseline"
-count <- studies[[dataset.name]]$counts
-pheno <- studies[[dataset.name]]$pheno
-groups <- names(table(pheno$class)[table(pheno$class) > 2])
-
-de.table <- lapply(groups, function(group) {
-  message(group)
-  
-  pheno.sub = pheno %>% filter(class == group)
-  count.sub = count[,pheno.sub$sample_id]
-  identical(colnames(count.sub), pheno.sub$sample_id)
-  
-  de.res <- run_edgeR(counts = count.sub, pheno = pheno.sub)
-  de.table <- as.data.frame(topTags(de.res, n = Inf)) %>%
-    mutate(dataset = dataset.name, group_name = group, comparison = comp) %>%
-    rownames_to_column('gene_id')
-  return(de.table)
-}) %>% Reduce(rbind, .)
-
-fwrite(de.table, file.path(outdir, paste0(dataset.name,'_detable_edger.csv')), sep = '\t',row.names = F, quote = F)
+lapply(names(top.tables), function(group_name) top.tables[[group_name]] %>% 
+         fwrite(file.path(outdir,paste0('edgeR_topTable_',group_name,'.csv')), sep = '\t',quote = F, row.names = F))
 ```
-
-
-
-
-## Add gene annotations
-
-```{r}
-fnames <- list.files(outdir, pattern = 'detable_edger', full.names = T)
-de.tables <- lapply(fnames, fread, data.table = T) %>% Reduce(rbind, .) %>% distinct()
-```
-
-```{r}
-library('biomaRt')
-genes <- unique(de.tables$gene_id)
-mart <- useDataset("hsapiens_gene_ensembl", useMart("ensembl"))
-fdata <- getBM(filters= "ensembl_gene_id", attributes= c("ensembl_gene_id","hgnc_symbol"),values=genes,mart= mart)
-colnames(fdata) <- c('gene_id','symbol')
-head(fdata)
-```
-
-Number of repeated gene ids by group
-```{r}
-de.tables %>% group_by(group_name) %>% summarise(sum(duplicated(gene_id))) %>% View
-```
-
-Add Gene Symbol
-(missing Gene Symbol will be replaced by ensembl_id)
-```{r}
-de.tables <- de.tables %>% merge(fdata, ., by = 'gene_id', all.y = T) 
-de.tables$symbol[which(is.na(de.tables$symbol))] = de.tables$gene_id[which(is.na(de.tables$symbol))]
-de.tables$symbol[which(de.tables$symbol == '')] = de.tables$gene_id[which(de.tables$symbol == '')]
-```
-Number of repeated gene ids by group
-```{r}
-# de.tables %>% group_by(group_name) %>% summarise(sum(duplicated(gene_id))) %>% View
-# de.tables %>% group_by(group_name) %>% summarise(sum(duplicated(symbol))) %>% View
-table(is.na(de.tables$symbol))
-table(de.tables$symbol == '')
-head(de.tables)
-```
-
-Save tables (replacing the same files)
-```{r}
-split(de.tables, de.tables$dataset) %>% 
-  lapply(function(df) {
-    dataset.name = unique(df$dataset)
-    message(dataset.name)
-    fname = grep(dataset.name,fnames,value = T)
-    fwrite(df, fname, sep = '\t',row.names = F, quote = F)
-  })
-```
-
-## Evaluate p-value thresholds
-```{r}
-fnames <- list.files(outdir, full.names = T, pattern = 'detable_edger')
-de.table <- lapply(fnames, fread, data.table = F) %>% Reduce(rbind, .)
-head(de.table)
-```
-
-### Non-adjusted p-value
-```{r}
-pvalues <- seq(0,.1,.01)
-
-deg_byPvalThrs <- lapply(pvalues, function(pval) {
-  de.table %>% mutate(deg = ifelse(PValue < pval, 1, 0)) %>% 
-  filter(deg == 1) %>% group_by(dataset, group_name) %>%
-  summarise(num_deg = n()) %>% 
-  mutate(pval_thrs = pval)
-}) %>% Reduce(rbind, .)
-```
-
-```{r}
-plt_study <- ggplot(deg_byPvalThrs, aes(-log10(pval_thrs), num_deg, group = paste0(dataset, group_name), col = dataset)) +
-  geom_point() + geom_line() +  labs(x = '-log10(p-value)', y = 'Number of DEGs') + theme_minimal() +
-  geom_hline(yintercept = c(100, 1000), col = 'red') +
-  geom_vline(xintercept = c(-log10(0.01),-log10(0.05),-log10(0.1)), linetype ='dashed')
-plt_study
-```
-Color by sex
-```{r}
-deg_byPvalThrs$carriage <- sapply(strsplit(deg_byPvalThrs$group_name,'_'), `[[`,2)
-deg_byPvalThrs$sex <- sapply(strsplit(deg_byPvalThrs$group_name,'_'), `[[`,3)
-plt_sex <- ggplot(deg_byPvalThrs, aes(-log10(pval_thrs), num_deg, group = paste0(dataset, group_name), col = sex)) + 
-  geom_point() + geom_line() +  labs(x = '-log10(p-value)', y = 'Number of DEGs', col = 'Sex') + theme_minimal() +
-  geom_hline(yintercept = c(100, 1000), col = 'red') +
-  geom_vline(xintercept = c(-log10(0.01),-log10(0.05),-log10(0.1)), linetype ='dashed')
-plt_sex
-```
-Color by carriage
-```{r}
-deg_byPvalThrs$carriage <- sapply(strsplit(deg_byPvalThrs$group_name,'_'), `[[`,2)
-deg_byPvalThrs$sex <- sapply(strsplit(deg_byPvalThrs$group_name,'_'), `[[`,3)
-plt_carriage <- ggplot(deg_byPvalThrs, aes(-log10(pval_thrs), num_deg, group = paste0(dataset, group_name), col = carriage)) + 
-  geom_point() + geom_line() +  labs(x = '-log10(p-value)', y = 'Number of DEGs', col = 'Carriage') + theme_minimal() +
-  geom_hline(yintercept = c(100, 1000), col = 'red') +
-  geom_vline(xintercept = c(-log10(0.01),-log10(0.05),-log10(0.1)), linetype ='dashed')
-plt_carriage
-```
-
-Color by Sex and Carriage
-```{r}
-deg_byPvalThrs$carriage <- sapply(strsplit(deg_byPvalThrs$group_name,'_'), `[[`,2)
-deg_byPvalThrs$sex <- sapply(strsplit(deg_byPvalThrs$group_name,'_'), `[[`,3)
-
-plt_sex_carriage <- ggplot(deg_byPvalThrs, aes(-log10(pval_thrs), num_deg, group = paste0(dataset, group_name), col = paste0(carriage, '_',sex))) + 
-  geom_point() + geom_line() +  labs(x = '-log10(p-value)', y = 'Number of DEGs', col = 'Carriage + Sex') + theme_minimal() +
-  geom_hline(yintercept = c(100, 1000), col = 'red') +
-  geom_vline(xintercept = c(-log10(0.01),-log10(0.05),-log10(0.1)), linetype ='dashed')
-plt_sex_carriage
-
-```
-
-```{r}
-pdf(file.path(outdir, 'numDEGs_by_pval_thresholds_assessment.pdf'))
-plt_study
-plt_sex
-plt_carriage
-plt_sex_carriage
-dev.off()
-```
-
-
-### Adjusted p-value
-```{r}
-pvalues <- seq(0,.1,.01)
-
-deg_byPvalThrs <- lapply(pvalues, function(pval) {
-  de.table %>% mutate(deg = ifelse(FDR < pval, 1, 0)) %>% 
-  filter(deg == 1) %>% group_by(dataset, group_name) %>%
-  summarise(num_deg = n()) %>% 
-  mutate(pval_thrs = pval)
-}) %>% Reduce(rbind, .)
-```
-
-```{r}
-plt <- ggplot(deg_byPvalThrs, aes(-log10(pval_thrs), num_deg, group = paste0(dataset, group_name), col = dataset)) + 
-  geom_point() + geom_line() + labs(x = '-log10(FDR)', y = 'Number of DEGs') + theme_minimal() + 
-  geom_hline(yintercept = c(100, 1000), col = 'red') +
-  geom_vline(xintercept = c(-log10(0.01),-log10(0.05),-log10(0.1)), linetype ='dashed')
-plt
-```
-```{r}
-pdf(file.path(outdir, 'numDEGs_by_FDR_thresholds_assessment.pdf'))
-plt
-dev.off()
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

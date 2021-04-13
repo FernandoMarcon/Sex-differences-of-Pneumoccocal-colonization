@@ -1,0 +1,49 @@
+# Item 4 & 5 - Group Summary
+
+## 4) Contar o número de amostras por sexo
+
+-   Dataset 1 (Piloto): Adult1_Positive_Male (N?), Adult1_Negative_Male (N?), Adult1_Positive_Female (N?), Adult1_Negative_Female (N?)
+
+-   Dataset 2 (LAIV1): Adult2_Positive_Male (N?), Adult2_Negative_Male (N?), Adult2_Positive_Female (N?), Adult2_Negative_Female (N?)
+
+-   Dataset 3 (LAIV2): Adult3_Positive_Male (N?), Adult3_Negative_Male (N?), Adult3_Positive_Female (N?), Adult3_Negative_Female (N?)
+
+-   Dataset 4 (AGES): Elderly1_Positive_Male (N?), Elderly1_Negative_Male (N?), Elderly1_Positive_Female (N?), Elderly1_Negative_Female (N?)
+
+## 5) Montar Fig1A com as informações do item 4. Quais desses grupos podem ser usados (N \>= 2)?
+
+```{r "setup", include=FALSE}
+rm(list = ls())
+
+knitr::opts_knit$set(root.dir = '~/Documents/work/Sex-differences-of-Pneumoccocal-colonization/')
+
+pkgs <- c('tidyverse','data.table','ggplot2')
+suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
+```
+
+```{r}
+outdir = 'intermediate/item4-5_fig1A/'
+if(!dir.exists(outdir)) dir.create(outdir, recursive = T)
+```
+
+```{r}
+pheno.all <- list.files('data/tidy_data/tables/', pattern = 'pheno', full.names = T) %>%
+  lapply(fread, data.table = F) %>%
+  Reduce(rbind,.)
+head(pheno.all)
+```
+
+```{r}
+plt <- ggplot(pheno.all, aes(class, fill = class)) + geom_bar(show.legend = F) + coord_flip() +
+  facet_grid(study~., scales = 'free') + theme_linedraw() + 
+  geom_text(stat = 'count', aes(text = ..count.., label = ..count..), hjust = -.5) +
+  labs(x = 'Classes', y = 'Number of Samples', title = 'Fig. 1A', subtitle = 'Number of Samples by Group') +
+  ylim(c(0,30)) + theme(panel.grid.major = element_blank())
+plt
+```
+
+```{r}
+pdf(file.path(outdir, 'fig1A.pdf'))
+plt
+dev.off()
+```
