@@ -1,0 +1,15 @@
+group_name	dataset	carriage	sex	Down	Up
+Adults1_NEG_F	Adults1	NEG	F	38	47
+Adults1_NEG_M	Adults1	NEG	M	118	50
+Adults1_POS_F	Adults1	POS	F	177	174
+Adults2_NEG_F	Adults2	NEG	F	7	12
+Adults2_NEG_M	Adults2	NEG	M	810	127
+Adults2_POS_F	Adults2	POS	F	25	105
+Adults3_NEG_F	Adults3	NEG	F	28	7
+Adults3_NEG_M	Adults3	NEG	M	81	142
+Adults3_POS_F	Adults3	POS	F	320	394
+Adults3_POS_M	Adults3	POS	M	77	212
+Elderly1_NEG_F	Elderly1	NEG	F	30	44
+Elderly1_NEG_M	Elderly1	NEG	M	339	130
+Elderly1_POS_F	Elderly1	POS	F	31	16
+Elderly1_POS_M	Elderly1	POS	M	46	17
