@@ -59,6 +59,9 @@ mucosal.counts <- fread('data/raw_data/PILOT_rnaseq_data.tsv') %>% data.frame(ro
 mucosal.pheno <- fread('data/raw_data/PILOT_rnaseq_meta.tsv',data.table = F)
 identical(colnames(mucosal.counts), mucosal.pheno$sample_id)
 
+mucosal.pheno[which(mucosal.pheno$volunteer_id == '1016/015/020'),'carriage_status'] <- 'NEG'
+mucosal.pheno[which(mucosal.pheno$volunteer_id == '1017/015/021'),'carriage_status'] <- 'POS'
+
 mucosal.pheno = mucosal.pheno %>% mutate(carriage = carriage_status) %>%
   merge(meta[c('volunteer_id', 'sex')], by = 'volunteer_id', all.x = T) %>% 
   select(sample_id, volunteer_id, timepoint, study, carriage, sex, vaccine) %>% 
@@ -131,7 +134,11 @@ data$vaccine <- 'NoVac'
 colnames(data) <- data$sample_id
 
 ages.counts <- assay(data)
-ages.pheno <- colData(data) %>% as.data.frame %>% 
+
+ages.pheno <- as.data.frame(colData(data))
+ages.pheno$volunteer_id <- gsub('_','\\/',ages.pheno$volunteer_id)
+ages.pheno[which(ages.pheno$volunteer_id == '1334/018/130'),'volunteer_id'] <- '1344/018/130'
+ages.pheno <- ages.pheno %>%
   select(sample_id, volunteer_id, timepoint, study, carriage, sex, vaccine) %>% 
   mutate(group = 'Elderly1') %>% 
   unite('class', group,carriage, sex, sep = '_') %>%

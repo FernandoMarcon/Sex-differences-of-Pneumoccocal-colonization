@@ -24,6 +24,10 @@ fnames <- list.files('intermediate/item6_DEtables/', pattern = 'edgeR_topTable',
 de.tables <- lapply(fnames, fread, data.table = F) %>% setNames(gsub('edgeR_topTable_|\\.csv','',basename(fnames)))
 ```
 
+```{r}
+de.tables
+```
+
 ## Estimate meta-Pvalue using Fischer method
 
 Bind PValue Columns
@@ -34,7 +38,7 @@ pval.df <- lapply(names(de.tables), function(group.name) {
     setNames(c('gene_id',group.name))
 }) %>% Reduce(function(x ,y) merge(x, y, by = 'gene_id', all = T), .) %>% 
   column_to_rownames('gene_id')
-pval.df
+View(pval.df)
 ```
 
 Remove rows (genes) with only one P-value

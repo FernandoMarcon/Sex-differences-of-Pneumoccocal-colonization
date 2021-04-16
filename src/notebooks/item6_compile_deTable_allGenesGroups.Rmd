@@ -29,6 +29,18 @@ de.table <- lapply(fnames, function(fname) {
 de.table
 ```
 ```{r}
-fwrite(de.table, file.path(outdir, 'DEtable_edgeR_allGroups.csv'), sep = '\t', quote= F, row.names = F)
+fwrite(de.table, file.path(outdir, 'DEtable_edgeR_allGroups.txt'), sep = '\t', quote= F, row.names = F)
 ```
 
+```{r}
+de.table = de.table %>% column_to_rownames('gene_id')
+
+pval <- de.table[,grep('PValue',colnames(de.table))]
+colnames(pval) <- gsub('PValue_','',colnames(pval))
+pval
+
+logFC <- de.table[,grep('logFC',colnames(de.table))]
+colnames(logFC) <- gsub('logFC_','',colnames(logFC))
+logFC
+identical(dimnames(pval), dimnames(logFC))
+```
