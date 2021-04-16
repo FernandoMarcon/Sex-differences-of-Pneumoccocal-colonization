@@ -9,7 +9,7 @@ EdgeR use um FDR cutoff que dê entre 100 a 1000 DEGs.
 
 ### Settings
 
-```{r "setup", include=FALSE}
+```{r "source", include=F}
 rm(list = ls())
 
 basedir <- '~/Documents/work/Sex-differences-of-Pneumoccocal-colonization/'
@@ -17,27 +17,15 @@ outdir = file.path(basedir,'intermediate/item6_DEtables/')
 if(!dir.exists(outdir)) dir.create(outdir)
 knitr::opts_knit$set(root.dir = basedir)
 
-pkgs <- c('tidyverse','data.table','ggplot2','edgeR')
+pkgs <- c('tidyverse','data.table','edgeR')
 suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
-
-studies = c('MUCOSAL','LAIV1','LAIV2','AGES')
 ```
 
-### Load Data
-
+Functions
 ```{r}
-fnames <- list.files('data/tidy_data/Rdata/', full.names = T)
-studies <- lapply(fnames, readRDS) %>% setNames(basename(gsub('\\.rds','',fnames)))
-```
-
-### Functions
-
-```{r}
-run_edgeR <- function(counts, pheno) {
+run_edgeR <- function(counts, pheno, design){
   de <- DGEList(counts = counts, samples = pheno)
 
-  design <- model.matrix(~ volunteer_id + timepoint,data = pheno)
-  
   keep <- filterByExpr(de, design)
   de <- de[keep, , keep.lib.sizes=FALSE]
   
@@ -45,57 +33,64 @@ run_edgeR <- function(counts, pheno) {
   de <- estimateDisp(de, design)
   
   fit <- glmQLFit(de, design)
-  qlf <- glmQLFTest(fit, coef = grep('timepoint',colnames(design), value = T))
-  return(qlf)
+  return(fit)
 }
 ```
 
-## Run edgeR to all groups and studies
-
-groups to skip:
-
--   Adult1_POS_M (n = 1)
-
--   Adults2_POS_M (n = 2)
-
 ```{r}
-comparisons <- lapply(studies, function(df) df$pheno) %>% Reduce(rbind,.) %>%
-  group_by(class) %>% summarise(num_samples = n()) %>% 
-  mutate(dataset = gsub('_.*','',class)) %>% 
-  relocate(dataset) %>% 
-  filter(num_samples > 2)
+fnames <- list.files('data/tidy_data/Rdata/', full.names = T)
+data.all <- lapply(fnames, readRDS) %>% setNames(gsub('\\.rds','',basename(fnames)))
+datasets = names(data.all)
 ```
 
 ```{r}
-edger.res <- apply(comparisons, 1, function(df){
-  dataset.name = df[1]
-  comp.name = df[2]
+de.res.all <- lapply(datasets, function(dataset.name) {
+  message(dataset.name)
+  # dataset.name = datasets[2];dataset.name
   
-  pheno.sub <- studies[[dataset.name]]$pheno[which(studies[[dataset.name]]$pheno$class == comp.name),]
-  counts.sub = studies[[dataset.name]]$counts[,pheno.sub$sample_id]
+  pheno = data.all[[dataset.name]]$pheno
+  counts = data.all[[dataset.name]]$counts
   
-  message(dataset.name,'\t-\t',comp.name,'\t-\t',df[3],'\t-\t',
-          ncol(counts.sub),'\t-\t',nrow(pheno.sub),'\t-\t',
-          identical(pheno.sub$sample_id,colnames(counts.sub)))
+  pheno = pheno %>% group_by(volunteer_id) %>% 
+    mutate(n = n()) %>% filter(n > 1) %>%
+    column_to_rownames('sample_id') %>% 
+    relocate(class, volunteer_id, timepoint) %>% 
+    mutate(class = gsub(paste0(dataset.name,'_'),'',class)) %>% 
+    select(-study, -vaccine, -n)
   
-  list(run_edgeR(counts = counts.sub, pheno = pheno.sub)) %>% setNames(comp.name)
+  counts = counts[,rownames(pheno)]
+  identical(rownames(pheno), colnames(counts))
+  
+  pheno$volunteer_id <- factor(pheno$volunteer_id)
+  pheno$class <- factor(pheno$class, levels = unique(pheno$class))
+  pheno$timepoint <- as.factor(pheno$timepoint) %>% relevel(ref = 'baseline')
+  
+  # Define the experimental factors
+  design <- model.matrix(~ volunteer_id, data = pheno)
+  groups <- levels(pheno$class)
+  
+  experimental_factors <- lapply(groups, function(group){
+    data.frame(ifelse(with(pheno, class == group & timepoint != 'baseline') == T, 1, 0))
+  }) %>% Reduce(cbind, .) %>% setNames(groups)
+  
+  design <- cbind(design, experimental_factors)
+  fit <- run_edgeR(counts, pheno, design)  
+  
+  de.tables <- lapply(groups, function(group.name) {
+    qlf <- glmQLFTest(fit, coef = group.name) %>% 
+      topTags(n = Inf) %>% as.data.frame %>% 
+      mutate(dataset_name = dataset.name, group_name = group.name, 
+             comparison_name = paste(levels(pheno$timepoint),collapse = '_')) %>% 
+      rownames_to_column('gene_id')
+    list(qlf) %>% setNames(paste0(dataset.name,'_',group.name))
+  })
+  
+  unlist(de.tables, recursive = F)
 }) %>% unlist(recursive = F)
 ```
 
-Extract topTags from edgeR result objects
-
 ```{r}
-top.tables <- lapply(names(edger.res), function(group_name) edger.res[[group_name]] %>% 
-                       topTags(n = Inf) %>% as.data.frame %>% 
-                       rownames_to_column('gene_id') %>%
-                       mutate(group_name = group_name)) %>% setNames(names(edger.res))
-top.tables
-# head()
-```
-
-Save topTags
-
-```{r}
-lapply(names(top.tables), function(group_name) top.tables[[group_name]] %>% 
+lapply(names(de.res.all), function(group_name) de.res.all[[group_name]] %>% 
          fwrite(file.path(outdir,paste0('edgeR_topTable_',group_name,'.csv')), sep = '\t',quote = F, row.names = F))
 ```
+

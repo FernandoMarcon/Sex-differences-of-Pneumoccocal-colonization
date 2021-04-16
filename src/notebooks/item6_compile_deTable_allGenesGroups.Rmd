@@ -20,7 +20,9 @@ fnames <- list.files(outdir, full.names = T, pattern = 'edgeR_topTable')
 
 ```{r}
 de.table <- lapply(fnames, function(fname) {
-  df = fread(fname, select = c('gene_id','logFC','PValue','FDR','group_name')) 
+  df = fread(fname, select = c('gene_id','logFC','PValue','FDR','dataset_name','group_name')) 
+  df = df %>% mutate(group_name = paste0(dataset_name, '_',group_name)) %>% 
+    select(-dataset_name)
   colnames(df)[-1] <- paste0(colnames(df)[-1], '_',unique(df$group_name))
   df[,-5]
 }) %>% Reduce(function(x, y) merge(x,y,by = 'gene_id',all = T), .)

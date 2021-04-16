@@ -10,10 +10,8 @@ outdir = file.path(basedir,'intermediate/item6_DEtables/')
 if(!dir.exists(outdir)) dir.create(outdir)
 knitr::opts_knit$set(root.dir = basedir)
 
-pkgs <- c('tidyverse','data.table','ggplot2','edgeR')
+pkgs <- c('tidyverse','data.table','ggplot2')
 suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
-
-studies = c('MUCOSAL','LAIV1','LAIV2','AGES')
 ```
 
 ### Load Data
@@ -21,6 +19,7 @@ studies = c('MUCOSAL','LAIV1','LAIV2','AGES')
 ```{r}
 fnames <- list.files(outdir, full.names = T, pattern = 'edgeR_topTable')
 de.table <- lapply(fnames, fread, data.table = F) %>% Reduce(rbind, .)
+de.table = de.table %>% mutate(group_name = paste0(dataset_name,'_',group_name))
 head(de.table)
 ```
 
