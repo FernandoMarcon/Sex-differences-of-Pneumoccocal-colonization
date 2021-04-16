@@ -26,7 +26,8 @@ pval_thrs <- 0.01
 Input
 ```{r}
 fnames <- list.files('intermediate/item6_DEtables/', full.names = T, pattern = 'edgeR_topTable')
-de.list <- lapply(fnames, fread, data.table = F) %>% Reduce(rbind, .)
+de.list <- lapply(fnames, fread, data.table = F) %>% Reduce(rbind, .) %>% 
+  unite('group_name',dataset_name, group_name, sep = '_')
 de.list
 ```
 

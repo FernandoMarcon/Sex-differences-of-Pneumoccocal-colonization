@@ -148,4 +148,3 @@ num_degs %>%
   fwrite(file.path(outdir, 'num_deg_pval-01_table.csv'), sep = '\t', quote = F, row.names = F)
 
 ```
-

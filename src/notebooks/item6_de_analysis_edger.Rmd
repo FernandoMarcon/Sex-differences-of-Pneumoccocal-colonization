@@ -38,9 +38,10 @@ run_edgeR <- function(counts, pheno, design){
 ```
 
 ```{r}
-fnames <- list.files('data/tidy_data/Rdata/', full.names = T)
+fnames <- list.files(file.path(basedir,'data/tidy_data/Rdata/'), full.names = T)
 data.all <- lapply(fnames, readRDS) %>% setNames(gsub('\\.rds','',basename(fnames)))
 datasets = names(data.all)
+datasets
 ```
 
 ```{r}
