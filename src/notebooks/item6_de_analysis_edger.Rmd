@@ -26,13 +26,14 @@ Functions
 run_edgeR <- function(counts, pheno, design){
   de <- DGEList(counts = counts, samples = pheno)
 
-  keep <- filterByExpr(de, design)
+  keep <- filterByExpr(de)
   de <- de[keep, , keep.lib.sizes=FALSE]
   
   de <- calcNormFactors(de)
   de <- estimateDisp(de, design)
   
-  fit <- glmQLFit(de, design)
+  # fit <- glmQLFit(de, design)
+  fit <- glmFit(de,design)
   return(fit)
 }
 ```
@@ -78,12 +79,13 @@ de.res.all <- lapply(datasets, function(dataset.name) {
   fit <- run_edgeR(counts, pheno, design)  
   
   de.tables <- lapply(groups, function(group.name) {
-    qlf <- glmQLFTest(fit, coef = group.name) %>% 
+    res <- glmLRT(fit,coef = group.name) %>% 
+    # res <- glmQLFTest(fit, coef = group.name) %>% 
       topTags(n = Inf) %>% as.data.frame %>% 
       mutate(dataset_name = dataset.name, group_name = group.name, 
              comparison_name = paste(levels(pheno$timepoint),collapse = '_')) %>% 
       rownames_to_column('gene_id')
-    list(qlf) %>% setNames(paste0(dataset.name,'_',group.name))
+    list(res) %>% setNames(paste0(dataset.name,'_',group.name))
   })
   
   unlist(de.tables, recursive = F)
