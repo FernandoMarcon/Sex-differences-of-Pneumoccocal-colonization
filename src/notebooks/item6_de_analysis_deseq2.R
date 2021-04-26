@@ -75,7 +75,7 @@ run_DESeq2 <- function(dataset){
 }
 
 datasets.name = c('Adults1', 'Adults2', 'Adults3', 'Elderly1')
-de.res.all <- lapply(datasets.name[1:2], function(dataset.name) {
+de.res.all <- lapply(datasets.name, function(dataset.name) {
   # dataset.name = datasets[2]
   message(dataset.name)
 
