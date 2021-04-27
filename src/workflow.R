@@ -81,7 +81,10 @@ res.all <- lapply(datasets, function(dataset.name){
   dataset <- generateDesignMtx(dataset)
   res <- runDE(dataset, runDESeq2)
   return(res)
-  }) %>% unlist(res.all, recursive = F)
+  }) %>% unlist(recursive = F)
 
 
 names(res.all)
+
+#--- Pcombined (Fischer method)
+#--- MetaVolcano (vote count)
