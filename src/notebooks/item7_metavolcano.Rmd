@@ -15,53 +15,104 @@ rm(list = ls())
 
 basedir <- '~/Documents/work/Sex-differences-of-Pneumoccocal-colonization/'
 outdir = file.path(basedir,"intermediate/item7_metaDEGs/")
-knitr::opts_knit$set(root.dir = basedir)
+# knitr::opts_knit$set(root.dir = basedir)
 
 pkgs <- c('tidyverse','data.table','ggplot2','MetaVolcanoR')
 suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
-
-pval_thrs <- 0.01
+pars <- list(de.method = c('edgeR',"DESeq2")[2],
+              pval_thrs = 0.01)
+if(pars$de.method == 'edgeR') {
+  pars$fc = 'logFC'
+  pars$pval = 'PValue'
+  } else if(pars$de.method == 'DESeq2') {
+  pars$fc = 'log2FoldChange'
+  pars$pval = 'pvalue'
+}
+pars
 ```
 
 Input
 ```{r}
-fnames <- list.files('intermediate/item6_DEtables/', full.names = T, pattern = 'edgeR_topTable')
-de.list <- lapply(fnames, fread, data.table = F) %>% Reduce(rbind, .) %>% 
-  unite('group_name',dataset_name, group_name, sep = '_')
-de.list
+fnames <- list.files('intermediate/item6_DEtables/', full.names = T, pattern = paste0(pars$de.method, '_topTable'))
+de.list <- lapply(fnames, fread, data.table = F) %>% Reduce(rbind, .)
+# de.list <- de.list %>% unite('group_name',dataset_name, group_name, sep = '_')
+# head(de.list)
 ```
 
 Define Comparisons
 ```{r}
 comparisons <- c("NEG_M", "NEG_F", "POS_F", "POS_M")
-sapply(file.path(outdir,comparisons), dir.create,recursive = T)
+sapply(file.path(outdir,comparisons, pars$de.method), dir.create,recursive = T, showWarnings = F)
 ```
 ## Run MetaVolcano (vote-count) for all Comparisons (groups)
 
 Including Elderly dataset
 ```{r}
-meta_degs_vote <- lapply(comparisons, function(comp) {
+meta_degs_vote <- lapply(comparisons, function(comp) { # comp = comparisons[1]
   message('\n\n\n',comp,'\n\n')
-  
-  diffexplist <- de.list %>% filter(grepl(comp, group_name)) %>% split(., .$group_name)
-  
+  # diffexplist <- de.list %>% filter(grepl(comp, group_name)) %>% split(., .$group_name)
+  diffexplist <- de.list %>% filter(grepl(comp, group)) %>% split(., .$group)
+  names(diffexplist)
+
   meta_degs_vote <- votecount_mv(diffexp=diffexplist,
-                     pcriteria='PValue',
-                     foldchangecol='logFC',
+                     pcriteria=pars$pval,
+                     foldchangecol=pars$fc,
                      genenamecol='gene_id',
                      geneidcol='gene_id',
-                     pvalue=pval_thrs,
-                     foldchange=0, 
+                     pvalue=pars$pval_thrs,
+                     foldchange=0,
                      metathr=0.01,
                      collaps=F,
-                     jobname="wElderly", 
-                     outputfolder=file.path(outdir,comp),
+                     jobname="wElderly",
+                     outputfolder=file.path(outdir,comp, pars$de.method),
                      draw='PDF')
   list(meta_degs_vote) %>% setNames(comp)
 }) %>% unlist(recursive = F)
 ```
 ```{r}
-lapply(names(meta_degs_vote), function(comp) saveRDS(meta_degs_vote[[comp]], file.path(outdir,comp,paste0('metavolcano_vote_',comp, '_wElderly.rds'))))
+lapply(names(meta_degs_vote), function(comp) saveRDS(meta_degs_vote[[comp]], file.path(outdir,comp,pars$de.method, paste0('metavolcano_vote_',comp, '_wElderly.rds'))))
+```
+
+```{r}
+lapply(meta_degs_vote, function(x) x@metaresult)
+```
+
+```{r}
+lapply(meta_degs_vote, function(x) x@degfreq)
+```
+
+```{r}
+lapply(meta_degs_vote, function(x) x@MetaVolcano)
+```
+
+
+Without Elderly dataset
+```{r}
+de.list = de.list %>% filter(!grepl('Elderly',group))
+table(de.list$group)
+meta_degs_vote <- lapply(comparisons, function(comp) { # comp = comparisons[1]
+  message('\n\n\n',comp,'\n\n')
+  # diffexplist <- de.list %>% filter(grepl(comp, group_name)) %>% split(., .$group_name)
+  diffexplist <- de.list %>% filter(grepl(comp, group)) %>% split(., .$group)
+  names(diffexplist)
+
+  meta_degs_vote <- votecount_mv(diffexp=diffexplist,
+                     pcriteria=pars$pval,
+                     foldchangecol=pars$fc,
+                     genenamecol='gene_id',
+                     geneidcol='gene_id',
+                     pvalue=pars$pval_thrs,
+                     foldchange=0,
+                     metathr=0.01,
+                     collaps=F,
+                     jobname="wOutElderly",
+                     outputfolder=file.path(outdir,comp, pars$de.method),
+                     draw='PDF')
+  list(meta_degs_vote) %>% setNames(comp)
+}) %>% unlist(recursive = F)
+```
+```{r}
+lapply(names(meta_degs_vote), function(comp) saveRDS(meta_degs_vote[[comp]], file.path(outdir,comp,pars$de.method, paste0('metavolcano_vote_',comp, '_wOutElderly.rds'))))
 ```
 
 ```{r}
