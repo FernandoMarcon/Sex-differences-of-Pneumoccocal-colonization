@@ -86,4 +86,24 @@ res.all <- lapply(datasets, function(dataset.name){
 names(res.all)
 
 #--- Pcombined (Fischer method)
+head(res.all$Adults1_NEG_F)
+
+# Select all pvalue columns
+pvalues.df <- lapply(names(res.all), function(class.name) {
+  df = res.all[[class.name]]
+  df = df[,c('gene_id','pvalue')]
+  colnames(df) <- c('gene_id',class.name)
+  return(df)
+  }) %>% Reduce(function(x, y) merge(x, y, by = 'gene_id', all = T),.) %>% column_to_rownames('gene_id')
+head(pvalues.df)
+
+Pcombined <- unlist(lapply(rownames(pvalues.df), function(x) {
+  metap::sumlog(as.numeric(pvalues.df[x,])[!is.na(as.numeric(pvalues.df[x,]))])$p
+  }))
+pvalues.df$FisherMethodP <- Pcombined
+pvalues.df$FDR <- p.adjust(Pcombined, method = "fdr", n = length(Pcombined))
+
+table(pvalues.df$FisherMethodP < 0.01)
+table(pvalues.df$FDR < 0.01)
+
 #--- MetaVolcano (vote count)
