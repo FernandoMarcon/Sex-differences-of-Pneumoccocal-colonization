@@ -37,7 +37,8 @@ removeUnpairedSamples <- function(dataset) {
 
 filterCounts <- function(dataset) {
   de <- edgeR::DGEList(counts = dataset$counts, samples = dataset$pheno)
-  keep <- edgeR::filterByExpr(de, group = 'class')
+  # keep <- edgeR::filterByExpr(de, group = 'class')
+  keep <- edgeR::filterByExpr(de)
   dataset$counts <- dataset$counts[keep, ]
   message("\nRemoved ",sum(keep),' genes, remaining: ',sum(!keep),'\n')
   return(dataset)
@@ -85,42 +86,17 @@ res.all <- lapply(datasets, function(dataset.name){
 
 
 names(res.all)
-temp.name = names(res.all)[1]
-temp <- read.delim(file.path('./intermediate/item6_DEtables/',paste0('DESeq2_topTable_',temp.name,'.csv')))
-temp = merge(temp[,c('gene_id','log2FoldChange')],
-            res.all[[temp.name]][,c('gene_id','log2FoldChange')],
-            by = 'gene_id') %>% setNames(c('original','workflow'))
-ggplot(temp, aes(original, workflow)) + geom_point()
-
-temp.name = names(res.all)[2]
-temp <- read.delim(file.path('./intermediate/item6_DEtables/',paste0('DESeq2_topTable_',temp.name,'.csv')))
-temp = merge(temp[,c('gene_id','log2FoldChange')],
-            res.all[[temp.name]][,c('gene_id','log2FoldChange')],
-            by = 'gene_id') %>% setNames(c('original','workflow'))
-ggplot(temp, aes(original, workflow)) + geom_point()
 
 temp.name = names(res.all)[3]
-temp <- read.delim(file.path('./intermediate/item6_DEtables/',paste0('DESeq2_topTable_',temp.name,'.csv')))
-temp = merge(temp[,c('gene_id','log2FoldChange')],
-            res.all[[temp.name]][,c('gene_id','log2FoldChange')],
-            by = 'gene_id') %>% setNames(c('original','workflow'))
-ggplot(temp, aes(original, workflow)) + geom_point()
-
-temp.name = names(res.all)[4]
-temp <- read.delim(file.path('./intermediate/item6_DEtables/',paste0('DESeq2_topTable_',temp.name,'.csv')))
-temp = merge(temp[,c('gene_id','log2FoldChange')],
-            res.all[[temp.name]][,c('gene_id','log2FoldChange')],
-            by = 'gene_id') %>% setNames(c('original','workflow'))
-ggplot(temp, aes(original, workflow)) + geom_point()
-
-
-temp.name = names(res.all)[5]
-temp <- read.delim(file.path('./intermediate/item6_DEtables/',paste0('DESeq2_topTable_',temp.name,'.csv')))
-temp = merge(temp[,c('gene_id','log2FoldChange')],
-            res.all[[temp.name]][,c('gene_id','log2FoldChange')],
-            by = 'gene_id') %>% setNames(c('original','workflow'))
-ggplot(temp, aes(original, workflow)) + geom_point()
-
+for(temp.name in names(res.all)){
+  temp <- read.delim(file.path('./intermediate/item6_DEtables/',paste0('DESeq2_topTable_',temp.name,'.csv')))
+  temp = merge(temp[,c('gene_id','log2FoldChange')],
+              res.all[[temp.name]][,c('gene_id','log2FoldChange')],
+              by = 'gene_id') %>% setNames(c('gene_id','original','workflow'))
+  plt <- ggplot(temp, aes(original, workflow)) + geom_point()
+  print(plt)
+  Sys.sleep(5)
+}
 
 #--- Pcombined (Fischer method)
 # Select all pvalue columns
@@ -152,8 +128,6 @@ table(pvalues.df$FisherMethodP_adults < 0.01)
 table(pvalues.df$FDR < 0.01)
 table(pvalues.df$FDR_adults < 0.01)
 
-selected_genes <- rownames(pvalues.df[which(pvalues.df$FDR_adults < 0.01),])
-
 # Select all logFC columns
 logFC.df <- lapply(names(res.all), function(class.name) {
   df = res.all[[class.name]]
@@ -174,6 +148,7 @@ deg.adults.counts <- lapply(group.names, function(group.name) {
               }) %>% Reduce(function(x, y) merge(x, y, by = 'gene_id', all = T),.)
 
 deg.adults.counts = deg.adults.counts %>% gather(class, num_degs, -gene_id, na.rm = T)
-deg.adults.counts %>% group_by(num_degs,class) %>% summarize(vote_count = n())
+deg.adults.counts %>% group_by(num_degs,class) %>% summarize(vote_count = n()) %>% ggplot(aes(num_degs, vote_count, fill = num_degs)) + geom_bar(stat = 'identity') + facet_grid(.~class)
+
 
 # %>%  separate(class, c('class','direction'), sep = '\\|')
