@@ -62,14 +62,13 @@ runDESeq2 <- function(dataset) {
   dds <- DESeq2::DESeqDataSetFromMatrix(dataset$counts, dataset$pheno, design = dataset$design)
   dds <- DESeq2::DESeq(dds, parallel = T)
   de.res <- lapply(levels(dataset$pheno$class), function(class.name) {
-    res <- results(dds, name = class.name)
+    res <- DESeq2::results(dds, name = class.name)
     res %>% as.data.frame %>% mutate(class = class.name) %>%
-    rownames_to_column('gene_id') %>%
-    rename(log2FoldChange = 'logFC')
+    rownames_to_column('gene_id')
   }) %>% setNames(levels(dataset$pheno$class))
   return(de.res)
 }
-
+# %>%  rename(log2FoldChange = 'logFC')
 #--- RUN: DESeq2
 datasets <- c('Adults1','Adults2','Adults3','Elderly1')
 res.all <- lapply(datasets, function(dataset.name){
