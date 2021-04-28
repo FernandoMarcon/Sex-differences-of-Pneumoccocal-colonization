@@ -37,8 +37,8 @@ removeUnpairedSamples <- function(dataset) {
 
 filterCounts <- function(dataset) {
   de <- edgeR::DGEList(counts = dataset$counts, samples = dataset$pheno)
-  # keep <- edgeR::filterByExpr(de, group = 'class')
-  keep <- edgeR::filterByExpr(de)
+  keep <- edgeR::filterByExpr(de, group = 'class')
+  # keep <- edgeR::filterByExpr(de)
   dataset$counts <- dataset$counts[keep, ]
   message("\nRemoved ",sum(keep),' genes, remaining: ',sum(!keep),'\n')
   return(dataset)
@@ -87,33 +87,29 @@ res.all <- lapply(datasets, function(dataset.name){
 
 names(res.all)
 
-# temp.name = names(res.all)[3]
-# for(temp.name in names(res.all)){
-#   temp <- read.delim(file.path('./intermediate/item6_DEtables/',paste0('DESeq2_topTable_',temp.name,'.csv')))
-#   temp = merge(temp[,c('gene_id','log2FoldChange')],
-#               res.all[[temp.name]][,c('gene_id','log2FoldChange')],
-#               by = 'gene_id') %>% setNames(c('gene_id','original','workflow'))
-#   plt <- ggplot(temp, aes(original, workflow)) + geom_point()
-#   print(plt)
-#   Sys.sleep(5)
-# }
+              # temp.name = names(res.all)[3]
+              # for(temp.name in names(res.all)){
+              #   temp <- read.delim(file.path('./intermediate/item6_DEtables/',paste0('DESeq2_topTable_',temp.name,'.csv')))
+              #   temp = merge(temp[,c('gene_id','log2FoldChange')],
+              #               res.all[[temp.name]][,c('gene_id','log2FoldChange')],
+              #               by = 'gene_id') %>% setNames(c('gene_id','original','workflow'))
+              #   plt <- ggplot(temp, aes(original, workflow)) + geom_point()
+              #   print(plt)
+              #   Sys.sleep(5)
+              # }
 
 # Common DEGs between cohorts
-temp <- Reduce(rbind, res.all)
-temp = temp %>% mutate(deg = ifelse(log2FoldChange > 0, 'Up', 'unchanged'), deg = ifelse(log2FoldChange < 0, 'Down', deg))
-temp = temp %>% filter(pvalue < 0.01, deg != 0)
-temp = temp %>% select(gene_id, class, deg)
-temp = temp %>% separate(class, c('dataset','carriage','sex'))
-temp = temp %>% unite('class', carriage, sex, sep = '_')
+temp <- Reduce(rbind, res.all) %>% filter(pvalue < 0.01, abs(log2FoldChange) > 0)%>% select(gene_id, log2FoldChange, class) %>% separate(class, c('dataset', 'carriage', 'sex')) %>%
+  unite('class',carriage, sex, sep = '_') %>% mutate(deg = ifelse(log2FoldChange > 0, 'Up', 'Down')) %>% group_by(gene_id, deg, class) %>% summarize(num_studies = n()) %>%
+  group_by(class, num_studies, deg) %>% summarize(num_degs = n()) %>% group_by(class, num_studies) %>% mutate(total_num_DEGs = sum(num_degs)) %>%
+  spread(deg, num_degs, fill = 0)
+temp
 
-head(temp)
-temp %>% group_by(class, deg, gene_id) %>% summarize(num_deg = n()) %>% ggplot(aes(deg, num_deg, fill = deg)) + geom_bar(stat = 'identity') + facet_grid(.~class)
-
-
-
-
-
-
+temp <- Reduce(rbind, res.all) %>% filter(padj < 0.01, abs(log2FoldChange) > 0)%>% select(gene_id, log2FoldChange, class) %>% separate(class, c('dataset', 'carriage', 'sex')) %>%
+  unite('class',carriage, sex, sep = '_') %>% mutate(deg = ifelse(log2FoldChange > 0, 'Up', 'Down')) %>% group_by(gene_id, deg, class) %>% summarize(num_studies = n()) %>%
+  group_by(class, num_studies, deg) %>% summarize(num_degs = n()) %>% group_by(class, num_studies) %>% mutate(total_num_DEGs = sum(num_degs)) %>%
+  spread(deg, num_degs, fill = 0)
+temp
 #### =============== META-DEGS =============== ####
 #--- Pcombined (Fischer method)
 # Select all pvalue columns
