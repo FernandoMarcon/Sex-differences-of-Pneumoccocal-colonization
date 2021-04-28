@@ -2,6 +2,7 @@ rm(list = ls())
 pkgs <- c('tidyverse','BiocParallel')
 suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
 register(MulticoreParam(4))
+group.names <- c('POS_M','POS_F','NEG_M','NEG_F')
 
 #### =============== FUNCTIONS =============== ####
 testConsistency <- function(dataset) {
@@ -84,10 +85,44 @@ res.all <- lapply(datasets, function(dataset.name){
 
 
 names(res.all)
+temp.name = names(res.all)[1]
+temp <- read.delim(file.path('./intermediate/item6_DEtables/',paste0('DESeq2_topTable_',temp.name,'.csv')))
+temp = merge(temp[,c('gene_id','log2FoldChange')],
+            res.all[[temp.name]][,c('gene_id','log2FoldChange')],
+            by = 'gene_id') %>% setNames(c('original','workflow'))
+ggplot(temp, aes(original, workflow)) + geom_point()
+
+temp.name = names(res.all)[2]
+temp <- read.delim(file.path('./intermediate/item6_DEtables/',paste0('DESeq2_topTable_',temp.name,'.csv')))
+temp = merge(temp[,c('gene_id','log2FoldChange')],
+            res.all[[temp.name]][,c('gene_id','log2FoldChange')],
+            by = 'gene_id') %>% setNames(c('original','workflow'))
+ggplot(temp, aes(original, workflow)) + geom_point()
+
+temp.name = names(res.all)[3]
+temp <- read.delim(file.path('./intermediate/item6_DEtables/',paste0('DESeq2_topTable_',temp.name,'.csv')))
+temp = merge(temp[,c('gene_id','log2FoldChange')],
+            res.all[[temp.name]][,c('gene_id','log2FoldChange')],
+            by = 'gene_id') %>% setNames(c('original','workflow'))
+ggplot(temp, aes(original, workflow)) + geom_point()
+
+temp.name = names(res.all)[4]
+temp <- read.delim(file.path('./intermediate/item6_DEtables/',paste0('DESeq2_topTable_',temp.name,'.csv')))
+temp = merge(temp[,c('gene_id','log2FoldChange')],
+            res.all[[temp.name]][,c('gene_id','log2FoldChange')],
+            by = 'gene_id') %>% setNames(c('original','workflow'))
+ggplot(temp, aes(original, workflow)) + geom_point()
+
+
+temp.name = names(res.all)[5]
+temp <- read.delim(file.path('./intermediate/item6_DEtables/',paste0('DESeq2_topTable_',temp.name,'.csv')))
+temp = merge(temp[,c('gene_id','log2FoldChange')],
+            res.all[[temp.name]][,c('gene_id','log2FoldChange')],
+            by = 'gene_id') %>% setNames(c('original','workflow'))
+ggplot(temp, aes(original, workflow)) + geom_point()
+
 
 #--- Pcombined (Fischer method)
-head(res.all$Adults1_NEG_F)
-
 # Select all pvalue columns
 pvalues.df <- lapply(names(res.all), function(class.name) {
   df = res.all[[class.name]]
@@ -95,15 +130,50 @@ pvalues.df <- lapply(names(res.all), function(class.name) {
   colnames(df) <- c('gene_id',class.name)
   return(df)
   }) %>% Reduce(function(x, y) merge(x, y, by = 'gene_id', all = T),.) %>% column_to_rownames('gene_id')
-head(pvalues.df)
 
+# Calculate Pcombined for all datasets
 Pcombined <- unlist(lapply(rownames(pvalues.df), function(x) {
   metap::sumlog(as.numeric(pvalues.df[x,])[!is.na(as.numeric(pvalues.df[x,]))])$p
   }))
 pvalues.df$FisherMethodP <- Pcombined
 pvalues.df$FDR <- p.adjust(Pcombined, method = "fdr", n = length(Pcombined))
 
-table(pvalues.df$FisherMethodP < 0.01)
-table(pvalues.df$FDR < 0.01)
+# Calculate Pcombined for Adults only
+comp_adults = grep('Adults', colnames(pvalues.df), value = T)
+Pcombined <- unlist(lapply(rownames(pvalues.df[,comp_adults]), function(x) {
+  metap::sumlog(as.numeric(pvalues.df[x,comp_adults])[!is.na(as.numeric(pvalues.df[x,comp_adults]))])$p
+  }))
+pvalues.df$FisherMethodP_adults <- Pcombined
+pvalues.df$FDR_adults <- p.adjust(Pcombined, method = "fdr", n = length(Pcombined))
 
-#--- MetaVolcano (vote count)
+table(pvalues.df$FisherMethodP < 0.01)
+table(pvalues.df$FisherMethodP_adults < 0.01)
+
+table(pvalues.df$FDR < 0.01)
+table(pvalues.df$FDR_adults < 0.01)
+
+selected_genes <- rownames(pvalues.df[which(pvalues.df$FDR_adults < 0.01),])
+
+# Select all logFC columns
+logFC.df <- lapply(names(res.all), function(class.name) {
+  df = res.all[[class.name]]
+  df = df[,c('gene_id','log2FoldChange')]
+  colnames(df) <- c('gene_id',class.name)
+  return(df)
+  }) %>% Reduce(function(x, y) merge(x, y, by = 'gene_id', all = T),.) %>% column_to_rownames('gene_id')
+
+deg.adults <- logFC.df[,grep('Adults',colnames(logFC.df))]
+deg.adults$FDR_adults <- pvalues.df$FDR_adults
+deg.adults = deg.adults %>% filter(FDR_adults < 0.01) %>% select(-FDR_adults)
+
+deg.adults.counts <- lapply(group.names, function(group.name) {
+  data.frame(up = rowSums(deg.adults[,grep(group.name, colnames(deg.adults))] > 0),
+              down = rowSums(deg.adults[,grep(group.name, colnames(deg.adults))] < 0)) %>%
+              setNames(paste0(group.name, '|',colnames(.))) %>%
+              rownames_to_column('gene_id')
+              }) %>% Reduce(function(x, y) merge(x, y, by = 'gene_id', all = T),.)
+
+deg.adults.counts = deg.adults.counts %>% gather(class, num_degs, -gene_id, na.rm = T)
+deg.adults.counts %>% group_by(num_degs,class) %>% summarize(vote_count = n())
+
+# %>%  separate(class, c('class','direction'), sep = '\\|')
