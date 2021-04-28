@@ -121,11 +121,11 @@ pvalues.df <- lapply(names(res.all), function(class.name) {
   }) %>% Reduce(function(x, y) merge(x, y, by = 'gene_id', all = T),.) %>% column_to_rownames('gene_id')
 
 # Calculate Pcombined for all datasets
-Pcombined <- unlist(lapply(rownames(pvalues.df), function(x) {
-  metap::sumlog(as.numeric(pvalues.df[x,])[!is.na(as.numeric(pvalues.df[x,]))])$p
-  }))
-pvalues.df$FisherMethodP <- Pcombined
-pvalues.df$FDR <- p.adjust(Pcombined, method = "fdr", n = length(Pcombined))
+# Pcombined <- unlist(lapply(rownames(pvalues.df), function(x) {
+#   metap::sumlog(as.numeric(pvalues.df[x,])[!is.na(as.numeric(pvalues.df[x,]))])$p
+#   }))
+# pvalues.df$FisherMethodP <- Pcombined
+# pvalues.df$FDR <- p.adjust(Pcombined, method = "fdr", n = length(Pcombined))
 
 # Calculate Pcombined for Adults only
 comp_adults = grep('Adults', colnames(pvalues.df), value = T)
@@ -150,8 +150,10 @@ logFC.df <- lapply(names(res.all), function(class.name) {
   }) %>% Reduce(function(x, y) merge(x, y, by = 'gene_id', all = T),.) %>% column_to_rownames('gene_id')
 
 deg.adults <- logFC.df[,grep('Adults',colnames(logFC.df))]
-deg.adults$FDR_adults <- pvalues.df$FDR_adults
-deg.adults = deg.adults %>% filter(FDR_adults < 0.01) %>% select(-FDR_adults)
+# deg.adults$FDR_adults <- pvalues.df$FDR_adults
+# deg.adults = deg.adults %>% filter(FDR_adults < 0.01) %>% select(-FDR_adults)
+deg.adults$FisherMethodP_adults <- pvalues.df$FisherMethodP_adults
+deg.adults = deg.adults %>% filter(FisherMethodP_adults < 0.01) %>% select(-FisherMethodP_adults)
 
 deg.adults.counts <- lapply(group.names, function(group.name) {
   data.frame(up = rowSums(deg.adults[,grep(group.name, colnames(deg.adults))] > 0),
@@ -168,7 +170,7 @@ separate(class, c('class','direction'), sep = '\\|') %>%
 filter(num_degs > 0) %>%
   ggplot(aes(num_degs, vote_count, fill = class)) + geom_bar(stat = 'identity', show.legend = F) +
   facet_grid(.~class+direction) + theme_minimal() +
-  labs(title = 'Vote count', subtitle = 'FDR (Pcombined) < 0.01, |logFC| > 0, DESeq2')
+  labs(title = 'Vote count', subtitle = 'Pcombined < 0.01, |logFC| > 0, DESeq2')
 dev.off()
 
 
