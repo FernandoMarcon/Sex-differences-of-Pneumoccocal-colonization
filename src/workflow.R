@@ -120,7 +120,6 @@ names(res.all)
               #   group_by(class, num_studies, deg) %>% summarize(num_degs = n()) %>% group_by(class, num_studies) %>% mutate(total_num_DEGs = sum(num_degs)) %>%
               #   spread(deg, num_degs, fill = 0)
               # temp
-
 #--- logFC correlation
 # make table with logFCs
 logFC.df <- lapply(names(res.all), function(class.name) res.all[[class.name]][,c('gene_id','log2FoldChange')] %>%setNames(c('gene_id',class.name))) %>%
@@ -128,15 +127,23 @@ logFC.df <- lapply(names(res.all), function(class.name) res.all[[class.name]][,c
     column_to_rownames('gene_id')
 # logFC.df <- logFC.df[,grep('Adults',colnames(logFC.df))]
 head(logFC.df)
+
+with(logFC.df,plot(Adults1_F, Adults2_F))
+with(logFC.df,plot(Adults1_F, Adults3_F))
+with(logFC.df,plot(Adults2_F, Adults3_F))
+with(logFC.df,plot(Adults1_M, Adults2_M))
+with(logFC.df,plot(Adults1_M, Adults3_M))
+with(logFC.df,plot(Adults2_M, Adults3_M))
 # filter genes
 perc.genes = .5
 hm_breaks <- seq(-1, 1, length.out = 100)
 hm_color = colorRampPalette(rev(brewer.pal(n = 7, name = "RdYlBu")))(length(hm_breaks))
+cor.method = 'spearman'
 
 # maxMean
 logFC.mean = sort(abs(rowMeans(logFC.df)), decreasing = T)
 selected_genes = names(logFC.mean[1:(nrow(logFC.df)*perc.genes)])
-plt.maxMean <- pheatmap::pheatmap(cor(logFC.df[selected_genes,]), legend_labels = 'cor',
+plt.maxMean <- pheatmap::pheatmap(cor(logFC.df[selected_genes,], method = cor.method), legend_labels = 'cor',
   main = paste0('maxMean (',perc.genes*100,'% of top genes)'),  color = hm_color,  breaks = hm_breaks)
 
 pdf(file.path('intermediate/item6_DEtables/',paste0('corrplot_logFC_all_maxMean_',gsub('.*\\.','p',as.character(perc.genes)),'.pdf')))
@@ -146,7 +153,7 @@ dev.off()
 # maxVar
 logFC.var = sort(apply(logFC.df, 1, var), decreasing = T)
 selected_genes = names(logFC.var[1:(nrow(logFC.df)*.1)])
-plt.maxVar <- pheatmap::pheatmap(cor(logFC.df[selected_genes,]), legend_labels = 'cor',main = paste0('maxVar (',perc.genes*100,'% of top genes)'),  color = hm_color,  breaks = hm_breaks)
+plt.maxVar <- pheatmap::pheatmap(cor(logFC.df[selected_genes,], method = cor.method), legend_labels = 'cor',main = paste0('maxVar (',perc.genes*100,'% of top genes)'),  color = hm_color,  breaks = hm_breaks)
 
 pdf(file.path('intermediate/item6_DEtables/',paste0('corrplot_logFC_all_maxVar_',gsub('.*\\.','p',as.character(perc.genes)),'.pdf')))
 plt.maxVar
