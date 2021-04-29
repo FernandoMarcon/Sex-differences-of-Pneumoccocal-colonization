@@ -104,7 +104,7 @@ perc.genes = .5
 hm_breaks <- seq(-1, 1, length.out = 100)
 hm_color = colorRampPalette(rev(brewer.pal(n = 7, name = "RdYlBu")))(length(hm_breaks))
 cor.method = 'spearman'
-annotation_col = pheno %>% separate(class, c('adults','carriage','sex')) %>% select(-volunteer_id)
+annotation_col = pheno %>% separate(class, c('dataset','carriage','sex')) %>% select(-volunteer_id)
 annotation_row = pheno %>% mutate(class = gsub('Adults|Elderly','',class))%>% select(-volunteer_id)
 
 # maxMean
@@ -129,3 +129,12 @@ plt.maxVar <- pheatmap(cor.mtx, legend_labels = 'cor', annotation_col = annotati
 pdf(file.path('intermediate/volunteer_wise_analysis/',paste0('vol_logFC_corSpearman_maxVar_',gsub('.*\\.','p',as.character(perc.genes)),'.pdf')))
 plt.maxVar
 dev.off()
+
+logFC.df %>% rownames_to_column('genes') %>%
+  write.table('intermediate/volunteer_wise_analysis/logFC.csv', sep = '\t',row.names = F, quote = F)
+
+#### =============== ssGSEA =============== ####
+# ensembl to gene symbol
+# find GMT (Reactome)
+# run Single_Sample_GSEA_ssGSEA_fgsea.R
+# plot
