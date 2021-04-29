@@ -55,8 +55,6 @@ generateDesignMtx <- function(dataset) {
     }) %>% Reduce(cbind, .) %>% setNames(levels(pheno$class)) %>% as.matrix %>%
     cbind(model.matrix(~ volunteer_id, data = pheno))
   return(dataset)
-  # temp = design.mtx %>% as.data.frame %>% filter(Adults1_NEG_F == 1) %>% row.names
-  # table(pheno[temp,c('class', 'timepoint')])
   }
 
 runDE <- function(dataset, FUN = ...){
