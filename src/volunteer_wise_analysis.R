@@ -97,3 +97,35 @@ ggplot(pcr, aes(PC1, PC2, col= carriage)) + geom_point(size = 2) + theme_minimal
 ggplot(pcr, aes(PC1, PC2, col= sex)) + geom_point(size = 2) + theme_minimal() + theme(legend.position = 'top')
 ggplot(pcr, aes(PC1, PC2, col= class)) + geom_point(size = 2) + theme_minimal() + theme(legend.position = 'top')
 dev.off()
+library(pheatmap)
+library(RColorBrewer)
+# filter genes
+perc.genes = .5
+hm_breaks <- seq(-1, 1, length.out = 100)
+hm_color = colorRampPalette(rev(brewer.pal(n = 7, name = "RdYlBu")))(length(hm_breaks))
+cor.method = 'spearman'
+annotation_col = pheno %>% separate(class, c('adults','carriage','sex')) %>% select(-volunteer_id)
+annotation_row = pheno %>% mutate(class = gsub('Adults|Elderly','',class))%>% select(-volunteer_id)
+
+# maxMean
+logFC.mean = sort(abs(rowMeans(logFC.df)), decreasing = T)
+selected_genes = names(logFC.mean[1:(nrow(logFC.df)*perc.genes)])
+cor.mtx <- cor(logFC.df[selected_genes,], method = cor.method)
+
+plt.maxMean <- pheatmap(cor.mtx, legend_labels = 'cor', annotation_col = annotation_col,annotation_row = annotation_row,
+  show_rownames = F, show_colnames = F,  color = hm_color,  breaks = hm_breaks, main = 'Correlation between volunteers logFC (maxMean)')
+pdf(file.path('intermediate/volunteer_wise_analysis/',paste0('vol_logFC_corSpearman_maxMean_',gsub('.*\\.','p',as.character(perc.genes)),'.pdf')))
+plt.maxMean
+dev.off()
+
+
+# maxMean
+logFC.var = sort(apply(logFC.df, 1, var), decreasing = T)
+selected_genes = names(logFC.var[1:(nrow(logFC.df)*.1)])
+cor.mtx <- cor(logFC.df[selected_genes,], method = cor.method)
+
+plt.maxVar <- pheatmap(cor.mtx, legend_labels = 'cor', annotation_col = annotation_col,annotation_row = annotation_row,
+  show_rownames = F, show_colnames = F,  color = hm_color,  breaks = hm_breaks, main = 'Correlation between volunteers logFC (maxVar)')
+pdf(file.path('intermediate/volunteer_wise_analysis/',paste0('vol_logFC_corSpearman_maxVar_',gsub('.*\\.','p',as.character(perc.genes)),'.pdf')))
+plt.maxVar
+dev.off()
