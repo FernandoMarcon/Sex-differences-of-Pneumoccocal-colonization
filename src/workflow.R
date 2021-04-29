@@ -1,8 +1,9 @@
 rm(list = ls())
-pkgs <- c('tidyverse','BiocParallel')
+pkgs <- c('tidyverse','BiocParallel','pheatmap','RColorBrewer')
 suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
 register(MulticoreParam(4))
 group.names <- c('POS_M','POS_F','NEG_M','NEG_F')
+dataset.names <- c('Adults1','Adults2','Adults3','Elderly1')
 
 #### =============== FUNCTIONS =============== ####
 testConsistency <- function(dataset) {
@@ -16,6 +17,9 @@ testConsistency <- function(dataset) {
 loadDataset <- function(dataset.name) {
   pheno <- read.delim(file.path('./data/tidy_data/tables/',paste0(dataset.name, '_pheno.csv')), row.names = 'sample_id')
   counts <- read.delim(file.path('./data/tidy_data/tables/',paste0(dataset.name, '_counts.csv')), row.names = 'gene_id')
+
+  pheno <- pheno %>% separate(class, c('dataset','carriage','sex')) %>% unite('class',dataset, sex)
+
   testConsistency(list(pheno = pheno, counts = counts))
 }
 
@@ -70,11 +74,19 @@ runDESeq2 <- function(dataset) {
   }) %>% setNames(levels(dataset$pheno$class))
   return(de.res)
 }
-# %>%  rename(log2FoldChange = 'logFC')
-#--- RUN: DESeq2
-datasets <- c('Adults1','Adults2','Adults3','Elderly1')
-res.all <- lapply(datasets, function(dataset.name){
-  # dataset.name = 'Adults1'
+
+calcPcombined <- function(df) {
+  Pcombined <- unlist(lapply(rownames(df), function(x) {
+    metap::sumlog(as.numeric(df[x,])[!is.na(as.numeric(df[x,]))])$p
+    }))
+  df$FisherMethodP <- Pcombined
+  return(df)
+}
+
+
+#### =============== RUN ============== ####
+#: DESeq2
+res.all <- lapply(dataset.names, function(dataset.name){ # dataset.name = 'Adults1'
   message('\n\n',dataset.name, '\n\n')
   dataset <- loadDataset(dataset.name)
   dataset <- removeUnpairedSamples(dataset)
@@ -83,8 +95,6 @@ res.all <- lapply(datasets, function(dataset.name){
   res <- runDE(dataset, runDESeq2)
   return(res)
   }) %>% unlist(recursive = F)
-
-
 names(res.all)
 
               # temp.name = names(res.all)[3]
@@ -120,11 +130,14 @@ logFC.df <- lapply(names(res.all), function(class.name) res.all[[class.name]][,c
 head(logFC.df)
 # filter genes
 perc.genes = .5
+hm_breaks <- seq(-1, 1, length.out = 100)
+hm_color = colorRampPalette(rev(brewer.pal(n = 7, name = "RdYlBu")))(length(hm_breaks))
 
 # maxMean
 logFC.mean = sort(abs(rowMeans(logFC.df)), decreasing = T)
 selected_genes = names(logFC.mean[1:(nrow(logFC.df)*perc.genes)])
-plt.maxMean <- pheatmap::pheatmap(cor(logFC.df[selected_genes,]), legend_labels = 'cor',main = paste0('maxMean (',perc.genes*100,'% of top genes)'))
+plt.maxMean <- pheatmap::pheatmap(cor(logFC.df[selected_genes,]), legend_labels = 'cor',
+  main = paste0('maxMean (',perc.genes*100,'% of top genes)'),  color = hm_color,  breaks = hm_breaks)
 
 pdf(file.path('intermediate/item6_DEtables/',paste0('corrplot_logFC_all_maxMean_',gsub('.*\\.','p',as.character(perc.genes)),'.pdf')))
 plt.maxMean
@@ -133,7 +146,7 @@ dev.off()
 # maxVar
 logFC.var = sort(apply(logFC.df, 1, var), decreasing = T)
 selected_genes = names(logFC.var[1:(nrow(logFC.df)*.1)])
-plt.maxVar <- pheatmap::pheatmap(cor(logFC.df[selected_genes,]), legend_labels = 'cor',main = paste0('maxVar (',perc.genes*100,'% of top genes)'))
+plt.maxVar <- pheatmap::pheatmap(cor(logFC.df[selected_genes,]), legend_labels = 'cor',main = paste0('maxVar (',perc.genes*100,'% of top genes)'),  color = hm_color,  breaks = hm_breaks)
 
 pdf(file.path('intermediate/item6_DEtables/',paste0('corrplot_logFC_all_maxVar_',gsub('.*\\.','p',as.character(perc.genes)),'.pdf')))
 plt.maxVar
@@ -150,61 +163,12 @@ pvalues.df <- lapply(names(res.all), function(class.name) {
   }) %>% Reduce(function(x, y) merge(x, y, by = 'gene_id', all = T),.) %>% column_to_rownames('gene_id')
 
 # Calculate Pcombined for all datasets
-group.names
-
-
-
-Pcombined <- unlist(lapply(rownames(pvalues.df), function(x) {
-  metap::sumlog(as.numeric(pvalues.df[x,])[!is.na(as.numeric(pvalues.df[x,]))])$p
-  }))
-pvalues.df$FisherMethodP <- Pcombined
-pvalues.df$FDR <- p.adjust(Pcombined, method = "fdr", n = length(Pcombined))
-
-# Calculate Pcombined for Adults only
-comp_adults = grep('Adults', colnames(pvalues.df), value = T)
-Pcombined <- unlist(lapply(rownames(pvalues.df[,comp_adults]), function(x) {
-  metap::sumlog(as.numeric(pvalues.df[x,comp_adults])[!is.na(as.numeric(pvalues.df[x,comp_adults]))])$p
-  }))
-pvalues.df$FisherMethodP_adults <- Pcombined
-pvalues.df$FDR_adults <- p.adjust(Pcombined, method = "fdr", n = length(Pcombined))
-
-table(pvalues.df$FisherMethodP < 0.01)
-table(pvalues.df$FisherMethodP_adults < 0.01)
-
-table(pvalues.df$FDR < 0.01)
-table(pvalues.df$FDR_adults < 0.01)
-
-# Select all logFC columns
-logFC.df <- lapply(names(res.all), function(class.name) {
-  df = res.all[[class.name]]
-  df = df[,c('gene_id','log2FoldChange')]
-  colnames(df) <- c('gene_id',class.name)
-  return(df)
-  }) %>% Reduce(function(x, y) merge(x, y, by = 'gene_id', all = T),.) %>% column_to_rownames('gene_id')
-
-deg.adults <- logFC.df[,grep('Adults',colnames(logFC.df))]
-# deg.adults$FDR_adults <- pvalues.df$FDR_adults
-# deg.adults = deg.adults %>% filter(FDR_adults < 0.01) %>% select(-FDR_adults)
-deg.adults$FisherMethodP_adults <- pvalues.df$FisherMethodP_adults
-deg.adults = deg.adults %>% filter(FisherMethodP_adults < 0.01) %>% select(-FisherMethodP_adults)
-
-deg.adults.counts <- lapply(group.names, function(group.name) {
-  data.frame(up = rowSums(deg.adults[,grep(group.name, colnames(deg.adults))] > 0),
-              down = rowSums(deg.adults[,grep(group.name, colnames(deg.adults))] < 0)) %>%
-              setNames(paste0(group.name, '|',colnames(.))) %>%
-              rownames_to_column('gene_id')
-              }) %>% Reduce(function(x, y) merge(x, y, by = 'gene_id', all = T),.)
-
-deg.adults.counts = deg.adults.counts %>% gather(class, num_degs, -gene_id, na.rm = T)
-
-pdf(file.path('intermediate/item7_metaDEGs','voteCount_Pcombined_Fischer_DESeq2.pdf'))
-deg.adults.counts %>% group_by(num_degs,class) %>% summarize(vote_count = n()) %>%
-separate(class, c('class','direction'), sep = '\\|') %>%
-filter(num_degs > 0) %>%
-  ggplot(aes(num_degs, vote_count, fill = class)) + geom_bar(stat = 'identity', show.legend = F) +
-  facet_grid(.~class+direction) + theme_minimal() +
-  labs(title = 'Vote count', subtitle = 'Pcombined < 0.01, |logFC| > 0, DESeq2')
-dev.off()
-
-
-# %>%  separate(class, c('class','direction'), sep = '\\|')
+runPcombined_byGroup <- function(group.names, pvalues.df){
+  lapply(group.names, function(group.name){
+    pvalues.df[, grep(group.name, colnames(pvalues.df))] %>%
+      calcPcombined %>% select(FisherMethodP) %>% setNames(group.name) %>% rownames_to_column('gene_id')
+    }) %>% Reduce(function(x,y) merge(x,y,by = 'gene_id',all = T),.) %>% column_to_rownames('gene_id')
+  }
+Pcombined <- runPcombined_byGroup(group.names, pvalues.df)
+head(Pcombined)
+apply(Pcombined < 0.01,2, sum, na.rm=T)
