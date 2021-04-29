@@ -99,17 +99,17 @@ names(res.all)
               # }
 
 # Common DEGs between cohorts
-temp <- Reduce(rbind, res.all) %>% filter(pvalue < 0.01, abs(log2FoldChange) > 0)%>% select(gene_id, log2FoldChange, class) %>% separate(class, c('dataset', 'carriage', 'sex')) %>%
-  unite('class',carriage, sex, sep = '_') %>% mutate(deg = ifelse(log2FoldChange > 0, 'Up', 'Down')) %>% group_by(gene_id, deg, class) %>% summarize(num_studies = n()) %>%
-  group_by(class, num_studies, deg) %>% summarize(num_degs = n()) %>% group_by(class, num_studies) %>% mutate(total_num_DEGs = sum(num_degs)) %>%
-  spread(deg, num_degs, fill = 0)
-temp
-
-temp <- Reduce(rbind, res.all) %>% filter(padj < 0.01, abs(log2FoldChange) > 0)%>% select(gene_id, log2FoldChange, class) %>% separate(class, c('dataset', 'carriage', 'sex')) %>%
-  unite('class',carriage, sex, sep = '_') %>% mutate(deg = ifelse(log2FoldChange > 0, 'Up', 'Down')) %>% group_by(gene_id, deg, class) %>% summarize(num_studies = n()) %>%
-  group_by(class, num_studies, deg) %>% summarize(num_degs = n()) %>% group_by(class, num_studies) %>% mutate(total_num_DEGs = sum(num_degs)) %>%
-  spread(deg, num_degs, fill = 0)
-temp
+              # temp <- Reduce(rbind, res.all) %>% filter(pvalue < 0.01, abs(log2FoldChange) > 0)%>% select(gene_id, log2FoldChange, class) %>% separate(class, c('dataset', 'carriage', 'sex')) %>%
+              #   unite('class',carriage, sex, sep = '_') %>% mutate(deg = ifelse(log2FoldChange > 0, 'Up', 'Down')) %>% group_by(gene_id, deg, class) %>% summarize(num_studies = n()) %>%
+              #   group_by(class, num_studies, deg) %>% summarize(num_degs = n()) %>% group_by(class, num_studies) %>% mutate(total_num_DEGs = sum(num_degs)) %>%
+              #   spread(deg, num_degs, fill = 0)
+              # temp
+              #
+              # temp <- Reduce(rbind, res.all) %>% filter(padj < 0.01, abs(log2FoldChange) > 0)%>% select(gene_id, log2FoldChange, class) %>% separate(class, c('dataset', 'carriage', 'sex')) %>%
+              #   unite('class',carriage, sex, sep = '_') %>% mutate(deg = ifelse(log2FoldChange > 0, 'Up', 'Down')) %>% group_by(gene_id, deg, class) %>% summarize(num_studies = n()) %>%
+              #   group_by(class, num_studies, deg) %>% summarize(num_degs = n()) %>% group_by(class, num_studies) %>% mutate(total_num_DEGs = sum(num_degs)) %>%
+              #   spread(deg, num_degs, fill = 0)
+              # temp
 #### =============== META-DEGS =============== ####
 #--- Pcombined (Fischer method)
 # Select all pvalue columns
