@@ -134,6 +134,8 @@ logFC.df %>% rownames_to_column('genes') %>%
   write.table('intermediate/volunteer_wise_analysis/logFC.csv', sep = '\t',row.names = F, quote = F)
 
 #### =============== ssGSEA =============== ####
+dir.create('intermediate/volunteer_wise_analysis/ssGSEA')
+
 # ensembl to gene symbol
 # find GMT (Reactome)
 # run Single_Sample_GSEA_ssGSEA_fgsea.R
