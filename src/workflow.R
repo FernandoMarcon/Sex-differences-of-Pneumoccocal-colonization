@@ -110,6 +110,35 @@ names(res.all)
               #   group_by(class, num_studies, deg) %>% summarize(num_degs = n()) %>% group_by(class, num_studies) %>% mutate(total_num_DEGs = sum(num_degs)) %>%
               #   spread(deg, num_degs, fill = 0)
               # temp
+
+#--- logFC correlation
+# make table with logFCs
+logFC.df <- lapply(names(res.all), function(class.name) res.all[[class.name]][,c('gene_id','log2FoldChange')] %>%setNames(c('gene_id',class.name))) %>%
+  Reduce(function(x,y) merge(x,y,by = 'gene_id'),.) %>%
+    column_to_rownames('gene_id')
+# logFC.df <- logFC.df[,grep('Adults',colnames(logFC.df))]
+head(logFC.df)
+# filter genes
+perc.genes = .5
+
+# maxMean
+logFC.mean = sort(abs(rowMeans(logFC.df)), decreasing = T)
+selected_genes = names(logFC.mean[1:(nrow(logFC.df)*perc.genes)])
+plt.maxMean <- pheatmap::pheatmap(cor(logFC.df[selected_genes,]), legend_labels = 'cor',main = paste0('maxMean (',perc.genes*100,'% of top genes)'))
+
+pdf(file.path('intermediate/item6_DEtables/',paste0('corrplot_logFC_all_maxMean_',gsub('.*\\.','p',as.character(perc.genes)),'.pdf')))
+plt.maxMean
+dev.off()
+
+# maxVar
+logFC.var = sort(apply(logFC.df, 1, var), decreasing = T)
+selected_genes = names(logFC.var[1:(nrow(logFC.df)*.1)])
+plt.maxVar <- pheatmap::pheatmap(cor(logFC.df[selected_genes,]), legend_labels = 'cor',main = paste0('maxVar (',perc.genes*100,'% of top genes)'))
+
+pdf(file.path('intermediate/item6_DEtables/',paste0('corrplot_logFC_all_maxVar_',gsub('.*\\.','p',as.character(perc.genes)),'.pdf')))
+plt.maxVar
+dev.off()
+
 #### =============== META-DEGS =============== ####
 #--- Pcombined (Fischer method)
 # Select all pvalue columns
@@ -121,11 +150,15 @@ pvalues.df <- lapply(names(res.all), function(class.name) {
   }) %>% Reduce(function(x, y) merge(x, y, by = 'gene_id', all = T),.) %>% column_to_rownames('gene_id')
 
 # Calculate Pcombined for all datasets
-# Pcombined <- unlist(lapply(rownames(pvalues.df), function(x) {
-#   metap::sumlog(as.numeric(pvalues.df[x,])[!is.na(as.numeric(pvalues.df[x,]))])$p
-#   }))
-# pvalues.df$FisherMethodP <- Pcombined
-# pvalues.df$FDR <- p.adjust(Pcombined, method = "fdr", n = length(Pcombined))
+group.names
+
+
+
+Pcombined <- unlist(lapply(rownames(pvalues.df), function(x) {
+  metap::sumlog(as.numeric(pvalues.df[x,])[!is.na(as.numeric(pvalues.df[x,]))])$p
+  }))
+pvalues.df$FisherMethodP <- Pcombined
+pvalues.df$FDR <- p.adjust(Pcombined, method = "fdr", n = length(Pcombined))
 
 # Calculate Pcombined for Adults only
 comp_adults = grep('Adults', colnames(pvalues.df), value = T)
