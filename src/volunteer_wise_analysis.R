@@ -164,16 +164,20 @@ pval_cutoff <- 0.1
 ssGSEA(gmtfile=gmtfile,fileranks=fileranks,Ptype=Ptype,pval_cutoff=pval_cutoff)
 
 # plot
+# nes_padj <- read.delim('NES_logFC_ssGSEAinput.csv', row.names = 1)
 nes_padj <- read.delim('NES_padj0.1_logFC_ssGSEAinput.csv', row.names = 2)[,-1]
 colnames(nes_padj) = gsub('\\.','\\/',gsub('X','',colnames(nes_padj)))
 nes_padj = cbind(pathway = rownames(nes_padj),as.data.frame(apply(nes_padj, 2, as.numeric))) %>%
   column_to_rownames('pathway')
 nes_padj[is.na(nes_padj)] <- 0
+# nes_padj = nes_padj %>% mutate(row_mean = rowMeans(.)) %>%
+  # filter(abs(row_mean) > 0)
 
-pheno <- read.delim('../logFC_pheno.csv', row.names = 'volunteer_id')
-head(pheno)
+pheno <- read.delim('../logFC_pheno.csv', row.names = 1) %>%
+  separate('class',c('dataset','carriage', 'sex')) %>%
+  unite('group', carriage, sex, remove = F)
 
-group.name = group.names[1]
-
-
-pheatmap(nes_padj, show_rownames = F)
+plt.nes <- pheatmap(nes_padj, show_rownames = F, show_colnames = F, annotation_col = pheno)
+pdf('NES_padj0.1_logFC_allPaths_heatmap.pdf')
+plt.nes
+dev.off()
