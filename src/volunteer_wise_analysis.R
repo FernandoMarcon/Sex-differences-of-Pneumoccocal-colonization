@@ -142,11 +142,38 @@ rownames(pheno) <- pheno$volunteer_id
 
 # ensembl to gene symbol
 gene.dic <- read.delim('data/tidy_data/gene_annotation.csv')
-merge(gene.dic, logFC.df, by = 'gene_id') %>%
-  select(-gene_id) %>% rename(symbol = 'genes') %>%
-  write.table('intermediate/volunteer_wise_analysis/logFC_ssGSEAinput.csv', sep = '\t',row.names = F, quote = F)
+temp = merge(gene.dic, logFC.df, by = 'gene_id')
 
-# find GMT (Reactome)
+# remove duplicated genes
+temp = temp %>% filter(symbol != '') %>%
+  mutate(gene_mean = rowMeans(.[,-c(1,2)])) %>%
+  group_by(symbol) %>% filter(gene_mean == max(gene_mean)) %>%
+  select(-gene_mean) %>% select(-gene_id) %>%
+  rename(symbol = 'genes')
+head(temp)
+write.table(temp, 'intermediate/volunteer_wise_analysis/ssGSEA/logFC_ssGSEAinput.csv', sep = '\t',row.names = F, quote = F)
 
 # run Single_Sample_GSEA_ssGSEA_fgsea.R
+basedir <- '/home/marcon/Documents/work/Sex-differences-of-Pneumoccocal-colonization/'
+source(file.path(basedir,'src/Single_Sample_GSEA_ssGSEA_fgsea.R'))
+setwd(file.path(basedir,'intermediate/volunteer_wise_analysis/ssGSEA/'))
+gmtfile <- file.path(basedir,'data/Reactome_2016')
+fileranks <- "logFC_ssGSEAinput.csv"
+Ptype <- "padj"
+pval_cutoff <- 0.1
+ssGSEA(gmtfile=gmtfile,fileranks=fileranks,Ptype=Ptype,pval_cutoff=pval_cutoff)
+
 # plot
+nes_padj <- read.delim('NES_padj0.1_logFC_ssGSEAinput.csv', row.names = 2)[,-1]
+colnames(nes_padj) = gsub('\\.','\\/',gsub('X','',colnames(nes_padj)))
+nes_padj = cbind(pathway = rownames(nes_padj),as.data.frame(apply(nes_padj, 2, as.numeric))) %>%
+  column_to_rownames('pathway')
+nes_padj[is.na(nes_padj)] <- 0
+
+pheno <- read.delim('../logFC_pheno.csv', row.names = 'volunteer_id')
+head(pheno)
+
+group.name = group.names[1]
+
+
+pheatmap(nes_padj, show_rownames = F)

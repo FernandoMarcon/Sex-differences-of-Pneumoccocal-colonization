@@ -15,12 +15,12 @@ if(!all(functioning)){stop('Install Required Packages')}
 ################################################################
 ################################################################
 read.gmt <- function(fname){
-  res <- list(genes=list(), 
+  res <- list(genes=list(),
               desc=list())
   gmt <- file(fname)
   gmt.lines <- readLines(gmt)
   close(gmt)
-  gmt.list <- lapply(gmt.lines, 
+  gmt.list <- lapply(gmt.lines,
                      function(x) unlist(strsplit(x, split="\t")))
   gmt.names <- sapply(gmt.list, '[', 1)
   gmt.desc <- lapply(gmt.list, '[', 2)
@@ -33,12 +33,12 @@ read.gmt <- function(fname){
 ssGSEA <- function(gmtfile=gmtfile,fileranks=fileranks,Ptype=Ptype,pval_cutoff=pval_cutoff){
   ####Do not touch. Just run#######################
   read.gmt <- function(fname){
-    res <- list(genes=list(), 
+    res <- list(genes=list(),
                 desc=list())
     gmt <- file(fname)
     gmt.lines <- readLines(gmt)
     close(gmt)
-    gmt.list <- lapply(gmt.lines, 
+    gmt.list <- lapply(gmt.lines,
                        function(x) unlist(strsplit(x, split="\t")))
     gmt.names <- sapply(gmt.list, '[', 1)
     gmt.desc <- lapply(gmt.list, '[', 2)
@@ -47,7 +47,7 @@ ssGSEA <- function(gmtfile=gmtfile,fileranks=fileranks,Ptype=Ptype,pval_cutoff=p
     names(gmt.desc) <- names(gmt.genes) <- gmt.names
     return(gmt.genes)
   }
-  
+
   #Load gene sets
   gmt <- read.gmt(gmtfile)
   #Load ranks
@@ -55,31 +55,31 @@ ssGSEA <- function(gmtfile=gmtfile,fileranks=fileranks,Ptype=Ptype,pval_cutoff=p
   #remove rows with NA in any column
   ranks_df <- ranks_df[complete.cases(ranks_df), ]
   colnames(ranks_df)[1] <- "Genes"
-  
+
   ranks_ch <- colnames(ranks_df)[-1]
   ranks_ch <- setNames(ranks_ch, ranks_ch)
-  
+
   #run fastGSEA
   tmp_ranks <- lapply(ranks_ch, function(rankname){
     tmpdf <- ranks_df[,c('Genes', rankname)]
     tmpdf <- tmpdf[complete.cases(tmpdf),]
     tmpranks <- tmpdf[[rankname]]
     names(tmpranks) <- tmpdf$Genes
-    fgseaRes <- fgsea(pathways = gmt, stats = tmpranks, 
+    fgseaRes <- fgsea(pathways = gmt, stats = tmpranks,
                       minSize = 15, maxSize = 2000, nperm = 1000)
     fgseaRes <- as.data.frame(fgseaRes)
     fgseaRes <- fgseaRes[,c('pathway', 'pval', 'padj', 'NES','size','leadingEdge')]
     fgseaRes
   })
-  
-  
+
+
   # Remove ranks without enrichment
   tmp_ranks <- Filter(function(x) nrow(x) > 1, tmp_ranks)
-  
+
   # Write output NES
   rm(df)
   for(name_rank in names(tmp_ranks)){
-    rank_out <- tmp_ranks[[name_rank]] 
+    rank_out <- tmp_ranks[[name_rank]]
     xxx   <- rank_out[,"NES"]
     names(xxx) <- rank_out[,"pathway"]
     df <- cbind(df,xxx)
@@ -90,11 +90,11 @@ ssGSEA <- function(gmtfile=gmtfile,fileranks=fileranks,Ptype=Ptype,pval_cutoff=p
   df <- df[,-1]
   rank_nameout <- paste0('NES_', fileranks,sep="")
   write.table(df, file = rank_nameout, sep = '\t', quote = F, row.names = T,col.names=NA)
-  
+
   # Write output AdjP
   rm(df)
   for(name_rank in names(tmp_ranks)){
-    rank_out <- tmp_ranks[[name_rank]] 
+    rank_out <- tmp_ranks[[name_rank]]
     xxx   <- rank_out[,"padj"]
     names(xxx) <- rank_out[,"pathway"]
     df <- cbind(df,xxx)
@@ -105,11 +105,11 @@ ssGSEA <- function(gmtfile=gmtfile,fileranks=fileranks,Ptype=Ptype,pval_cutoff=p
   df <- df[,-1]
   rank_nameout <- paste0('padj_', fileranks,sep="")
   write.table(df, file = rank_nameout, sep = '\t', quote = F, row.names = T,col.names=NA)
-  
+
   # Write output pval
   rm(df)
   for(name_rank in names(tmp_ranks)){
-    rank_out <- tmp_ranks[[name_rank]] 
+    rank_out <- tmp_ranks[[name_rank]]
     xxx   <- rank_out[,"pval"]
     names(xxx) <- rank_out[,"pathway"]
     df <- cbind(df,xxx)
@@ -120,11 +120,11 @@ ssGSEA <- function(gmtfile=gmtfile,fileranks=fileranks,Ptype=Ptype,pval_cutoff=p
   df <- df[,-1]
   rank_nameout <- paste0('pval_', fileranks,sep="")
   write.table(df, file = rank_nameout, sep = '\t', quote = F, row.names = T,col.names=NA)
-  
+
   # Write output Leading Edge genes
   rm(df)
   for(name_rank in names(tmp_ranks)){
-    rank_out <- tmp_ranks[[name_rank]] 
+    rank_out <- tmp_ranks[[name_rank]]
     xxx   <- rank_out[,"leadingEdge"]
     names(xxx) <- rank_out[,"pathway"]
     df <- cbind(df,xxx)
@@ -135,23 +135,23 @@ ssGSEA <- function(gmtfile=gmtfile,fileranks=fileranks,Ptype=Ptype,pval_cutoff=p
   df <- df[,-1]
   rank_nameout <- paste0('LE_', fileranks,sep="")
   write.table(df, file = rank_nameout, sep = '\t', quote = F, row.names = T,col.names=NA)
-  
+
   nes <- data.table::fread(paste0('NES_', fileranks,sep=""))
   pval <- data.table::fread(paste0(Ptype,'_', fileranks,sep=""))
-  
+
   nes_melt <- nes %>%
     rename(pathway=V1) %>%
     gather(sample, nes, -pathway)
-  
+
   pval_melt <- pval %>%
     rename(pathway=V1) %>%
     gather(sample, pval, -pathway)
-  
+
   result <- full_join(nes_melt, pval_melt, by=c("pathway", "sample")) %>%
     filter(pval <= pval_cutoff) %>%
     select(pathway, sample, nes) %>%
     spread(sample, nes)
-  
+
   rank_nameout <- paste0('NES_',Ptype,pval_cutoff,"_", fileranks,sep="")
   write.table(result, file = rank_nameout, sep = '\t', quote = F, row.names = T,col.names=NA)
 }
@@ -169,19 +169,19 @@ ssGSEA <- function(gmtfile=gmtfile,fileranks=fileranks,Ptype=Ptype,pval_cutoff=p
 ################################################################
 ##################Change things here only#######################
 ################################################################
-setwd("~/Downloads/")
+# setwd("~/Documents/work/Sex-differences-of-Pneumoccocal-colonization/intermediate/volunteer_wise_analysis/ssGSEA")
 #Gene set file name:
 #(make sure there is no duplicated gene set name)
-gmtfile <- "GeneSet_test.gmt"
+# gmtfile <- "GeneSet_test.gmt"
+
 #Rank file name:
-fileranks <- "Xv0_test.txt"
+# fileranks <- "logFC_ssGSEAinput.csv"
 #Type of P-value significance for NES enrichment
 #Change Ptype to "pval" in case you want to use nominal P
 #instead of Adjusted P-value
-Ptype <- "padj"
+# Ptype <- "padj"
 #Cutoff used to call a pathway significant
-pval_cutoff <- 0.1
+# pval_cutoff <- 0.1
 
 #Run ssGSEA
-ssGSEA(gmtfile=gmtfile,fileranks=fileranks,Ptype=Ptype,pval_cutoff=pval_cutoff)
-
+# ssGSEA(gmtfile=gmtfile,fileranks=fileranks,Ptype=Ptype,pval_cutoff=pval_cutoff)
