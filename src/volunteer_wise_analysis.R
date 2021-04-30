@@ -153,10 +153,11 @@ temp = temp %>% filter(symbol != '') %>%
 head(temp)
 write.table(temp, 'intermediate/volunteer_wise_analysis/ssGSEA/logFC_ssGSEAinput.csv', sep = '\t',row.names = F, quote = F)
 
-# run Single_Sample_GSEA_ssGSEA_fgsea.R
 basedir <- '/home/marcon/Documents/work/Sex-differences-of-Pneumoccocal-colonization/'
-source(file.path(basedir,'src/Single_Sample_GSEA_ssGSEA_fgsea.R'))
 setwd(file.path(basedir,'intermediate/volunteer_wise_analysis/ssGSEA/'))
+
+# run Single_Sample_GSEA_ssGSEA_fgsea.R
+source(file.path(basedir,'src/Single_Sample_GSEA_ssGSEA_fgsea.R'))
 gmtfile <- file.path(basedir,'data/Reactome_2016')
 fileranks <- "logFC_ssGSEAinput.csv"
 Ptype <- "padj"
@@ -179,5 +180,29 @@ pheno <- read.delim('../logFC_pheno.csv', row.names = 1) %>%
 
 plt.nes <- pheatmap(nes_padj, show_rownames = F, show_colnames = F, annotation_col = pheno)
 pdf('NES_padj0.1_logFC_allPaths_heatmap.pdf')
+plt.nes
+dev.off()
+nes <- read.delim('NES_logFC_ssGSEAinput.csv', row.names = 1)
+padj <- read.delim('padj_logFC_ssGSEAinput.csv', row.names = 1)
+colnames(padj) <- colnames(nes) <- gsub('\\.','\\/',gsub('X','',colnames(nes)))
+pathways = rownames(nes)
+nes <- as.data.frame(apply(nes, 2, as.numeric))
+padj <- as.data.frame(apply(padj, 2, as.numeric))
+rownames(nes) <- rownames(padj) <- pathways
+identical(dimnames(nes),dimnames(padj))
+
+p.thrs = 0.01
+vol.perc = .7
+selected.pathways <- lapply(group.names, function(group.name){ #group.name = group.names[1]
+  selected.vol = pheno %>% filter(group == group.name) %>% rownames
+  temp <- padj[,intersect(colnames(padj), selected.vol)]
+  selected.pathways <- names(rowSums(temp < p.thrs) > ncol(temp)*vol.perc)
+  selected.pathways
+  }) %>% unlist %>% unique
+
+plt.nes <- pheatmap(nes[selected.pathways, ], show_rownames = F, show_colnames = F, annotation_col = pheno,
+  main = paste0('Pathways with padj < ',p.thrs,' for > ',vol.perc*100,'% of volunteers in a group'))
+
+pdf(paste0('NES_selectedPathways_padj_',p.thrs,'_volPerc_',vol.perc*100,'_heatmap.pdf'))
 plt.nes
 dev.off()
