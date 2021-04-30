@@ -1,5 +1,5 @@
 rm(list = ls())
-pkgs <- c('tidyverse','BiocParallel','DESeq2')
+pkgs <- c('tidyverse','BiocParallel','DESeq2','pheatmap','RColorBrewer')
 suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
 register(MulticoreParam(4))
 group.names <- c('POS_M','POS_F','NEG_M','NEG_F')
@@ -74,7 +74,6 @@ logFC.df <- lapply(dataset.names, function(dataset.name) {
   calc_log2FC(dataset)
   }) %>% Reduce(function(x,y) merge(x,y,by = 'gene_id'),.) %>%
     column_to_rownames('gene_id')
-
 head(logFC.df)
 
 pheno <- lapply(dataset.names, function(dataset.name) {
@@ -97,8 +96,6 @@ ggplot(pcr, aes(PC1, PC2, col= carriage)) + geom_point(size = 2) + theme_minimal
 ggplot(pcr, aes(PC1, PC2, col= sex)) + geom_point(size = 2) + theme_minimal() + theme(legend.position = 'top')
 ggplot(pcr, aes(PC1, PC2, col= class)) + geom_point(size = 2) + theme_minimal() + theme(legend.position = 'top')
 dev.off()
-library(pheatmap)
-library(RColorBrewer)
 # filter genes
 perc.genes = .5
 hm_breaks <- seq(-1, 1, length.out = 100)
@@ -118,7 +115,6 @@ pdf(file.path('intermediate/volunteer_wise_analysis/',paste0('vol_logFC_corSpear
 plt.maxMean
 dev.off()
 
-
 # maxMean
 logFC.var = sort(apply(logFC.df, 1, var), decreasing = T)
 selected_genes = names(logFC.var[1:(nrow(logFC.df)*.1)])
@@ -130,13 +126,27 @@ pdf(file.path('intermediate/volunteer_wise_analysis/',paste0('vol_logFC_corSpear
 plt.maxVar
 dev.off()
 
-logFC.df %>% rownames_to_column('genes') %>%
+# Save data
+logFC.df %>% rownames_to_column('gene_id') %>%
   write.table('intermediate/volunteer_wise_analysis/logFC.csv', sep = '\t',row.names = F, quote = F)
+write.table(pheno, 'intermediate/volunteer_wise_analysis/logFC_pheno.csv', sep = '\t',row.names = F, quote = F)
 
 #### =============== ssGSEA =============== ####
-dir.create('intermediate/volunteer_wise_analysis/ssGSEA')
+dir.create('intermediate/volunteer_wise_analysis/ssGSEA', showWarnings = F)
+
+logFC.df = read.delim('intermediate/volunteer_wise_analysis/logFC.csv')
+colnames(logFC.df) = gsub('X','',gsub('\\.','\\/',colnames(logFC.df)))
+
+pheno <- read.delim('intermediate/volunteer_wise_analysis/logFC_pheno.csv')
+rownames(pheno) <- pheno$volunteer_id
 
 # ensembl to gene symbol
+gene.dic <- read.delim('data/tidy_data/gene_annotation.csv')
+merge(gene.dic, logFC.df, by = 'gene_id') %>%
+  select(-gene_id) %>% rename(symbol = 'genes') %>%
+  write.table('intermediate/volunteer_wise_analysis/logFC_ssGSEAinput.csv', sep = '\t',row.names = F, quote = F)
+
 # find GMT (Reactome)
+
 # run Single_Sample_GSEA_ssGSEA_fgsea.R
 # plot
