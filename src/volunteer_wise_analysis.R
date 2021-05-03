@@ -226,3 +226,84 @@ plotPathway <- function(selected.pathway) {
 
 selected.pathway = selected.pathways[3]
 plotPathway(selected.pathway)
+
+hist(as.numeric(nes[1,]))
+
+nes.l <- nes %>% rownames_to_column('pathways') %>% gather('volunteer_id','nes', -pathways)
+nes.l <- pheno %>% rownames_to_column('volunteer_id') %>% merge(., nes.l, by = 'volunteer_id', all.y = T)
+head(nes.l)
+
+temp = nes.l %>% filter(pathways == selected.pathway)
+res_aov <- aov(nes ~ group, data = temp)
+
+library(car)
+par(mfrow = c(1,2))
+hist(res_aov$residuals)
+qqPlot(res_aov$residuals, id = F)
+shapiro.test(res_aov$residuals)
+boxplot(nes~group, data = temp)
+leveneTest(nes~group, data = temp)
+
+
+par(mfrow = c(1, 2)) # combine plots
+# 1. Homogeneity of variances
+plot(res_aov, which = 1)
+# 2. Normality
+plot(res_aov, which = 2)
+
+
+#--- Correlation between NES and Spn density
+meta <- read.delim('data/raw_data/EHPC_Density_Data_12MARCH2020.tsv', row.names = 1)
+meta = meta %>% filter(volunteer_id %in% colnames(nes)) %>%
+  mutate(density = ifelse(is.na(density), 0, density), density = log10(density + 1)) %>%
+  group_by(volunteer_id) %>% summarize(max_density = max(density))
+
+selected.pathway = selected.pathways[1]
+nes.l <- nes %>% rownames_to_column('pathways') %>% gather('volunteer_id','nes', -pathways)
+nes.l <- pheno %>% rownames_to_column('volunteer_id') %>% merge(., nes.l, by = 'volunteer_id', all.y = T)
+nes.l <- merge(nes.l, meta, by = 'volunteer_id', all.x = T)
+head(nes.l)
+temp = nes.l %>% filter(pathways == selected.pathway)
+
+ggplot(temp, aes(nes, max_density, col = group)) + geom_point() + theme(legend.position = 'top')
+res_lm <- lm(max_density ~ group + nes, data = temp)
+names(res_lm)
+res_lm$effects
+
+nes.l <- nes %>% rownames_to_column('pathways') %>% gather('volunteer_id','nes', -pathways)
+nes.l <- pheno %>% rownames_to_column('volunteer_id') %>% merge(., nes.l, by = 'volunteer_id', all.y = T)
+nes.l <- merge(nes.l, meta, by = 'volunteer_id', all.x = T)
+
+cor.res <- lapply(selected.pathways, function(selected.pathway){
+  temp = nes.l %>% filter(pathways == selected.pathway)
+  return(with(temp, cor(max_density, nes, method = 'spearman')))
+  }) %>% unlist %>% setNames(selected.pathways)
+
+boxplot(cor.res)
+
+
+density.paths <- names(which(abs(cor.res) > .2))
+plt.nes <- pheatmap(nes[density.paths, ], show_rownames = F, show_colnames = F, annotation_col = pheno,
+  main = paste0('Pathways with padj < ',p.thrs,' for > ',vol.perc*100,'% of volunteers in a group'))
+
+#---- Multivariate Analysis on Pahtways
+library(Factoshiny)
+library(FactoMineR)
+
+meta <- read.delim('data/raw_data/EHPC_Density_Data_12MARCH2020.tsv', row.names = 1)
+meta = meta %>% filter(volunteer_id %in% colnames(nes)) %>%
+  mutate(density = ifelse(is.na(density), 0, density), density = log10(density + 1)) %>%
+  group_by(volunteer_id) %>% mutate(max_density = max(density))
+
+mydata <- nes[selected.pathways,] %>% t %>% as.data.frame %>% rownames_to_column('volunteer_id') %>%
+  merge(meta,., by = 'volunteer_id',all.y = T) %>% mutate(sample_id = paste0(volunteer_id, '_', timepoint)) %>%
+  column_to_rownames('sample_id') %>% select(-study, -vaccine_date, -virus,-timepoint_naturalcarriage,-date_inoculated,
+    -group, -age, -vaccine, -virus_species, -serotype_naturalcarriage,-inoculation_dose, -inoculation_serotype
+    -volunteer_id) %>%
+  mutate(timepoint = as.numeric(gsub('D','',timepoint))) %>%
+head(mydata)
+
+# PCAshiny(Mydata)
+
+res.pca = PCA(mydata, quanti.sup=4,quali.sup=c(1:3,5:9))
+resshiny = PCAshiny(res.pca)
