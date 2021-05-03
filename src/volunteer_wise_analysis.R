@@ -164,9 +164,9 @@ Ptype <- "padj"
 pval_cutoff <- 0.1
 ssGSEA(gmtfile=gmtfile,fileranks=fileranks,Ptype=Ptype,pval_cutoff=pval_cutoff)
 
-# plot
+#### =============== ANALYSE PATHWAYS =============== ####
 # nes_padj <- read.delim('NES_logFC_ssGSEAinput.csv', row.names = 1)
-nes_padj <- read.delim('NES_padj0.1_logFC_ssGSEAinput.csv', row.names = 2)[,-1]
+nes_padj <- read.delim('intermediate/volunteer_wise_analysis/ssGSEA/NES_padj0.1_logFC_ssGSEAinput.csv', row.names = 2)[,-1]
 colnames(nes_padj) = gsub('\\.','\\/',gsub('X','',colnames(nes_padj)))
 nes_padj = cbind(pathway = rownames(nes_padj),as.data.frame(apply(nes_padj, 2, as.numeric))) %>%
   column_to_rownames('pathway')
@@ -174,16 +174,19 @@ nes_padj[is.na(nes_padj)] <- 0
 # nes_padj = nes_padj %>% mutate(row_mean = rowMeans(.)) %>%
   # filter(abs(row_mean) > 0)
 
-pheno <- read.delim('../logFC_pheno.csv', row.names = 1) %>%
+pheno <- read.delim('intermediate/volunteer_wise_analysis/logFC_pheno.csv', row.names = 1) %>%
   separate('class',c('dataset','carriage', 'sex')) %>%
   unite('group', carriage, sex, remove = F)
 
 plt.nes <- pheatmap(nes_padj, show_rownames = F, show_colnames = F, annotation_col = pheno)
-pdf('NES_padj0.1_logFC_allPaths_heatmap.pdf')
+
+pdf('intermediate/volunteer_wise_analysis/ssGSEA/NES_padj0.1_logFC_allPaths_heatmap.pdf')
 plt.nes
 dev.off()
-nes <- read.delim('NES_logFC_ssGSEAinput.csv', row.names = 1)
-padj <- read.delim('padj_logFC_ssGSEAinput.csv', row.names = 1)
+#--- Filter Pathways
+# Filter by padj < threshold for at least X% of volunteers in a given group
+nes <- read.delim('intermediate/volunteer_wise_analysis/ssGSEA/NES_logFC_ssGSEAinput.csv', row.names = 1)
+padj <- read.delim('intermediate/volunteer_wise_analysis/ssGSEA/padj_logFC_ssGSEAinput.csv', row.names = 1)
 colnames(padj) <- colnames(nes) <- gsub('\\.','\\/',gsub('X','',colnames(nes)))
 pathways = rownames(nes)
 nes <- as.data.frame(apply(nes, 2, as.numeric))
@@ -203,6 +206,23 @@ selected.pathways <- lapply(group.names, function(group.name){ #group.name = gro
 plt.nes <- pheatmap(nes[selected.pathways, ], show_rownames = F, show_colnames = F, annotation_col = pheno,
   main = paste0('Pathways with padj < ',p.thrs,' for > ',vol.perc*100,'% of volunteers in a group'))
 
-pdf(paste0('NES_selectedPathways_padj_',p.thrs,'_volPerc_',vol.perc*100,'_heatmap.pdf'))
+pdf(paste0('intermediate/volunteer_wise_analysis/ssGSEA/NES_selectedPathways_padj_',p.thrs,'_volPerc_',vol.perc*100,'_heatmap.pdf'))
 plt.nes
 dev.off()
+
+#--- NES Boxplot by group
+boxplot(t(nes[selected.pathways,]))
+
+
+head(nes.l)
+
+plotPathway <- function(selected.pathway) {
+  nes.l <- nes %>% rownames_to_column('pathways') %>% gather('volunteer_id', 'nes',-pathways) %>% filter(pathways == selected.pathway)
+  nes.l <- pheno %>% rownames_to_column('volunteer_id') %>%
+    merge(.,nes.l, by = 'volunteer_id', all.y = T)
+  ggplot(nes.l, aes(sex, nes, col = group)) + geom_boxplot(show.legend = F) + geom_jitter(show.legend = F, size = 3) +
+    facet_grid(.~carriage) + theme_linedraw() + labs(title = selected.pathway)
+}
+
+selected.pathway = selected.pathways[3]
+plotPathway(selected.pathway)
