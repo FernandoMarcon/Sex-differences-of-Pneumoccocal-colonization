@@ -1,0 +1,6 @@
+rm(list = ls())
+pkgs <- c('tidyverse','BiocParallel','DESeq2','pheatmap','RColorBrewer')
+suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
+register(MulticoreParam(4))
+group.names <- c('POS_M','POS_F','NEG_M','NEG_F')
+dataset.names <- c('Adults1','Adults2','Adults3','Elderly1')
