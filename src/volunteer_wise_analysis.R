@@ -183,6 +183,7 @@ plt.nes <- pheatmap(nes_padj, show_rownames = F, show_colnames = F, annotation_c
 pdf('intermediate/volunteer_wise_analysis/ssGSEA/NES_padj0.1_logFC_allPaths_heatmap.pdf')
 plt.nes
 dev.off()
+
 #--- Filter Pathways
 # Filter by padj < threshold for at least X% of volunteers in a given group
 nes <- read.delim('intermediate/volunteer_wise_analysis/ssGSEA/NES_logFC_ssGSEAinput.csv', row.names = 1)
@@ -281,6 +282,12 @@ cor.res <- lapply(selected.pathways, function(selected.pathway){
 
 boxplot(cor.res)
 
+rm(list = ls())
+pkgs <- c('tidyverse','BiocParallel','DESeq2','pheatmap','RColorBrewer')
+suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
+register(MulticoreParam(4))
+group.names <- c('POS_M','POS_F','NEG_M','NEG_F')
+dataset.names <- c('Adults1','Adults2','Adults3','Elderly1')
 
 density.paths <- names(which(abs(cor.res) > .2))
 plt.nes <- pheatmap(nes[density.paths, ], show_rownames = F, show_colnames = F, annotation_col = pheno,
@@ -288,22 +295,21 @@ plt.nes <- pheatmap(nes[density.paths, ], show_rownames = F, show_colnames = F, 
 
 #---- Multivariate Analysis on Pahtways
 library(Factoshiny)
-library(FactoMineR)
 
 meta <- read.delim('data/raw_data/EHPC_Density_Data_12MARCH2020.tsv', row.names = 1)
 meta = meta %>% filter(volunteer_id %in% colnames(nes)) %>%
-  mutate(density = ifelse(is.na(density), 0, density), density = log10(density + 1)) %>%
-  group_by(volunteer_id) %>% mutate(max_density = max(density))
+  # mutate(density = ifelse(is.na(density), 0, density), density = log10(density + 1)) %>%
+  mutate(density = log10(density + 1)) %>%
+  group_by(volunteer_id) %>% mutate(max_density = max(density, na,rm = T))
 
 mydata <- nes[selected.pathways,] %>% t %>% as.data.frame %>% rownames_to_column('volunteer_id') %>%
   merge(meta,., by = 'volunteer_id',all.y = T) %>% mutate(sample_id = paste0(volunteer_id, '_', timepoint)) %>%
   column_to_rownames('sample_id') %>% select(-study, -vaccine_date, -virus,-timepoint_naturalcarriage,-date_inoculated,
-    -group, -age, -vaccine, -virus_species, -serotype_naturalcarriage,-inoculation_dose, -inoculation_serotype
+    -group, -age, -vaccine, -virus_species, -serotype_naturalcarriage,-inoculation_dose, -inoculation_serotype,
     -volunteer_id) %>%
-  mutate(timepoint = as.numeric(gsub('D','',timepoint))) %>%
+  mutate(timepoint = as.numeric(gsub('D','',timepoint)))
 head(mydata)
 
 # PCAshiny(Mydata)
-
-res.pca = PCA(mydata, quanti.sup=4,quali.sup=c(1:3,5:9))
+res.pca = PCA(mydata, quanti.sup=3:5,quali.sup=1:2)
 resshiny = PCAshiny(res.pca)
