@@ -10,8 +10,8 @@ plotPathway <- function(selected.pathway) {
   nes.l <- nes %>% rownames_to_column('pathways') %>% gather('volunteer_id', 'nes',-pathways) %>% filter(pathways == selected.pathway)
   nes.l <- pheno %>% rownames_to_column('volunteer_id') %>%
     merge(.,nes.l, by = 'volunteer_id', all.y = T)
-  ggplot(nes.l, aes(sex, nes, col = group)) + geom_boxplot(show.legend = F) + geom_jitter(show.legend = F, size = 3) +
-    facet_grid(.~carriage) + theme_linedraw() + labs(title = selected.pathway)
+  ggplot(nes.l, aes(dataset, nes, col = dataset)) + geom_boxplot(show.legend = F) + geom_jitter(show.legend = F, size = 3) +
+    facet_grid(.~group) + theme_linedraw() + labs(title = selected.pathway)
 }
 
 #### =============== ANALYSE PATHWAYS =============== ####
@@ -59,9 +59,21 @@ plt.nes
 dev.off()
 
 #--- NES Boxplot by group
+head(pheno)
 selected.pathway = selected.pathways[1]
 plotPathway(selected.pathway)
 
 pdf(paste0('intermediate/volunteer_wise_analysis/ssGSEA/KEGG_2019/NES_selectedPathways_padj_',p.thrs,'_volPerc_',vol.perc*100,'_boxplot.pdf'))
 lapply(selected.pathways, plotPathway)
 dev.off()
+
+#---
+nes <- nes[selected.pathways,]
+nes.l <- nes %>% rownames_to_column('pathway') %>% gather('volunteer_id','nes', -pathway)
+nes.l <- pheno %>% rownames_to_column('volunteer_id') %>% unite('class',dataset, group) %>% select(-carriage, -sex) %>%
+  merge(.,nes.l, by = 'volunteer_id')
+
+nes.mean <- nes.l %>% group_by(class, pathway) %>% summarize(nes_mean = median(nes))
+head(nes.mean)
+temp = nes.mean %>% spread(class, nes_mean) %>% column_to_rownames('pathway')
+pheatmap(temp, show_rownames = F, col_annotation = pheno)
