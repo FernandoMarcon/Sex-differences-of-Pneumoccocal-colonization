@@ -158,7 +158,7 @@ setwd(file.path(basedir,'intermediate/volunteer_wise_analysis/ssGSEA/'))
 
 # run Single_Sample_GSEA_ssGSEA_fgsea.R
 source(file.path(basedir,'src/Single_Sample_GSEA_ssGSEA_fgsea.R'))
-gmtfile <- file.path(basedir,'data/Reactome_2016')
+gmtfile <- file.path(basedir,'data/KEGG_2019_Human') # Reactome_2016
 fileranks <- "logFC_ssGSEAinput.csv"
 Ptype <- "padj"
 pval_cutoff <- 0.1
