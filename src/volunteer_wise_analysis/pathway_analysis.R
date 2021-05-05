@@ -4,6 +4,7 @@ suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
 register(MulticoreParam(4))
 group.names <- c('POS_M','POS_F','NEG_M','NEG_F')
 dataset.names <- c('Adults1','Adults2','Adults3','Elderly1')
+gtm.db = 'KEGG_2019'
 
 #### =============== FUNCTIONS ================ ####
 plotPathway <- function(selected.pathway) {
@@ -77,3 +78,24 @@ nes.mean <- nes.l %>% group_by(class, pathway) %>% summarize(nes_mean = median(n
 head(nes.mean)
 temp = nes.mean %>% spread(class, nes_mean) %>% column_to_rownames('pathway')
 pheatmap(temp, show_rownames = F, col_annotation = pheno)
+
+
+head(nes)
+
+nes.l <- nes.l %>% mutate(class = gsub('Adults1|Adults2|Adults3','Adults',nes.l$class),
+                          nes = abs(nes))
+
+head(nes.l)
+anova_one_way <- lapply(split(nes.l, nes.l$pathway), aov, formula = nes~class)
+anova.pval <- sapply(anova_one_way, function(x) unlist(summary(x))[["Pr(>F)1"]])
+anova.pathways <- sort(anova.pval[which(anova.pval < .1)]) %>% as.data.frame %>%
+  setNames('padj') %>% rownames_to_column('pathway') %>%
+  mutate(padj = -log10(padj))
+
+plt.anovaPval <- ggplot(anova.pathways, aes(padj, reorder(pathway,padj), fill = padj)) +
+  geom_bar(stat = 'identity') +
+  labs(x = '-log10(padj)', title = 'ANOVA Test',subtitle = gtm.db, y = '')
+
+pdf(file.path('intermediate/volunteer_wise_analysis/ssGSEA',gtm.db,paste0('anova_selected_pathways_',gtm.db,'.pdf')))
+plt.anovaPval
+dev.off()
