@@ -74,19 +74,12 @@ nes.l <- nes %>% rownames_to_column('pathway') %>% gather('volunteer_id','nes', 
 nes.l <- pheno %>% rownames_to_column('volunteer_id') %>% unite('class',dataset, group) %>% select(-carriage, -sex) %>%
   merge(.,nes.l, by = 'volunteer_id')
 
-nes.mean <- nes.l %>% group_by(class, pathway) %>% summarize(nes_mean = median(nes))
-head(nes.mean)
-temp = nes.mean %>% spread(class, nes_mean) %>% column_to_rownames('pathway')
-pheatmap(temp, show_rownames = F, col_annotation = pheno)
-
-
-head(nes)
-
+# nes.mean <- nes.l %>% group_by(class, pathway) %>% summarize(nes_mean = median(nes))
+# temp = nes.mean %>% spread(class, nes_mean) %>% column_to_rownames('pathway')
+# pheatmap(temp, show_rownames = F, col_annotation = pheno)
 nes.l <- nes.l %>% mutate(class = gsub('Adults1|Adults2|Adults3','Adults',nes.l$class),
-                          nes = abs(nes))
-
-head(nes.l)
-anova_one_way <- lapply(split(nes.l, nes.l$pathway), aov, formula = nes~class)
+                          nes_abs = abs(nes))
+anova_one_way <- lapply(split(nes.l, nes.l$pathway), aov, formula = nes_abs~class)
 anova.pval <- sapply(anova_one_way, function(x) unlist(summary(x))[["Pr(>F)1"]])
 anova.pathways <- sort(anova.pval[which(anova.pval < .1)]) %>% as.data.frame %>%
   setNames('padj') %>% rownames_to_column('pathway') %>%
@@ -98,4 +91,19 @@ plt.anovaPval <- ggplot(anova.pathways, aes(padj, reorder(pathway,padj), fill = 
 
 pdf(file.path('intermediate/volunteer_wise_analysis/ssGSEA',gtm.db,paste0('anova_selected_pathways_',gtm.db,'.pdf')))
 plt.anovaPval
+dev.off()
+
+temp = nes.l[which(nes.l$pathway %in% anova.pathways$pathway),] %>%
+  separate(class, c('dataset', 'carriage','sex'), sep ='_')
+
+
+pdf(file.path('intermediate/volunteer_wise_analysis/ssGSEA',gtm.db,paste0('anova_selected_pathways_',gtm.db,'_boxplot.pdf')))
+lapply(unique(temp$pathway),function(selected.pathway) {
+  temp %>% filter(pathway == selected.pathway) %>%
+    ggplot(aes(dataset, nes, fill = dataset, color = dataset)) +
+    geom_jitter(show.legend = F) + geom_boxplot(show.legend = F, alpha = .3) +
+      facet_grid(.~sex+carriage) + theme_linedraw() + labs(x = '', y = 'NES',title= selected.pathway) +
+      theme( panel.grid.minor = element_blank(), panel.grid.major = element_blank())
+
+  })
 dev.off()
