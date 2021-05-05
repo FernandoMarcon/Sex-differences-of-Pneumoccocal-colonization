@@ -1,9 +1,10 @@
 rm(list = ls())
-pkgs <- c('tidyverse','BiocParallel','DESeq2','pheatmap','RColorBrewer')
+pkgs <- c('tidyverse','BiocParallel','DESeq2')
 suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
 register(MulticoreParam(4))
 group.names <- c('POS_M','POS_F','NEG_M','NEG_F')
 dataset.names <- c('Adults1','Adults2','Adults3','Elderly1')
+outdir = 'intermediate/volunteer_wise_analysis'
 
 #### =============== FUNCTIONS =============== ####
 testConsistency <- function(dataset) {
@@ -60,7 +61,10 @@ calc_log2FC <- function(dataset) {
     }) %>% Reduce(function(x,y) merge(x,y,by = 'gene_id',all = T),.) #%>% column_to_rownames('gene_id')
 }
 
-#### =============== RUN =============== ####
+#### ============================================= RUN ============================================= ####
+# Create directory
+if(!dir.exists(outdir)) dir.create(outdir)
+
 # Generate volunteer-wise logFCs table
 logFC.df <- lapply(dataset.names, function(dataset.name) {
   dataset <- loadDataset(dataset.name)
@@ -78,52 +82,10 @@ pheno <- lapply(dataset.names, function(dataset.name) {
   }) %>% Reduce(rbind, .)
 rownames(pheno) <- pheno$volunteer_id
 pheno <- pheno[colnames(logFC.df),]
-identical(rownames(pheno), colnames(logFC.df))
 head(pheno)
 
-pcr <- data.frame(prcomp(t(logFC.df))$x)
-pcr$class <- pheno$class
-pcr = pcr %>% separate(class, c('dataset','carriage','sex'), sep = '_', remove = F)
-pcr = pcr %>% unite('group', carriage, sex, sep = '_', remove = F)
-
-pdf('intermediate/volunteer_wise_analysis/pca_all.pdf')
-ggplot(pcr, aes(PC1, PC2, col= group)) + geom_point(size = 2) + theme_minimal() + theme(legend.position = 'top')
-ggplot(pcr, aes(PC1, PC2, col= dataset)) + geom_point(size = 2) + theme_minimal() + theme(legend.position = 'top')
-ggplot(pcr, aes(PC1, PC2, col= carriage)) + geom_point(size = 2) + theme_minimal() + theme(legend.position = 'top')
-ggplot(pcr, aes(PC1, PC2, col= sex)) + geom_point(size = 2) + theme_minimal() + theme(legend.position = 'top')
-ggplot(pcr, aes(PC1, PC2, col= class)) + geom_point(size = 2) + theme_minimal() + theme(legend.position = 'top')
-dev.off()
-# filter genes
-perc.genes = .5
-hm_breaks <- seq(-1, 1, length.out = 100)
-hm_color = colorRampPalette(rev(brewer.pal(n = 7, name = "RdYlBu")))(length(hm_breaks))
-cor.method = 'spearman'
-annotation_col = pheno %>% separate(class, c('dataset','carriage','sex')) %>% select(-volunteer_id)
-annotation_row = pheno %>% mutate(class = gsub('Adults|Elderly','',class))%>% select(-volunteer_id)
-
-# maxMean
-logFC.mean = sort(abs(rowMeans(logFC.df)), decreasing = T)
-selected_genes = names(logFC.mean[1:(nrow(logFC.df)*perc.genes)])
-cor.mtx <- cor(logFC.df[selected_genes,], method = cor.method)
-
-plt.maxMean <- pheatmap(cor.mtx, legend_labels = 'cor', annotation_col = annotation_col,annotation_row = annotation_row,
-  show_rownames = F, show_colnames = F,  color = hm_color,  breaks = hm_breaks, main = 'Correlation between volunteers logFC (maxMean)')
-pdf(file.path('intermediate/volunteer_wise_analysis/',paste0('vol_logFC_corSpearman_maxMean_',gsub('.*\\.','p',as.character(perc.genes)),'.pdf')))
-plt.maxMean
-dev.off()
-
-# maxMean
-logFC.var = sort(apply(logFC.df, 1, var), decreasing = T)
-selected_genes = names(logFC.var[1:(nrow(logFC.df)*.1)])
-cor.mtx <- cor(logFC.df[selected_genes,], method = cor.method)
-
-plt.maxVar <- pheatmap(cor.mtx, legend_labels = 'cor', annotation_col = annotation_col,annotation_row = annotation_row,
-  show_rownames = F, show_colnames = F,  color = hm_color,  breaks = hm_breaks, main = 'Correlation between volunteers logFC (maxVar)')
-pdf(file.path('intermediate/volunteer_wise_analysis/',paste0('vol_logFC_corSpearman_maxVar_',gsub('.*\\.','p',as.character(perc.genes)),'.pdf')))
-plt.maxVar
-dev.off()
-
-# Save data
-logFC.df %>% rownames_to_column('gene_id') %>%
-  write.table('intermediate/volunteer_wise_analysis/logFC.csv', sep = '\t',row.names = F, quote = F)
-write.table(pheno, 'intermediate/volunteer_wise_analysis/logFC_pheno.csv', sep = '\t',row.names = F, quote = F)
+# Write out tables
+if(identical(rownames(pheno), colnames(logFC.df))){
+  logFC.df %>% rownames_to_column('gene_id') %>% write.table(file.path(outdir, 'logFC_data.csv'), sep = '\t', quote = F, row.names = F)
+  pheno %>% write.table(file.path(outdir, 'logFC_pheno.csv'), sep = '\t', quote = F, row.names = F)
+}
