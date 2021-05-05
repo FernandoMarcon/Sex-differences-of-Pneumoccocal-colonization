@@ -61,6 +61,21 @@ calc_log2FC <- function(dataset) {
     }) %>% Reduce(function(x,y) merge(x,y,by = 'gene_id',all = T),.) #%>% column_to_rownames('gene_id')
 }
 
+cleanGenes <- function(logFC.df) {
+  # ensembl to gene symbol
+  gene.dic <- read.delim('data/tidy_data/gene_annotation.csv')
+  temp = logFC.df %>% rownames_to_column('gene_id') %>% merge(gene.dic, ., by = 'gene_id')
+
+  # remove duplicated genes
+  temp = temp %>% filter(symbol != '') %>%
+    mutate(gene_mean = rowMeans(.[,-c(1,2)])) %>%
+    group_by(symbol) %>% filter(gene_mean == max(gene_mean)) %>%
+    select(-gene_mean) %>% select(-gene_id)
+  colnames(temp)[1] <- 'genes'
+
+  return(temp)
+}
+
 #### ============================================= RUN ============================================= ####
 # Create directory
 if(!dir.exists(outdir)) dir.create(outdir)
@@ -84,8 +99,15 @@ rownames(pheno) <- pheno$volunteer_id
 pheno <- pheno[colnames(logFC.df),]
 head(pheno)
 
+logFC.clean <- cleanGenes(logFC.df)
+head(logFC.clean)
+
 # Write out tables
 if(identical(rownames(pheno), colnames(logFC.df))){
   logFC.df %>% rownames_to_column('gene_id') %>% write.table(file.path(outdir, 'logFC_data.csv'), sep = '\t', quote = F, row.names = F)
   pheno %>% write.table(file.path(outdir, 'logFC_pheno.csv'), sep = '\t', quote = F, row.names = F)
+}
+
+if(identical(rownames(pheno), colnames(logFC.clean)[-1])) {
+  write.table(logFC.clean, file.path(outdir, 'logFC_geneClean.csv'), sep = '\t',row.names = F, quote = F)
 }

@@ -7,7 +7,6 @@ basedir = 'intermediate/volunteer_wise_analysis'
 outdir <- file.path(basedir, 'EDA')
 if(!dir.exists(outdir)) dir.create(outdir)
 
-
 #### ============================================= EDA ============================================= ####
 logFC.df <- read.delim(file.path(basedir, 'logFC_data.csv'), row.names = 'gene_id')
 colnames(logFC.df) <- gsub('X','',gsub('\\.','\\/',colnames(logFC.df)))

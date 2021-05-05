@@ -1,32 +1,21 @@
 rm(list = ls())
-pkgs <- c('tidyverse','BiocParallel','DESeq2','pheatmap','RColorBrewer')
+pkgs <- c('tidyverse')
 suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
-register(MulticoreParam(4))
-group.names <- c('POS_M','POS_F','NEG_M','NEG_F')
-dataset.names <- c('Adults1','Adults2','Adults3','Elderly1')
+# group.names <- c('POS_M','POS_F','NEG_M','NEG_F')
+# dataset.names <- c('Adults1','Adults2','Adults3','Elderly1')
+basedir = 'intermediate/volunteer_wise_analysis'
+gtm.dbs <- list.files('data/GTM')
 
+#### ============================================= ssGSEA ============================================= ####
+gtm.db <- gtm.dbs[1]
+outdir <- file.path(basedir, 'ssGSEA', gtm.db)
+if(!dir.exists(outdir)) dir.create(outdir, recursive = F)
 
-#### =============== ssGSEA =============== ####
-dir.create('intermediate/volunteer_wise_analysis/ssGSEA', showWarnings = F)
-
-logFC.df = read.delim('intermediate/volunteer_wise_analysis/logFC.csv')
+logFC.df = read.delim(file.path(basedir, 'logFC_data.csv'))
 colnames(logFC.df) = gsub('X','',gsub('\\.','\\/',colnames(logFC.df)))
 
-pheno <- read.delim('intermediate/volunteer_wise_analysis/logFC_pheno.csv')
+pheno <- read.delim(file.path(basedir, 'logFC_pheno.csv'))
 rownames(pheno) <- pheno$volunteer_id
-
-# ensembl to gene symbol
-gene.dic <- read.delim('data/tidy_data/gene_annotation.csv')
-temp = merge(gene.dic, logFC.df, by = 'gene_id')
-
-# remove duplicated genes
-temp = temp %>% filter(symbol != '') %>%
-  mutate(gene_mean = rowMeans(.[,-c(1,2)])) %>%
-  group_by(symbol) %>% filter(gene_mean == max(gene_mean)) %>%
-  select(-gene_mean) %>% select(-gene_id) %>%
-  rename(symbol = 'genes')
-head(temp)
-write.table(temp, 'intermediate/volunteer_wise_analysis/ssGSEA/logFC_ssGSEAinput.csv', sep = '\t',row.names = F, quote = F)
 
 basedir <- '/home/marcon/Documents/work/Sex-differences-of-Pneumoccocal-colonization/'
 setwd(file.path(basedir,'intermediate/volunteer_wise_analysis/ssGSEA/'))
