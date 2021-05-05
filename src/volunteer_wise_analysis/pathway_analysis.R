@@ -1,11 +1,10 @@
 rm(list = ls())
-pkgs <- c('tidyverse','BiocParallel','DESeq2','pheatmap','RColorBrewer')
+pkgs <- c('tidyverse','pheatmap','RColorBrewer')
 suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
-register(MulticoreParam(4))
 group.names <- c('POS_M','POS_F','NEG_M','NEG_F')
-dataset.names <- c('Adults1','Adults2','Adults3','Elderly1')
-gtm.db = 'KEGG_2019'
+# dataset.names <- c('Adults1','Adults2','Adults3','Elderly1')
 
+gtm.dbs <- list.files('data/GTM')
 #### =============== FUNCTIONS ================ ####
 plotPathway <- function(selected.pathway) {
   nes.l <- nes %>% rownames_to_column('pathways') %>% gather('volunteer_id', 'nes',-pathways) %>% filter(pathways == selected.pathway)
@@ -15,34 +14,21 @@ plotPathway <- function(selected.pathway) {
     facet_grid(.~group) + theme_linedraw() + labs(title = selected.pathway)
 }
 
-#### =============== ANALYSE PATHWAYS =============== ####
-nes_padj <- read.delim('intermediate/volunteer_wise_analysis/ssGSEA/NES_padj0.1_logFC_ssGSEAinput.csv', row.names = 2)[,-1]
-colnames(nes_padj) = gsub('\\.','\\/',gsub('X','',colnames(nes_padj)))
-nes_padj = cbind(pathway = rownames(nes_padj),as.data.frame(apply(nes_padj, 2, as.numeric))) %>%
-  column_to_rownames('pathway')
-nes_padj[is.na(nes_padj)] <- 0
+#--- SELECT DB
+gtm.db = gtm.dbs[1]
+basedir <- file.path('intermediate/volunteer_wise_analysis/ssGSEA',gtm.db)
+list.files(basedir)
 
-pheno <- read.delim('intermediate/volunteer_wise_analysis/logFC_pheno.csv', row.names = 1) %>%
-  separate('class',c('dataset','carriage', 'sex')) %>%
-  unite('group', carriage, sex, remove = F)
+#--- LOAD DATA
+pheno <- read.delim(file.path('intermediate/volunteer_wise_analysis/logFC_pheno.csv'), row.names = 'volunteer_id')
+pheno <- pheno %>% separate(class, c('dataset', 'carriage','sex'), sep = '_') %>% unite('group', carriage, sex, sep = '_', remove = F)
 
-plt.nes <- pheatmap(nes_padj, show_rownames = F, show_colnames = F, annotation_col = pheno)
+nes <- read.delim(file.path(basedir, 'NES_logFC_geneClean.csv'), row.names = 1)
+padj <- read.delim(file.path(basedir, 'padj_logFC_geneClean.csv'), row.names = 1)
+colnames(padj) <- colnames(nes) <- gsub('X','',gsub('\\.','\\/',colnames(nes)))
 
-pdf('intermediate/volunteer_wise_analysis/ssGSEA/NES_padj0.1_logFC_allPaths_heatmap.pdf')
-plt.nes
-dev.off()
-
-#--- Filter Pathways
+#--- FILTERING
 # Filter by padj < threshold for at least X% of volunteers in a given group
-nes <- read.delim('intermediate/volunteer_wise_analysis/ssGSEA/NES_logFC_ssGSEAinput.csv', row.names = 1)
-padj <- read.delim('intermediate/volunteer_wise_analysis/ssGSEA/padj_logFC_ssGSEAinput.csv', row.names = 1)
-colnames(padj) <- colnames(nes) <- gsub('\\.','\\/',gsub('X','',colnames(nes)))
-pathways = rownames(nes)
-nes <- as.data.frame(apply(nes, 2, as.numeric))
-padj <- as.data.frame(apply(padj, 2, as.numeric))
-rownames(nes) <- rownames(padj) <- pathways
-identical(dimnames(nes),dimnames(padj))
-
 p.thrs = 0.01
 vol.perc = .7
 selected.pathways <- lapply(group.names, function(group.name){ #group.name = group.names[1]
@@ -52,58 +38,22 @@ selected.pathways <- lapply(group.names, function(group.name){ #group.name = gro
   selected.pathways
   }) %>% unlist %>% unique
 
-plt.nes <- pheatmap(nes[selected.pathways, ], show_rownames = F, show_colnames = F, annotation_col = pheno,
+nes = nes[selected.pathways, ]
+plt.nes <- pheatmap(nes, show_rownames = F, show_colnames = F, annotation_col = pheno,
   main = paste0('Pathways with padj < ',p.thrs,' for > ',vol.perc*100,'% of volunteers in a group'))
 
-pdf(paste0('intermediate/volunteer_wise_analysis/ssGSEA/KEGG_2019/NES_selectedPathways_padj_',p.thrs,'_volPerc_',vol.perc*100,'_heatmap.pdf'))
+pdf(file.path(basedir, paste0('NES_selectedPathways_padj_',p.thrs,'_volPerc_',vol.perc*100,'_heatmap.pdf')))
 plt.nes
 dev.off()
 
-#--- NES Boxplot by group
+
+
 head(pheno)
-selected.pathway = selected.pathways[1]
-plotPathway(selected.pathway)
+female.vols <- pheno %>% filter(sex == 'F') %>% rownames
+male.vols <- pheno %>% filter(sex == 'M') %>% rownames
 
-pdf(paste0('intermediate/volunteer_wise_analysis/ssGSEA/KEGG_2019/NES_selectedPathways_padj_',p.thrs,'_volPerc_',vol.perc*100,'_boxplot.pdf'))
-lapply(selected.pathways, plotPathway)
-dev.off()
+nes[,female.vols]
 
-#---
-nes <- nes[selected.pathways,]
-nes.l <- nes %>% rownames_to_column('pathway') %>% gather('volunteer_id','nes', -pathway)
-nes.l <- pheno %>% rownames_to_column('volunteer_id') %>% unite('class',dataset, group) %>% select(-carriage, -sex) %>%
-  merge(.,nes.l, by = 'volunteer_id')
-
-# nes.mean <- nes.l %>% group_by(class, pathway) %>% summarize(nes_mean = median(nes))
-# temp = nes.mean %>% spread(class, nes_mean) %>% column_to_rownames('pathway')
-# pheatmap(temp, show_rownames = F, col_annotation = pheno)
-nes.l <- nes.l %>% mutate(class = gsub('Adults1|Adults2|Adults3','Adults',nes.l$class),
-                          nes_abs = abs(nes))
-anova_one_way <- lapply(split(nes.l, nes.l$pathway), aov, formula = nes_abs~class)
-anova.pval <- sapply(anova_one_way, function(x) unlist(summary(x))[["Pr(>F)1"]])
-anova.pathways <- sort(anova.pval[which(anova.pval < .1)]) %>% as.data.frame %>%
-  setNames('padj') %>% rownames_to_column('pathway') %>%
-  mutate(padj = -log10(padj))
-
-plt.anovaPval <- ggplot(anova.pathways, aes(padj, reorder(pathway,padj), fill = padj)) +
-  geom_bar(stat = 'identity') +
-  labs(x = '-log10(padj)', title = 'ANOVA Test',subtitle = gtm.db, y = '')
-
-pdf(file.path('intermediate/volunteer_wise_analysis/ssGSEA',gtm.db,paste0('anova_selected_pathways_',gtm.db,'.pdf')))
-plt.anovaPval
-dev.off()
-
-temp = nes.l[which(nes.l$pathway %in% anova.pathways$pathway),] %>%
-  separate(class, c('dataset', 'carriage','sex'), sep ='_')
-
-
-pdf(file.path('intermediate/volunteer_wise_analysis/ssGSEA',gtm.db,paste0('anova_selected_pathways_',gtm.db,'_boxplot.pdf')))
-lapply(unique(temp$pathway),function(selected.pathway) {
-  temp %>% filter(pathway == selected.pathway) %>%
-    ggplot(aes(dataset, nes, fill = dataset, color = dataset)) +
-    geom_jitter(show.legend = F) + geom_boxplot(show.legend = F, alpha = .3) +
-      facet_grid(.~sex+carriage) + theme_linedraw() + labs(x = '', y = 'NES',title= selected.pathway) +
-      theme( panel.grid.minor = element_blank(), panel.grid.major = element_blank())
-
-  })
-dev.off()
+tTest_res <- apply(nes, 1, function(x) t.test(abs(x[female.vols]), abs(x[male.vols]))$p.value) %>%
+  as.data.frame %>% setNames('pval') %>% rownames_to_column('pathway')
+sum(tTest_res$pval < 0.01)
