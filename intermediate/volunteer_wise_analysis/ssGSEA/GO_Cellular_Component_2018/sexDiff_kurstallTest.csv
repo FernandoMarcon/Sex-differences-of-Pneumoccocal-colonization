@@ -1,0 +1,268 @@
+pathway	DB	n	statistic	df	p	method
+90S preribosome (GO:0030686)	GO_Cellular_Component_2018	63	3.67361111111111	1	0.0553	Kruskal-Wallis
+acetylcholine-gated channel complex (GO:0005892)	GO_Cellular_Component_2018	63	0.0326003086419746	1	0.857	Kruskal-Wallis
+actin cytoskeleton (GO:0015629)	GO_Cellular_Component_2018	63	0.140625	1	0.708	Kruskal-Wallis
+actin filament (GO:0005884)	GO_Cellular_Component_2018	63	0.463155864197546	1	0.496	Kruskal-Wallis
+actin-based cell projection (GO:0098858)	GO_Cellular_Component_2018	63	4.39834104938268	1	0.036	Kruskal-Wallis
+actomyosin (GO:0042641)	GO_Cellular_Component_2018	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+aggresome (GO:0016235)	GO_Cellular_Component_2018	63	0.356674382716051	1	0.55	Kruskal-Wallis
+AMPA glutamate receptor complex (GO:0032281)	GO_Cellular_Component_2018	63	0.37345679012347	1	0.541	Kruskal-Wallis
+anaphase-promoting complex (GO:0005680)	GO_Cellular_Component_2018	63	0.32426697530866	1	0.569	Kruskal-Wallis
+anchored component of external side of plasma membrane (GO:0031362)	GO_Cellular_Component_2018	63	0.140625	1	0.708	Kruskal-Wallis
+anchored component of plasma membrane (GO:0046658)	GO_Cellular_Component_2018	63	0.222993827160508	1	0.637	Kruskal-Wallis
+autophagosome (GO:0005776)	GO_Cellular_Component_2018	63	0.626736111111114	1	0.429	Kruskal-Wallis
+autophagosome membrane (GO:0000421)	GO_Cellular_Component_2018	63	0.426118827160508	1	0.514	Kruskal-Wallis
+axon (GO:0030424)	GO_Cellular_Component_2018	63	1.81500771604939	1	0.178	Kruskal-Wallis
+axonemal dynein complex (GO:0005858)	GO_Cellular_Component_2018	63	1.29706790123456	1	0.255	Kruskal-Wallis
+azurophil granule (GO:0042582)	GO_Cellular_Component_2018	63	0.340277777777771	1	0.56	Kruskal-Wallis
+azurophil granule lumen (GO:0035578)	GO_Cellular_Component_2018	63	0.604938271604908	1	0.437	Kruskal-Wallis
+azurophil granule membrane (GO:0035577)	GO_Cellular_Component_2018	63	0.0123456790123271	1	0.912	Kruskal-Wallis
+BAF-type complex (GO:0090544)	GO_Cellular_Component_2018	63	1.265625	1	0.261	Kruskal-Wallis
+bicellular tight junction (GO:0005923)	GO_Cellular_Component_2018	63	4.87673611111111	1	0.0272	Kruskal-Wallis
+BLOC-1 complex (GO:0031083)	GO_Cellular_Component_2018	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+brush border membrane (GO:0031526)	GO_Cellular_Component_2018	63	1.29706790123456	1	0.255	Kruskal-Wallis
+Cajal body (GO:0015030)	GO_Cellular_Component_2018	63	3.515625	1	0.0608	Kruskal-Wallis
+calcium channel complex (GO:0034704)	GO_Cellular_Component_2018	63	1.17361111111111	1	0.279	Kruskal-Wallis
+catenin complex (GO:0016342)	GO_Cellular_Component_2018	63	1.46006944444446	1	0.227	Kruskal-Wallis
+cation channel complex (GO:0034703)	GO_Cellular_Component_2018	63	0.111111111111114	1	0.739	Kruskal-Wallis
+caveola (GO:0005901)	GO_Cellular_Component_2018	63	2.37673611111111	1	0.123	Kruskal-Wallis
+cell cortex part (GO:0044448)	GO_Cellular_Component_2018	63	2.12673611111111	1	0.145	Kruskal-Wallis
+centriolar satellite (GO:0034451)	GO_Cellular_Component_2018	63	2.59567901234567	1	0.107	Kruskal-Wallis
+centriole (GO:0005814)	GO_Cellular_Component_2018	63	2.12673611111111	1	0.145	Kruskal-Wallis
+centrosome (GO:0005813)	GO_Cellular_Component_2018	63	3.0625	1	0.0801	Kruskal-Wallis
+CHD-type complex (GO:0090545)	GO_Cellular_Component_2018	63	0.865933641975317	1	0.352	Kruskal-Wallis
+chromatin (GO:0000785)	GO_Cellular_Component_2018	63	0.015625	1	0.901	Kruskal-Wallis
+chromosomal region (GO:0098687)	GO_Cellular_Component_2018	63	0.501736111111114	1	0.479	Kruskal-Wallis
+chromosome (GO:0005694)	GO_Cellular_Component_2018	63	3.21006944444446	1	0.0732	Kruskal-Wallis
+chromosome, centromeric region (GO:0000775)	GO_Cellular_Component_2018	63	0.390625	1	0.532	Kruskal-Wallis
+chromosome, telomeric region (GO:0000781)	GO_Cellular_Component_2018	63	4.28260030864197	1	0.0385	Kruskal-Wallis
+cis-Golgi network (GO:0005801)	GO_Cellular_Component_2018	63	0.541859567901241	1	0.462	Kruskal-Wallis
+clathrin adaptor complex (GO:0030131)	GO_Cellular_Component_2018	63	0.197530864197546	1	0.657	Kruskal-Wallis
+clathrin-coated endocytic vesicle (GO:0045334)	GO_Cellular_Component_2018	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+clathrin-coated endocytic vesicle membrane (GO:0030669)	GO_Cellular_Component_2018	63	0.210069444444457	1	0.647	Kruskal-Wallis
+clathrin-coated vesicle (GO:0030136)	GO_Cellular_Component_2018	63	1.05632716049382	1	0.304	Kruskal-Wallis
+clathrin-coated vesicle membrane (GO:0030665)	GO_Cellular_Component_2018	63	0.463155864197546	1	0.496	Kruskal-Wallis
+coated vesicle (GO:0030135)	GO_Cellular_Component_2018	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+condensed chromosome (GO:0000793)	GO_Cellular_Component_2018	63	2.77777777777777	1	0.0956	Kruskal-Wallis
+condensed chromosome kinetochore (GO:0000777)	GO_Cellular_Component_2018	63	0.463155864197546	1	0.496	Kruskal-Wallis
+condensed chromosome, centromeric region (GO:0000779)	GO_Cellular_Component_2018	63	1.14371141975309	1	0.285	Kruskal-Wallis
+condensed nuclear chromosome (GO:0000794)	GO_Cellular_Component_2018	63	2.68595679012347	1	0.101	Kruskal-Wallis
+contractile actin filament bundle (GO:0097517)	GO_Cellular_Component_2018	63	0.222993827160508	1	0.637	Kruskal-Wallis
+contractile fiber (GO:0043292)	GO_Cellular_Component_2018	63	2.46315586419755	1	0.117	Kruskal-Wallis
+COPI-coated vesicle membrane (GO:0030663)	GO_Cellular_Component_2018	63	0.26408179012347	1	0.607	Kruskal-Wallis
+COPII-coated ER to Golgi transport vesicle (GO:0030134)	GO_Cellular_Component_2018	63	0.293402777777771	1	0.588	Kruskal-Wallis
+cortical actin cytoskeleton (GO:0030864)	GO_Cellular_Component_2018	63	1.92901234567901	1	0.165	Kruskal-Wallis
+cortical cytoskeleton (GO:0030863)	GO_Cellular_Component_2018	63	2.50694444444446	1	0.113	Kruskal-Wallis
+Cul2-RING ubiquitin ligase complex (GO:0031462)	GO_Cellular_Component_2018	63	0.390625	1	0.532	Kruskal-Wallis
+Cul3-RING ubiquitin ligase complex (GO:0031463)	GO_Cellular_Component_2018	63	2.37673611111111	1	0.123	Kruskal-Wallis
+Cul4-RING E3 ubiquitin ligase complex (GO:0080008)	GO_Cellular_Component_2018	63	0.102044753086432	1	0.749	Kruskal-Wallis
+cullin-RING ubiquitin ligase complex (GO:0031461)	GO_Cellular_Component_2018	63	0.30864197530866	1	0.579	Kruskal-Wallis
+cytoplasmic dynein complex (GO:0005868)	GO_Cellular_Component_2018	63	6.60204475308643	1	0.0102	Kruskal-Wallis
+cytoplasmic exosome (RNase complex) (GO:0000177)	GO_Cellular_Component_2018	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+cytoplasmic microtubule (GO:0005881)	GO_Cellular_Component_2018	63	2.59567901234567	1	0.107	Kruskal-Wallis
+cytoplasmic ribonucleoprotein granule (GO:0036464)	GO_Cellular_Component_2018	63	0.30864197530866	1	0.579	Kruskal-Wallis
+cytoplasmic stress granule (GO:0010494)	GO_Cellular_Component_2018	63	4.22530864197532	1	0.0398	Kruskal-Wallis
+cytoplasmic vesicle (GO:0031410)	GO_Cellular_Component_2018	63	0.32426697530866	1	0.569	Kruskal-Wallis
+cytoplasmic vesicle lumen (GO:0060205)	GO_Cellular_Component_2018	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+cytoplasmic vesicle membrane (GO:0030659)	GO_Cellular_Component_2018	63	0.765625	1	0.382	Kruskal-Wallis
+cytoskeleton (GO:0005856)	GO_Cellular_Component_2018	63	0.717785493827165	1	0.397	Kruskal-Wallis
+cytosolic large ribosomal subunit (GO:0022625)	GO_Cellular_Component_2018	63	0	1	1	Kruskal-Wallis
+cytosolic part (GO:0044445)	GO_Cellular_Component_2018	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+cytosolic ribosome (GO:0022626)	GO_Cellular_Component_2018	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+cytosolic small ribosomal subunit (GO:0022627)	GO_Cellular_Component_2018	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+dendrite (GO:0030425)	GO_Cellular_Component_2018	63	3.62056327160491	1	0.0571	Kruskal-Wallis
+dendrite membrane (GO:0032590)	GO_Cellular_Component_2018	63	0.111111111111114	1	0.739	Kruskal-Wallis
+DNA-directed RNA polymerase II, core complex (GO:0005665)	GO_Cellular_Component_2018	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+DNA-directed RNA polymerase II, holoenzyme (GO:0016591)	GO_Cellular_Component_2018	63	0.891975308641975	1	0.345	Kruskal-Wallis
+DNA-directed RNA polymerase III complex (GO:0005666)	GO_Cellular_Component_2018	63	0.648919753086432	1	0.42	Kruskal-Wallis
+early endosome (GO:0005769)	GO_Cellular_Component_2018	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+early endosome membrane (GO:0031901)	GO_Cellular_Component_2018	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+endocytic vesicle (GO:0030139)	GO_Cellular_Component_2018	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+endocytic vesicle lumen (GO:0071682)	GO_Cellular_Component_2018	63	0.390625	1	0.532	Kruskal-Wallis
+endolysosome (GO:0036019)	GO_Cellular_Component_2018	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+endoplasmic reticulum exit site (GO:0070971)	GO_Cellular_Component_2018	63	0.790123456790155	1	0.374	Kruskal-Wallis
+endoplasmic reticulum lumen (GO:0005788)	GO_Cellular_Component_2018	63	0.26408179012347	1	0.607	Kruskal-Wallis
+endoplasmic reticulum tubular network (GO:0071782)	GO_Cellular_Component_2018	63	8.42611882716051	1	0.0037	Kruskal-Wallis
+endoplasmic reticulum-Golgi intermediate compartment (GO:0005793)	GO_Cellular_Component_2018	63	0.023341049382708	1	0.879	Kruskal-Wallis
+endoplasmic reticulum-Golgi intermediate compartment membrane (GO:0033116)	GO_Cellular_Component_2018	63	0.604938271604908	1	0.437	Kruskal-Wallis
+endosomal part (GO:0044440)	GO_Cellular_Component_2018	63	0.865933641975317	1	0.352	Kruskal-Wallis
+endosome lumen (GO:0031904)	GO_Cellular_Component_2018	63	0.151234567901241	1	0.697	Kruskal-Wallis
+ER to Golgi transport vesicle membrane (GO:0012507)	GO_Cellular_Component_2018	63	1.05632716049382	1	0.304	Kruskal-Wallis
+ESC/E(Z) complex (GO:0035098)	GO_Cellular_Component_2018	63	0.765625	1	0.382	Kruskal-Wallis
+exocytic vesicle (GO:0070382)	GO_Cellular_Component_2018	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+fibrillar center (GO:0001650)	GO_Cellular_Component_2018	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+ficolin-1-rich granule (GO:0101002)	GO_Cellular_Component_2018	63	0.0850694444444571	1	0.771	Kruskal-Wallis
+ficolin-1-rich granule lumen (GO:1904813)	GO_Cellular_Component_2018	63	0.173611111111114	1	0.677	Kruskal-Wallis
+ficolin-1-rich granule membrane (GO:0101003)	GO_Cellular_Component_2018	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+filopodium (GO:0030175)	GO_Cellular_Component_2018	63	5.00019290123456	1	0.0253	Kruskal-Wallis
+focal adhesion (GO:0005925)	GO_Cellular_Component_2018	63	0.0689846308893891	1	0.793	Kruskal-Wallis
+GABA-A receptor complex (GO:1902711)	GO_Cellular_Component_2018	63	1.08506944444446	1	0.298	Kruskal-Wallis
+Golgi cis cisterna (GO:0000137)	GO_Cellular_Component_2018	63	0	1	1	Kruskal-Wallis
+Golgi cisterna (GO:0031985)	GO_Cellular_Component_2018	63	0.023341049382708	1	0.879	Kruskal-Wallis
+Golgi cisterna membrane (GO:0032580)	GO_Cellular_Component_2018	63	0.023341049382708	1	0.879	Kruskal-Wallis
+Golgi lumen (GO:0005796)	GO_Cellular_Component_2018	63	0.37345679012347	1	0.541	Kruskal-Wallis
+Golgi membrane (GO:0000139)	GO_Cellular_Component_2018	63	0.444444444444457	1	0.505	Kruskal-Wallis
+Golgi stack (GO:0005795)	GO_Cellular_Component_2018	63	2.59567901234567	1	0.107	Kruskal-Wallis
+Golgi subcompartment (GO:0098791)	GO_Cellular_Component_2018	63	0.717785493827165	1	0.397	Kruskal-Wallis
+Golgi-associated vesicle (GO:0005798)	GO_Cellular_Component_2018	63	0.583526234567898	1	0.445	Kruskal-Wallis
+heterochromatin (GO:0000792)	GO_Cellular_Component_2018	63	0.210069444444457	1	0.647	Kruskal-Wallis
+histone acetyltransferase complex (GO:0000123)	GO_Cellular_Component_2018	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+histone methyltransferase complex (GO:0035097)	GO_Cellular_Component_2018	63	0.444444444444457	1	0.505	Kruskal-Wallis
+Ino80 complex (GO:0031011)	GO_Cellular_Component_2018	63	0.444444444444457	1	0.505	Kruskal-Wallis
+INO80-type complex (GO:0097346)	GO_Cellular_Component_2018	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+integral component of endoplasmic reticulum membrane (GO:0030176)	GO_Cellular_Component_2018	63	0.37345679012347	1	0.541	Kruskal-Wallis
+integral component of Golgi membrane (GO:0030173)	GO_Cellular_Component_2018	63	1.1141975308642	1	0.291	Kruskal-Wallis
+integral component of lumenal side of endoplasmic reticulum membrane (GO:0071556)	GO_Cellular_Component_2018	63	2.96604938271605	1	0.085	Kruskal-Wallis
+integral component of mitochondrial inner membrane (GO:0031305)	GO_Cellular_Component_2018	63	3.72704475308643	1	0.0535	Kruskal-Wallis
+integral component of mitochondrial membrane (GO:0032592)	GO_Cellular_Component_2018	63	2.2085262345679	1	0.137	Kruskal-Wallis
+integral component of mitochondrial outer membrane (GO:0031307)	GO_Cellular_Component_2018	63	0.00694444444445708	1	0.934	Kruskal-Wallis
+integral component of plasma membrane (GO:0005887)	GO_Cellular_Component_2018	63	0.0214304612399587	1	0.884	Kruskal-Wallis
+intercalated disc (GO:0014704)	GO_Cellular_Component_2018	63	2.46315586419755	1	0.117	Kruskal-Wallis
+intermediate filament (GO:0005882)	GO_Cellular_Component_2018	63	2.00694444444446	1	0.157	Kruskal-Wallis
+intermediate filament cytoskeleton (GO:0045111)	GO_Cellular_Component_2018	63	1.36111111111111	1	0.243	Kruskal-Wallis
+intrinsic component of external side of plasma membrane (GO:0031233)	GO_Cellular_Component_2018	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+intrinsic component of mitochondrial inner membrane (GO:0031304)	GO_Cellular_Component_2018	63	2.2085262345679	1	0.137	Kruskal-Wallis
+intrinsic component of mitochondrial outer membrane (GO:0031306)	GO_Cellular_Component_2018	63	0.015625	1	0.901	Kruskal-Wallis
+intrinsic component of the cytoplasmic side of the plasma membrane (GO:0031235)	GO_Cellular_Component_2018	63	0.356674382716051	1	0.55	Kruskal-Wallis
+ionotropic glutamate receptor complex (GO:0008328)	GO_Cellular_Component_2018	63	0.23630401234567	1	0.627	Kruskal-Wallis
+keratin filament (GO:0045095)	GO_Cellular_Component_2018	63	1.74093364197532	1	0.187	Kruskal-Wallis
+kinesin complex (GO:0005871)	GO_Cellular_Component_2018	63	2.29185956790124	1	0.13	Kruskal-Wallis
+lamellar body (GO:0042599)	GO_Cellular_Component_2018	63	0.111111111111114	1	0.739	Kruskal-Wallis
+large ribosomal subunit (GO:0015934)	GO_Cellular_Component_2018	63	0	1	1	Kruskal-Wallis
+late endosome (GO:0005770)	GO_Cellular_Component_2018	63	1.5625	1	0.211	Kruskal-Wallis
+late endosome membrane (GO:0031902)	GO_Cellular_Component_2018	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+lipid droplet (GO:0005811)	GO_Cellular_Component_2018	63	0.015625	1	0.901	Kruskal-Wallis
+lysosomal lumen (GO:0043202)	GO_Cellular_Component_2018	63	1.32889660493825	1	0.249	Kruskal-Wallis
+lysosomal membrane (GO:0005765)	GO_Cellular_Component_2018	63	1.05632716049382	1	0.304	Kruskal-Wallis
+lysosome (GO:0005764)	GO_Cellular_Component_2018	63	1.33882590073065	1	0.247	Kruskal-Wallis
+lytic vacuole (GO:0000323)	GO_Cellular_Component_2018	63	0.541859567901241	1	0.462	Kruskal-Wallis
+lytic vacuole membrane (GO:0098852)	GO_Cellular_Component_2018	63	2.25	1	0.134	Kruskal-Wallis
+main axon (GO:0044304)	GO_Cellular_Component_2018	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+melanosome (GO:0042470)	GO_Cellular_Component_2018	63	0.32426697530866	1	0.569	Kruskal-Wallis
+membrane raft (GO:0045121)	GO_Cellular_Component_2018	63	0.130401234567898	1	0.718	Kruskal-Wallis
+MHC protein complex (GO:0042611)	GO_Cellular_Component_2018	63	2.04648919753089	1	0.153	Kruskal-Wallis
+microbody (GO:0042579)	GO_Cellular_Component_2018	63	1.5625	1	0.211	Kruskal-Wallis
+microbody lumen (GO:0031907)	GO_Cellular_Component_2018	63	0.102044753086432	1	0.749	Kruskal-Wallis
+microtubule (GO:0005874)	GO_Cellular_Component_2018	63	3.78086419753086	1	0.0518	Kruskal-Wallis
+microtubule cytoskeleton (GO:0015630)	GO_Cellular_Component_2018	63	3.36111111111111	1	0.0668	Kruskal-Wallis
+microtubule end (GO:1990752)	GO_Cellular_Component_2018	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+microtubule organizing center (GO:0005815)	GO_Cellular_Component_2018	63	2.82426697530866	1	0.0928	Kruskal-Wallis
+microtubule organizing center part (GO:0044450)	GO_Cellular_Component_2018	63	2.46315586419755	1	0.117	Kruskal-Wallis
+microvillus (GO:0005902)	GO_Cellular_Component_2018	63	1	1	0.317	Kruskal-Wallis
+mitochondrial envelope (GO:0005740)	GO_Cellular_Component_2018	63	0.626736111111114	1	0.429	Kruskal-Wallis
+mitochondrial inner membrane (GO:0005743)	GO_Cellular_Component_2018	63	0.120563271604908	1	0.728	Kruskal-Wallis
+mitochondrial intermembrane space (GO:0005758)	GO_Cellular_Component_2018	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+mitochondrial large ribosomal subunit (GO:0005762)	GO_Cellular_Component_2018	63	0.790123456790155	1	0.374	Kruskal-Wallis
+mitochondrial matrix (GO:0005759)	GO_Cellular_Component_2018	63	0.0557484567901554	1	0.813	Kruskal-Wallis
+mitochondrial outer membrane (GO:0005741)	GO_Cellular_Component_2018	63	0.741512345679013	1	0.389	Kruskal-Wallis
+mitochondrial respiratory chain complex I (GO:0005747)	GO_Cellular_Component_2018	63	0.0123456790123271	1	0.912	Kruskal-Wallis
+mitochondrial respiratory chain complex IV (GO:0005751)	GO_Cellular_Component_2018	63	3.01408179012344	1	0.0825	Kruskal-Wallis
+mitochondrial small ribosomal subunit (GO:0005763)	GO_Cellular_Component_2018	63	2.12673611111111	1	0.145	Kruskal-Wallis
+mitochondrion (GO:0005739)	GO_Cellular_Component_2018	63	1.53096539162118	1	0.216	Kruskal-Wallis
+mitotic spindle (GO:0072686)	GO_Cellular_Component_2018	63	1.49382716049382	1	0.222	Kruskal-Wallis
+mitotic spindle pole (GO:0097431)	GO_Cellular_Component_2018	63	2.59567901234567	1	0.107	Kruskal-Wallis
+MLL1 complex (GO:0071339)	GO_Cellular_Component_2018	63	1.59741512345681	1	0.206	Kruskal-Wallis
+MLL1/2 complex (GO:0044665)	GO_Cellular_Component_2018	63	1.59741512345681	1	0.206	Kruskal-Wallis
+mRNA cleavage and polyadenylation specificity factor complex (GO:0005847)	GO_Cellular_Component_2018	63	0.671489197530889	1	0.413	Kruskal-Wallis
+multivesicular body (GO:0005771)	GO_Cellular_Component_2018	63	1.14371141975309	1	0.285	Kruskal-Wallis
+myofibril (GO:0030016)	GO_Cellular_Component_2018	63	2.00694444444446	1	0.157	Kruskal-Wallis
+nuclear body (GO:0016604)	GO_Cellular_Component_2018	63	0.762358276643994	1	0.383	Kruskal-Wallis
+nuclear chromatin (GO:0000790)	GO_Cellular_Component_2018	63	0.185378086419774	1	0.667	Kruskal-Wallis
+nuclear chromosome (GO:0000228)	GO_Cellular_Component_2018	63	3.01408179012347	1	0.0825	Kruskal-Wallis
+nuclear chromosome part (GO:0044454)	GO_Cellular_Component_2018	63	0.187503149407945	1	0.665	Kruskal-Wallis
+nuclear chromosome, telomeric region (GO:0000784)	GO_Cellular_Component_2018	63	4.28260030864197	1	0.0385	Kruskal-Wallis
+nuclear cyclin-dependent protein kinase holoenzyme complex (GO:0019908)	GO_Cellular_Component_2018	63	1.66840277777777	1	0.196	Kruskal-Wallis
+nuclear DNA-directed RNA polymerase complex (GO:0055029)	GO_Cellular_Component_2018	63	4.34027777777777	1	0.0372	Kruskal-Wallis
+nuclear heterochromatin (GO:0005720)	GO_Cellular_Component_2018	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+nuclear inner membrane (GO:0005637)	GO_Cellular_Component_2018	63	1.14371141975309	1	0.285	Kruskal-Wallis
+nuclear matrix (GO:0016363)	GO_Cellular_Component_2018	63	0.130401234567898	1	0.718	Kruskal-Wallis
+nuclear periphery (GO:0034399)	GO_Cellular_Component_2018	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+nuclear replisome (GO:0043601)	GO_Cellular_Component_2018	63	0.25	1	0.617	Kruskal-Wallis
+nuclear speck (GO:0016607)	GO_Cellular_Component_2018	63	0.00694444444445708	1	0.934	Kruskal-Wallis
+nuclear transcription factor complex (GO:0044798)	GO_Cellular_Component_2018	63	4.22530864197532	1	0.0398	Kruskal-Wallis
+nuclear ubiquitin ligase complex (GO:0000152)	GO_Cellular_Component_2018	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+nucleolar part (GO:0044452)	GO_Cellular_Component_2018	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+nucleolus (GO:0005730)	GO_Cellular_Component_2018	63	3.59447004608293	1	0.058	Kruskal-Wallis
+nucleoplasm part (GO:0044451)	GO_Cellular_Component_2018	63	0.0326003086419746	1	0.857	Kruskal-Wallis
+NuRD complex (GO:0016581)	GO_Cellular_Component_2018	63	0.865933641975317	1	0.352	Kruskal-Wallis
+P granule (GO:0043186)	GO_Cellular_Component_2018	63	0	1	1	Kruskal-Wallis
+P-body (GO:0000932)	GO_Cellular_Component_2018	63	0.32426697530866	1	0.569	Kruskal-Wallis
+pericentriolar material (GO:0000242)	GO_Cellular_Component_2018	63	2.640625	1	0.104	Kruskal-Wallis
+perinuclear region of cytoplasm (GO:0048471)	GO_Cellular_Component_2018	63	0.26408179012347	1	0.607	Kruskal-Wallis
+peroxisomal matrix (GO:0005782)	GO_Cellular_Component_2018	63	0.102044753086432	1	0.749	Kruskal-Wallis
+peroxisomal membrane (GO:0005778)	GO_Cellular_Component_2018	63	2.59567901234567	1	0.107	Kruskal-Wallis
+peroxisomal part (GO:0044439)	GO_Cellular_Component_2018	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+peroxisome (GO:0005777)	GO_Cellular_Component_2018	63	1.5625	1	0.211	Kruskal-Wallis
+phagocytic vesicle (GO:0045335)	GO_Cellular_Component_2018	63	0.111111111111114	1	0.739	Kruskal-Wallis
+phagocytic vesicle membrane (GO:0030670)	GO_Cellular_Component_2018	63	0.293402777777771	1	0.588	Kruskal-Wallis
+pigment granule (GO:0048770)	GO_Cellular_Component_2018	63	0.32426697530866	1	0.569	Kruskal-Wallis
+platelet alpha granule (GO:0031091)	GO_Cellular_Component_2018	63	0.40817901234567	1	0.523	Kruskal-Wallis
+platelet alpha granule lumen (GO:0031093)	GO_Cellular_Component_2018	63	0.0625	1	0.803	Kruskal-Wallis
+platelet alpha granule membrane (GO:0031092)	GO_Cellular_Component_2018	63	2.25	1	0.134	Kruskal-Wallis
+platelet dense granule (GO:0042827)	GO_Cellular_Component_2018	63	3.01408179012344	1	0.0825	Kruskal-Wallis
+PML body (GO:0016605)	GO_Cellular_Component_2018	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+polymeric cytoskeletal fiber (GO:0099513)	GO_Cellular_Component_2018	63	5.18827160493825	1	0.0227	Kruskal-Wallis
+polysomal ribosome (GO:0042788)	GO_Cellular_Component_2018	63	0.173611111111114	1	0.677	Kruskal-Wallis
+polysome (GO:0005844)	GO_Cellular_Component_2018	63	0.32426697530866	1	0.569	Kruskal-Wallis
+pre-autophagosomal structure (GO:0000407)	GO_Cellular_Component_2018	63	3.515625	1	0.0608	Kruskal-Wallis
+precatalytic spliceosome (GO:0071011)	GO_Cellular_Component_2018	63	1	1	0.317	Kruskal-Wallis
+preribosome (GO:0030684)	GO_Cellular_Component_2018	63	4.63445216049382	1	0.0313	Kruskal-Wallis
+preribosome, large subunit precursor (GO:0030687)	GO_Cellular_Component_2018	63	2.87114197530866	1	0.0902	Kruskal-Wallis
+prespliceosome (GO:0071010)	GO_Cellular_Component_2018	63	0.972415123456784	1	0.324	Kruskal-Wallis
+recycling endosome (GO:0055037)	GO_Cellular_Component_2018	63	1.890625	1	0.169	Kruskal-Wallis
+recycling endosome membrane (GO:0055038)	GO_Cellular_Component_2018	63	1.39371141975309	1	0.238	Kruskal-Wallis
+replication fork (GO:0005657)	GO_Cellular_Component_2018	63	2.68595679012347	1	0.101	Kruskal-Wallis
+ribonucleoprotein granule (GO:0035770)	GO_Cellular_Component_2018	63	0.120563271604908	1	0.728	Kruskal-Wallis
+ribosome (GO:0005840)	GO_Cellular_Component_2018	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+RNA polymerase II transcription factor complex (GO:0090575)	GO_Cellular_Component_2018	63	1.265625	1	0.261	Kruskal-Wallis
+rough endoplasmic reticulum (GO:0005791)	GO_Cellular_Component_2018	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+ruffle membrane (GO:0032587)	GO_Cellular_Component_2018	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+sarcoplasm (GO:0016528)	GO_Cellular_Component_2018	63	3.83506944444446	1	0.0502	Kruskal-Wallis
+sarcoplasmic reticulum (GO:0016529)	GO_Cellular_Component_2018	63	1.74093364197532	1	0.187	Kruskal-Wallis
+SCF ubiquitin ligase complex (GO:0019005)	GO_Cellular_Component_2018	63	1.59741512345678	1	0.206	Kruskal-Wallis
+secretory granule lumen (GO:0034774)	GO_Cellular_Component_2018	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+secretory vesicle (GO:0099503)	GO_Cellular_Component_2018	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+serine/threonine protein kinase complex (GO:1902554)	GO_Cellular_Component_2018	63	0.604938271604908	1	0.437	Kruskal-Wallis
+Sin3-type complex (GO:0070822)	GO_Cellular_Component_2018	63	0.604938271604908	1	0.437	Kruskal-Wallis
+site of DNA damage (GO:0090734)	GO_Cellular_Component_2018	63	1.74093364197532	1	0.187	Kruskal-Wallis
+site of double-strand break (GO:0035861)	GO_Cellular_Component_2018	63	1.59741512345681	1	0.206	Kruskal-Wallis
+small nuclear ribonucleoprotein complex (GO:0030532)	GO_Cellular_Component_2018	63	1.4266975308642	1	0.232	Kruskal-Wallis
+small ribosomal subunit (GO:0015935)	GO_Cellular_Component_2018	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+small-subunit processome (GO:0032040)	GO_Cellular_Component_2018	63	4.63445216049382	1	0.0313	Kruskal-Wallis
+specific granule (GO:0042581)	GO_Cellular_Component_2018	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+specific granule lumen (GO:0035580)	GO_Cellular_Component_2018	63	0.32426697530866	1	0.569	Kruskal-Wallis
+specific granule membrane (GO:0035579)	GO_Cellular_Component_2018	63	0.023341049382708	1	0.879	Kruskal-Wallis
+spindle (GO:0005819)	GO_Cellular_Component_2018	63	1.49382716049382	1	0.222	Kruskal-Wallis
+spindle microtubule (GO:0005876)	GO_Cellular_Component_2018	63	1.23456790123456	1	0.267	Kruskal-Wallis
+spindle midzone (GO:0051233)	GO_Cellular_Component_2018	63	0.865933641975317	1	0.352	Kruskal-Wallis
+spindle pole (GO:0000922)	GO_Cellular_Component_2018	63	1.890625	1	0.169	Kruskal-Wallis
+spliceosomal complex (GO:0005681)	GO_Cellular_Component_2018	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+spliceosomal snRNP complex (GO:0097525)	GO_Cellular_Component_2018	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+spliceosomal tri-snRNP complex (GO:0097526)	GO_Cellular_Component_2018	63	0.521604938271565	1	0.47	Kruskal-Wallis
+stress fiber (GO:0001725)	GO_Cellular_Component_2018	63	0.222993827160508	1	0.637	Kruskal-Wallis
+striated muscle thin filament (GO:0005865)	GO_Cellular_Component_2018	63	0.0850694444444571	1	0.771	Kruskal-Wallis
+SWI/SNF complex (GO:0016514)	GO_Cellular_Component_2018	63	1.63271604938271	1	0.201	Kruskal-Wallis
+synaptonemal complex (GO:0000795)	GO_Cellular_Component_2018	63	0.26408179012347	1	0.607	Kruskal-Wallis
+synaptonemal structure (GO:0099086)	GO_Cellular_Component_2018	63	0.23630401234567	1	0.627	Kruskal-Wallis
+T cell receptor complex (GO:0042101)	GO_Cellular_Component_2018	63	0.0625	1	0.803	Kruskal-Wallis
+telomerase holoenzyme complex (GO:0005697)	GO_Cellular_Component_2018	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+tertiary granule (GO:0070820)	GO_Cellular_Component_2018	63	0.023341049382708	1	0.879	Kruskal-Wallis
+tertiary granule lumen (GO:1904724)	GO_Cellular_Component_2018	63	1.20389660493825	1	0.273	Kruskal-Wallis
+tertiary granule membrane (GO:0070821)	GO_Cellular_Component_2018	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+trans-Golgi network (GO:0005802)	GO_Cellular_Component_2018	63	0.463155864197546	1	0.496	Kruskal-Wallis
+trans-Golgi network membrane (GO:0032588)	GO_Cellular_Component_2018	63	0.151234567901241	1	0.697	Kruskal-Wallis
+trans-Golgi network transport vesicle (GO:0030140)	GO_Cellular_Component_2018	63	1.66840277777777	1	0.196	Kruskal-Wallis
+transcription factor TFIID complex (GO:0005669)	GO_Cellular_Component_2018	63	0.151234567901241	1	0.697	Kruskal-Wallis
+transcriptionally active chromatin (GO:0035327)	GO_Cellular_Component_2018	63	0.25	1	0.617	Kruskal-Wallis
+U1 snRNP (GO:0005685)	GO_Cellular_Component_2018	63	0.0850694444444571	1	0.771	Kruskal-Wallis
+U12-type spliceosomal complex (GO:0005689)	GO_Cellular_Component_2018	63	0.25	1	0.617	Kruskal-Wallis
+U2 snRNP (GO:0005686)	GO_Cellular_Component_2018	63	0.015625	1	0.901	Kruskal-Wallis
+U2-type catalytic step 2 spliceosome (GO:0071007)	GO_Cellular_Component_2018	63	2.96604938271605	1	0.085	Kruskal-Wallis
+U2-type prespliceosome (GO:0071004)	GO_Cellular_Component_2018	63	2.96604938271605	1	0.085	Kruskal-Wallis
+U2-type spliceosomal complex (GO:0005684)	GO_Cellular_Component_2018	63	0.130401234567898	1	0.718	Kruskal-Wallis
+U4/U6 x U5 tri-snRNP complex (GO:0046540)	GO_Cellular_Component_2018	63	0.185378086419774	1	0.667	Kruskal-Wallis
+U5 snRNP (GO:0005682)	GO_Cellular_Component_2018	63	0.626736111111114	1	0.429	Kruskal-Wallis
+vacuolar lumen (GO:0005775)	GO_Cellular_Component_2018	63	0.626736111111114	1	0.429	Kruskal-Wallis
+vacuolar proton-transporting V-type ATPase complex (GO:0016471)	GO_Cellular_Component_2018	63	3.0625	1	0.0801	Kruskal-Wallis
+vacuole (GO:0005773)	GO_Cellular_Component_2018	63	3.46373456790124	1	0.0627	Kruskal-Wallis
+vesicle coat (GO:0030120)	GO_Cellular_Component_2018	63	0.00945216049382225	1	0.923	Kruskal-Wallis

@@ -1,0 +1,568 @@
+pathway	DB	n	statistic	df	p	method
+1-acylglycerol-3-phosphate O-acyltransferase activity (GO:0003841)	GO_Molecular_Function_2018	63	1.1141975308642	1	0.291	Kruskal-Wallis
+1-phosphatidylinositol-3-kinase activity (GO:0016303)	GO_Molecular_Function_2018	63	0.23630401234567	1	0.627	Kruskal-Wallis
+3'-5' exonuclease activity (GO:0008408)	GO_Molecular_Function_2018	63	1.265625	1	0.261	Kruskal-Wallis
+3'-5'-exoribonuclease activity (GO:0000175)	GO_Molecular_Function_2018	63	1.890625	1	0.169	Kruskal-Wallis
+3',5'-cyclic-AMP phosphodiesterase activity (GO:0004115)	GO_Molecular_Function_2018	63	3.16049382716051	1	0.0754	Kruskal-Wallis
+3',5'-cyclic-nucleotide phosphodiesterase activity (GO:0004114)	GO_Molecular_Function_2018	63	2.640625	1	0.104	Kruskal-Wallis
+5'-3' exonuclease activity (GO:0008409)	GO_Molecular_Function_2018	63	0.972415123456813	1	0.324	Kruskal-Wallis
+5'-3' RNA polymerase activity (GO:0034062)	GO_Molecular_Function_2018	63	0.23630401234567	1	0.627	Kruskal-Wallis
+acetylation-dependent protein binding (GO:0140033)	GO_Molecular_Function_2018	63	6.53086419753086	1	0.0106	Kruskal-Wallis
+acetylcholine receptor activity (GO:0015464)	GO_Molecular_Function_2018	63	0.023341049382708	1	0.879	Kruskal-Wallis
+acetylcholine-gated cation-selective channel activity (GO:0022848)	GO_Molecular_Function_2018	63	0.32426697530866	1	0.569	Kruskal-Wallis
+acetylgalactosaminyltransferase activity (GO:0008376)	GO_Molecular_Function_2018	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+acetylglucosaminyltransferase activity (GO:0008375)	GO_Molecular_Function_2018	63	0.00694444444445708	1	0.934	Kruskal-Wallis
+acetyltransferase activity (GO:0016407)	GO_Molecular_Function_2018	63	0	1	1	Kruskal-Wallis
+acid-thiol ligase activity (GO:0016878)	GO_Molecular_Function_2018	63	2.87114197530866	1	0.0902	Kruskal-Wallis
+actin binding (GO:0003779)	GO_Molecular_Function_2018	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+actin filament binding (GO:0051015)	GO_Molecular_Function_2018	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+actin monomer binding (GO:0003785)	GO_Molecular_Function_2018	63	0.741512345679013	1	0.389	Kruskal-Wallis
+actinin binding (GO:0042805)	GO_Molecular_Function_2018	63	0.918402777777771	1	0.338	Kruskal-Wallis
+activating transcription factor binding (GO:0033613)	GO_Molecular_Function_2018	63	0.0696373456790127	1	0.792	Kruskal-Wallis
+acyl-CoA dehydrogenase activity (GO:0003995)	GO_Molecular_Function_2018	63	4.22530864197532	1	0.0398	Kruskal-Wallis
+acyl-CoA hydrolase activity (GO:0047617)	GO_Molecular_Function_2018	63	0.32426697530866	1	0.569	Kruskal-Wallis
+acylglycerol O-acyltransferase activity (GO:0016411)	GO_Molecular_Function_2018	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+adenyl ribonucleotide binding (GO:0032559)	GO_Molecular_Function_2018	63	0.222993827160508	1	0.637	Kruskal-Wallis
+adenylyltransferase activity (GO:0070566)	GO_Molecular_Function_2018	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+ADP binding (GO:0043531)	GO_Molecular_Function_2018	63	0.25	1	0.617	Kruskal-Wallis
+adrenergic receptor binding (GO:0031690)	GO_Molecular_Function_2018	63	2.00694444444446	1	0.157	Kruskal-Wallis
+alcohol dehydrogenase (NADP+) activity (GO:0008106)	GO_Molecular_Function_2018	63	0.463155864197546	1	0.496	Kruskal-Wallis
+aldo-keto reductase (NADP) activity (GO:0004033)	GO_Molecular_Function_2018	63	0.501736111111114	1	0.479	Kruskal-Wallis
+alkali metal ion binding (GO:0031420)	GO_Molecular_Function_2018	63	2.37673611111111	1	0.123	Kruskal-Wallis
+alpha-actinin binding (GO:0051393)	GO_Molecular_Function_2018	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+alpha-tubulin binding (GO:0043014)	GO_Molecular_Function_2018	63	2.00694444444446	1	0.157	Kruskal-Wallis
+amino acid binding (GO:0016597)	GO_Molecular_Function_2018	63	1.52797067901233	1	0.216	Kruskal-Wallis
+amino acid transmembrane transporter activity (GO:0015171)	GO_Molecular_Function_2018	63	5.70679012345681	1	0.0169	Kruskal-Wallis
+aminoacyl-tRNA ligase activity (GO:0004812)	GO_Molecular_Function_2018	63	1.32889660493825	1	0.249	Kruskal-Wallis
+aminopeptidase activity (GO:0004177)	GO_Molecular_Function_2018	63	0.918402777777771	1	0.338	Kruskal-Wallis
+ammonium transmembrane transporter activity (GO:0008519)	GO_Molecular_Function_2018	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+amyloid-beta binding (GO:0001540)	GO_Molecular_Function_2018	63	0.278549382716051	1	0.598	Kruskal-Wallis
+androgen receptor binding (GO:0050681)	GO_Molecular_Function_2018	63	2.00694444444446	1	0.157	Kruskal-Wallis
+anion channel activity (GO:0005253)	GO_Molecular_Function_2018	63	0.671489197530889	1	0.413	Kruskal-Wallis
+anion transmembrane transporter activity (GO:0008509)	GO_Molecular_Function_2018	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+anion:anion antiporter activity (GO:0015301)	GO_Molecular_Function_2018	63	1.74093364197532	1	0.187	Kruskal-Wallis
+anion:cation symporter activity (GO:0015296)	GO_Molecular_Function_2018	63	2.640625	1	0.104	Kruskal-Wallis
+ankyrin binding (GO:0030506)	GO_Molecular_Function_2018	63	0.521604938271565	1	0.47	Kruskal-Wallis
+antiporter activity (GO:0015297)	GO_Molecular_Function_2018	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+arachidonic acid epoxygenase activity (GO:0008392)	GO_Molecular_Function_2018	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+arachidonic acid monooxygenase activity (GO:0008391)	GO_Molecular_Function_2018	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+aspartic-type endopeptidase activity (GO:0004190)	GO_Molecular_Function_2018	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+aspartic-type peptidase activity (GO:0070001)	GO_Molecular_Function_2018	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+ATP binding (GO:0005524)	GO_Molecular_Function_2018	63	0.185378086419774	1	0.667	Kruskal-Wallis
+ATP-dependent DNA helicase activity (GO:0004003)	GO_Molecular_Function_2018	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+ATP-dependent helicase activity (GO:0008026)	GO_Molecular_Function_2018	63	0.37345679012347	1	0.541	Kruskal-Wallis
+ATP-dependent microtubule motor activity (GO:1990939)	GO_Molecular_Function_2018	63	2.25	1	0.134	Kruskal-Wallis
+ATP-dependent microtubule motor activity, minus-end-directed (GO:0008569)	GO_Molecular_Function_2018	63	0.840277777777771	1	0.359	Kruskal-Wallis
+ATP-dependent microtubule motor activity, plus-end-directed (GO:0008574)	GO_Molecular_Function_2018	63	3.26003086419752	1	0.071	Kruskal-Wallis
+ATP-dependent RNA helicase activity (GO:0004004)	GO_Molecular_Function_2018	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+ATPase activator activity (GO:0001671)	GO_Molecular_Function_2018	63	2.16743827160491	1	0.141	Kruskal-Wallis
+ATPase activity (GO:0016887)	GO_Molecular_Function_2018	63	3.88966049382717	1	0.0486	Kruskal-Wallis
+ATPase activity, coupled (GO:0042623)	GO_Molecular_Function_2018	63	4.39834104938268	1	0.036	Kruskal-Wallis
+ATPase activity, coupled to movement of substances (GO:0043492)	GO_Molecular_Function_2018	63	2.640625	1	0.104	Kruskal-Wallis
+ATPase activity, coupled to transmembrane movement of ions, phosphorylative mechanism (GO:0015662)	GO_Molecular_Function_2018	63	0.5625	1	0.453	Kruskal-Wallis
+ATPase activity, coupled to transmembrane movement of ions, rotational mechanism (GO:0044769)	GO_Molecular_Function_2018	63	1.63271604938271	1	0.201	Kruskal-Wallis
+ATPase activity, coupled to transmembrane movement of substances (GO:0042626)	GO_Molecular_Function_2018	63	2.77777777777777	1	0.0956	Kruskal-Wallis
+ATPase binding (GO:0051117)	GO_Molecular_Function_2018	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+ATPase coupled ion transmembrane transporter activity (GO:0042625)	GO_Molecular_Function_2018	63	1.265625	1	0.261	Kruskal-Wallis
+ATPase regulator activity (GO:0060590)	GO_Molecular_Function_2018	63	1.36111111111111	1	0.243	Kruskal-Wallis
+AU-rich element binding (GO:0017091)	GO_Molecular_Function_2018	63	0.717785493827165	1	0.397	Kruskal-Wallis
+basal RNA polymerase II transcription machinery binding (GO:0001099)	GO_Molecular_Function_2018	63	1.20389660493825	1	0.273	Kruskal-Wallis
+beta-tubulin binding (GO:0048487)	GO_Molecular_Function_2018	63	2.68595679012347	1	0.101	Kruskal-Wallis
+bHLH transcription factor binding (GO:0043425)	GO_Molecular_Function_2018	63	2.91840277777777	1	0.0876	Kruskal-Wallis
+bicarbonate transmembrane transporter activity (GO:0015106)	GO_Molecular_Function_2018	63	1.70447530864197	1	0.192	Kruskal-Wallis
+bile acid transmembrane transporter activity (GO:0015125)	GO_Molecular_Function_2018	63	0.00694444444445708	1	0.934	Kruskal-Wallis
+bitter taste receptor activity (GO:0033038)	GO_Molecular_Function_2018	63	0.197530864197546	1	0.657	Kruskal-Wallis
+cadherin binding (GO:0045296)	GO_Molecular_Function_2018	63	0.210069444444457	1	0.647	Kruskal-Wallis
+cadherin binding involved in cell-cell adhesion (GO:0098641)	GO_Molecular_Function_2018	63	0.0326003086419746	1	0.857	Kruskal-Wallis
+calcium activated cation channel activity (GO:0005227)	GO_Molecular_Function_2018	63	0.945216049382708	1	0.331	Kruskal-Wallis
+calcium channel activity (GO:0005262)	GO_Molecular_Function_2018	63	0.26408179012347	1	0.607	Kruskal-Wallis
+calcium channel regulator activity (GO:0005246)	GO_Molecular_Function_2018	63	2.46315586419755	1	0.117	Kruskal-Wallis
+calcium ion binding (GO:0005509)	GO_Molecular_Function_2018	63	0.173611111111114	1	0.677	Kruskal-Wallis
+calcium ion transmembrane transporter activity (GO:0015085)	GO_Molecular_Function_2018	63	0.463155864197546	1	0.496	Kruskal-Wallis
+calcium-activated potassium channel activity (GO:0015269)	GO_Molecular_Function_2018	63	0.583526234567898	1	0.445	Kruskal-Wallis
+calcium-dependent cysteine-type endopeptidase activity (GO:0004198)	GO_Molecular_Function_2018	63	1.265625	1	0.261	Kruskal-Wallis
+calcium-dependent phospholipid binding (GO:0005544)	GO_Molecular_Function_2018	63	1.890625	1	0.169	Kruskal-Wallis
+calcium-release channel activity (GO:0015278)	GO_Molecular_Function_2018	63	0.340277777777771	1	0.56	Kruskal-Wallis
+calmodulin-dependent protein kinase activity (GO:0004683)	GO_Molecular_Function_2018	63	0.521604938271565	1	0.47	Kruskal-Wallis
+carboxy-lyase activity (GO:0016831)	GO_Molecular_Function_2018	63	0.25	1	0.617	Kruskal-Wallis
+carboxylic acid binding (GO:0031406)	GO_Molecular_Function_2018	63	2.04648919753089	1	0.153	Kruskal-Wallis
+carboxylic acid transmembrane transporter activity (GO:0046943)	GO_Molecular_Function_2018	63	8.75173611111111	1	0.00309	Kruskal-Wallis
+carboxylic ester hydrolase activity (GO:0052689)	GO_Molecular_Function_2018	63	0.0123456790123271	1	0.912	Kruskal-Wallis
+carboxypeptidase activity (GO:0004180)	GO_Molecular_Function_2018	63	0.278549382716051	1	0.598	Kruskal-Wallis
+cation channel activity (GO:0005261)	GO_Molecular_Function_2018	63	0.0850694444444571	1	0.771	Kruskal-Wallis
+cation transmembrane transporter activity (GO:0008324)	GO_Molecular_Function_2018	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+cation-transporting ATPase activity (GO:0019829)	GO_Molecular_Function_2018	63	1.05632716049382	1	0.304	Kruskal-Wallis
+CCR chemokine receptor binding (GO:0048020)	GO_Molecular_Function_2018	63	0.130401234567898	1	0.718	Kruskal-Wallis
+channel activity (GO:0015267)	GO_Molecular_Function_2018	63	0.815007716049394	1	0.367	Kruskal-Wallis
+chemokine activity (GO:0008009)	GO_Molecular_Function_2018	63	0.37345679012347	1	0.541	Kruskal-Wallis
+chemokine binding (GO:0019956)	GO_Molecular_Function_2018	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+chemokine receptor activity (GO:0004950)	GO_Molecular_Function_2018	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+chemokine receptor binding (GO:0042379)	GO_Molecular_Function_2018	63	0.32426697530866	1	0.569	Kruskal-Wallis
+chloride channel activity (GO:0005254)	GO_Molecular_Function_2018	63	1.02797067901233	1	0.311	Kruskal-Wallis
+chloride transmembrane transporter activity (GO:0015108)	GO_Molecular_Function_2018	63	1.05632716049382	1	0.304	Kruskal-Wallis
+cholesterol binding (GO:0015485)	GO_Molecular_Function_2018	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+cholesterol transporter activity (GO:0017127)	GO_Molecular_Function_2018	63	0.111111111111114	1	0.739	Kruskal-Wallis
+CoA hydrolase activity (GO:0016289)	GO_Molecular_Function_2018	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+collagen binding (GO:0005518)	GO_Molecular_Function_2018	63	0.918402777777771	1	0.338	Kruskal-Wallis
+copper ion binding (GO:0005507)	GO_Molecular_Function_2018	63	0.501736111111114	1	0.479	Kruskal-Wallis
+core promoter binding (GO:0001047)	GO_Molecular_Function_2018	63	1.14371141975309	1	0.285	Kruskal-Wallis
+core promoter proximal region DNA binding (GO:0001159)	GO_Molecular_Function_2018	63	0.00694444444445708	1	0.934	Kruskal-Wallis
+core promoter proximal region sequence-specific DNA binding (GO:0000987)	GO_Molecular_Function_2018	63	1.20389660493825	1	0.273	Kruskal-Wallis
+core promoter sequence-specific DNA binding (GO:0001046)	GO_Molecular_Function_2018	63	1.52797067901233	1	0.216	Kruskal-Wallis
+CXCR chemokine receptor binding (GO:0045236)	GO_Molecular_Function_2018	63	0.023341049382708	1	0.879	Kruskal-Wallis
+cyclic nucleotide binding (GO:0030551)	GO_Molecular_Function_2018	63	4.75482253086417	1	0.0292	Kruskal-Wallis
+cyclin-dependent protein kinase activity (GO:0097472)	GO_Molecular_Function_2018	63	3.16049382716051	1	0.0754	Kruskal-Wallis
+cyclin-dependent protein serine/threonine kinase activity (GO:0004693)	GO_Molecular_Function_2018	63	2.41975308641977	1	0.12	Kruskal-Wallis
+cyclin-dependent protein serine/threonine kinase regulator activity (GO:0016538)	GO_Molecular_Function_2018	63	0.23630401234567	1	0.627	Kruskal-Wallis
+cysteine-type endopeptidase activator activity involved in apoptotic process (GO:0008656)	GO_Molecular_Function_2018	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+cysteine-type endopeptidase activity (GO:0004197)	GO_Molecular_Function_2018	63	2.91840277777777	1	0.0876	Kruskal-Wallis
+cysteine-type endopeptidase activity involved in apoptotic process (GO:0097153)	GO_Molecular_Function_2018	63	1.02797067901233	1	0.311	Kruskal-Wallis
+cysteine-type endopeptidase inhibitor activity (GO:0004869)	GO_Molecular_Function_2018	63	0.865933641975317	1	0.352	Kruskal-Wallis
+cysteine-type endopeptidase inhibitor activity involved in apoptotic process (GO:0043027)	GO_Molecular_Function_2018	63	0.197530864197546	1	0.657	Kruskal-Wallis
+cysteine-type peptidase activity (GO:0008234)	GO_Molecular_Function_2018	63	1.77777777777777	1	0.182	Kruskal-Wallis
+cytokine activity (GO:0005125)	GO_Molecular_Function_2018	63	0.521604938271565	1	0.47	Kruskal-Wallis
+cytokine receptor activity (GO:0004896)	GO_Molecular_Function_2018	63	0.023341049382708	1	0.879	Kruskal-Wallis
+cytokine receptor binding (GO:0005126)	GO_Molecular_Function_2018	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+damaged DNA binding (GO:0003684)	GO_Molecular_Function_2018	63	5.50945216049382	1	0.0189	Kruskal-Wallis
+death receptor activity (GO:0005035)	GO_Molecular_Function_2018	63	0.023341049382708	1	0.879	Kruskal-Wallis
+delayed rectifier potassium channel activity (GO:0005251)	GO_Molecular_Function_2018	63	0.30864197530866	1	0.579	Kruskal-Wallis
+deoxyribonuclease activity (GO:0004536)	GO_Molecular_Function_2018	63	3.78086419753086	1	0.0518	Kruskal-Wallis
+dicarboxylic acid transmembrane transporter activity (GO:0005310)	GO_Molecular_Function_2018	63	1.890625	1	0.169	Kruskal-Wallis
+disordered domain specific binding (GO:0097718)	GO_Molecular_Function_2018	63	0.293402777777771	1	0.588	Kruskal-Wallis
+disulfide oxidoreductase activity (GO:0015036)	GO_Molecular_Function_2018	63	0.30864197530866	1	0.579	Kruskal-Wallis
+divalent inorganic cation transmembrane transporter activity (GO:0072509)	GO_Molecular_Function_2018	63	0.25	1	0.617	Kruskal-Wallis
+DNA binding (GO:0003677)	GO_Molecular_Function_2018	63	0.994229508196725	1	0.319	Kruskal-Wallis
+DNA binding, bending (GO:0008301)	GO_Molecular_Function_2018	63	0.140625	1	0.708	Kruskal-Wallis
+DNA helicase activity (GO:0003678)	GO_Molecular_Function_2018	63	0.390625	1	0.532	Kruskal-Wallis
+DNA polymerase activity (GO:0034061)	GO_Molecular_Function_2018	63	0.130401234567898	1	0.718	Kruskal-Wallis
+DNA polymerase binding (GO:0070182)	GO_Molecular_Function_2018	63	2.29185956790124	1	0.13	Kruskal-Wallis
+DNA secondary structure binding (GO:0000217)	GO_Molecular_Function_2018	63	3.5679012345679	1	0.0589	Kruskal-Wallis
+DNA-dependent ATPase activity (GO:0008094)	GO_Molecular_Function_2018	63	1.85262345679016	1	0.173	Kruskal-Wallis
+DNA-directed 5'-3' RNA polymerase activity (GO:0003899)	GO_Molecular_Function_2018	63	2.33410493827157	1	0.127	Kruskal-Wallis
+DNA-directed DNA polymerase activity (GO:0003887)	GO_Molecular_Function_2018	63	0.945216049382708	1	0.331	Kruskal-Wallis
+double-stranded DNA binding (GO:0003690)	GO_Molecular_Function_2018	63	1.49382716049382	1	0.222	Kruskal-Wallis
+double-stranded RNA binding (GO:0003725)	GO_Molecular_Function_2018	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+dynein complex binding (GO:0070840)	GO_Molecular_Function_2018	63	3.11130401234567	1	0.0778	Kruskal-Wallis
+E-box binding (GO:0070888)	GO_Molecular_Function_2018	63	1.265625	1	0.261	Kruskal-Wallis
+endodeoxyribonuclease activity (GO:0004520)	GO_Molecular_Function_2018	63	3.31037808641977	1	0.0688	Kruskal-Wallis
+endonuclease activity (GO:0004519)	GO_Molecular_Function_2018	63	0.541859567901241	1	0.462	Kruskal-Wallis
+endopeptidase activity (GO:0004175)	GO_Molecular_Function_2018	63	0.765625	1	0.382	Kruskal-Wallis
+endopeptidase inhibitor activity (GO:0004866)	GO_Molecular_Function_2018	63	0.210069444444457	1	0.647	Kruskal-Wallis
+endopeptidase regulator activity (GO:0061135)	GO_Molecular_Function_2018	63	1.4266975308642	1	0.232	Kruskal-Wallis
+endoribonuclease activity (GO:0004521)	GO_Molecular_Function_2018	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+endoribonuclease activity, producing 5'-phosphomonoesters (GO:0016891)	GO_Molecular_Function_2018	63	0.25	1	0.617	Kruskal-Wallis
+enhancer binding (GO:0035326)	GO_Molecular_Function_2018	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+enhancer sequence-specific DNA binding (GO:0001158)	GO_Molecular_Function_2018	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+ephrin receptor activity (GO:0005003)	GO_Molecular_Function_2018	63	0.222993827160508	1	0.637	Kruskal-Wallis
+ephrin receptor binding (GO:0046875)	GO_Molecular_Function_2018	63	0.151234567901241	1	0.697	Kruskal-Wallis
+epidermal growth factor receptor binding (GO:0005154)	GO_Molecular_Function_2018	63	0.648919753086432	1	0.42	Kruskal-Wallis
+estrogen receptor binding (GO:0030331)	GO_Molecular_Function_2018	63	0.648919753086432	1	0.42	Kruskal-Wallis
+excitatory extracellular ligand-gated ion channel activity (GO:0005231)	GO_Molecular_Function_2018	63	0.521604938271565	1	0.47	Kruskal-Wallis
+exonuclease activity (GO:0004527)	GO_Molecular_Function_2018	63	1.265625	1	0.261	Kruskal-Wallis
+exopeptidase activity (GO:0008238)	GO_Molecular_Function_2018	63	0.37345679012347	1	0.541	Kruskal-Wallis
+exoribonuclease activity, producing 5'-phosphomonoesters (GO:0016896)	GO_Molecular_Function_2018	63	1.4266975308642	1	0.232	Kruskal-Wallis
+extracellular ligand-gated ion channel activity (GO:0005230)	GO_Molecular_Function_2018	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+FAD binding (GO:0071949)	GO_Molecular_Function_2018	63	1.265625	1	0.261	Kruskal-Wallis
+fatty acid ligase activity (GO:0015645)	GO_Molecular_Function_2018	63	4.69444444444449	1	0.0303	Kruskal-Wallis
+ferrous iron binding (GO:0008198)	GO_Molecular_Function_2018	63	2.00694444444446	1	0.157	Kruskal-Wallis
+fibroblast growth factor binding (GO:0017134)	GO_Molecular_Function_2018	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+FK506 binding (GO:0005528)	GO_Molecular_Function_2018	63	1.70447530864197	1	0.192	Kruskal-Wallis
+flavin adenine dinucleotide binding (GO:0050660)	GO_Molecular_Function_2018	63	0.482253086419774	1	0.487	Kruskal-Wallis
+four-way junction DNA binding (GO:0000400)	GO_Molecular_Function_2018	63	3.46373456790124	1	0.0627	Kruskal-Wallis
+frizzled binding (GO:0005109)	GO_Molecular_Function_2018	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+G-protein beta/gamma-subunit complex binding (GO:0031683)	GO_Molecular_Function_2018	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+G-protein coupled amine receptor activity (GO:0008227)	GO_Molecular_Function_2018	63	0.444444444444457	1	0.505	Kruskal-Wallis
+G-protein coupled chemoattractant receptor activity (GO:0001637)	GO_Molecular_Function_2018	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+G-protein coupled peptide receptor activity (GO:0008528)	GO_Molecular_Function_2018	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+G-protein coupled receptor activity (GO:0004930)	GO_Molecular_Function_2018	63	0.26408179012347	1	0.607	Kruskal-Wallis
+G-protein coupled receptor binding (GO:0001664)	GO_Molecular_Function_2018	63	0.102044753086432	1	0.749	Kruskal-Wallis
+GABA receptor activity (GO:0016917)	GO_Molecular_Function_2018	63	1.23456790123456	1	0.267	Kruskal-Wallis
+GABA-A receptor activity (GO:0004890)	GO_Molecular_Function_2018	63	1.1141975308642	1	0.291	Kruskal-Wallis
+gamma-tubulin binding (GO:0043015)	GO_Molecular_Function_2018	63	1.46006944444446	1	0.227	Kruskal-Wallis
+GDP binding (GO:0019003)	GO_Molecular_Function_2018	63	0.26408179012347	1	0.607	Kruskal-Wallis
+glucose transmembrane transporter activity (GO:0005355)	GO_Molecular_Function_2018	63	0.0123456790123271	1	0.912	Kruskal-Wallis
+glucuronosyltransferase activity (GO:0015020)	GO_Molecular_Function_2018	63	0.32426697530866	1	0.569	Kruskal-Wallis
+glutamate receptor activity (GO:0008066)	GO_Molecular_Function_2018	63	0.541859567901241	1	0.462	Kruskal-Wallis
+glutamate receptor binding (GO:0035254)	GO_Molecular_Function_2018	63	0.340277777777771	1	0.56	Kruskal-Wallis
+glutathione transferase activity (GO:0004364)	GO_Molecular_Function_2018	63	1.05632716049382	1	0.304	Kruskal-Wallis
+growth factor activity (GO:0008083)	GO_Molecular_Function_2018	63	0.185378086419774	1	0.667	Kruskal-Wallis
+growth factor receptor binding (GO:0070851)	GO_Molecular_Function_2018	63	0.717785493827165	1	0.397	Kruskal-Wallis
+GTP binding (GO:0005525)	GO_Molecular_Function_2018	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+GTP-Rho binding (GO:0017049)	GO_Molecular_Function_2018	63	0.0625	1	0.803	Kruskal-Wallis
+GTPase activator activity (GO:0005096)	GO_Molecular_Function_2018	63	0.741512345679013	1	0.389	Kruskal-Wallis
+GTPase activity (GO:0003924)	GO_Molecular_Function_2018	63	0.162229938271565	1	0.687	Kruskal-Wallis
+GTPase binding (GO:0051020)	GO_Molecular_Function_2018	63	1.32889660493825	1	0.249	Kruskal-Wallis
+GTPase regulator activity (GO:0030695)	GO_Molecular_Function_2018	63	0.648919753086432	1	0.42	Kruskal-Wallis
+guanyl ribonucleotide binding (GO:0032561)	GO_Molecular_Function_2018	63	0.815007716049394	1	0.367	Kruskal-Wallis
+H4 histone acetyltransferase activity (GO:0010485)	GO_Molecular_Function_2018	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+helicase activity (GO:0004386)	GO_Molecular_Function_2018	63	0.583526234567898	1	0.445	Kruskal-Wallis
+heme binding (GO:0020037)	GO_Molecular_Function_2018	63	0.5625	1	0.453	Kruskal-Wallis
+histone acetyltransferase activity (GO:0004402)	GO_Molecular_Function_2018	63	0.741512345679013	1	0.389	Kruskal-Wallis
+histone acetyltransferase binding (GO:0035035)	GO_Molecular_Function_2018	63	3.94463734567901	1	0.047	Kruskal-Wallis
+histone deacetylase activity (GO:0004407)	GO_Molecular_Function_2018	63	5.25173611111114	1	0.0219	Kruskal-Wallis
+histone deacetylase binding (GO:0042826)	GO_Molecular_Function_2018	63	1.14371141975309	1	0.285	Kruskal-Wallis
+histone methyltransferase activity (GO:0042054)	GO_Molecular_Function_2018	63	0.604938271604908	1	0.437	Kruskal-Wallis
+histone methyltransferase activity (H3-K4 specific) (GO:0042800)	GO_Molecular_Function_2018	63	2.00694444444446	1	0.157	Kruskal-Wallis
+histone-lysine N-methyltransferase activity (GO:0018024)	GO_Molecular_Function_2018	63	1.32889660493825	1	0.249	Kruskal-Wallis
+hormone activity (GO:0005179)	GO_Molecular_Function_2018	63	2.08641975308643	1	0.149	Kruskal-Wallis
+hormone receptor binding (GO:0051427)	GO_Molecular_Function_2018	63	0.00694444444445708	1	0.934	Kruskal-Wallis
+Hsp70 protein binding (GO:0030544)	GO_Molecular_Function_2018	63	4.05574845679016	1	0.044	Kruskal-Wallis
+Hsp90 protein binding (GO:0051879)	GO_Molecular_Function_2018	63	0.120563271604908	1	0.728	Kruskal-Wallis
+hyaluronic acid binding (GO:0005540)	GO_Molecular_Function_2018	63	2.25	1	0.134	Kruskal-Wallis
+hydro-lyase activity (GO:0016836)	GO_Molecular_Function_2018	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+hydrogen ion transmembrane transporter activity (GO:0015078)	GO_Molecular_Function_2018	63	0.015625	1	0.901	Kruskal-Wallis
+hydrogen-exporting ATPase activity (GO:0036442)	GO_Molecular_Function_2018	63	1.46006944444446	1	0.227	Kruskal-Wallis
+hydrolase activity, acting on acid anhydrides, catalyzing transmembrane movement of substances (GO:0016820)	GO_Molecular_Function_2018	63	2.08641975308643	1	0.149	Kruskal-Wallis
+hydrolase activity, acting on carbon-nitrogen (but not peptide) bonds, in linear amides (GO:0016811)	GO_Molecular_Function_2018	63	0.444444444444457	1	0.505	Kruskal-Wallis
+hydrolase activity, hydrolyzing O-glycosyl compounds (GO:0004553)	GO_Molecular_Function_2018	63	0.197530864197546	1	0.657	Kruskal-Wallis
+immunoglobulin receptor binding (GO:0034987)	GO_Molecular_Function_2018	63	2.96604938271605	1	0.085	Kruskal-Wallis
+inorganic anion exchanger activity (GO:0005452)	GO_Molecular_Function_2018	63	0.140625	1	0.708	Kruskal-Wallis
+inorganic anion transmembrane transporter activity (GO:0015103)	GO_Molecular_Function_2018	63	0.840277777777771	1	0.359	Kruskal-Wallis
+insulin receptor binding (GO:0005158)	GO_Molecular_Function_2018	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+integrin binding (GO:0005178)	GO_Molecular_Function_2018	63	0.444444444444457	1	0.505	Kruskal-Wallis
+intracellular calcium activated chloride channel activity (GO:0005229)	GO_Molecular_Function_2018	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+intracellular chloride channel activity (GO:0061778)	GO_Molecular_Function_2018	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+intramolecular oxidoreductase activity, transposing S-S bonds (GO:0016864)	GO_Molecular_Function_2018	63	0.671489197530889	1	0.413	Kruskal-Wallis
+inward rectifier potassium channel activity (GO:0005242)	GO_Molecular_Function_2018	63	2.16743827160491	1	0.141	Kruskal-Wallis
+ion antiporter activity (GO:0099516)	GO_Molecular_Function_2018	63	0.671489197530889	1	0.413	Kruskal-Wallis
+ion channel activity (GO:0005216)	GO_Molecular_Function_2018	63	0.501736111111114	1	0.479	Kruskal-Wallis
+ion channel inhibitor activity (GO:0008200)	GO_Molecular_Function_2018	63	1.59741512345681	1	0.206	Kruskal-Wallis
+ion gated channel activity (GO:0022839)	GO_Molecular_Function_2018	63	0.521604938271565	1	0.47	Kruskal-Wallis
+ion transmembrane transporter activity (GO:0015075)	GO_Molecular_Function_2018	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+ionotropic glutamate receptor activity (GO:0004970)	GO_Molecular_Function_2018	63	1.46006944444446	1	0.227	Kruskal-Wallis
+iron ion binding (GO:0005506)	GO_Molecular_Function_2018	63	0.790123456790155	1	0.374	Kruskal-Wallis
+K63-linked polyubiquitin modification-dependent protein binding (GO:0070530)	GO_Molecular_Function_2018	63	0.5625	1	0.453	Kruskal-Wallis
+kinase activator activity (GO:0019209)	GO_Molecular_Function_2018	63	0.210069444444457	1	0.647	Kruskal-Wallis
+kinase activity (GO:0016301)	GO_Molecular_Function_2018	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+kinase binding (GO:0019900)	GO_Molecular_Function_2018	63	0.24928774928776	1	0.618	Kruskal-Wallis
+kinase inhibitor activity (GO:0019210)	GO_Molecular_Function_2018	63	1.14371141975309	1	0.285	Kruskal-Wallis
+kinesin binding (GO:0019894)	GO_Molecular_Function_2018	63	1.5625	1	0.211	Kruskal-Wallis
+L-amino acid transmembrane transporter activity (GO:0015179)	GO_Molecular_Function_2018	63	2.00694444444446	1	0.157	Kruskal-Wallis
+leak channel activity (GO:0022840)	GO_Molecular_Function_2018	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+ligand-dependent nuclear receptor binding (GO:0016922)	GO_Molecular_Function_2018	63	0.102044753086432	1	0.749	Kruskal-Wallis
+ligand-dependent nuclear receptor transcription coactivator activity (GO:0030374)	GO_Molecular_Function_2018	63	1	1	0.317	Kruskal-Wallis
+ligand-gated calcium channel activity (GO:0099604)	GO_Molecular_Function_2018	63	0.293402777777771	1	0.588	Kruskal-Wallis
+ligand-gated cation channel activity (GO:0099094)	GO_Molecular_Function_2018	63	1.20389660493825	1	0.273	Kruskal-Wallis
+ligand-gated channel activity (GO:0022834)	GO_Molecular_Function_2018	63	0.0557484567901554	1	0.813	Kruskal-Wallis
+ligand-gated ion channel activity (GO:0015276)	GO_Molecular_Function_2018	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+lipase activity (GO:0016298)	GO_Molecular_Function_2018	63	1.17361111111111	1	0.279	Kruskal-Wallis
+lipoprotein particle binding (GO:0071813)	GO_Molecular_Function_2018	63	1.02797067901233	1	0.311	Kruskal-Wallis
+lipoprotein particle receptor activity (GO:0030228)	GO_Molecular_Function_2018	63	1.59741512345681	1	0.206	Kruskal-Wallis
+lipoprotein particle receptor binding (GO:0070325)	GO_Molecular_Function_2018	63	3.21006944444446	1	0.0732	Kruskal-Wallis
+low-density lipoprotein particle binding (GO:0030169)	GO_Molecular_Function_2018	63	0.356674382716051	1	0.55	Kruskal-Wallis
+low-density lipoprotein particle receptor binding (GO:0050750)	GO_Molecular_Function_2018	63	0.130401234567898	1	0.718	Kruskal-Wallis
+lysine N-methyltransferase activity (GO:0016278)	GO_Molecular_Function_2018	63	2.68595679012347	1	0.101	Kruskal-Wallis
+lysine-acetylated histone binding (GO:0070577)	GO_Molecular_Function_2018	63	6.53086419753086	1	0.0106	Kruskal-Wallis
+lysophosphatidic acid acyltransferase activity (GO:0042171)	GO_Molecular_Function_2018	63	0.0850694444444571	1	0.771	Kruskal-Wallis
+lysophospholipase activity (GO:0004622)	GO_Molecular_Function_2018	63	0.0696373456790127	1	0.792	Kruskal-Wallis
+magnesium ion binding (GO:0000287)	GO_Molecular_Function_2018	63	0.340277777777771	1	0.56	Kruskal-Wallis
+manganese ion binding (GO:0030145)	GO_Molecular_Function_2018	63	2.50694444444446	1	0.113	Kruskal-Wallis
+mannosyltransferase activity (GO:0000030)	GO_Molecular_Function_2018	63	1.66840277777777	1	0.196	Kruskal-Wallis
+MAP kinase kinase kinase activity (GO:0004709)	GO_Molecular_Function_2018	63	0.0625	1	0.803	Kruskal-Wallis
+metal ion binding (GO:0046872)	GO_Molecular_Function_2018	63	0.197530864197546	1	0.657	Kruskal-Wallis
+metal ion transmembrane transporter activity (GO:0046873)	GO_Molecular_Function_2018	63	0.37345679012347	1	0.541	Kruskal-Wallis
+metalloaminopeptidase activity (GO:0070006)	GO_Molecular_Function_2018	63	0.130401234567898	1	0.718	Kruskal-Wallis
+metallocarboxypeptidase activity (GO:0004181)	GO_Molecular_Function_2018	63	0.790123456790155	1	0.374	Kruskal-Wallis
+metalloendopeptidase activity (GO:0004222)	GO_Molecular_Function_2018	63	0.604938271604908	1	0.437	Kruskal-Wallis
+metalloexopeptidase activity (GO:0008235)	GO_Molecular_Function_2018	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+metallopeptidase activity (GO:0008237)	GO_Molecular_Function_2018	63	0.604938271604908	1	0.437	Kruskal-Wallis
+methyl-CpG binding (GO:0008327)	GO_Molecular_Function_2018	63	0.463155864197546	1	0.496	Kruskal-Wallis
+methylated histone binding (GO:0035064)	GO_Molecular_Function_2018	63	3.21006944444446	1	0.0732	Kruskal-Wallis
+methylation-dependent protein binding (GO:0140034)	GO_Molecular_Function_2018	63	1.92901234567901	1	0.165	Kruskal-Wallis
+methyltransferase activity (GO:0008168)	GO_Molecular_Function_2018	63	1.77777777777777	1	0.182	Kruskal-Wallis
+MHC class II protein complex binding (GO:0023026)	GO_Molecular_Function_2018	63	1.265625	1	0.261	Kruskal-Wallis
+MHC protein binding (GO:0042287)	GO_Molecular_Function_2018	63	0.140625	1	0.708	Kruskal-Wallis
+MHC protein complex binding (GO:0023023)	GO_Molecular_Function_2018	63	0.130401234567898	1	0.718	Kruskal-Wallis
+microfilament motor activity (GO:0000146)	GO_Molecular_Function_2018	63	0.840277777777771	1	0.359	Kruskal-Wallis
+microtubule binding (GO:0008017)	GO_Molecular_Function_2018	63	4	1	0.0455	Kruskal-Wallis
+microtubule motor activity (GO:0003777)	GO_Molecular_Function_2018	63	3.31037808641977	1	0.0688	Kruskal-Wallis
+miRNA binding (GO:0035198)	GO_Molecular_Function_2018	63	0.694444444444457	1	0.405	Kruskal-Wallis
+mitogen-activated protein kinase binding (GO:0051019)	GO_Molecular_Function_2018	63	4.93827160493825	1	0.0263	Kruskal-Wallis
+mitogen-activated protein kinase kinase binding (GO:0031434)	GO_Molecular_Function_2018	63	0.130401234567898	1	0.718	Kruskal-Wallis
+monocarboxylic acid binding (GO:0033293)	GO_Molecular_Function_2018	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+monocarboxylic acid transmembrane transporter activity (GO:0008028)	GO_Molecular_Function_2018	63	1.36111111111111	1	0.243	Kruskal-Wallis
+monovalent inorganic cation transmembrane transporter activity (GO:0015077)	GO_Molecular_Function_2018	63	0.210069444444457	1	0.647	Kruskal-Wallis
+motor activity (GO:0003774)	GO_Molecular_Function_2018	63	2.46315586419755	1	0.117	Kruskal-Wallis
+mRNA 3'-UTR binding (GO:0003730)	GO_Molecular_Function_2018	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+mRNA 5'-UTR binding (GO:0048027)	GO_Molecular_Function_2018	63	0.482253086419774	1	0.487	Kruskal-Wallis
+mRNA binding (GO:0003729)	GO_Molecular_Function_2018	63	0.140625	1	0.708	Kruskal-Wallis
+muscle alpha-actinin binding (GO:0051371)	GO_Molecular_Function_2018	63	0.0123456790123271	1	0.912	Kruskal-Wallis
+myosin binding (GO:0017022)	GO_Molecular_Function_2018	63	0.717785493827165	1	0.397	Kruskal-Wallis
+myosin V binding (GO:0031489)	GO_Molecular_Function_2018	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+N-acetyltransferase activity (GO:0008080)	GO_Molecular_Function_2018	63	0.0557484567901554	1	0.813	Kruskal-Wallis
+N-acyltransferase activity (GO:0016410)	GO_Molecular_Function_2018	63	0.173611111111114	1	0.677	Kruskal-Wallis
+N-methyltransferase activity (GO:0008170)	GO_Molecular_Function_2018	63	6.18074845679016	1	0.0129	Kruskal-Wallis
+NAD binding (GO:0051287)	GO_Molecular_Function_2018	63	0.26408179012347	1	0.607	Kruskal-Wallis
+NAD+ ADP-ribosyltransferase activity (GO:0003950)	GO_Molecular_Function_2018	63	2.08641975308643	1	0.149	Kruskal-Wallis
+NADH dehydrogenase (quinone) activity (GO:0050136)	GO_Molecular_Function_2018	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+NADH dehydrogenase (ubiquinone) activity (GO:0008137)	GO_Molecular_Function_2018	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+NADP binding (GO:0050661)	GO_Molecular_Function_2018	63	1.74093364197532	1	0.187	Kruskal-Wallis
+neuropeptide binding (GO:0042923)	GO_Molecular_Function_2018	63	0.918402777777771	1	0.338	Kruskal-Wallis
+neuropeptide hormone activity (GO:0005184)	GO_Molecular_Function_2018	63	0.0557484567901554	1	0.813	Kruskal-Wallis
+neuropeptide receptor activity (GO:0008188)	GO_Molecular_Function_2018	63	0.197530864197546	1	0.657	Kruskal-Wallis
+neuropilin binding (GO:0038191)	GO_Molecular_Function_2018	63	0.0696373456790127	1	0.792	Kruskal-Wallis
+neurotransmitter receptor activity involved in regulation of postsynaptic membrane potential (GO:0099529)	GO_Molecular_Function_2018	63	0.140625	1	0.708	Kruskal-Wallis
+neutral amino acid transmembrane transporter activity (GO:0015175)	GO_Molecular_Function_2018	63	0.130401234567898	1	0.718	Kruskal-Wallis
+NF-kappaB binding (GO:0051059)	GO_Molecular_Function_2018	63	0.482253086419774	1	0.487	Kruskal-Wallis
+non-membrane spanning protein tyrosine kinase activity (GO:0004715)	GO_Molecular_Function_2018	63	0.222993827160508	1	0.637	Kruskal-Wallis
+Notch binding (GO:0005112)	GO_Molecular_Function_2018	63	0.501736111111114	1	0.479	Kruskal-Wallis
+nuclear hormone receptor binding (GO:0035257)	GO_Molecular_Function_2018	63	0.130401234567898	1	0.718	Kruskal-Wallis
+nuclear localization sequence binding (GO:0008139)	GO_Molecular_Function_2018	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+nuclease activity (GO:0004518)	GO_Molecular_Function_2018	63	0.0625	1	0.803	Kruskal-Wallis
+nucleobase-containing compound kinase activity (GO:0019205)	GO_Molecular_Function_2018	63	0.120563271604908	1	0.728	Kruskal-Wallis
+nucleoside diphosphate kinase activity (GO:0004550)	GO_Molecular_Function_2018	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+nucleoside-triphosphatase activity (GO:0017111)	GO_Molecular_Function_2018	63	2.25	1	0.134	Kruskal-Wallis
+nucleosomal DNA binding (GO:0031492)	GO_Molecular_Function_2018	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+nucleotide kinase activity (GO:0019201)	GO_Molecular_Function_2018	63	0.140625	1	0.708	Kruskal-Wallis
+nucleotidyltransferase activity (GO:0016779)	GO_Molecular_Function_2018	63	0.23630401234567	1	0.627	Kruskal-Wallis
+O-acyltransferase activity (GO:0008374)	GO_Molecular_Function_2018	63	0.111111111111114	1	0.739	Kruskal-Wallis
+olfactory receptor activity (GO:0004984)	GO_Molecular_Function_2018	63	1.05632716049382	1	0.304	Kruskal-Wallis
+organic anion transmembrane transporter activity (GO:0008514)	GO_Molecular_Function_2018	63	0.151234567901241	1	0.697	Kruskal-Wallis
+organic cation transmembrane transporter activity (GO:0015101)	GO_Molecular_Function_2018	63	0	1	1	Kruskal-Wallis
+oxidoreductase activity, acting on NAD(P)H, quinone or similar compound as acceptor (GO:0016655)	GO_Molecular_Function_2018	63	0.30864197530866	1	0.579	Kruskal-Wallis
+oxidoreductase activity, acting on paired donors, with incorporation or reduction of molecular oxygen, 2-oxoglutarate as one donor, and incorporation of one atom each of oxygen into both donors (GO:0016706)	GO_Molecular_Function_2018	63	0.185378086419774	1	0.667	Kruskal-Wallis
+oxidoreductase activity, acting on paired donors, with incorporation or reduction of molecular oxygen, NAD(P)H as one donor, and incorporation of one atom of oxygen (GO:0016709)	GO_Molecular_Function_2018	63	1.49382716049382	1	0.222	Kruskal-Wallis
+oxidoreductase activity, acting on paired donors, with incorporation or reduction of molecular oxygen, reduced flavin or flavoprotein as one donor, and incorporation of one atom of oxygen (GO:0016712)	GO_Molecular_Function_2018	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+oxidoreductase activity, acting on single donors with incorporation of molecular oxygen, incorporation of two atoms of oxygen (GO:0016702)	GO_Molecular_Function_2018	63	0.222993827160508	1	0.637	Kruskal-Wallis
+oxidoreductase activity, acting on the aldehyde or oxo group of donors, NAD or NADP as acceptor (GO:0016620)	GO_Molecular_Function_2018	63	0.918402777777771	1	0.338	Kruskal-Wallis
+oxidoreductase activity, acting on the CH-CH group of donors, NAD or NADP as acceptor (GO:0016628)	GO_Molecular_Function_2018	63	0.32426697530866	1	0.569	Kruskal-Wallis
+oxidoreductase activity, acting on the CH-NH group of donors, NAD or NADP as acceptor (GO:0016646)	GO_Molecular_Function_2018	63	2.2085262345679	1	0.137	Kruskal-Wallis
+oxidoreductase activity, acting on the CH-NH2 group of donors, oxygen as acceptor (GO:0016641)	GO_Molecular_Function_2018	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+oxidoreductase activity, acting on the CH-OH group of donors, NAD or NADP as acceptor (GO:0016616)	GO_Molecular_Function_2018	63	0.151234567901241	1	0.697	Kruskal-Wallis
+P-P-bond-hydrolysis-driven transmembrane transporter activity (GO:0015405)	GO_Molecular_Function_2018	63	2.96604938271605	1	0.085	Kruskal-Wallis
+palmitoyltransferase activity (GO:0016409)	GO_Molecular_Function_2018	63	0.0625	1	0.803	Kruskal-Wallis
+PDZ domain binding (GO:0030165)	GO_Molecular_Function_2018	63	0.840277777777771	1	0.359	Kruskal-Wallis
+peptidase activator activity (GO:0016504)	GO_Molecular_Function_2018	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+peptidase activator activity involved in apoptotic process (GO:0016505)	GO_Molecular_Function_2018	63	0.0557484567901554	1	0.813	Kruskal-Wallis
+peptidase activity, acting on L-amino acid peptides (GO:0070011)	GO_Molecular_Function_2018	63	0.130401234567898	1	0.718	Kruskal-Wallis
+peptidase inhibitor activity (GO:0030414)	GO_Molecular_Function_2018	63	3.62056327160491	1	0.0571	Kruskal-Wallis
+peptide N-acetyltransferase activity (GO:0034212)	GO_Molecular_Function_2018	63	0.111111111111114	1	0.739	Kruskal-Wallis
+peptide-lysine-N-acetyltransferase activity (GO:0061733)	GO_Molecular_Function_2018	63	1.59741512345678	1	0.206	Kruskal-Wallis
+peptidyl-prolyl cis-trans isomerase activity (GO:0003755)	GO_Molecular_Function_2018	63	4.45679012345681	1	0.0348	Kruskal-Wallis
+phosphatase activity (GO:0016791)	GO_Molecular_Function_2018	63	0.604938271604908	1	0.437	Kruskal-Wallis
+phosphatase binding (GO:0019902)	GO_Molecular_Function_2018	63	0.501736111111114	1	0.479	Kruskal-Wallis
+phosphatase inhibitor activity (GO:0019212)	GO_Molecular_Function_2018	63	1.05632716049382	1	0.304	Kruskal-Wallis
+phosphatidic acid binding (GO:0070300)	GO_Molecular_Function_2018	63	0.648919753086432	1	0.42	Kruskal-Wallis
+phosphatidylinositol 3-kinase activity (GO:0035004)	GO_Molecular_Function_2018	63	0.151234567901241	1	0.697	Kruskal-Wallis
+phosphatidylinositol binding (GO:0035091)	GO_Molecular_Function_2018	63	0.521604938271565	1	0.47	Kruskal-Wallis
+phosphatidylinositol bisphosphate binding (GO:1902936)	GO_Molecular_Function_2018	63	0.891975308641975	1	0.345	Kruskal-Wallis
+phosphatidylinositol bisphosphate kinase activity (GO:0052813)	GO_Molecular_Function_2018	63	0.111111111111114	1	0.739	Kruskal-Wallis
+phosphatidylinositol kinase activity (GO:0052742)	GO_Molecular_Function_2018	63	0.671489197530889	1	0.413	Kruskal-Wallis
+phosphatidylinositol phosphate binding (GO:1901981)	GO_Molecular_Function_2018	63	0.185378086419774	1	0.667	Kruskal-Wallis
+phosphatidylinositol phosphate kinase activity (GO:0016307)	GO_Molecular_Function_2018	63	0.444444444444457	1	0.505	Kruskal-Wallis
+phosphatidylinositol phospholipase C activity (GO:0004435)	GO_Molecular_Function_2018	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+phosphatidylinositol-3-phosphate binding (GO:0032266)	GO_Molecular_Function_2018	63	1.70447530864197	1	0.192	Kruskal-Wallis
+phosphatidylinositol-3,4-bisphosphate binding (GO:0043325)	GO_Molecular_Function_2018	63	0.0850694444444571	1	0.771	Kruskal-Wallis
+phosphatidylinositol-3,4,5-trisphosphate binding (GO:0005547)	GO_Molecular_Function_2018	63	0.111111111111114	1	0.739	Kruskal-Wallis
+phosphatidylinositol-3,5-bisphosphate binding (GO:0080025)	GO_Molecular_Function_2018	63	0.501736111111114	1	0.479	Kruskal-Wallis
+phosphatidylinositol-3,5-bisphosphate phosphatase activity (GO:0106018)	GO_Molecular_Function_2018	63	3.83506944444446	1	0.0502	Kruskal-Wallis
+phosphatidylinositol-4-phosphate binding (GO:0070273)	GO_Molecular_Function_2018	63	2.55111882716051	1	0.11	Kruskal-Wallis
+phosphatidylinositol-4,5-bisphosphate 3-kinase activity (GO:0046934)	GO_Molecular_Function_2018	63	0.0696373456790127	1	0.792	Kruskal-Wallis
+phosphatidylinositol-4,5-bisphosphate binding (GO:0005546)	GO_Molecular_Function_2018	63	1.49382716049382	1	0.222	Kruskal-Wallis
+phospholipase A2 activity (GO:0004623)	GO_Molecular_Function_2018	63	2.59567901234567	1	0.107	Kruskal-Wallis
+phospholipase activity (GO:0004620)	GO_Molecular_Function_2018	63	0.521604938271565	1	0.47	Kruskal-Wallis
+phospholipase C activity (GO:0004629)	GO_Molecular_Function_2018	63	0.0696373456790127	1	0.792	Kruskal-Wallis
+phospholipid transporter activity (GO:0005548)	GO_Molecular_Function_2018	63	1.77777777777777	1	0.182	Kruskal-Wallis
+phospholipid-translocating ATPase activity (GO:0004012)	GO_Molecular_Function_2018	63	1.23456790123456	1	0.267	Kruskal-Wallis
+phosphoprotein phosphatase activity (GO:0004721)	GO_Molecular_Function_2018	63	0.130401234567898	1	0.718	Kruskal-Wallis
+phosphoric diester hydrolase activity (GO:0008081)	GO_Molecular_Function_2018	63	1.23456790123456	1	0.267	Kruskal-Wallis
+phosphoric ester hydrolase activity (GO:0042578)	GO_Molecular_Function_2018	63	1.08506944444446	1	0.298	Kruskal-Wallis
+phosphotransferase activity, alcohol group as acceptor (GO:0016773)	GO_Molecular_Function_2018	63	0.120563271604908	1	0.728	Kruskal-Wallis
+phosphotransferase activity, phosphate group as acceptor (GO:0016776)	GO_Molecular_Function_2018	63	0.0557484567901554	1	0.813	Kruskal-Wallis
+phosphotyrosine residue binding (GO:0001784)	GO_Molecular_Function_2018	63	0.918402777777771	1	0.338	Kruskal-Wallis
+poly-purine tract binding (GO:0070717)	GO_Molecular_Function_2018	63	2.25	1	0.134	Kruskal-Wallis
+poly-pyrimidine tract binding (GO:0008187)	GO_Molecular_Function_2018	63	0.120563271604908	1	0.728	Kruskal-Wallis
+poly(U) RNA binding (GO:0008266)	GO_Molecular_Function_2018	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+polypeptide N-acetylgalactosaminyltransferase activity (GO:0004653)	GO_Molecular_Function_2018	63	0.222993827160508	1	0.637	Kruskal-Wallis
+polyubiquitin modification-dependent protein binding (GO:0031593)	GO_Molecular_Function_2018	63	0.0850694444444571	1	0.771	Kruskal-Wallis
+potassium channel activity (GO:0005267)	GO_Molecular_Function_2018	63	1.08506944444446	1	0.298	Kruskal-Wallis
+potassium channel regulator activity (GO:0015459)	GO_Molecular_Function_2018	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+potassium ion antiporter activity (GO:0022821)	GO_Molecular_Function_2018	63	0.37345679012347	1	0.541	Kruskal-Wallis
+potassium ion leak channel activity (GO:0022841)	GO_Molecular_Function_2018	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+potassium ion transmembrane transporter activity (GO:0015079)	GO_Molecular_Function_2018	63	0.023341049382708	1	0.879	Kruskal-Wallis
+pre-mRNA binding (GO:0036002)	GO_Molecular_Function_2018	63	2.25	1	0.134	Kruskal-Wallis
+protease binding (GO:0002020)	GO_Molecular_Function_2018	63	0.0326003086419746	1	0.857	Kruskal-Wallis
+proteasome binding (GO:0070628)	GO_Molecular_Function_2018	63	0.444444444444457	1	0.505	Kruskal-Wallis
+protein binding involved in cell-cell adhesion (GO:0098632)	GO_Molecular_Function_2018	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+protein deacetylase activity (GO:0033558)	GO_Molecular_Function_2018	63	5.77334104938268	1	0.0163	Kruskal-Wallis
+protein disulfide isomerase activity (GO:0003756)	GO_Molecular_Function_2018	63	0.671489197530889	1	0.413	Kruskal-Wallis
+protein heterodimerization activity (GO:0046982)	GO_Molecular_Function_2018	63	0.130401234567898	1	0.718	Kruskal-Wallis
+protein homodimerization activity (GO:0042803)	GO_Molecular_Function_2018	63	0.00125976316454057	1	0.972	Kruskal-Wallis
+protein kinase A regulatory subunit binding (GO:0034237)	GO_Molecular_Function_2018	63	2.50694444444446	1	0.113	Kruskal-Wallis
+protein kinase activator activity (GO:0030295)	GO_Molecular_Function_2018	63	1.49382716049382	1	0.222	Kruskal-Wallis
+protein kinase activity (GO:0004672)	GO_Molecular_Function_2018	63	0.000453514739263028	1	0.983	Kruskal-Wallis
+protein kinase binding (GO:0019901)	GO_Molecular_Function_2018	63	0.55320808224036	1	0.457	Kruskal-Wallis
+protein kinase C binding (GO:0005080)	GO_Molecular_Function_2018	63	0.5625	1	0.453	Kruskal-Wallis
+protein kinase inhibitor activity (GO:0004860)	GO_Molecular_Function_2018	63	0.626736111111114	1	0.429	Kruskal-Wallis
+protein kinase regulator activity (GO:0019887)	GO_Molecular_Function_2018	63	0.197530864197546	1	0.657	Kruskal-Wallis
+protein methyltransferase activity (GO:0008276)	GO_Molecular_Function_2018	63	1.52797067901233	1	0.216	Kruskal-Wallis
+protein phosphatase 2A binding (GO:0051721)	GO_Molecular_Function_2018	63	0.37345679012347	1	0.541	Kruskal-Wallis
+protein phosphatase binding (GO:0019903)	GO_Molecular_Function_2018	63	0.23630401234567	1	0.627	Kruskal-Wallis
+protein phosphatase inhibitor activity (GO:0004864)	GO_Molecular_Function_2018	63	1.92901234567901	1	0.165	Kruskal-Wallis
+protein phosphatase regulator activity (GO:0019888)	GO_Molecular_Function_2018	63	0.790123456790155	1	0.374	Kruskal-Wallis
+protein phosphorylated amino acid binding (GO:0045309)	GO_Molecular_Function_2018	63	0.741512345679013	1	0.389	Kruskal-Wallis
+protein serine/threonine kinase activator activity (GO:0043539)	GO_Molecular_Function_2018	63	0	1	1	Kruskal-Wallis
+protein serine/threonine kinase activity (GO:0004674)	GO_Molecular_Function_2018	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+protein serine/threonine kinase inhibitor activity (GO:0030291)	GO_Molecular_Function_2018	63	0.293402777777771	1	0.588	Kruskal-Wallis
+protein serine/threonine phosphatase activity (GO:0004722)	GO_Molecular_Function_2018	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+protein transmembrane transporter activity (GO:0008320)	GO_Molecular_Function_2018	63	0.32426697530866	1	0.569	Kruskal-Wallis
+protein transporter activity (GO:0008565)	GO_Molecular_Function_2018	63	3.16049382716051	1	0.0754	Kruskal-Wallis
+protein tyrosine kinase activity (GO:0004713)	GO_Molecular_Function_2018	63	0.0625	1	0.803	Kruskal-Wallis
+protein tyrosine kinase binding (GO:1990782)	GO_Molecular_Function_2018	63	1.63271604938271	1	0.201	Kruskal-Wallis
+protein tyrosine phosphatase activity (GO:0004725)	GO_Molecular_Function_2018	63	0.40817901234567	1	0.523	Kruskal-Wallis
+protein tyrosine/serine/threonine phosphatase activity (GO:0008138)	GO_Molecular_Function_2018	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+protein-cysteine S-acyltransferase activity (GO:0019707)	GO_Molecular_Function_2018	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+protein-cysteine S-palmitoyltransferase activity (GO:0019706)	GO_Molecular_Function_2018	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+protein-lysine N-methyltransferase activity (GO:0016279)	GO_Molecular_Function_2018	63	0.162229938271565	1	0.687	Kruskal-Wallis
+proton-transporting ATPase activity, rotational mechanism (GO:0046961)	GO_Molecular_Function_2018	63	1.63271604938271	1	0.201	Kruskal-Wallis
+purine ribonucleoside binding (GO:0032550)	GO_Molecular_Function_2018	63	0.278549382716051	1	0.598	Kruskal-Wallis
+purine ribonucleoside triphosphate binding (GO:0035639)	GO_Molecular_Function_2018	63	0.30864197530866	1	0.579	Kruskal-Wallis
+purinergic nucleotide receptor activity (GO:0001614)	GO_Molecular_Function_2018	63	0.648919753086432	1	0.42	Kruskal-Wallis
+pyrophosphatase activity (GO:0016462)	GO_Molecular_Function_2018	63	4.81558641975309	1	0.0282	Kruskal-Wallis
+R-SMAD binding (GO:0070412)	GO_Molecular_Function_2018	63	0.173611111111114	1	0.677	Kruskal-Wallis
+Rab GTPase binding (GO:0017137)	GO_Molecular_Function_2018	63	7.26003086419752	1	0.00705	Kruskal-Wallis
+Rab guanyl-nucleotide exchange factor activity (GO:0017112)	GO_Molecular_Function_2018	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+Rac GTPase binding (GO:0048365)	GO_Molecular_Function_2018	63	0.5625	1	0.453	Kruskal-Wallis
+Ran GTPase binding (GO:0008536)	GO_Molecular_Function_2018	63	0.501736111111114	1	0.479	Kruskal-Wallis
+Ras GTPase binding (GO:0017016)	GO_Molecular_Function_2018	63	3.72704475308643	1	0.0535	Kruskal-Wallis
+receptor antagonist activity (GO:0048019)	GO_Molecular_Function_2018	63	0.840277777777771	1	0.359	Kruskal-Wallis
+receptor tyrosine kinase binding (GO:0030971)	GO_Molecular_Function_2018	63	2.59567901234567	1	0.107	Kruskal-Wallis
+regulatory region DNA binding (GO:0000975)	GO_Molecular_Function_2018	63	2.55111882716051	1	0.11	Kruskal-Wallis
+repressing transcription factor binding (GO:0070491)	GO_Molecular_Function_2018	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+retinoic acid receptor binding (GO:0042974)	GO_Molecular_Function_2018	63	0.648919753086432	1	0.42	Kruskal-Wallis
+retinoid binding (GO:0005501)	GO_Molecular_Function_2018	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+retinol dehydrogenase activity (GO:0004745)	GO_Molecular_Function_2018	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+Rho GTPase binding (GO:0017048)	GO_Molecular_Function_2018	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+Rho guanyl-nucleotide exchange factor activity (GO:0005089)	GO_Molecular_Function_2018	63	4.22530864197532	1	0.0398	Kruskal-Wallis
+ribonuclease activity (GO:0004540)	GO_Molecular_Function_2018	63	0.30864197530866	1	0.579	Kruskal-Wallis
+ribosome binding (GO:0043022)	GO_Molecular_Function_2018	63	2.2085262345679	1	0.137	Kruskal-Wallis
+RNA binding (GO:0003723)	GO_Molecular_Function_2018	63	3.17992916174734	1	0.0745	Kruskal-Wallis
+RNA cap binding (GO:0000339)	GO_Molecular_Function_2018	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+RNA helicase activity (GO:0003724)	GO_Molecular_Function_2018	63	0.463155864197546	1	0.496	Kruskal-Wallis
+RNA methyltransferase activity (GO:0008173)	GO_Molecular_Function_2018	63	1.96778549382717	1	0.161	Kruskal-Wallis
+RNA polymerase binding (GO:0070063)	GO_Molecular_Function_2018	63	0.0557484567901554	1	0.813	Kruskal-Wallis
+RNA polymerase core enzyme binding (GO:0043175)	GO_Molecular_Function_2018	63	0.222993827160508	1	0.637	Kruskal-Wallis
+RNA polymerase II activating transcription factor binding (GO:0001102)	GO_Molecular_Function_2018	63	0.278549382716051	1	0.598	Kruskal-Wallis
+RNA polymerase II carboxy-terminal domain kinase activity (GO:0008353)	GO_Molecular_Function_2018	63	0.120563271604908	1	0.728	Kruskal-Wallis
+RNA polymerase II core binding (GO:0000993)	GO_Molecular_Function_2018	63	1.17361111111111	1	0.279	Kruskal-Wallis
+RNA polymerase II core promoter proximal region sequence-specific DNA binding (GO:0000978)	GO_Molecular_Function_2018	63	1.890625	1	0.169	Kruskal-Wallis
+RNA polymerase II core promoter sequence-specific DNA binding (GO:0000979)	GO_Molecular_Function_2018	63	0.765625	1	0.382	Kruskal-Wallis
+RNA polymerase II distal enhancer sequence-specific DNA binding (GO:0000980)	GO_Molecular_Function_2018	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+RNA polymerase II regulatory region DNA binding (GO:0001012)	GO_Molecular_Function_2018	63	0.30864197530866	1	0.579	Kruskal-Wallis
+RNA polymerase II regulatory region sequence-specific DNA binding (GO:0000977)	GO_Molecular_Function_2018	63	0.661172161172175	1	0.416	Kruskal-Wallis
+RNA polymerase II repressing transcription factor binding (GO:0001103)	GO_Molecular_Function_2018	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+RNA polymerase II transcription coactivator activity (GO:0001105)	GO_Molecular_Function_2018	63	0.173611111111114	1	0.677	Kruskal-Wallis
+RNA polymerase II transcription cofactor activity (GO:0001104)	GO_Molecular_Function_2018	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+RNA polymerase II transcription corepressor activity (GO:0001106)	GO_Molecular_Function_2018	63	0.0850694444444571	1	0.771	Kruskal-Wallis
+RNA polymerase II transcription factor activity, sequence-specific transcription regulatory region DNA binding (GO:0001133)	GO_Molecular_Function_2018	63	3.11130401234567	1	0.0778	Kruskal-Wallis
+RNA polymerase II transcription factor binding (GO:0001085)	GO_Molecular_Function_2018	63	0.694444444444457	1	0.405	Kruskal-Wallis
+RNA polymerase III activity (GO:0001056)	GO_Molecular_Function_2018	63	0.111111111111114	1	0.739	Kruskal-Wallis
+RNA-dependent ATPase activity (GO:0008186)	GO_Molecular_Function_2018	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+rRNA binding (GO:0019843)	GO_Molecular_Function_2018	63	4.34027777777777	1	0.0372	Kruskal-Wallis
+S-adenosylmethionine-dependent methyltransferase activity (GO:0008757)	GO_Molecular_Function_2018	63	2.41975308641977	1	0.12	Kruskal-Wallis
+scavenger receptor activity (GO:0005044)	GO_Molecular_Function_2018	63	2.33410493827157	1	0.127	Kruskal-Wallis
+secondary active transmembrane transporter activity (GO:0015291)	GO_Molecular_Function_2018	63	0.102044753086432	1	0.749	Kruskal-Wallis
+semaphorin receptor binding (GO:0030215)	GO_Molecular_Function_2018	63	0.5625	1	0.453	Kruskal-Wallis
+sequence-specific DNA binding (GO:0043565)	GO_Molecular_Function_2018	63	2.33410493827157	1	0.127	Kruskal-Wallis
+sequence-specific double-stranded DNA binding (GO:1990837)	GO_Molecular_Function_2018	63	0.0850694444444571	1	0.771	Kruskal-Wallis
+serine-type endopeptidase activity (GO:0004252)	GO_Molecular_Function_2018	63	1.77777777777777	1	0.182	Kruskal-Wallis
+serine-type endopeptidase inhibitor activity (GO:0004867)	GO_Molecular_Function_2018	63	0.5625	1	0.453	Kruskal-Wallis
+serine-type peptidase activity (GO:0008236)	GO_Molecular_Function_2018	63	1.32889660493825	1	0.249	Kruskal-Wallis
+serotonin receptor activity (GO:0099589)	GO_Molecular_Function_2018	63	0.741512345679013	1	0.389	Kruskal-Wallis
+SH2 domain binding (GO:0042169)	GO_Molecular_Function_2018	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+SH3 domain binding (GO:0017124)	GO_Molecular_Function_2018	63	1.70447530864197	1	0.192	Kruskal-Wallis
+SH3/SH2 adaptor activity (GO:0005070)	GO_Molecular_Function_2018	63	0.210069444444457	1	0.647	Kruskal-Wallis
+sialyltransferase activity (GO:0008373)	GO_Molecular_Function_2018	63	0.717785493827165	1	0.397	Kruskal-Wallis
+signal sequence binding (GO:0005048)	GO_Molecular_Function_2018	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+single-stranded DNA binding (GO:0003697)	GO_Molecular_Function_2018	63	3.46373456790124	1	0.0627	Kruskal-Wallis
+single-stranded RNA binding (GO:0003727)	GO_Molecular_Function_2018	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+small GTPase binding (GO:0031267)	GO_Molecular_Function_2018	63	1.46006944444446	1	0.227	Kruskal-Wallis
+snoRNA binding (GO:0030515)	GO_Molecular_Function_2018	63	2.96604938271605	1	0.085	Kruskal-Wallis
+snRNA binding (GO:0017069)	GO_Molecular_Function_2018	63	0.162229938271565	1	0.687	Kruskal-Wallis
+sodium channel activity (GO:0005272)	GO_Molecular_Function_2018	63	0.790123456790155	1	0.374	Kruskal-Wallis
+sodium ion transmembrane transporter activity (GO:0015081)	GO_Molecular_Function_2018	63	1.63271604938271	1	0.201	Kruskal-Wallis
+sodium-independent organic anion transmembrane transporter activity (GO:0015347)	GO_Molecular_Function_2018	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+solute:proton symporter activity (GO:0015295)	GO_Molecular_Function_2018	63	0.23630401234567	1	0.627	Kruskal-Wallis
+solute:sodium symporter activity (GO:0015370)	GO_Molecular_Function_2018	63	1.77777777777777	1	0.182	Kruskal-Wallis
+spectrin binding (GO:0030507)	GO_Molecular_Function_2018	63	0.541859567901241	1	0.462	Kruskal-Wallis
+steroid dehydrogenase activity, acting on the CH-OH group of donors, NAD or NADP as acceptor (GO:0033764)	GO_Molecular_Function_2018	63	0.222993827160508	1	0.637	Kruskal-Wallis
+steroid hormone receptor binding (GO:0035258)	GO_Molecular_Function_2018	63	0.945216049382708	1	0.331	Kruskal-Wallis
+steroid hydroxylase activity (GO:0008395)	GO_Molecular_Function_2018	63	0.0326003086419746	1	0.857	Kruskal-Wallis
+sterol binding (GO:0032934)	GO_Molecular_Function_2018	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+sterol transporter activity (GO:0015248)	GO_Molecular_Function_2018	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+substrate-specific channel activity (GO:0022838)	GO_Molecular_Function_2018	63	0.0625	1	0.803	Kruskal-Wallis
+sulfotransferase activity (GO:0008146)	GO_Molecular_Function_2018	63	1.890625	1	0.169	Kruskal-Wallis
+sulfuric ester hydrolase activity (GO:0008484)	GO_Molecular_Function_2018	63	1.05632716049382	1	0.304	Kruskal-Wallis
+SUMO transferase activity (GO:0019789)	GO_Molecular_Function_2018	63	0.32426697530866	1	0.569	Kruskal-Wallis
+syntaxin binding (GO:0019905)	GO_Molecular_Function_2018	63	0.972415123456784	1	0.324	Kruskal-Wallis
+syntaxin-1 binding (GO:0017075)	GO_Molecular_Function_2018	63	0.111111111111114	1	0.739	Kruskal-Wallis
+taste receptor activity (GO:0008527)	GO_Molecular_Function_2018	63	0.482253086419774	1	0.487	Kruskal-Wallis
+TBP-class protein binding (GO:0017025)	GO_Molecular_Function_2018	63	1.39371141975309	1	0.238	Kruskal-Wallis
+telomerase RNA binding (GO:0070034)	GO_Molecular_Function_2018	63	0.501736111111114	1	0.479	Kruskal-Wallis
+telomeric DNA binding (GO:0042162)	GO_Molecular_Function_2018	63	0.482253086419774	1	0.487	Kruskal-Wallis
+thiol-dependent ubiquitin-specific protease activity (GO:0004843)	GO_Molecular_Function_2018	63	3.83506944444446	1	0.0502	Kruskal-Wallis
+thiol-dependent ubiquitinyl hydrolase activity (GO:0036459)	GO_Molecular_Function_2018	63	2.82426697530866	1	0.0928	Kruskal-Wallis
+thyroid hormone receptor binding (GO:0046966)	GO_Molecular_Function_2018	63	0.130401234567898	1	0.718	Kruskal-Wallis
+transcription coactivator activity (GO:0003713)	GO_Molecular_Function_2018	63	2.16743827160491	1	0.141	Kruskal-Wallis
+transcription cofactor binding (GO:0001221)	GO_Molecular_Function_2018	63	1.08506944444446	1	0.298	Kruskal-Wallis
+transcription corepressor activity (GO:0003714)	GO_Molecular_Function_2018	63	1.49382716049382	1	0.222	Kruskal-Wallis
+transcription factor activity, RNA polymerase II core promoter proximal region sequence-specific binding (GO:0000982)	GO_Molecular_Function_2018	63	1.14371141975309	1	0.285	Kruskal-Wallis
+transcription factor activity, RNA polymerase II core promoter sequence-specific (GO:0000983)	GO_Molecular_Function_2018	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+transcription factor activity, RNA polymerase II distal enhancer sequence-specific binding (GO:0003705)	GO_Molecular_Function_2018	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+transcription regulatory region DNA binding (GO:0044212)	GO_Molecular_Function_2018	63	1.83658933658936	1	0.175	Kruskal-Wallis
+transcription regulatory region sequence-specific DNA binding (GO:0000976)	GO_Molecular_Function_2018	63	0.0557484567901554	1	0.813	Kruskal-Wallis
+transcriptional activator activity, RNA polymerase II core promoter proximal region sequence-specific binding (GO:0001077)	GO_Molecular_Function_2018	63	1.36111111111111	1	0.243	Kruskal-Wallis
+transcriptional activator activity, RNA polymerase II distal enhancer sequence-specific binding (GO:0001205)	GO_Molecular_Function_2018	63	0.30864197530866	1	0.579	Kruskal-Wallis
+transcriptional activator activity, RNA polymerase II transcription factor binding (GO:0001190)	GO_Molecular_Function_2018	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+transcriptional activator activity, RNA polymerase II transcription regulatory region sequence-specific binding (GO:0001228)	GO_Molecular_Function_2018	63	0.865933641975317	1	0.352	Kruskal-Wallis
+transcriptional repressor activity, RNA polymerase II core promoter proximal region sequence-specific binding (GO:0001078)	GO_Molecular_Function_2018	63	0.815007716049394	1	0.367	Kruskal-Wallis
+transcriptional repressor activity, RNA polymerase II transcription factor binding (GO:0001191)	GO_Molecular_Function_2018	63	2.41975308641977	1	0.12	Kruskal-Wallis
+transcriptional repressor activity, RNA polymerase II transcription regulatory region sequence-specific binding (GO:0001227)	GO_Molecular_Function_2018	63	0.626736111111114	1	0.429	Kruskal-Wallis
+transferase activity, transferring acyl groups other than amino-acyl groups (GO:0016747)	GO_Molecular_Function_2018	63	0.0123456790123271	1	0.912	Kruskal-Wallis
+transferase activity, transferring amino-acyl groups (GO:0016755)	GO_Molecular_Function_2018	63	0.790123456790155	1	0.374	Kruskal-Wallis
+transferase activity, transferring hexosyl groups (GO:0016758)	GO_Molecular_Function_2018	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+transferase activity, transferring pentosyl groups (GO:0016763)	GO_Molecular_Function_2018	63	1.36111111111111	1	0.243	Kruskal-Wallis
+transforming growth factor beta binding (GO:0050431)	GO_Molecular_Function_2018	63	1.52797067901233	1	0.216	Kruskal-Wallis
+transforming growth factor beta receptor binding (GO:0005160)	GO_Molecular_Function_2018	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+transition metal ion binding (GO:0046914)	GO_Molecular_Function_2018	63	0.615588115588139	1	0.433	Kruskal-Wallis
+transition metal ion transmembrane transporter activity (GO:0046915)	GO_Molecular_Function_2018	63	0.945216049382708	1	0.331	Kruskal-Wallis
+translation factor activity, RNA binding (GO:0008135)	GO_Molecular_Function_2018	63	1.32889660493825	1	0.249	Kruskal-Wallis
+translation initiation factor activity (GO:0003743)	GO_Molecular_Function_2018	63	1.46006944444446	1	0.227	Kruskal-Wallis
+transmembrane receptor protein kinase activity (GO:0019199)	GO_Molecular_Function_2018	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+transmembrane receptor protein phosphatase activity (GO:0019198)	GO_Molecular_Function_2018	63	0.626736111111114	1	0.429	Kruskal-Wallis
+transmembrane receptor protein serine/threonine kinase binding (GO:0070696)	GO_Molecular_Function_2018	63	0	1	1	Kruskal-Wallis
+transmembrane receptor protein tyrosine kinase activity (GO:0004714)	GO_Molecular_Function_2018	63	0.0850694444444571	1	0.771	Kruskal-Wallis
+transmembrane receptor protein tyrosine phosphatase activity (GO:0005001)	GO_Molecular_Function_2018	63	0.626736111111114	1	0.429	Kruskal-Wallis
+transmembrane-ephrin receptor activity (GO:0005005)	GO_Molecular_Function_2018	63	0.222993827160508	1	0.637	Kruskal-Wallis
+transmitter-gated ion channel activity (GO:0022824)	GO_Molecular_Function_2018	63	0.0557484567901554	1	0.813	Kruskal-Wallis
+transmitter-gated ion channel activity involved in regulation of postsynaptic membrane potential (GO:1904315)	GO_Molecular_Function_2018	63	0.26408179012347	1	0.607	Kruskal-Wallis
+triglyceride lipase activity (GO:0004806)	GO_Molecular_Function_2018	63	0.32426697530866	1	0.569	Kruskal-Wallis
+tRNA binding (GO:0000049)	GO_Molecular_Function_2018	63	3.16049382716051	1	0.0754	Kruskal-Wallis
+tubulin binding (GO:0015631)	GO_Molecular_Function_2018	63	3.46373456790124	1	0.0627	Kruskal-Wallis
+tumor necrosis factor receptor superfamily binding (GO:0032813)	GO_Molecular_Function_2018	63	2.91840277777777	1	0.0876	Kruskal-Wallis
+tumor necrosis factor-activated receptor activity (GO:0005031)	GO_Molecular_Function_2018	63	0.023341049382708	1	0.879	Kruskal-Wallis
+ubiquitin binding (GO:0043130)	GO_Molecular_Function_2018	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+ubiquitin conjugating enzyme activity (GO:0061631)	GO_Molecular_Function_2018	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+ubiquitin conjugating enzyme binding (GO:0031624)	GO_Molecular_Function_2018	63	1.17361111111111	1	0.279	Kruskal-Wallis
+ubiquitin protein ligase activity (GO:0061630)	GO_Molecular_Function_2018	63	0.583526234567898	1	0.445	Kruskal-Wallis
+ubiquitin protein ligase binding (GO:0031625)	GO_Molecular_Function_2018	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+ubiquitin-like protein conjugating enzyme activity (GO:0061650)	GO_Molecular_Function_2018	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+ubiquitin-like protein conjugating enzyme binding (GO:0044390)	GO_Molecular_Function_2018	63	0.945216049382708	1	0.331	Kruskal-Wallis
+ubiquitin-like protein ligase activity (GO:0061659)	GO_Molecular_Function_2018	63	0.583526234567898	1	0.445	Kruskal-Wallis
+ubiquitin-like protein ligase binding (GO:0044389)	GO_Molecular_Function_2018	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+ubiquitin-like protein-specific protease activity (GO:0019783)	GO_Molecular_Function_2018	63	1.890625	1	0.169	Kruskal-Wallis
+ubiquitin-protein transferase activity (GO:0004842)	GO_Molecular_Function_2018	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+ubiquitin-specific protease binding (GO:1990381)	GO_Molecular_Function_2018	63	0.30864197530866	1	0.579	Kruskal-Wallis
+UDP-galactosyltransferase activity (GO:0035250)	GO_Molecular_Function_2018	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+UDP-glycosyltransferase activity (GO:0008194)	GO_Molecular_Function_2018	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+voltage-gated anion channel activity (GO:0008308)	GO_Molecular_Function_2018	63	0.173611111111114	1	0.677	Kruskal-Wallis
+voltage-gated calcium channel activity (GO:0005245)	GO_Molecular_Function_2018	63	0.37345679012347	1	0.541	Kruskal-Wallis
+voltage-gated cation channel activity (GO:0022843)	GO_Molecular_Function_2018	63	1.39371141975309	1	0.238	Kruskal-Wallis
+voltage-gated ion channel activity (GO:0005244)	GO_Molecular_Function_2018	63	4.3402777777778	1	0.0372	Kruskal-Wallis
+voltage-gated ion channel activity involved in regulation of postsynaptic membrane potential (GO:1905030)	GO_Molecular_Function_2018	63	0.604938271604908	1	0.437	Kruskal-Wallis
+voltage-gated potassium channel activity (GO:0005249)	GO_Molecular_Function_2018	63	0.840277777777771	1	0.359	Kruskal-Wallis
+voltage-gated sodium channel activity (GO:0005248)	GO_Molecular_Function_2018	63	1.20389660493825	1	0.273	Kruskal-Wallis
+Wnt-activated receptor activity (GO:0042813)	GO_Molecular_Function_2018	63	3.11130401234567	1	0.0778	Kruskal-Wallis
+WW domain binding (GO:0050699)	GO_Molecular_Function_2018	63	0	1	1	Kruskal-Wallis
+zinc ion binding (GO:0008270)	GO_Molecular_Function_2018	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+zinc ion transmembrane transporter activity (GO:0005385)	GO_Molecular_Function_2018	63	1	1	0.317	Kruskal-Wallis

@@ -1,0 +1,351 @@
+pathway	DB	n	statistic	df	p	method
+4-hydroxytamoxifen, Dexamethasone, and Retinoic Acids Regulation of p27 Expression WP3879	WikiPathways_2019_Human	63	0.210069444444457	1	0.647	Kruskal-Wallis
+ACE Inhibitor Pathway WP554	WikiPathways_2019_Human	63	0.0123456790123271	1	0.912	Kruskal-Wallis
+Adipogenesis WP236	WikiPathways_2019_Human	63	0.40817901234567	1	0.523	Kruskal-Wallis
+AGE/RAGE pathway WP2324	WikiPathways_2019_Human	63	0.25	1	0.617	Kruskal-Wallis
+Allograft Rejection WP2328	WikiPathways_2019_Human	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+Alpha 6 Beta 4 signaling pathway WP244	WikiPathways_2019_Human	63	0.390625	1	0.532	Kruskal-Wallis
+Alzheimers Disease WP2059	WikiPathways_2019_Human	63	0.541859567901241	1	0.462	Kruskal-Wallis
+Amino Acid metabolism WP3925	WikiPathways_2019_Human	63	1.4266975308642	1	0.232	Kruskal-Wallis
+AMP-activated Protein Kinase (AMPK) Signaling WP1403	WikiPathways_2019_Human	63	0.426118827160508	1	0.514	Kruskal-Wallis
+Amplification and Expansion of Oncogenic Pathways as Metastatic Traits WP3678	WikiPathways_2019_Human	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+Amyotrophic lateral sclerosis (ALS) WP2447	WikiPathways_2019_Human	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+Androgen receptor signaling pathway WP138	WikiPathways_2019_Human	63	1.08506944444446	1	0.298	Kruskal-Wallis
+Angiogenesis WP1539	WikiPathways_2019_Human	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+Angiopoietin Like Protein 8 Regulatory Pathway WP3915	WikiPathways_2019_Human	63	1.49382716049382	1	0.222	Kruskal-Wallis
+Apoptosis Modulation and Signaling WP1772	WikiPathways_2019_Human	63	0.426118827160508	1	0.514	Kruskal-Wallis
+Apoptosis Modulation by HSP70 WP384	WikiPathways_2019_Human	63	0.023341049382708	1	0.879	Kruskal-Wallis
+Apoptosis WP254	WikiPathways_2019_Human	63	0.23630401234567	1	0.627	Kruskal-Wallis
+Apoptosis-related network due to altered Notch3 in ovarian cancer WP2864	WikiPathways_2019_Human	63	0.972415123456784	1	0.324	Kruskal-Wallis
+Arrhythmogenic Right Ventricular Cardiomyopathy WP2118	WikiPathways_2019_Human	63	0.482253086419774	1	0.487	Kruskal-Wallis
+Aryl Hydrocarbon Receptor Pathway WP2873	WikiPathways_2019_Human	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+Aryl Hydrocarbon Receptor WP2586	WikiPathways_2019_Human	63	0.40817901234567	1	0.523	Kruskal-Wallis
+Association Between Physico-Chemical Features and Toxicity Associated Pathways WP3680	WikiPathways_2019_Human	63	0.765625	1	0.382	Kruskal-Wallis
+ATM Signaling Network in Development and Disease  WP3878	WikiPathways_2019_Human	63	1.36111111111111	1	0.243	Kruskal-Wallis
+ATM Signaling Pathway WP2516	WikiPathways_2019_Human	63	1.05632716049382	1	0.304	Kruskal-Wallis
+B Cell Receptor Signaling Pathway WP23	WikiPathways_2019_Human	63	0.891975308641975	1	0.345	Kruskal-Wallis
+BDNF-TrkB Signaling WP3676	WikiPathways_2019_Human	63	0.222993827160508	1	0.637	Kruskal-Wallis
+Bladder Cancer WP2828	WikiPathways_2019_Human	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+Blood Clotting Cascade WP272	WikiPathways_2019_Human	63	0.40817901234567	1	0.523	Kruskal-Wallis
+BMP Signaling Pathway in Eyelid Development WP3927	WikiPathways_2019_Human	63	0.604938271604908	1	0.437	Kruskal-Wallis
+Brain-Derived Neurotrophic Factor (BDNF) signaling pathway WP2380	WikiPathways_2019_Human	63	0.482253086419774	1	0.487	Kruskal-Wallis
+Breast cancer pathway WP4262	WikiPathways_2019_Human	63	0.340277777777771	1	0.56	Kruskal-Wallis
+Calcium Regulation in the Cardiac Cell WP536	WikiPathways_2019_Human	63	1.14371141975309	1	0.285	Kruskal-Wallis
+Cannabinoid receptor signaling WP3869	WikiPathways_2019_Human	63	2.29185956790124	1	0.13	Kruskal-Wallis
+Canonical  and Non-canonical Notch signaling WP3845	WikiPathways_2019_Human	63	0.30864197530866	1	0.579	Kruskal-Wallis
+Canonical and Non-Canonical TGF-B signaling WP3874	WikiPathways_2019_Human	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+Cardiac Hypertrophic Response WP2795	WikiPathways_2019_Human	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+Cardiac Progenitor Differentiation WP2406	WikiPathways_2019_Human	63	0.648919753086432	1	0.42	Kruskal-Wallis
+Cell Cycle WP179	WikiPathways_2019_Human	63	0.972415123456813	1	0.324	Kruskal-Wallis
+Cell Differentiation - Index expanded WP2023	WikiPathways_2019_Human	63	0.765625	1	0.382	Kruskal-Wallis
+Cells and Molecules involved in local acute inflammatory response  WP4493	WikiPathways_2019_Human	63	0.0123456790123271	1	0.912	Kruskal-Wallis
+Chemokine signaling pathway WP3929	WikiPathways_2019_Human	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+Cholesterol Biosynthesis Pathway WP197	WikiPathways_2019_Human	63	0.604938271604908	1	0.437	Kruskal-Wallis
+Chromosomal and microsatellite instability in colorectal cancer  WP4216	WikiPathways_2019_Human	63	0.015625	1	0.901	Kruskal-Wallis
+Ciliary landscape WP4352	WikiPathways_2019_Human	63	4.75482253086417	1	0.0292	Kruskal-Wallis
+Circadian rhythm related genes WP3594	WikiPathways_2019_Human	63	2.08641975308643	1	0.149	Kruskal-Wallis
+Codeine and Morphine Metabolism WP1604	WikiPathways_2019_Human	63	0.111111111111114	1	0.739	Kruskal-Wallis
+Common Pathways Underlying Drug Addiction WP2636	WikiPathways_2019_Human	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+Complement Activation WP545	WikiPathways_2019_Human	63	0.390625	1	0.532	Kruskal-Wallis
+Complement and Coagulation Cascades WP558	WikiPathways_2019_Human	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+Constitutive Androstane Receptor Pathway WP2875	WikiPathways_2019_Human	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+Copper homeostasis WP3286	WikiPathways_2019_Human	63	1.265625	1	0.261	Kruskal-Wallis
+Corticotropin-releasing hormone signaling pathway WP2355	WikiPathways_2019_Human	63	0.463155864197546	1	0.496	Kruskal-Wallis
+Cytokines and Inflammatory Response WP530	WikiPathways_2019_Human	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+Cytoplasmic Ribosomal Proteins WP477	WikiPathways_2019_Human	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+Deregulation of Rab and Rab Effector Genes in Bladder Cancer WP2291	WikiPathways_2019_Human	63	0.340277777777771	1	0.56	Kruskal-Wallis
+Development and heterogeneity of the ILC family WP3893	WikiPathways_2019_Human	63	0.891975308641975	1	0.345	Kruskal-Wallis
+Differentiation of white and brown adipocyte    WP2895	WikiPathways_2019_Human	63	0.210069444444457	1	0.647	Kruskal-Wallis
+Differentiation Pathway WP2848	WikiPathways_2019_Human	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+DNA Damage Response (only ATM dependent) WP710	WikiPathways_2019_Human	63	0.32426697530866	1	0.569	Kruskal-Wallis
+DNA Damage Response WP707	WikiPathways_2019_Human	63	0.482253086419774	1	0.487	Kruskal-Wallis
+DNA IR-damage and cellular response via ATR WP4016	WikiPathways_2019_Human	63	1.36111111111111	1	0.243	Kruskal-Wallis
+DNA IR-Double Strand Breaks (DSBs) and cellular response via ATM WP3959	WikiPathways_2019_Human	63	2.91840277777777	1	0.0876	Kruskal-Wallis
+DNA Replication WP466	WikiPathways_2019_Human	63	1.74093364197532	1	0.187	Kruskal-Wallis
+Dopaminergic Neurogenesis WP2855	WikiPathways_2019_Human	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+Drug Induction of Bile Acid Pathway WP2289	WikiPathways_2019_Human	63	0.482253086419774	1	0.487	Kruskal-Wallis
+Ebola Virus Pathway on Host WP4217	WikiPathways_2019_Human	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+EBV LMP1 signaling WP262	WikiPathways_2019_Human	63	0.694444444444457	1	0.405	Kruskal-Wallis
+Ectoderm Differentiation WP2858	WikiPathways_2019_Human	63	0.0123456790123271	1	0.912	Kruskal-Wallis
+EGF/EGFR Signaling Pathway WP437	WikiPathways_2019_Human	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+Eicosanoid Synthesis WP167	WikiPathways_2019_Human	63	1.49382716049382	1	0.222	Kruskal-Wallis
+Electron Transport Chain (OXPHOS system in mitochondria) WP111	WikiPathways_2019_Human	63	0.626736111111114	1	0.429	Kruskal-Wallis
+Endochondral Ossification WP474	WikiPathways_2019_Human	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+Endoderm Differentiation WP2853	WikiPathways_2019_Human	63	0.173611111111114	1	0.677	Kruskal-Wallis
+Endometrial cancer WP4155	WikiPathways_2019_Human	63	0.293402777777771	1	0.588	Kruskal-Wallis
+Endothelin Pathways WP2197	WikiPathways_2019_Human	63	2.73167438271605	1	0.0984	Kruskal-Wallis
+Energy Metabolism WP1541	WikiPathways_2019_Human	63	0.140625	1	0.708	Kruskal-Wallis
+Epithelial to mesenchymal transition in colorectal cancer WP4239	WikiPathways_2019_Human	63	0.140625	1	0.708	Kruskal-Wallis
+EPO Receptor Signaling WP581	WikiPathways_2019_Human	63	0.40817901234567	1	0.523	Kruskal-Wallis
+ErbB Signaling Pathway WP673	WikiPathways_2019_Human	63	0.162229938271565	1	0.687	Kruskal-Wallis
+ESC Pluripotency Pathways WP3931	WikiPathways_2019_Human	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+Estrogen metabolism WP697	WikiPathways_2019_Human	63	0.501736111111114	1	0.479	Kruskal-Wallis
+Estrogen signaling pathway WP712	WikiPathways_2019_Human	63	0.390625	1	0.532	Kruskal-Wallis
+Ethanol effects on histone modifications WP3996	WikiPathways_2019_Human	63	2.68595679012347	1	0.101	Kruskal-Wallis
+Eukaryotic Transcription Initiation WP405	WikiPathways_2019_Human	63	1.49382716049382	1	0.222	Kruskal-Wallis
+Exercise-induced Circadian Regulation WP410	WikiPathways_2019_Human	63	0.0123456790123271	1	0.912	Kruskal-Wallis
+Extracellular vesicle-mediated signaling in recipient cells WP2870	WikiPathways_2019_Human	63	0.222993827160508	1	0.637	Kruskal-Wallis
+Extracellular vesicles in the crosstalk of cardiac cells WP4300	WikiPathways_2019_Human	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+Factors and pathways affecting insulin-like growth factor (IGF1)-Akt signaling WP3850	WikiPathways_2019_Human	63	1.14371141975309	1	0.285	Kruskal-Wallis
+Farnesoid X Receptor  Pathway WP2879	WikiPathways_2019_Human	63	0.111111111111114	1	0.739	Kruskal-Wallis
+Fas Ligand (FasL) pathway and Stress induction of Heat Shock Proteins (HSP) regulation WP314	WikiPathways_2019_Human	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+Fatty Acid Beta Oxidation WP143	WikiPathways_2019_Human	63	2.41975308641977	1	0.12	Kruskal-Wallis
+Fatty Acid Biosynthesis WP357	WikiPathways_2019_Human	63	0.00694444444445708	1	0.934	Kruskal-Wallis
+Fatty Acid Omega Oxidation WP206	WikiPathways_2019_Human	63	0.32426697530866	1	0.569	Kruskal-Wallis
+Ferroptosis WP4313	WikiPathways_2019_Human	63	0.162229938271565	1	0.687	Kruskal-Wallis
+Fibrin Complement Receptor 3 Signaling Pathway WP4136	WikiPathways_2019_Human	63	0.173611111111114	1	0.677	Kruskal-Wallis
+Fluoropyrimidine Activity WP1601	WikiPathways_2019_Human	63	3.88966049382717	1	0.0486	Kruskal-Wallis
+Focal Adhesion WP306	WikiPathways_2019_Human	63	0.140625	1	0.708	Kruskal-Wallis
+Focal Adhesion-PI3K-Akt-mTOR-signaling pathway WP3932	WikiPathways_2019_Human	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+Folate Metabolism WP176	WikiPathways_2019_Human	63	0.102044753086432	1	0.749	Kruskal-Wallis
+Follicle Stimulating Hormone (FSH) signaling pathway WP2035	WikiPathways_2019_Human	63	0.482253086419774	1	0.487	Kruskal-Wallis
+G Protein Signaling Pathways WP35	WikiPathways_2019_Human	63	0.140625	1	0.708	Kruskal-Wallis
+G1 to S cell cycle control WP45	WikiPathways_2019_Human	63	0.501736111111114	1	0.479	Kruskal-Wallis
+G13 Signaling Pathway WP524	WikiPathways_2019_Human	63	0.102044753086432	1	0.749	Kruskal-Wallis
+GABA receptor Signaling WP4159	WikiPathways_2019_Human	63	1.05632716049382	1	0.304	Kruskal-Wallis
+Gastric Cancer Network 1 WP2361	WikiPathways_2019_Human	63	1.14371141975309	1	0.285	Kruskal-Wallis
+Gastric Cancer Network 2 WP2363	WikiPathways_2019_Human	63	2.46315586419755	1	0.117	Kruskal-Wallis
+Genes related to primary cilium development (based on CRISPR) WP4536	WikiPathways_2019_Human	63	2.96604938271605	1	0.085	Kruskal-Wallis
+Genotoxicity pathway WP4286	WikiPathways_2019_Human	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+Globo Sphingolipid Metabolism WP1424	WikiPathways_2019_Human	63	0.583526234567898	1	0.445	Kruskal-Wallis
+Glucuronidation WP698	WikiPathways_2019_Human	63	0.463155864197546	1	0.496	Kruskal-Wallis
+Glutathione metabolism WP100	WikiPathways_2019_Human	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+Glycerophospholipid Biosynthetic Pathway WP2533	WikiPathways_2019_Human	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+Glycogen Synthesis and Degradation WP500	WikiPathways_2019_Human	63	0.340277777777771	1	0.56	Kruskal-Wallis
+Glycolysis and Gluconeogenesis WP534	WikiPathways_2019_Human	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+Glycosylation and related congenital defects. WP4521	WikiPathways_2019_Human	63	0.210069444444457	1	0.647	Kruskal-Wallis
+GPCRs, Class A Rhodopsin-like WP455	WikiPathways_2019_Human	63	0.0625	1	0.803	Kruskal-Wallis
+GPCRs, Class B Secretin-like WP334	WikiPathways_2019_Human	63	1.63271604938271	1	0.201	Kruskal-Wallis
+GPCRs, Class C Metabotropic glutamate, pheromone WP501	WikiPathways_2019_Human	63	0.5625	1	0.453	Kruskal-Wallis
+GPCRs, Other WP117	WikiPathways_2019_Human	63	0.865933641975317	1	0.352	Kruskal-Wallis
+GPR40 Pathway WP3958	WikiPathways_2019_Human	63	0.501736111111114	1	0.479	Kruskal-Wallis
+Hair Follicle Development: Cytodifferentiation (Part 3 of 3) WP2840	WikiPathways_2019_Human	63	0.173611111111114	1	0.677	Kruskal-Wallis
+Heart Development WP1591	WikiPathways_2019_Human	63	0.521604938271565	1	0.47	Kruskal-Wallis
+Hedgehog Signaling Pathway WP4249	WikiPathways_2019_Human	63	0.0557484567901554	1	0.813	Kruskal-Wallis
+Hedgehog Signaling Pathway WP47	WikiPathways_2019_Human	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+Hematopoietic Stem Cell Differentiation WP2849	WikiPathways_2019_Human	63	0.340277777777771	1	0.56	Kruskal-Wallis
+Hematopoietic Stem Cell Gene Regulation by GABP alpha/beta Complex WP3657	WikiPathways_2019_Human	63	0.102044753086432	1	0.749	Kruskal-Wallis
+Hepatitis C and Hepatocellular Carcinoma WP3646	WikiPathways_2019_Human	63	0.583526234567898	1	0.445	Kruskal-Wallis
+Hereditary leiomyomatosis and renal cell carcinoma pathway WP4206	WikiPathways_2019_Human	63	0.0326003086419746	1	0.857	Kruskal-Wallis
+Hippo-Merlin Signaling Dysregulation WP4541	WikiPathways_2019_Human	63	0.222993827160508	1	0.637	Kruskal-Wallis
+Hippo-Yap signaling pathway WP4537	WikiPathways_2019_Human	63	0.40817901234567	1	0.523	Kruskal-Wallis
+Histone Modifications WP2369	WikiPathways_2019_Human	63	2.77777777777777	1	0.0956	Kruskal-Wallis
+Human Complement System WP2806	WikiPathways_2019_Human	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+Human Thyroid Stimulating Hormone (TSH) signaling pathway WP2032	WikiPathways_2019_Human	63	0.626736111111114	1	0.429	Kruskal-Wallis
+Hypertrophy Model WP516	WikiPathways_2019_Human	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+Hypothesized Pathways in Pathogenesis of Cardiovascular Disease WP3668	WikiPathways_2019_Human	63	0.482253086419774	1	0.487	Kruskal-Wallis
+ID signaling pathway WP53	WikiPathways_2019_Human	63	1.77777777777777	1	0.182	Kruskal-Wallis
+IL-1 signaling pathway WP195	WikiPathways_2019_Human	63	0.521604938271565	1	0.47	Kruskal-Wallis
+IL-2 Signaling Pathway WP49	WikiPathways_2019_Human	63	0	1	1	Kruskal-Wallis
+IL-3 Signaling Pathway WP286	WikiPathways_2019_Human	63	0.173611111111114	1	0.677	Kruskal-Wallis
+IL-4 Signaling Pathway WP395	WikiPathways_2019_Human	63	0.162229938271565	1	0.687	Kruskal-Wallis
+IL-5 Signaling Pathway WP127	WikiPathways_2019_Human	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+IL-6 signaling pathway WP364	WikiPathways_2019_Human	63	1.92901234567901	1	0.165	Kruskal-Wallis
+IL-7 Signaling Pathway WP205	WikiPathways_2019_Human	63	0.356674382716051	1	0.55	Kruskal-Wallis
+IL-9 Signaling Pathway WP22	WikiPathways_2019_Human	63	1.1141975308642	1	0.291	Kruskal-Wallis
+IL1 and megakaryocytes in obesity WP2865	WikiPathways_2019_Human	63	0.0123456790123271	1	0.912	Kruskal-Wallis
+IL17 signaling pathway WP2112	WikiPathways_2019_Human	63	4.05574845679013	1	0.044	Kruskal-Wallis
+Imatinib and Chronic Myeloid Leukemia WP3640	WikiPathways_2019_Human	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+Inflammatory Response Pathway WP453	WikiPathways_2019_Human	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+Inhibition of exosome biogenesis and secretion by Manumycin A in CRPC cells WP4301	WikiPathways_2019_Human	63	0.102044753086432	1	0.749	Kruskal-Wallis
+Initiation of transcription and translation elongation at the HIV-1 LTR WP3414	WikiPathways_2019_Human	63	3.515625	1	0.0608	Kruskal-Wallis
+Insulin Signaling WP481	WikiPathways_2019_Human	63	1.1141975308642	1	0.291	Kruskal-Wallis
+Integrated Breast Cancer Pathway WP1984	WikiPathways_2019_Human	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+Integrated Cancer Pathway WP1971	WikiPathways_2019_Human	63	0.356674382716051	1	0.55	Kruskal-Wallis
+Integrin-mediated Cell Adhesion WP185	WikiPathways_2019_Human	63	0.626736111111114	1	0.429	Kruskal-Wallis
+Interactome of polycomb repressive complex 2 (PRC2)  WP2916	WikiPathways_2019_Human	63	0.222993827160508	1	0.637	Kruskal-Wallis
+Interferon type I signaling pathways WP585	WikiPathways_2019_Human	63	2.33410493827157	1	0.127	Kruskal-Wallis
+Interleukin-11 Signaling Pathway WP2332	WikiPathways_2019_Human	63	1.77777777777777	1	0.182	Kruskal-Wallis
+Intraflagellar transport proteins binding to dynein WP4532	WikiPathways_2019_Human	63	3.5679012345679	1	0.0589	Kruskal-Wallis
+Kit receptor signaling pathway WP304	WikiPathways_2019_Human	63	0.356674382716051	1	0.55	Kruskal-Wallis
+Leptin Insulin Overlap WP3935	WikiPathways_2019_Human	63	0.583526234567898	1	0.445	Kruskal-Wallis
+Leptin signaling pathway WP2034	WikiPathways_2019_Human	63	0.32426697530866	1	0.569	Kruskal-Wallis
+Lipid Metabolism Pathway WP3965	WikiPathways_2019_Human	63	0.482253086419774	1	0.487	Kruskal-Wallis
+LncRNA involvement in canonical Wnt signaling and colorectal cancer WP4258	WikiPathways_2019_Human	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+Lung fibrosis WP3624	WikiPathways_2019_Human	63	0.0123456790123271	1	0.912	Kruskal-Wallis
+Mammary gland development pathway - Embryonic development (Stage 1 of 4) WP2813	WikiPathways_2019_Human	63	0.00694444444445708	1	0.934	Kruskal-Wallis
+Mammary gland development pathway - Pregnancy and lactation (Stage 3 of 4) WP2817	WikiPathways_2019_Human	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+MAPK Cascade WP422	WikiPathways_2019_Human	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+MAPK Signaling Pathway WP382	WikiPathways_2019_Human	63	0.023341049382708	1	0.879	Kruskal-Wallis
+Matrix Metalloproteinases WP129	WikiPathways_2019_Human	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+Mechanoregulation and pathology of YAP/TAZ via Hippo and non-Hippo mechanisms WP4534	WikiPathways_2019_Human	63	0.671489197530889	1	0.413	Kruskal-Wallis
+MECP2 and Associated Rett Syndrome WP3584	WikiPathways_2019_Human	63	0.945216049382708	1	0.331	Kruskal-Wallis
+Melatonin metabolism and effects WP3298	WikiPathways_2019_Human	63	0.32426697530866	1	0.569	Kruskal-Wallis
+Mesodermal Commitment Pathway WP2857	WikiPathways_2019_Human	63	0.210069444444457	1	0.647	Kruskal-Wallis
+MET in type 1 papillary renal cell carcinoma WP4205	WikiPathways_2019_Human	63	0.541859567901241	1	0.462	Kruskal-Wallis
+Metabolic pathway of LDL, HDL and TG, including diseases WP4522	WikiPathways_2019_Human	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+Metabolic reprogramming in colon cancer WP4290	WikiPathways_2019_Human	63	0.583526234567898	1	0.445	Kruskal-Wallis
+Metapathway biotransformation Phase I and II WP702	WikiPathways_2019_Human	63	0.694444444444457	1	0.405	Kruskal-Wallis
+Methionine De Novo and Salvage Pathway WP3580	WikiPathways_2019_Human	63	0.604938271604908	1	0.437	Kruskal-Wallis
+Microglia Pathogen Phagocytosis Pathway WP3937	WikiPathways_2019_Human	63	0.222993827160508	1	0.637	Kruskal-Wallis
+MicroRNAs in cardiomyocyte hypertrophy WP1544	WikiPathways_2019_Human	63	0.130401234567898	1	0.718	Kruskal-Wallis
+miR-509-3p alteration of YAP1/ECM axis WP3967	WikiPathways_2019_Human	63	0.340277777777771	1	0.56	Kruskal-Wallis
+miRNA Regulation of DNA Damage Response WP1530	WikiPathways_2019_Human	63	0.426118827160508	1	0.514	Kruskal-Wallis
+miRNA regulation of p53 pathway in prostate cancer WP3982	WikiPathways_2019_Human	63	0.111111111111114	1	0.739	Kruskal-Wallis
+miRNA regulation of prostate cancer signaling pathways WP3981	WikiPathways_2019_Human	63	0.23630401234567	1	0.627	Kruskal-Wallis
+miRNA targets in ECM and membrane receptors WP2911	WikiPathways_2019_Human	63	0.865933641975317	1	0.352	Kruskal-Wallis
+miRNAs involvement in the immune response in sepsis WP4329	WikiPathways_2019_Human	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+miRs in Muscle Cell Differentiation WP2012	WikiPathways_2019_Human	63	0.717785493827165	1	0.397	Kruskal-Wallis
+Mitochondrial complex I assembly model OXPHOS system WP4324	WikiPathways_2019_Human	63	1.17361111111111	1	0.279	Kruskal-Wallis
+Mitochondrial Gene Expression WP391	WikiPathways_2019_Human	63	4.87673611111111	1	0.0272	Kruskal-Wallis
+Mitochondrial LC-Fatty Acid Beta-Oxidation WP368	WikiPathways_2019_Human	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+Monoamine GPCRs WP58	WikiPathways_2019_Human	63	0.151234567901241	1	0.697	Kruskal-Wallis
+Monoamine Transport WP727	WikiPathways_2019_Human	63	0.151234567901241	1	0.697	Kruskal-Wallis
+mRNA Processing WP411	WikiPathways_2019_Human	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+MTHFR deficiency WP4288	WikiPathways_2019_Human	63	1.77777777777777	1	0.182	Kruskal-Wallis
+Myometrial Relaxation and Contraction Pathways WP289	WikiPathways_2019_Human	63	0.210069444444457	1	0.647	Kruskal-Wallis
+NAD+ biosynthetic pathways WP3645	WikiPathways_2019_Human	63	0.604938271604908	1	0.437	Kruskal-Wallis
+NAD+ metabolism WP3644	WikiPathways_2019_Human	63	0.840277777777771	1	0.359	Kruskal-Wallis
+Nanomaterial induced apoptosis WP2507	WikiPathways_2019_Human	63	0.173611111111114	1	0.677	Kruskal-Wallis
+Nanoparticle triggered autophagic cell death WP2509	WikiPathways_2019_Human	63	0.173611111111114	1	0.677	Kruskal-Wallis
+Nanoparticle-mediated activation of receptor signaling WP2643	WikiPathways_2019_Human	63	0.390625	1	0.532	Kruskal-Wallis
+ncRNAs involved in Wnt signaling in hepatocellular carcinoma WP4336	WikiPathways_2019_Human	63	0.023341049382708	1	0.879	Kruskal-Wallis
+Neovascularisation processes WP4331	WikiPathways_2019_Human	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+Neural Crest Differentiation WP2064	WikiPathways_2019_Human	63	0.840277777777771	1	0.359	Kruskal-Wallis
+Nicotine Activity on Dopaminergic Neurons WP1602	WikiPathways_2019_Human	63	2.16743827160491	1	0.141	Kruskal-Wallis
+NO/cGMP/PKG mediated Neuroprotection WP4008	WikiPathways_2019_Human	63	0.918402777777771	1	0.338	Kruskal-Wallis
+Non-genomic actions of 1,25 dihydroxyvitamin D3 WP4341	WikiPathways_2019_Human	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+Non-small cell lung cancer WP4255	WikiPathways_2019_Human	63	1.1141975308642	1	0.291	Kruskal-Wallis
+Nonalcoholic fatty liver disease WP4396	WikiPathways_2019_Human	63	0.356674382716051	1	0.55	Kruskal-Wallis
+Notch Signaling Pathway WP61	WikiPathways_2019_Human	63	3.41222993827157	1	0.0647	Kruskal-Wallis
+Notch Signaling WP268	WikiPathways_2019_Human	63	3.5679012345679	1	0.0589	Kruskal-Wallis
+NOTCH1 regulation of human endothelial cell calcification WP3413	WikiPathways_2019_Human	63	0.023341049382708	1	0.879	Kruskal-Wallis
+NRF2 pathway WP2884	WikiPathways_2019_Human	63	2.25	1	0.134	Kruskal-Wallis
+NRF2-ARE regulation WP4357	WikiPathways_2019_Human	63	1.74093364197532	1	0.187	Kruskal-Wallis
+Nuclear Receptors in Lipid Metabolism and Toxicity WP299	WikiPathways_2019_Human	63	0.111111111111114	1	0.739	Kruskal-Wallis
+Nuclear Receptors Meta-Pathway WP2882	WikiPathways_2019_Human	63	0.626736111111114	1	0.429	Kruskal-Wallis
+Nuclear Receptors WP170	WikiPathways_2019_Human	63	0.015625	1	0.901	Kruskal-Wallis
+Nucleotide Metabolism WP404	WikiPathways_2019_Human	63	1.85262345679016	1	0.173	Kruskal-Wallis
+Nucleotide-binding Oligomerization Domain (NOD) pathway WP1433	WikiPathways_2019_Human	63	0.00694444444445708	1	0.934	Kruskal-Wallis
+Oligodendrocyte Specification and differentiation(including remyelination), leading to Myelin Components for CNS WP4304	WikiPathways_2019_Human	63	0.0696373456790127	1	0.792	Kruskal-Wallis
+Oncostatin M Signaling Pathway WP2374	WikiPathways_2019_Human	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+One carbon metabolism and related pathways WP3940	WikiPathways_2019_Human	63	1.74093364197532	1	0.187	Kruskal-Wallis
+One Carbon Metabolism WP241	WikiPathways_2019_Human	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+Osteoclast Signaling WP12	WikiPathways_2019_Human	63	0.140625	1	0.708	Kruskal-Wallis
+Ovarian Infertility Genes WP34	WikiPathways_2019_Human	63	0.0625	1	0.803	Kruskal-Wallis
+Overview of nanoparticle effects WP3287	WikiPathways_2019_Human	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+Oxidation by Cytochrome P450 WP43	WikiPathways_2019_Human	63	0.0557484567901554	1	0.813	Kruskal-Wallis
+Oxidative Damage WP3941	WikiPathways_2019_Human	63	0.23630401234567	1	0.627	Kruskal-Wallis
+Oxidative phosphorylation WP623	WikiPathways_2019_Human	63	0.0696373456790127	1	0.792	Kruskal-Wallis
+Oxidative Stress WP408	WikiPathways_2019_Human	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+Oxysterols derived from cholesterol WP4545	WikiPathways_2019_Human	63	0.865933641975317	1	0.352	Kruskal-Wallis
+p38 MAPK Signaling Pathway WP400	WikiPathways_2019_Human	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+Pancreatic adenocarcinoma pathway WP4263	WikiPathways_2019_Human	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+Parkin-Ubiquitin Proteasomal System pathway WP2359	WikiPathways_2019_Human	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+Parkinsons Disease Pathway WP2371	WikiPathways_2019_Human	63	0.0557484567901554	1	0.813	Kruskal-Wallis
+Pathogenic Escherichia coli infection WP2272	WikiPathways_2019_Human	63	0.26408179012347	1	0.607	Kruskal-Wallis
+Pathways Affected in Adenoid Cystic Carcinoma WP3651	WikiPathways_2019_Human	63	0.0326003086419746	1	0.857	Kruskal-Wallis
+Pathways in clear cell renal cell carcinoma WP4018	WikiPathways_2019_Human	63	1.02797067901233	1	0.311	Kruskal-Wallis
+Pathways Regulating Hippo Signaling WP4540	WikiPathways_2019_Human	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+PDGF Pathway WP2526	WikiPathways_2019_Human	63	0.0696373456790127	1	0.792	Kruskal-Wallis
+PDGFR-beta pathway WP3972	WikiPathways_2019_Human	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+Peptide GPCRs WP24	WikiPathways_2019_Human	63	0.293402777777771	1	0.588	Kruskal-Wallis
+Phosphodiesterases in neuronal function WP4222	WikiPathways_2019_Human	63	1.14371141975309	1	0.285	Kruskal-Wallis
+Photodynamic therapy-induced AP-1 survival signaling. WP3611	WikiPathways_2019_Human	63	0.626736111111114	1	0.429	Kruskal-Wallis
+Photodynamic therapy-induced HIF-1 survival signaling WP3614	WikiPathways_2019_Human	63	0.023341049382708	1	0.879	Kruskal-Wallis
+Photodynamic therapy-induced NF-kB survival signaling WP3617	WikiPathways_2019_Human	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+Photodynamic therapy-induced NFE2L2 (NRF2) survival signaling WP3612	WikiPathways_2019_Human	63	1.14371141975309	1	0.285	Kruskal-Wallis
+Photodynamic therapy-induced unfolded protein response WP3613	WikiPathways_2019_Human	63	1.05632716049382	1	0.304	Kruskal-Wallis
+Physiological and Pathological Hypertrophy  of the Heart WP1528	WikiPathways_2019_Human	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+Phytochemical activity on NRF2 transcriptional activation WP3	WikiPathways_2019_Human	63	2.25	1	0.134	Kruskal-Wallis
+PI3K-Akt Signaling Pathway WP4172	WikiPathways_2019_Human	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+PI3K-AKT-mTOR signaling pathway and therapeutic opportunities WP3844	WikiPathways_2019_Human	63	0.626736111111114	1	0.429	Kruskal-Wallis
+PI3K/AKT/mTOR - VitD3 Signalling WP4141	WikiPathways_2019_Human	63	0.023341049382708	1	0.879	Kruskal-Wallis
+Platelet-mediated interactions with vascular and circulating cells WP4462	WikiPathways_2019_Human	63	0.120563271604908	1	0.728	Kruskal-Wallis
+PPAR Alpha Pathway WP2878	WikiPathways_2019_Human	63	0.501736111111114	1	0.479	Kruskal-Wallis
+PPAR signaling pathway WP3942	WikiPathways_2019_Human	63	0.945216049382708	1	0.331	Kruskal-Wallis
+Prader-Willi and Angelman Syndrome WP3998	WikiPathways_2019_Human	63	0.130401234567898	1	0.718	Kruskal-Wallis
+Pregnane X Receptor pathway WP2876	WikiPathways_2019_Human	63	0.23630401234567	1	0.627	Kruskal-Wallis
+Preimplantation Embryo WP3527	WikiPathways_2019_Human	63	0.521604938271565	1	0.47	Kruskal-Wallis
+Primary Focal Segmental Glomerulosclerosis FSGS WP2572	WikiPathways_2019_Human	63	0.444444444444457	1	0.505	Kruskal-Wallis
+Prion disease pathway WP3995	WikiPathways_2019_Human	63	0.694444444444457	1	0.405	Kruskal-Wallis
+Prolactin Signaling Pathway WP2037	WikiPathways_2019_Human	63	0.210069444444457	1	0.647	Kruskal-Wallis
+Prostaglandin Synthesis and Regulation WP98	WikiPathways_2019_Human	63	2.77777777777777	1	0.0956	Kruskal-Wallis
+Proteasome Degradation WP183	WikiPathways_2019_Human	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+Pyrimidine metabolism WP4022	WikiPathways_2019_Human	63	1.32889660493825	1	0.249	Kruskal-Wallis
+RAC1/PAK1/p38/MMP2 Pathway WP3303	WikiPathways_2019_Human	63	1.14371141975309	1	0.285	Kruskal-Wallis
+RANKL/RANK (Receptor activator of NFKB (ligand)) Signaling Pathway WP2018	WikiPathways_2019_Human	63	2.2085262345679	1	0.137	Kruskal-Wallis
+Ras Signaling WP4223	WikiPathways_2019_Human	63	0.790123456790155	1	0.374	Kruskal-Wallis
+Regulation of Actin Cytoskeleton WP51	WikiPathways_2019_Human	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+Regulation of Apoptosis by Parathyroid Hormone-related Protein WP3872	WikiPathways_2019_Human	63	0.765625	1	0.382	Kruskal-Wallis
+Regulation of Microtubule Cytoskeleton WP2038	WikiPathways_2019_Human	63	0.293402777777771	1	0.588	Kruskal-Wallis
+Regulation of sister chromatid separation at the metaphase-anaphase transition WP4240	WikiPathways_2019_Human	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+Regulation of toll-like receptor signaling pathway WP1449	WikiPathways_2019_Human	63	0.26408179012347	1	0.607	Kruskal-Wallis
+Regulation of Wnt/B-catenin Signaling by Small Molecule Compounds WP3664	WikiPathways_2019_Human	63	0.390625	1	0.532	Kruskal-Wallis
+Resistin as a regulator of inflammation WP4481	WikiPathways_2019_Human	63	0.37345679012347	1	0.541	Kruskal-Wallis
+Retinoblastoma Gene in Cancer WP2446	WikiPathways_2019_Human	63	0.815007716049394	1	0.367	Kruskal-Wallis
+Rett syndrome causing genes WP4312	WikiPathways_2019_Human	63	1.02797067901233	1	0.311	Kruskal-Wallis
+RIG-I-like Receptor Signaling WP3865	WikiPathways_2019_Human	63	0.840277777777771	1	0.359	Kruskal-Wallis
+Role of Osx and miRNAs in tooth development WP3971	WikiPathways_2019_Human	63	0.541859567901241	1	0.462	Kruskal-Wallis
+Selective expression of chemokine receptors during T-cell polarization WP4494	WikiPathways_2019_Human	63	0.130401234567898	1	0.718	Kruskal-Wallis
+Selenium Metabolism and Selenoproteins WP28	WikiPathways_2019_Human	63	0.130401234567898	1	0.718	Kruskal-Wallis
+Selenium Micronutrient Network WP15	WikiPathways_2019_Human	63	0.120563271604908	1	0.728	Kruskal-Wallis
+Senescence and Autophagy in Cancer WP615	WikiPathways_2019_Human	63	0.0326003086419746	1	0.857	Kruskal-Wallis
+Serotonin and anxiety WP3947	WikiPathways_2019_Human	63	0.626736111111114	1	0.429	Kruskal-Wallis
+Serotonin Receptor 2 and ELK-SRF/GATA4 signaling WP732	WikiPathways_2019_Human	63	0	1	1	Kruskal-Wallis
+Serotonin Receptor 4/6/7 and NR3C Signaling WP734	WikiPathways_2019_Human	63	0.583526234567898	1	0.445	Kruskal-Wallis
+Signal Transduction of S1P Receptor WP26	WikiPathways_2019_Human	63	0.162229938271565	1	0.687	Kruskal-Wallis
+Signal transduction through IL1R WP4496	WikiPathways_2019_Human	63	0.210069444444457	1	0.647	Kruskal-Wallis
+Signaling of Hepatocyte Growth Factor Receptor WP313	WikiPathways_2019_Human	63	0.340277777777771	1	0.56	Kruskal-Wallis
+Signaling Pathways in Glioblastoma WP2261	WikiPathways_2019_Human	63	1.14371141975309	1	0.285	Kruskal-Wallis
+Simplified Depiction of MYD88 Distinct Input-Output Pathway WP3877	WikiPathways_2019_Human	63	0.015625	1	0.901	Kruskal-Wallis
+Simplified Interaction Map Between LOXL4 and Oxidative Stress Pathway WP3670	WikiPathways_2019_Human	63	0.173611111111114	1	0.677	Kruskal-Wallis
+Sleep regulation WP3591	WikiPathways_2019_Human	63	0.278549382716051	1	0.598	Kruskal-Wallis
+Small Ligand GPCRs WP247	WikiPathways_2019_Human	63	0.278549382716051	1	0.598	Kruskal-Wallis
+Sphingolipid pathway WP1422	WikiPathways_2019_Human	63	0.626736111111114	1	0.429	Kruskal-Wallis
+Spinal Cord Injury WP2431	WikiPathways_2019_Human	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+Splicing factor NOVA regulated synaptic proteins WP4148	WikiPathways_2019_Human	63	0.444444444444457	1	0.505	Kruskal-Wallis
+SREBF and miR33 in cholesterol and lipid homeostasis WP2011	WikiPathways_2019_Human	63	0.0696373456790127	1	0.792	Kruskal-Wallis
+Statin Pathway WP430	WikiPathways_2019_Human	63	0.162229938271565	1	0.687	Kruskal-Wallis
+Sterol Regulatory Element-Binding Proteins (SREBP) signalling WP1982	WikiPathways_2019_Human	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+Striated Muscle Contraction Pathway WP383	WikiPathways_2019_Human	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+Structural Pathway of Interleukin 1 (IL-1) WP2637	WikiPathways_2019_Human	63	0.356674382716051	1	0.55	Kruskal-Wallis
+Sudden Infant Death Syndrome (SIDS) Susceptibility Pathways WP706	WikiPathways_2019_Human	63	0.463155864197546	1	0.496	Kruskal-Wallis
+Synaptic signaling pathways associated with autism spectrum disorder WP4539	WikiPathways_2019_Human	63	1.92901234567901	1	0.165	Kruskal-Wallis
+Synaptic Vesicle Pathway WP2267	WikiPathways_2019_Human	63	0.197530864197546	1	0.657	Kruskal-Wallis
+T-Cell antigen Receptor (TCR)  Signaling Pathway WP69	WikiPathways_2019_Human	63	0.173611111111114	1	0.677	Kruskal-Wallis
+T-Cell antigen Receptor (TCR) pathway during Staphylococcus aureus infection WP3863	WikiPathways_2019_Human	63	0	1	1	Kruskal-Wallis
+T-Cell Receptor and Co-stimulatory Signaling WP2583	WikiPathways_2019_Human	63	0.00694444444445708	1	0.934	Kruskal-Wallis
+Tamoxifen metabolism WP691	WikiPathways_2019_Human	63	0.340277777777771	1	0.56	Kruskal-Wallis
+Target Of Rapamycin (TOR) Signaling WP1471	WikiPathways_2019_Human	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+TCA Cycle (aka Krebs or citric acid cycle) WP78	WikiPathways_2019_Human	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+TCA Cycle and Deficiency of Pyruvate Dehydrogenase complex (PDHc) WP2453	WikiPathways_2019_Human	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+TGF-B Signaling in Thyroid Cells for Epithelial-Mesenchymal Transition WP3859	WikiPathways_2019_Human	63	0.482253086419774	1	0.487	Kruskal-Wallis
+TGF-beta Receptor Signaling WP560	WikiPathways_2019_Human	63	0.023341049382708	1	0.879	Kruskal-Wallis
+TGF-beta Signaling Pathway WP366	WikiPathways_2019_Human	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+The effect of progerin on the involved genes in Hutchinson-Gilford Progeria Syndrome WP4320	WikiPathways_2019_Human	63	0.626736111111114	1	0.429	Kruskal-Wallis
+The human immune response to tuberculosis WP4197	WikiPathways_2019_Human	63	1.20389660493825	1	0.273	Kruskal-Wallis
+Thermogenesis WP4321	WikiPathways_2019_Human	63	4.11188271604937	1	0.0426	Kruskal-Wallis
+Thymic Stromal LymphoPoietin (TSLP) Signaling Pathway WP2203	WikiPathways_2019_Human	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+TLR4 Signaling and Tolerance WP3851	WikiPathways_2019_Human	63	0.5625	1	0.453	Kruskal-Wallis
+TNF alpha Signaling Pathway WP231	WikiPathways_2019_Human	63	0.671489197530889	1	0.413	Kruskal-Wallis
+TNF related weak inducer of apoptosis (TWEAK) Signaling Pathway WP2036	WikiPathways_2019_Human	63	0.278549382716051	1	0.598	Kruskal-Wallis
+Toll-like Receptor Signaling Pathway WP75	WikiPathways_2019_Human	63	0.222993827160508	1	0.637	Kruskal-Wallis
+Toll-like Receptor Signaling WP3858	WikiPathways_2019_Human	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+TP53 Network WP1742	WikiPathways_2019_Human	63	0.37345679012347	1	0.541	Kruskal-Wallis
+Trans-sulfuration and one carbon metabolism WP2525	WikiPathways_2019_Human	63	5.0625	1	0.0244	Kruskal-Wallis
+Transcription co-factors SKI and SKIL protein partners WP4533	WikiPathways_2019_Human	63	0.340277777777771	1	0.56	Kruskal-Wallis
+Transcription factor regulation in adipogenesis WP3599	WikiPathways_2019_Human	63	0.521604938271565	1	0.47	Kruskal-Wallis
+Translation Factors WP107	WikiPathways_2019_Human	63	0.0326003086419746	1	0.857	Kruskal-Wallis
+Triacylglyceride Synthesis WP325	WikiPathways_2019_Human	63	0.918402777777771	1	0.338	Kruskal-Wallis
+Tryptophan catabolism leading to NAD+ production WP4210	WikiPathways_2019_Human	63	0.130401234567898	1	0.718	Kruskal-Wallis
+Tryptophan metabolism WP465	WikiPathways_2019_Human	63	0.0123456790123271	1	0.912	Kruskal-Wallis
+Tumor suppressor activity of SMARCB1 WP4204	WikiPathways_2019_Human	63	0.102044753086432	1	0.749	Kruskal-Wallis
+Type 2 papillary renal cell carcinoma WP4241	WikiPathways_2019_Human	63	2.00694444444446	1	0.157	Kruskal-Wallis
+Type II diabetes mellitus WP1584	WikiPathways_2019_Human	63	1.81500771604939	1	0.178	Kruskal-Wallis
+Type II interferon signaling (IFNG) WP619	WikiPathways_2019_Human	63	0.151234567901241	1	0.697	Kruskal-Wallis
+TYROBP Causal Network WP3945	WikiPathways_2019_Human	63	0.151234567901241	1	0.697	Kruskal-Wallis
+Urea cycle and metabolism of amino groups WP497	WikiPathways_2019_Human	63	0.293402777777771	1	0.588	Kruskal-Wallis
+VEGFA-VEGFR2 Signaling Pathway WP3888	WikiPathways_2019_Human	63	0.0625	1	0.803	Kruskal-Wallis
+Viral Acute Myocarditis WP4298	WikiPathways_2019_Human	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+Vitamin A and Carotenoid Metabolism WP716	WikiPathways_2019_Human	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+Vitamin B12 Metabolism WP1533	WikiPathways_2019_Human	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+Vitamin D in inflammatory diseases WP4482	WikiPathways_2019_Human	63	1.02797067901233	1	0.311	Kruskal-Wallis
+Vitamin D Receptor Pathway WP2877	WikiPathways_2019_Human	63	0.0326003086419746	1	0.857	Kruskal-Wallis
+White fat cell differentiation WP4149	WikiPathways_2019_Human	63	2.00694444444446	1	0.157	Kruskal-Wallis
+Wnt Signaling in Kidney Disease WP4150	WikiPathways_2019_Human	63	0.278549382716051	1	0.598	Kruskal-Wallis
+Wnt Signaling Pathway and Pluripotency WP399	WikiPathways_2019_Human	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+Wnt Signaling Pathway WP363	WikiPathways_2019_Human	63	0.32426697530866	1	0.569	Kruskal-Wallis
+Wnt Signaling WP428	WikiPathways_2019_Human	63	0.023341049382708	1	0.879	Kruskal-Wallis
+Wnt/beta-catenin Signaling Pathway in Leukemia WP3658	WikiPathways_2019_Human	63	2.12673611111111	1	0.145	Kruskal-Wallis
+Zinc homeostasis WP3529	WikiPathways_2019_Human	63	0.0696373456790127	1	0.792	Kruskal-Wallis

@@ -1,0 +1,295 @@
+pathway	DB	n	statistic	df	p	method
+ABC transporters	KEGG_2019_Human	63	3.46373456790124	1	0.0627	Kruskal-Wallis
+Acute myeloid leukemia	KEGG_2019_Human	63	0.865933641975317	1	0.352	Kruskal-Wallis
+Adherens junction	KEGG_2019_Human	63	0.765625	1	0.382	Kruskal-Wallis
+Adipocytokine signaling pathway	KEGG_2019_Human	63	3.26003086419752	1	0.071	Kruskal-Wallis
+Adrenergic signaling in cardiomyocytes	KEGG_2019_Human	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+African trypanosomiasis	KEGG_2019_Human	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+AGE-RAGE signaling pathway in diabetic complications	KEGG_2019_Human	63	0.0557484567901554	1	0.813	Kruskal-Wallis
+Alanine, aspartate and glutamate metabolism	KEGG_2019_Human	63	0.173611111111114	1	0.677	Kruskal-Wallis
+Alcoholism	KEGG_2019_Human	63	3.78086419753086	1	0.0518	Kruskal-Wallis
+Aldosterone synthesis and secretion	KEGG_2019_Human	63	1.890625	1	0.169	Kruskal-Wallis
+Aldosterone-regulated sodium reabsorption	KEGG_2019_Human	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+Allograft rejection	KEGG_2019_Human	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+alpha-Linolenic acid metabolism	KEGG_2019_Human	63	1.70447530864197	1	0.192	Kruskal-Wallis
+Alzheimer disease	KEGG_2019_Human	63	0.648919753086432	1	0.42	Kruskal-Wallis
+Amino sugar and nucleotide sugar metabolism	KEGG_2019_Human	63	0.0625	1	0.803	Kruskal-Wallis
+Aminoacyl-tRNA biosynthesis	KEGG_2019_Human	63	0.151234567901241	1	0.697	Kruskal-Wallis
+Amoebiasis	KEGG_2019_Human	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+Amphetamine addiction	KEGG_2019_Human	63	1.36111111111111	1	0.243	Kruskal-Wallis
+AMPK signaling pathway	KEGG_2019_Human	63	0.00694444444445708	1	0.934	Kruskal-Wallis
+Amyotrophic lateral sclerosis (ALS)	KEGG_2019_Human	63	1.52797067901233	1	0.216	Kruskal-Wallis
+Antigen processing and presentation	KEGG_2019_Human	63	0.717785493827165	1	0.397	Kruskal-Wallis
+Apelin signaling pathway	KEGG_2019_Human	63	0.648919753086432	1	0.42	Kruskal-Wallis
+Apoptosis	KEGG_2019_Human	63	0.626736111111114	1	0.429	Kruskal-Wallis
+Arachidonic acid metabolism	KEGG_2019_Human	63	0.790123456790155	1	0.374	Kruskal-Wallis
+Arginine and proline metabolism	KEGG_2019_Human	63	0.173611111111114	1	0.677	Kruskal-Wallis
+Arginine biosynthesis	KEGG_2019_Human	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+Arrhythmogenic right ventricular cardiomyopathy (ARVC)	KEGG_2019_Human	63	0.541859567901241	1	0.462	Kruskal-Wallis
+Ascorbate and aldarate metabolism	KEGG_2019_Human	63	0.023341049382708	1	0.879	Kruskal-Wallis
+Asthma	KEGG_2019_Human	63	0.40817901234567	1	0.523	Kruskal-Wallis
+Autoimmune thyroid disease	KEGG_2019_Human	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+Autophagy	KEGG_2019_Human	63	2.46315586419755	1	0.117	Kruskal-Wallis
+Axon guidance	KEGG_2019_Human	63	0.648919753086432	1	0.42	Kruskal-Wallis
+B cell receptor signaling pathway	KEGG_2019_Human	63	1.96778549382717	1	0.161	Kruskal-Wallis
+Bacterial invasion of epithelial cells	KEGG_2019_Human	63	0	1	1	Kruskal-Wallis
+Basal cell carcinoma	KEGG_2019_Human	63	0.25	1	0.617	Kruskal-Wallis
+Basal transcription factors	KEGG_2019_Human	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+Base excision repair	KEGG_2019_Human	63	0.37345679012347	1	0.541	Kruskal-Wallis
+beta-Alanine metabolism	KEGG_2019_Human	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+Bile secretion	KEGG_2019_Human	63	0.015625	1	0.901	Kruskal-Wallis
+Biosynthesis of unsaturated fatty acids	KEGG_2019_Human	63	0.815007716049394	1	0.367	Kruskal-Wallis
+Bladder cancer	KEGG_2019_Human	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+Breast cancer	KEGG_2019_Human	63	0.390625	1	0.532	Kruskal-Wallis
+Butanoate metabolism	KEGG_2019_Human	63	3.26003086419752	1	0.071	Kruskal-Wallis
+C-type lectin receptor signaling pathway	KEGG_2019_Human	63	0.972415123456784	1	0.324	Kruskal-Wallis
+Calcium signaling pathway	KEGG_2019_Human	63	0	1	1	Kruskal-Wallis
+cAMP signaling pathway	KEGG_2019_Human	63	0.30864197530866	1	0.579	Kruskal-Wallis
+Carbohydrate digestion and absorption	KEGG_2019_Human	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+Cardiac muscle contraction	KEGG_2019_Human	63	1.20389660493825	1	0.273	Kruskal-Wallis
+Cell adhesion molecules (CAMs)	KEGG_2019_Human	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+Cell cycle	KEGG_2019_Human	63	0.815007716049394	1	0.367	Kruskal-Wallis
+Cellular senescence	KEGG_2019_Human	63	0.151234567901241	1	0.697	Kruskal-Wallis
+Central carbon metabolism in cancer	KEGG_2019_Human	63	0.0123456790123271	1	0.912	Kruskal-Wallis
+cGMP-PKG signaling pathway	KEGG_2019_Human	63	0.015625	1	0.901	Kruskal-Wallis
+Chagas disease (American trypanosomiasis)	KEGG_2019_Human	63	0.0326003086419746	1	0.857	Kruskal-Wallis
+Chemical carcinogenesis	KEGG_2019_Human	63	0.604938271604908	1	0.437	Kruskal-Wallis
+Chemokine signaling pathway	KEGG_2019_Human	63	0.015625	1	0.901	Kruskal-Wallis
+Cholesterol metabolism	KEGG_2019_Human	63	0.521604938271565	1	0.47	Kruskal-Wallis
+Choline metabolism in cancer	KEGG_2019_Human	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+Cholinergic synapse	KEGG_2019_Human	63	0.173611111111114	1	0.677	Kruskal-Wallis
+Chronic myeloid leukemia	KEGG_2019_Human	63	0.463155864197546	1	0.496	Kruskal-Wallis
+Circadian entrainment	KEGG_2019_Human	63	6.11188271604937	1	0.0134	Kruskal-Wallis
+Circadian rhythm	KEGG_2019_Human	63	0.765625	1	0.382	Kruskal-Wallis
+Citrate cycle (TCA cycle)	KEGG_2019_Human	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+Cocaine addiction	KEGG_2019_Human	63	2.41975308641977	1	0.12	Kruskal-Wallis
+Collecting duct acid secretion	KEGG_2019_Human	63	0.162229938271565	1	0.687	Kruskal-Wallis
+Colorectal cancer	KEGG_2019_Human	63	0.278549382716051	1	0.598	Kruskal-Wallis
+Complement and coagulation cascades	KEGG_2019_Human	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+Cortisol synthesis and secretion	KEGG_2019_Human	63	0.444444444444457	1	0.505	Kruskal-Wallis
+Cushing syndrome	KEGG_2019_Human	63	0.162229938271565	1	0.687	Kruskal-Wallis
+Cysteine and methionine metabolism	KEGG_2019_Human	63	1.70447530864197	1	0.192	Kruskal-Wallis
+Cytokine-cytokine receptor interaction	KEGG_2019_Human	63	0.0145628621819185	1	0.904	Kruskal-Wallis
+Cytosolic DNA-sensing pathway	KEGG_2019_Human	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+Dilated cardiomyopathy (DCM)	KEGG_2019_Human	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+DNA replication	KEGG_2019_Human	63	1.08506944444446	1	0.298	Kruskal-Wallis
+Dopaminergic synapse	KEGG_2019_Human	63	0.604938271604908	1	0.437	Kruskal-Wallis
+Drug metabolism	KEGG_2019_Human	63	1.17361111111111	1	0.279	Kruskal-Wallis
+ECM-receptor interaction	KEGG_2019_Human	63	0.648919753086432	1	0.42	Kruskal-Wallis
+Endocrine and other factor-regulated calcium reabsorption	KEGG_2019_Human	63	0.162229938271565	1	0.687	Kruskal-Wallis
+Endocytosis	KEGG_2019_Human	63	0.381405895691614	1	0.537	Kruskal-Wallis
+Endometrial cancer	KEGG_2019_Human	63	1.29706790123456	1	0.255	Kruskal-Wallis
+Epithelial cell signaling in Helicobacter pylori infection	KEGG_2019_Human	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+Epstein-Barr virus infection	KEGG_2019_Human	63	0.37345679012347	1	0.541	Kruskal-Wallis
+ErbB signaling pathway	KEGG_2019_Human	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+Estrogen signaling pathway	KEGG_2019_Human	63	0.23630401234567	1	0.627	Kruskal-Wallis
+Ether lipid metabolism	KEGG_2019_Human	63	1.49382716049382	1	0.222	Kruskal-Wallis
+Fanconi anemia pathway	KEGG_2019_Human	63	0.501736111111114	1	0.479	Kruskal-Wallis
+Fat digestion and absorption	KEGG_2019_Human	63	0.0625	1	0.803	Kruskal-Wallis
+Fatty acid degradation	KEGG_2019_Human	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+Fatty acid elongation	KEGG_2019_Human	63	0.891975308641975	1	0.345	Kruskal-Wallis
+Fc epsilon RI signaling pathway	KEGG_2019_Human	63	1.02797067901233	1	0.311	Kruskal-Wallis
+Fc gamma R-mediated phagocytosis	KEGG_2019_Human	63	0.604938271604908	1	0.437	Kruskal-Wallis
+Ferroptosis	KEGG_2019_Human	63	0.173611111111114	1	0.677	Kruskal-Wallis
+Fluid shear stress and atherosclerosis	KEGG_2019_Human	63	0.0850694444444571	1	0.771	Kruskal-Wallis
+Focal adhesion	KEGG_2019_Human	63	0.222993827160508	1	0.637	Kruskal-Wallis
+Folate biosynthesis	KEGG_2019_Human	63	0.541859567901241	1	0.462	Kruskal-Wallis
+FoxO signaling pathway	KEGG_2019_Human	63	1.85262345679013	1	0.173	Kruskal-Wallis
+Fructose and mannose metabolism	KEGG_2019_Human	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+GABAergic synapse	KEGG_2019_Human	63	0.140625	1	0.708	Kruskal-Wallis
+Galactose metabolism	KEGG_2019_Human	63	0.197530864197546	1	0.657	Kruskal-Wallis
+Gap junction	KEGG_2019_Human	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+Gastric acid secretion	KEGG_2019_Human	63	0.0850694444444571	1	0.771	Kruskal-Wallis
+Gastric cancer	KEGG_2019_Human	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+Glioma	KEGG_2019_Human	63	0.390625	1	0.532	Kruskal-Wallis
+Glucagon signaling pathway	KEGG_2019_Human	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+Glutamatergic synapse	KEGG_2019_Human	63	1.23456790123456	1	0.267	Kruskal-Wallis
+Glutathione metabolism	KEGG_2019_Human	63	1.08506944444446	1	0.298	Kruskal-Wallis
+Glycerolipid metabolism	KEGG_2019_Human	63	0.972415123456813	1	0.324	Kruskal-Wallis
+Glycerophospholipid metabolism	KEGG_2019_Human	63	0.390625	1	0.532	Kruskal-Wallis
+Glycine, serine and threonine metabolism	KEGG_2019_Human	63	1.5625	1	0.211	Kruskal-Wallis
+Glycolysis / Gluconeogenesis	KEGG_2019_Human	63	0.30864197530866	1	0.579	Kruskal-Wallis
+Glycosaminoglycan biosynthesis	KEGG_2019_Human	63	0.444444444444457	1	0.505	Kruskal-Wallis
+Glycosaminoglycan degradation	KEGG_2019_Human	63	0.222993827160508	1	0.637	Kruskal-Wallis
+Glycosphingolipid biosynthesis	KEGG_2019_Human	63	0.0696373456790127	1	0.792	Kruskal-Wallis
+Glycosylphosphatidylinositol (GPI)-anchor biosynthesis	KEGG_2019_Human	63	0.840277777777771	1	0.359	Kruskal-Wallis
+Glyoxylate and dicarboxylate metabolism	KEGG_2019_Human	63	1.63271604938271	1	0.201	Kruskal-Wallis
+GnRH signaling pathway	KEGG_2019_Human	63	3.36111111111114	1	0.0668	Kruskal-Wallis
+Graft-versus-host disease	KEGG_2019_Human	63	0.25	1	0.617	Kruskal-Wallis
+Hedgehog signaling pathway	KEGG_2019_Human	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+Hematopoietic cell lineage	KEGG_2019_Human	63	0.0326003086419746	1	0.857	Kruskal-Wallis
+Hepatitis B	KEGG_2019_Human	63	0.278549382716051	1	0.598	Kruskal-Wallis
+Hepatitis C	KEGG_2019_Human	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+Hepatocellular carcinoma	KEGG_2019_Human	63	0.521604938271565	1	0.47	Kruskal-Wallis
+Herpes simplex virus 1 infection	KEGG_2019_Human	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+HIF-1 signaling pathway	KEGG_2019_Human	63	0.185378086419774	1	0.667	Kruskal-Wallis
+Hippo signaling pathway	KEGG_2019_Human	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+Histidine metabolism	KEGG_2019_Human	63	3.78086419753086	1	0.0518	Kruskal-Wallis
+Homologous recombination	KEGG_2019_Human	63	1.05632716049382	1	0.304	Kruskal-Wallis
+Human cytomegalovirus infection	KEGG_2019_Human	63	0.0850694444444571	1	0.771	Kruskal-Wallis
+Human immunodeficiency virus 1 infection	KEGG_2019_Human	63	0.140625	1	0.708	Kruskal-Wallis
+Human papillomavirus infection	KEGG_2019_Human	63	0.111111111111114	1	0.739	Kruskal-Wallis
+Human T-cell leukemia virus 1 infection	KEGG_2019_Human	63	0.694444444444457	1	0.405	Kruskal-Wallis
+Huntington disease	KEGG_2019_Human	63	1.66840277777777	1	0.196	Kruskal-Wallis
+Hypertrophic cardiomyopathy (HCM)	KEGG_2019_Human	63	0.26408179012347	1	0.607	Kruskal-Wallis
+IL-17 signaling pathway	KEGG_2019_Human	63	0	1	1	Kruskal-Wallis
+Inflammatory bowel disease (IBD)	KEGG_2019_Human	63	0.130401234567898	1	0.718	Kruskal-Wallis
+Inflammatory mediator regulation of TRP channels	KEGG_2019_Human	63	4.87673611111114	1	0.0272	Kruskal-Wallis
+Influenza A	KEGG_2019_Human	63	0.278549382716051	1	0.598	Kruskal-Wallis
+Inositol phosphate metabolism	KEGG_2019_Human	63	0.356674382716051	1	0.55	Kruskal-Wallis
+Insulin resistance	KEGG_2019_Human	63	0.521604938271565	1	0.47	Kruskal-Wallis
+Insulin secretion	KEGG_2019_Human	63	0.30864197530866	1	0.579	Kruskal-Wallis
+Insulin signaling pathway	KEGG_2019_Human	63	2.12673611111111	1	0.145	Kruskal-Wallis
+Intestinal immune network for IgA production	KEGG_2019_Human	63	0.444444444444457	1	0.505	Kruskal-Wallis
+JAK-STAT signaling pathway	KEGG_2019_Human	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+Kaposi sarcoma-associated herpesvirus infection	KEGG_2019_Human	63	0.340277777777771	1	0.56	Kruskal-Wallis
+Legionellosis	KEGG_2019_Human	63	0.0123456790123271	1	0.912	Kruskal-Wallis
+Leishmaniasis	KEGG_2019_Human	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+Leukocyte transendothelial migration	KEGG_2019_Human	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+Linoleic acid metabolism	KEGG_2019_Human	63	0.815007716049394	1	0.367	Kruskal-Wallis
+Long-term depression	KEGG_2019_Human	63	0.00308641975308888	1	0.956	Kruskal-Wallis
+Long-term potentiation	KEGG_2019_Human	63	1.39371141975309	1	0.238	Kruskal-Wallis
+Longevity regulating pathway	KEGG_2019_Human	63	1.23456790123456	1	0.267	Kruskal-Wallis
+Lysine degradation	KEGG_2019_Human	63	1.63271604938271	1	0.201	Kruskal-Wallis
+Lysosome	KEGG_2019_Human	63	0.30864197530866	1	0.579	Kruskal-Wallis
+Malaria	KEGG_2019_Human	63	0.197530864197546	1	0.657	Kruskal-Wallis
+Mannose type O-glycan biosynthesis	KEGG_2019_Human	63	0.0696373456790127	1	0.792	Kruskal-Wallis
+MAPK signaling pathway	KEGG_2019_Human	63	0.0689846308893891	1	0.793	Kruskal-Wallis
+Maturity onset diabetes of the young	KEGG_2019_Human	63	0.0625	1	0.803	Kruskal-Wallis
+Measles	KEGG_2019_Human	63	0.00694444444445708	1	0.934	Kruskal-Wallis
+Melanogenesis	KEGG_2019_Human	63	0.390625	1	0.532	Kruskal-Wallis
+Melanoma	KEGG_2019_Human	63	0.111111111111114	1	0.739	Kruskal-Wallis
+Metabolism of xenobiotics by cytochrome P450	KEGG_2019_Human	63	0.356674382716051	1	0.55	Kruskal-Wallis
+MicroRNAs in cancer	KEGG_2019_Human	63	0.278549382716051	1	0.598	Kruskal-Wallis
+Mineral absorption	KEGG_2019_Human	63	0.26408179012347	1	0.607	Kruskal-Wallis
+Mismatch repair	KEGG_2019_Human	63	4.22530864197532	1	0.0398	Kruskal-Wallis
+Mitophagy	KEGG_2019_Human	63	2.08641975308643	1	0.149	Kruskal-Wallis
+Morphine addiction	KEGG_2019_Human	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+mRNA surveillance pathway	KEGG_2019_Human	63	0.140625	1	0.708	Kruskal-Wallis
+mTOR signaling pathway	KEGG_2019_Human	63	0.521604938271565	1	0.47	Kruskal-Wallis
+Mucin type O-glycan biosynthesis	KEGG_2019_Human	63	1.59741512345681	1	0.206	Kruskal-Wallis
+N-Glycan biosynthesis	KEGG_2019_Human	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+Natural killer cell mediated cytotoxicity	KEGG_2019_Human	63	0.0326003086419746	1	0.857	Kruskal-Wallis
+Necroptosis	KEGG_2019_Human	63	0.32426697530866	1	0.569	Kruskal-Wallis
+Neuroactive ligand-receptor interaction	KEGG_2019_Human	63	0.173611111111114	1	0.677	Kruskal-Wallis
+Neurotrophin signaling pathway	KEGG_2019_Human	63	1.46006944444446	1	0.227	Kruskal-Wallis
+NF-kappa B signaling pathway	KEGG_2019_Human	63	0.26408179012347	1	0.607	Kruskal-Wallis
+Nicotinate and nicotinamide metabolism	KEGG_2019_Human	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+Nicotine addiction	KEGG_2019_Human	63	0.162229938271565	1	0.687	Kruskal-Wallis
+Nitrogen metabolism	KEGG_2019_Human	63	0.40817901234567	1	0.523	Kruskal-Wallis
+NOD-like receptor signaling pathway	KEGG_2019_Human	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+Non-alcoholic fatty liver disease (NAFLD)	KEGG_2019_Human	63	0.185378086419774	1	0.667	Kruskal-Wallis
+Non-small cell lung cancer	KEGG_2019_Human	63	1.36111111111111	1	0.243	Kruskal-Wallis
+Notch signaling pathway	KEGG_2019_Human	63	2.640625	1	0.104	Kruskal-Wallis
+Nucleotide excision repair	KEGG_2019_Human	63	3.31037808641977	1	0.0688	Kruskal-Wallis
+Olfactory transduction	KEGG_2019_Human	63	0.151234567901241	1	0.697	Kruskal-Wallis
+One carbon pool by folate	KEGG_2019_Human	63	0.0696373456790127	1	0.792	Kruskal-Wallis
+Oocyte meiosis	KEGG_2019_Human	63	1.74093364197532	1	0.187	Kruskal-Wallis
+Osteoclast differentiation	KEGG_2019_Human	63	0.340277777777771	1	0.56	Kruskal-Wallis
+Other glycan degradation	KEGG_2019_Human	63	1.52797067901233	1	0.216	Kruskal-Wallis
+Other types of O-glycan biosynthesis	KEGG_2019_Human	63	1.17361111111111	1	0.279	Kruskal-Wallis
+Ovarian steroidogenesis	KEGG_2019_Human	63	0.185378086419774	1	0.667	Kruskal-Wallis
+Oxidative phosphorylation	KEGG_2019_Human	63	0.130401234567898	1	0.718	Kruskal-Wallis
+Oxytocin signaling pathway	KEGG_2019_Human	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+p53 signaling pathway	KEGG_2019_Human	63	0.717785493827165	1	0.397	Kruskal-Wallis
+Pancreatic cancer	KEGG_2019_Human	63	0.390625	1	0.532	Kruskal-Wallis
+Pancreatic secretion	KEGG_2019_Human	63	0.023341049382708	1	0.879	Kruskal-Wallis
+Pantothenate and CoA biosynthesis	KEGG_2019_Human	63	2.640625	1	0.104	Kruskal-Wallis
+Parathyroid hormone synthesis, secretion and action	KEGG_2019_Human	63	0.0850694444444571	1	0.771	Kruskal-Wallis
+Parkinson disease	KEGG_2019_Human	63	0.120563271604908	1	0.728	Kruskal-Wallis
+Pathogenic Escherichia coli infection	KEGG_2019_Human	63	0.26408179012347	1	0.607	Kruskal-Wallis
+Pathways in cancer	KEGG_2019_Human	63	0.0520960520960614	1	0.819	Kruskal-Wallis
+Pentose and glucuronate interconversions	KEGG_2019_Human	63	0	1	1	Kruskal-Wallis
+Pentose phosphate pathway	KEGG_2019_Human	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+Peroxisome	KEGG_2019_Human	63	0.102044753086432	1	0.749	Kruskal-Wallis
+Pertussis	KEGG_2019_Human	63	0.151234567901241	1	0.697	Kruskal-Wallis
+Phagosome	KEGG_2019_Human	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+Phenylalanine metabolism	KEGG_2019_Human	63	0.015625	1	0.901	Kruskal-Wallis
+Phosphatidylinositol signaling system	KEGG_2019_Human	63	0.501736111111114	1	0.479	Kruskal-Wallis
+Phospholipase D signaling pathway	KEGG_2019_Human	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+Phototransduction	KEGG_2019_Human	63	1.74093364197532	1	0.187	Kruskal-Wallis
+PI3K-Akt signaling pathway	KEGG_2019_Human	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+Platelet activation	KEGG_2019_Human	63	0.32426697530866	1	0.569	Kruskal-Wallis
+Porphyrin and chlorophyll metabolism	KEGG_2019_Human	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+PPAR signaling pathway	KEGG_2019_Human	63	1	1	0.317	Kruskal-Wallis
+Primary bile acid biosynthesis	KEGG_2019_Human	63	0.30864197530866	1	0.579	Kruskal-Wallis
+Primary immunodeficiency	KEGG_2019_Human	63	0.0696373456790127	1	0.792	Kruskal-Wallis
+Prion diseases	KEGG_2019_Human	63	0.671489197530889	1	0.413	Kruskal-Wallis
+Progesterone-mediated oocyte maturation	KEGG_2019_Human	63	1.32889660493825	1	0.249	Kruskal-Wallis
+Prolactin signaling pathway	KEGG_2019_Human	63	1.1141975308642	1	0.291	Kruskal-Wallis
+Propanoate metabolism	KEGG_2019_Human	63	0.32426697530866	1	0.569	Kruskal-Wallis
+Prostate cancer	KEGG_2019_Human	63	0.130401234567898	1	0.718	Kruskal-Wallis
+Proteasome	KEGG_2019_Human	63	0.463155864197546	1	0.496	Kruskal-Wallis
+Protein digestion and absorption	KEGG_2019_Human	63	0.972415123456813	1	0.324	Kruskal-Wallis
+Protein export	KEGG_2019_Human	63	4.93827160493825	1	0.0263	Kruskal-Wallis
+Protein processing in endoplasmic reticulum	KEGG_2019_Human	63	0.32426697530866	1	0.569	Kruskal-Wallis
+Proteoglycans in cancer	KEGG_2019_Human	63	0.00482253086420315	1	0.945	Kruskal-Wallis
+Proximal tubule bicarbonate reclamation	KEGG_2019_Human	63	2.59567901234567	1	0.107	Kruskal-Wallis
+Purine metabolism	KEGG_2019_Human	63	0.815007716049394	1	0.367	Kruskal-Wallis
+Pyrimidine metabolism	KEGG_2019_Human	63	1.4266975308642	1	0.232	Kruskal-Wallis
+Pyruvate metabolism	KEGG_2019_Human	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+Rap1 signaling pathway	KEGG_2019_Human	63	0.972415123456784	1	0.324	Kruskal-Wallis
+Ras signaling pathway	KEGG_2019_Human	63	0.741512345679013	1	0.389	Kruskal-Wallis
+Regulation of actin cytoskeleton	KEGG_2019_Human	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+Regulation of lipolysis in adipocytes	KEGG_2019_Human	63	0.0696373456790127	1	0.792	Kruskal-Wallis
+Relaxin signaling pathway	KEGG_2019_Human	63	0.30864197530866	1	0.579	Kruskal-Wallis
+Renal cell carcinoma	KEGG_2019_Human	63	0.390625	1	0.532	Kruskal-Wallis
+Renin secretion	KEGG_2019_Human	63	0.626736111111114	1	0.429	Kruskal-Wallis
+Renin-angiotensin system	KEGG_2019_Human	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+Retinol metabolism	KEGG_2019_Human	63	0.197530864197546	1	0.657	Kruskal-Wallis
+Retrograde endocannabinoid signaling	KEGG_2019_Human	63	0.185378086419774	1	0.667	Kruskal-Wallis
+Rheumatoid arthritis	KEGG_2019_Human	63	0.120563271604908	1	0.728	Kruskal-Wallis
+Ribosome	KEGG_2019_Human	63	0.426118827160508	1	0.514	Kruskal-Wallis
+Ribosome biogenesis in eukaryotes	KEGG_2019_Human	63	12.0563271604938	1	0.000516	Kruskal-Wallis
+RIG-I-like receptor signaling pathway	KEGG_2019_Human	63	0.648919753086432	1	0.42	Kruskal-Wallis
+RNA degradation	KEGG_2019_Human	63	1.63271604938271	1	0.201	Kruskal-Wallis
+RNA polymerase	KEGG_2019_Human	63	1.05632716049382	1	0.304	Kruskal-Wallis
+RNA transport	KEGG_2019_Human	63	3.31037808641977	1	0.0688	Kruskal-Wallis
+Salivary secretion	KEGG_2019_Human	63	0.765625	1	0.382	Kruskal-Wallis
+Salmonella infection	KEGG_2019_Human	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+Selenocompound metabolism	KEGG_2019_Human	63	0.671489197530889	1	0.413	Kruskal-Wallis
+Serotonergic synapse	KEGG_2019_Human	63	1.02797067901233	1	0.311	Kruskal-Wallis
+Shigellosis	KEGG_2019_Human	63	0.210069444444457	1	0.647	Kruskal-Wallis
+Signaling pathways regulating pluripotency of stem cells	KEGG_2019_Human	63	1.14371141975309	1	0.285	Kruskal-Wallis
+Small cell lung cancer	KEGG_2019_Human	63	0.444444444444457	1	0.505	Kruskal-Wallis
+SNARE interactions in vesicular transport	KEGG_2019_Human	63	1.23456790123456	1	0.267	Kruskal-Wallis
+Sphingolipid metabolism	KEGG_2019_Human	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+Sphingolipid signaling pathway	KEGG_2019_Human	63	0.162229938271565	1	0.687	Kruskal-Wallis
+Spliceosome	KEGG_2019_Human	63	0.340277777777771	1	0.56	Kruskal-Wallis
+Staphylococcus aureus infection	KEGG_2019_Human	63	0.0850694444444571	1	0.771	Kruskal-Wallis
+Starch and sucrose metabolism	KEGG_2019_Human	63	0.765625	1	0.382	Kruskal-Wallis
+Steroid biosynthesis	KEGG_2019_Human	63	0.583526234567898	1	0.445	Kruskal-Wallis
+Steroid hormone biosynthesis	KEGG_2019_Human	63	0.463155864197546	1	0.496	Kruskal-Wallis
+Synaptic vesicle cycle	KEGG_2019_Human	63	0.278549382716051	1	0.598	Kruskal-Wallis
+Systemic lupus erythematosus	KEGG_2019_Human	63	0.111111111111114	1	0.739	Kruskal-Wallis
+T cell receptor signaling pathway	KEGG_2019_Human	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+Taste transduction	KEGG_2019_Human	63	1.4266975308642	1	0.232	Kruskal-Wallis
+Terpenoid backbone biosynthesis	KEGG_2019_Human	63	0.23630401234567	1	0.627	Kruskal-Wallis
+TGF-beta signaling pathway	KEGG_2019_Human	63	0.0557484567901554	1	0.813	Kruskal-Wallis
+Th1 and Th2 cell differentiation	KEGG_2019_Human	63	0.741512345679013	1	0.389	Kruskal-Wallis
+Th17 cell differentiation	KEGG_2019_Human	63	0.426118827160508	1	0.514	Kruskal-Wallis
+Thermogenesis	KEGG_2019_Human	63	1.17361111111111	1	0.279	Kruskal-Wallis
+Thiamine metabolism	KEGG_2019_Human	63	0.0493827160493936	1	0.824	Kruskal-Wallis
+Thyroid cancer	KEGG_2019_Human	63	0.102044753086432	1	0.749	Kruskal-Wallis
+Thyroid hormone signaling pathway	KEGG_2019_Human	63	0.0192901234568126	1	0.89	Kruskal-Wallis
+Thyroid hormone synthesis	KEGG_2019_Human	63	0.00694444444445708	1	0.934	Kruskal-Wallis
+Tight junction	KEGG_2019_Human	63	1.49382716049382	1	0.222	Kruskal-Wallis
+TNF signaling pathway	KEGG_2019_Human	63	0.185378086419774	1	0.667	Kruskal-Wallis
+Toll-like receptor signaling pathway	KEGG_2019_Human	63	0.210069444444457	1	0.647	Kruskal-Wallis
+Toxoplasmosis	KEGG_2019_Human	63	0.173611111111114	1	0.677	Kruskal-Wallis
+Transcriptional misregulation in cancer	KEGG_2019_Human	63	0.0378086419753174	1	0.846	Kruskal-Wallis
+Tryptophan metabolism	KEGG_2019_Human	63	0.173611111111114	1	0.677	Kruskal-Wallis
+Tuberculosis	KEGG_2019_Human	63	0.23630401234567	1	0.627	Kruskal-Wallis
+Type I diabetes mellitus	KEGG_2019_Human	63	0.293402777777771	1	0.588	Kruskal-Wallis
+Type II diabetes mellitus	KEGG_2019_Human	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+Tyrosine metabolism	KEGG_2019_Human	63	0.840277777777771	1	0.359	Kruskal-Wallis
+Ubiquitin mediated proteolysis	KEGG_2019_Human	63	0.0277777777777715	1	0.868	Kruskal-Wallis
+Valine, leucine and isoleucine degradation	KEGG_2019_Human	63	0.626736111111114	1	0.429	Kruskal-Wallis
+Vascular smooth muscle contraction	KEGG_2019_Human	63	1.17361111111111	1	0.279	Kruskal-Wallis
+Vasopressin-regulated water reabsorption	KEGG_2019_Human	63	0.32426697530866	1	0.569	Kruskal-Wallis
+VEGF signaling pathway	KEGG_2019_Human	63	0.541859567901241	1	0.462	Kruskal-Wallis
+Vibrio cholerae infection	KEGG_2019_Human	63	0.356674382716051	1	0.55	Kruskal-Wallis
+Viral carcinogenesis	KEGG_2019_Human	63	0.30864197530866	1	0.579	Kruskal-Wallis
+Viral myocarditis	KEGG_2019_Human	63	0.426118827160508	1	0.514	Kruskal-Wallis
+Vitamin digestion and absorption	KEGG_2019_Human	63	0.00173611111111427	1	0.967	Kruskal-Wallis
+Wnt signaling pathway	KEGG_2019_Human	63	0	1	1	Kruskal-Wallis

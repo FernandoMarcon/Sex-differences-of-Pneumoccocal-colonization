@@ -1,0 +1,51 @@
+pathway	DB	n	statistic	df	p	method
+Adipogenesis	MSigDB_Hallmark_2020	63	0.102044753086432	1	0.749	Kruskal-Wallis
+Allograft Rejection	MSigDB_Hallmark_2020	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+Androgen Response	MSigDB_Hallmark_2020	63	2.96604938271605	1	0.085	Kruskal-Wallis
+Angiogenesis	MSigDB_Hallmark_2020	63	0.40817901234567	1	0.523	Kruskal-Wallis
+Apical Junction	MSigDB_Hallmark_2020	63	0.501736111111114	1	0.479	Kruskal-Wallis
+Apical Surface	MSigDB_Hallmark_2020	63	0.0625	1	0.803	Kruskal-Wallis
+Apoptosis	MSigDB_Hallmark_2020	63	0.278549382716051	1	0.598	Kruskal-Wallis
+Bile Acid Metabolism	MSigDB_Hallmark_2020	63	0.210069444444457	1	0.647	Kruskal-Wallis
+Cholesterol Homeostasis	MSigDB_Hallmark_2020	63	0.130401234567898	1	0.718	Kruskal-Wallis
+Coagulation	MSigDB_Hallmark_2020	63	0.0850694444444571	1	0.771	Kruskal-Wallis
+Complement	MSigDB_Hallmark_2020	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+DNA Repair	MSigDB_Hallmark_2020	63	2.59567901234567	1	0.107	Kruskal-Wallis
+E2F Targets	MSigDB_Hallmark_2020	63	0.945216049382708	1	0.331	Kruskal-Wallis
+Epithelial Mesenchymal Transition	MSigDB_Hallmark_2020	63	1	1	0.317	Kruskal-Wallis
+Estrogen Response Early	MSigDB_Hallmark_2020	63	0.210069444444457	1	0.647	Kruskal-Wallis
+Estrogen Response Late	MSigDB_Hallmark_2020	63	0.604938271604908	1	0.437	Kruskal-Wallis
+Fatty Acid Metabolism	MSigDB_Hallmark_2020	63	0.340277777777771	1	0.56	Kruskal-Wallis
+G2-M Checkpoint	MSigDB_Hallmark_2020	63	0.32426697530866	1	0.569	Kruskal-Wallis
+Glycolysis	MSigDB_Hallmark_2020	63	0.120563271604908	1	0.728	Kruskal-Wallis
+Hedgehog Signaling	MSigDB_Hallmark_2020	63	0.162229938271565	1	0.687	Kruskal-Wallis
+heme Metabolism	MSigDB_Hallmark_2020	63	0.023341049382708	1	0.879	Kruskal-Wallis
+Hypoxia	MSigDB_Hallmark_2020	63	0.120563271604908	1	0.728	Kruskal-Wallis
+IL-2/STAT5 Signaling	MSigDB_Hallmark_2020	63	0.00694444444445708	1	0.934	Kruskal-Wallis
+IL-6/JAK/STAT3 Signaling	MSigDB_Hallmark_2020	63	0.000771604938250903	1	0.978	Kruskal-Wallis
+Inflammatory Response	MSigDB_Hallmark_2020	63	0.00019290123455562	1	0.989	Kruskal-Wallis
+Interferon Alpha Response	MSigDB_Hallmark_2020	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+Interferon Gamma Response	MSigDB_Hallmark_2020	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+KRAS Signaling Dn	MSigDB_Hallmark_2020	63	0.972415123456813	1	0.324	Kruskal-Wallis
+KRAS Signaling Up	MSigDB_Hallmark_2020	63	0.111111111111114	1	0.739	Kruskal-Wallis
+Mitotic Spindle	MSigDB_Hallmark_2020	63	0.023341049382708	1	0.879	Kruskal-Wallis
+mTORC1 Signaling	MSigDB_Hallmark_2020	63	0.865933641975317	1	0.352	Kruskal-Wallis
+Myc Targets V1	MSigDB_Hallmark_2020	63	2.29185956790124	1	0.13	Kruskal-Wallis
+Myc Targets V2	MSigDB_Hallmark_2020	63	1.08506944444446	1	0.298	Kruskal-Wallis
+Myogenesis	MSigDB_Hallmark_2020	63	0.0771604938271651	1	0.781	Kruskal-Wallis
+Notch Signaling	MSigDB_Hallmark_2020	63	0.00945216049382225	1	0.923	Kruskal-Wallis
+Oxidative Phosphorylation	MSigDB_Hallmark_2020	63	1.20389660493825	1	0.273	Kruskal-Wallis
+p53 Pathway	MSigDB_Hallmark_2020	63	0.0434027777777715	1	0.835	Kruskal-Wallis
+Pancreas Beta Cells	MSigDB_Hallmark_2020	63	0.482253086419774	1	0.487	Kruskal-Wallis
+PI3K/AKT/mTOR  Signaling	MSigDB_Hallmark_2020	63	0.278549382716051	1	0.598	Kruskal-Wallis
+Pperoxisome	MSigDB_Hallmark_2020	63	1.32889660493825	1	0.249	Kruskal-Wallis
+Protein Secretion	MSigDB_Hallmark_2020	63	3.36111111111111	1	0.0668	Kruskal-Wallis
+Reactive Oxygen Species Pathway	MSigDB_Hallmark_2020	63	0.501736111111114	1	0.479	Kruskal-Wallis
+Spermatogenesis	MSigDB_Hallmark_2020	63	0.741512345679013	1	0.389	Kruskal-Wallis
+TGF-beta Signaling	MSigDB_Hallmark_2020	63	0.32426697530866	1	0.569	Kruskal-Wallis
+TNF-alpha Signaling via NF-kB	MSigDB_Hallmark_2020	63	0.0326003086419746	1	0.857	Kruskal-Wallis
+Unfolded Protein Response	MSigDB_Hallmark_2020	63	1	1	0.317	Kruskal-Wallis
+UV Response Dn	MSigDB_Hallmark_2020	63	2.640625	1	0.104	Kruskal-Wallis
+UV Response Up	MSigDB_Hallmark_2020	63	0.0933641975308888	1	0.76	Kruskal-Wallis
+Wnt-beta Catenin Signaling	MSigDB_Hallmark_2020	63	0.390625	1	0.532	Kruskal-Wallis
+Xenobiotic Metabolism	MSigDB_Hallmark_2020	63	1.39371141975309	1	0.238	Kruskal-Wallis
