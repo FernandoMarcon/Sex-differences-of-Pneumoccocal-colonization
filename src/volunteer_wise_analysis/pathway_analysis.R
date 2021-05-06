@@ -43,7 +43,7 @@ krustal.all <- lapply(gtm.dbs, function(gtm.db) {#  gtm.db = gtm.dbs[1]
   nes.full
 })
 
-pval.thrs = 0.01
+pval.thrs = 0.1
 temp = Reduce(rbind, krustal.all) %>% filter(p < pval.thrs) %>% mutate(p = -log10(p)) %>%
         mutate(pathway = gsub(' \\(.*','',pathway), pathway = gsub(' Homo.*','',pathway),
                         DB = gsub('GO_Biological_Process_2018','GO-BP',DB),
@@ -51,13 +51,14 @@ temp = Reduce(rbind, krustal.all) %>% filter(p < pval.thrs) %>% mutate(p = -log1
                         DB = gsub('GO_Molecular_Function_2018','GO-MF',DB),
                         DB = gsub('KEGG_2019_Human','KEGG',DB),
                         DB = gsub('Reactome_2016','Reactome',DB),
-                        DB = gsub('WikiPathways_2019_Human','WikiPathways',DB))
+                        DB = gsub('WikiPathways_2019_Human','WikiPathways',DB),
+                      dataset = gsub('Adults','A',dataset))
 plt.krustal <- ggplot(temp, aes(p,reorder(pathway, p), fill = DB)) + geom_bar(stat = 'identity', show.legend = F) +
-  facet_grid(DB~.,scales = 'free', space = 'free_y') +
+  facet_grid(DB~dataset,scales = 'free', space = 'free_y') +
   labs(y = '', x = '-log10(pvalue)', title = 'Female vs Male', subtitle = 'Krustal-Wallis Test') +
-  theme_linedraw() + theme(panel.grid = element_blank())
+  theme_linedraw() + theme(panel.grid = element_blank(),axis.text=element_text(size=2),axis.title=element_text(size=2))
 
-pdf(paste0('intermediate/volunteer_wise_analysis/ssGSEA/sexDiff_kustalTest_selectedPathways_p',pval.thrs,'.pdf'),height = 15)
+pdf(paste0('intermediate/volunteer_wise_analysis/ssGSEA/sexDiff_kustalTest_selectedPathways_p',pval.thrs,'.pdf'),height = 40, width = 4)
 plt.krustal
 dev.off()
 
