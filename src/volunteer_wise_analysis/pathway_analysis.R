@@ -58,7 +58,7 @@ lapply(gtm.dbs, function(gtm.db) { # gtm.db = gtm.dbs[1]
     ggplot(aes(pval, reorder(pathway,pval), fill = pval)) + geom_bar(show.legend = F, stat = 'identity') +
       labs(x = '-log10(Pvalue)', y = '', title = gtm.db, subtitle = 'pathways with pval < 0.01')
 
-  pdf(file.path(basedir, paste0(gtm.db, '_selectedPathways_barplot.pdf')))
+  pdf(file.path(basedir, paste0(gtm.db, '_selectedPathways_barplot.pdf')),width = 10)
   print(plt.pathways)
   dev.off()
   })
