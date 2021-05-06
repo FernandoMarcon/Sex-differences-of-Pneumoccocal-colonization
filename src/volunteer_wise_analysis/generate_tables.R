@@ -99,6 +99,9 @@ rownames(pheno) <- pheno$volunteer_id
 pheno <- pheno[colnames(logFC.df),]
 head(pheno)
 
+pheno <- pheno %>% filter(grepl('Adults', class))
+logFC.df <- logFC.df[,pheno$volunteer_id]
+
 logFC.clean <- cleanGenes(logFC.df)
 head(logFC.clean)
 
