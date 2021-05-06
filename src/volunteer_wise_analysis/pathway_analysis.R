@@ -30,7 +30,8 @@ pheno <- read.delim(file.path('intermediate/volunteer_wise_analysis/logFC_pheno.
   unite('group', carriage, sex, sep = '_', remove = F)
 
 #--- Kruskal-Wallis rank sum test
-krustal.all <- lapply(gtm.dbs, function(gtm.db) { # gtm.db = gtm.dbs[1]
+krustal.all <- lapply(gtm.dbs, function(gtm.db) {#
+  gtm.db = gtm.dbs[1]
   basedir <- file.path('intermediate/volunteer_wise_analysis/ssGSEA',gtm.db)
 
   nes <- loadEnrichementData(gtm.db, basedir)
@@ -41,19 +42,21 @@ krustal.all <- lapply(gtm.dbs, function(gtm.db) { # gtm.db = gtm.dbs[1]
   write.table(nes.full, file.path(basedir, 'sexDiff_kurstallTest.csv'), sep ='\t', row.names = F, quote =F)
   nes.full
 })
-temp = Reduce(rbind, krustal.all) %>% filter(p < 0.01) %>% mutate(p = -log10(p)) %>%
+pval.thrs = 0.01
+temp = Reduce(rbind, krustal.all) %>% filter(p < pval.thrs) %>% mutate(p = -log10(p)) %>%
         mutate(pathway = gsub(' \\(.*','',pathway), pathway = gsub(' Homo.*','',pathway),
                         DB = gsub('GO_Biological_Process_2018','GO-BP',DB),
                         DB = gsub('GO_Cellular_Component_2018','GO-CC',DB),
                         DB = gsub('GO_Molecular_Function_2018','GO-MF',DB),
                         DB = gsub('KEGG_2019_Human','KEGG',DB),
-                        DB = gsub('Reactome_2016','Reactome',DB))
+                        DB = gsub('Reactome_2016','Reactome',DB),
+                        DB = gsub('WikiPathways_2019_Human','WikiPathways',DB))
 plt.krustal <- ggplot(temp, aes(p,reorder(pathway, p), fill = DB)) + geom_bar(stat = 'identity', show.legend = F) +
   facet_grid(DB~.,scales = 'free', space = 'free_y') +
   labs(y = '', x = '-log10(pvalue)', title = 'Female vs Male', subtitle = 'Krustal-Wallis Test') +
   theme_linedraw() + theme(panel.grid = element_blank())
 
-pdf('intermediate/volunteer_wise_analysis/ssGSEA/sexDiff_kustalTest_selectedPathways_p01.pdf',height = 10)
+pdf(paste0('intermediate/volunteer_wise_analysis/ssGSEA/sexDiff_kustalTest_selectedPathways_p',pval.thrs,'.pdf'),height = 5)
 plt.krustal
 dev.off()
 
