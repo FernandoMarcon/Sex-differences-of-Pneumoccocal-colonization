@@ -54,6 +54,8 @@ lapply(gtm.dbs, function(gtm.db) { # gtm.db = gtm.dbs[1]
   tTest_res <- apply(nes, 1, function(x) t.test(abs(x[female.vols]), abs(x[male.vols]))$p.value) %>%
     as.data.frame %>% setNames('pval') %>% rownames_to_column('pathway')
 
+  write.table(tTest_res, file.path(basedir, paste0(gtm.db, '_selectedPathways.csv')), sep = '\t', quote =  F, row.names = F)
+  
   plt.pathways <- tTest_res %>% filter(pval < 0.01) %>% mutate(pval = -log10(pval), pathway = gsub(' \\(.*','',pathway)) %>%
     ggplot(aes(pval, reorder(pathway,pval), fill = pval)) + geom_bar(show.legend = F, stat = 'identity') +
       labs(x = '-log10(Pvalue)', y = '', title = gtm.db, subtitle = 'pathways with pval < 0.01')

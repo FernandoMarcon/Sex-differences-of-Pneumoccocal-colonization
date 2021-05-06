@@ -1,0 +1,268 @@
+pathway	pval
+platelet dense granule (GO:0042827)	0.969667973868141
+telomerase holoenzyme complex (GO:0005697)	0.387403130035729
+chromosomal region (GO:0098687)	0.752690233890177
+lipid droplet (GO:0005811)	0.254731349678654
+centriole (GO:0005814)	0.798642264493384
+polysome (GO:0005844)	0.143408079813971
+tertiary granule membrane (GO:0070821)	0.243680874462118
+cytoplasmic vesicle (GO:0031410)	0.857982433646664
+GABA-A receptor complex (GO:1902711)	0.0456624209411231
+integral component of Golgi membrane (GO:0030173)	0.739326798751266
+lysosomal membrane (GO:0005765)	0.777949642959624
+large ribosomal subunit (GO:0015934)	0.669367996761819
+secretory vesicle (GO:0099503)	0.17259607593449
+cytoplasmic vesicle lumen (GO:0060205)	0.702398112693814
+synaptonemal complex (GO:0000795)	0.436480049547659
+early endosome membrane (GO:0031901)	0.802233016074271
+cis-Golgi network (GO:0005801)	0.544037124669799
+cell cortex part (GO:0044448)	0.845997684254735
+axonemal dynein complex (GO:0005858)	0.850274117261585
+nuclear body (GO:0016604)	0.533879640168712
+SCF ubiquitin ligase complex (GO:0019005)	0.174290776334493
+bicellular tight junction (GO:0005923)	0.311410244752268
+clathrin-coated vesicle membrane (GO:0030665)	0.366510061489926
+intermediate filament cytoskeleton (GO:0045111)	0.592961027931545
+Golgi subcompartment (GO:0098791)	0.623826777395939
+cortical actin cytoskeleton (GO:0030864)	0.351679755015753
+catenin complex (GO:0016342)	0.314638819505099
+phagocytic vesicle (GO:0045335)	0.060645506418748
+SWI/SNF complex (GO:0016514)	0.123516083431782
+endoplasmic reticulum exit site (GO:0070971)	0.167937263571625
+endosomal part (GO:0044440)	0.522129776476298
+mitochondrial small ribosomal subunit (GO:0005763)	0.364451914733707
+microvillus (GO:0005902)	0.0574640420002546
+U12-type spliceosomal complex (GO:0005689)	0.765010268979917
+coated vesicle (GO:0030135)	0.203705887988295
+nucleolar part (GO:0044452)	0.00639901675650287
+nuclear heterochromatin (GO:0005720)	0.959766230211975
+cortical cytoskeleton (GO:0030863)	0.103265683803632
+calcium channel complex (GO:0034704)	0.227803272610862
+U2-type prespliceosome (GO:0071004)	0.818888308817383
+trans-Golgi network (GO:0005802)	0.914158213335188
+Golgi stack (GO:0005795)	0.203650494514393
+vacuole (GO:0005773)	0.689041212747148
+keratin filament (GO:0045095)	0.363011711605729
+Golgi-associated vesicle (GO:0005798)	0.250948356825846
+transcription factor TFIID complex (GO:0005669)	0.955207397684057
+sarcoplasmic reticulum (GO:0016529)	0.861077992170132
+cullin-RING ubiquitin ligase complex (GO:0031461)	0.127043904824629
+histone methyltransferase complex (GO:0035097)	0.842200550488595
+centrosome (GO:0005813)	0.999083632044046
+microtubule end (GO:1990752)	0.888432221800604
+synaptonemal structure (GO:0099086)	0.678298973674617
+cytosolic part (GO:0044445)	0.417688343955724
+specific granule (GO:0042581)	0.412686078927063
+polymeric cytoskeletal fiber (GO:0099513)	0.694327442661749
+cytoplasmic ribonucleoprotein granule (GO:0036464)	0.845039028356711
+Cul3-RING ubiquitin ligase complex (GO:0031463)	0.346452711311982
+MHC protein complex (GO:0042611)	0.0420624269222246
+U2 snRNP (GO:0005686)	0.904262644362797
+sarcoplasm (GO:0016528)	0.9354778036563
+MLL1/2 complex (GO:0044665)	0.785850061332893
+nuclear speck (GO:0016607)	0.252563241431425
+platelet alpha granule (GO:0031091)	0.581299144769249
+CHD-type complex (GO:0090545)	0.617725087048118
+condensed nuclear chromosome (GO:0000794)	0.901495640442435
+serine/threonine protein kinase complex (GO:1902554)	0.12197128409306
+Golgi cisterna (GO:0031985)	0.878290702523505
+lysosomal lumen (GO:0043202)	0.623670167489082
+COPI-coated vesicle membrane (GO:0030663)	0.775466146902233
+mRNA cleavage and polyadenylation specificity factor complex (GO:0005847)	0.236684901774048
+mitotic spindle (GO:0072686)	0.148747010992208
+mitochondrial outer membrane (GO:0005741)	0.388021006098397
+microtubule organizing center part (GO:0044450)	0.662997451011541
+precatalytic spliceosome (GO:0071011)	0.0252681977068172
+contractile actin filament bundle (GO:0097517)	0.117664176807421
+nuclear chromosome, telomeric region (GO:0000784)	0.712902013866878
+vacuolar proton-transporting V-type ATPase complex (GO:0016471)	0.136655144258151
+AMPA glutamate receptor complex (GO:0032281)	0.120883858968021
+actin filament (GO:0005884)	0.0355976071740196
+anchored component of external side of plasma membrane (GO:0031362)	0.603113943275267
+Golgi lumen (GO:0005796)	0.379011008993129
+nuclear replisome (GO:0043601)	0.469442642584099
+pre-autophagosomal structure (GO:0000407)	0.509491499600955
+ESC/E(Z) complex (GO:0035098)	0.710354535593989
+cation channel complex (GO:0034703)	0.547601309389016
+autophagosome (GO:0005776)	0.831099596988331
+mitochondrial respiratory chain complex IV (GO:0005751)	0.119737258787259
+PML body (GO:0016605)	0.901833243194905
+heterochromatin (GO:0000792)	0.81797995259387
+secretory granule lumen (GO:0034774)	0.489544182679114
+focal adhesion (GO:0005925)	0.766153448869447
+azurophil granule lumen (GO:0035578)	0.349327115272371
+phagocytic vesicle membrane (GO:0030670)	0.587844126541625
+prespliceosome (GO:0071010)	0.584165898825898
+mitochondrial matrix (GO:0005759)	0.123122777616794
+Golgi cisterna membrane (GO:0032580)	0.969823305712514
+intercalated disc (GO:0014704)	0.256151157891427
+lysosome (GO:0005764)	0.931552097899448
+polysomal ribosome (GO:0042788)	0.900981976300803
+site of DNA damage (GO:0090734)	0.443720116042911
+mitochondrial large ribosomal subunit (GO:0005762)	0.801088405054703
+spindle (GO:0005819)	0.241099885796876
+lamellar body (GO:0042599)	0.4258799012772
+aggresome (GO:0016235)	0.623069647147511
+autophagosome membrane (GO:0000421)	0.19756622874798
+integral component of mitochondrial membrane (GO:0032592)	0.981422966190267
+main axon (GO:0044304)	0.235632330359675
+U5 snRNP (GO:0005682)	0.0244474457308878
+histone acetyltransferase complex (GO:0000123)	0.825646119453891
+multivesicular body (GO:0005771)	0.134283321018035
+microbody lumen (GO:0031907)	0.243113972205704
+ficolin-1-rich granule membrane (GO:0101003)	0.251322281269888
+chromosome, telomeric region (GO:0000781)	0.662940667508351
+endoplasmic reticulum-Golgi intermediate compartment (GO:0005793)	0.423857406383145
+microtubule (GO:0005874)	0.774727334787204
+stress fiber (GO:0001725)	0.117664176807421
+cytosolic small ribosomal subunit (GO:0022627)	0.471707664683449
+endolysosome (GO:0036019)	0.590502790698223
+caveola (GO:0005901)	0.825585096535633
+P-body (GO:0000932)	0.450696541854697
+endosome lumen (GO:0031904)	0.107809685844623
+endoplasmic reticulum tubular network (GO:0071782)	0.234768736227686
+BAF-type complex (GO:0090544)	0.349077655297482
+nuclear ubiquitin ligase complex (GO:0000152)	0.79652878616475
+anaphase-promoting complex (GO:0005680)	0.320254912565409
+clathrin-coated endocytic vesicle (GO:0045334)	0.494379176548324
+spindle midzone (GO:0051233)	0.76561363595199
+cytoplasmic vesicle membrane (GO:0030659)	0.934058340914435
+nuclear chromosome part (GO:0044454)	0.981387555958049
+ficolin-1-rich granule (GO:0101002)	0.759424948488125
+membrane raft (GO:0045121)	0.0930896939401369
+intrinsic component of the cytoplasmic side of the plasma membrane (GO:0031235)	0.612924304945595
+intrinsic component of mitochondrial inner membrane (GO:0031304)	0.293550991406488
+platelet alpha granule membrane (GO:0031092)	0.176031118607104
+cytosolic ribosome (GO:0022626)	0.977670446504888
+spliceosomal complex (GO:0005681)	0.0455641804082892
+anchored component of plasma membrane (GO:0046658)	0.906605788261234
+recycling endosome membrane (GO:0055038)	0.259094249102049
+integral component of mitochondrial outer membrane (GO:0031307)	0.509066267662463
+lytic vacuole membrane (GO:0098852)	0.877787784836774
+preribosome (GO:0030684)	0.00528150017004034
+BLOC-1 complex (GO:0031083)	0.0526307933518535
+intermediate filament (GO:0005882)	0.898599101453337
+small ribosomal subunit (GO:0015935)	0.411401999808858
+actin cytoskeleton (GO:0015629)	0.221562620655678
+small nuclear ribonucleoprotein complex (GO:0030532)	0.453184779261053
+U4/U6 x U5 tri-snRNP complex (GO:0046540)	0.544843790241686
+nuclear periphery (GO:0034399)	0.253578598312561
+pigment granule (GO:0048770)	0.46724146753397
+azurophil granule (GO:0042582)	0.271630901969191
+actomyosin (GO:0042641)	0.225485946533498
+trans-Golgi network transport vesicle (GO:0030140)	0.497192494959237
+endocytic vesicle (GO:0030139)	0.726757553608675
+U2-type spliceosomal complex (GO:0005684)	0.316104382740997
+Sin3-type complex (GO:0070822)	0.454024611502061
+peroxisomal part (GO:0044439)	0.33612309745709
+peroxisomal membrane (GO:0005778)	0.333390410832484
+Golgi membrane (GO:0000139)	0.256087315125574
+late endosome membrane (GO:0031902)	0.629245261021597
+vacuolar lumen (GO:0005775)	0.863496889077204
+chromosome (GO:0005694)	0.951855777703708
+specific granule lumen (GO:0035580)	0.990317576608584
+brush border membrane (GO:0031526)	0.634325829799791
+integral component of mitochondrial inner membrane (GO:0031305)	0.946307314003201
+RNA polymerase II transcription factor complex (GO:0090575)	0.916069977994837
+filopodium (GO:0030175)	0.536198611776481
+clathrin-coated endocytic vesicle membrane (GO:0030669)	0.783120841918523
+T cell receptor complex (GO:0042101)	0.0639129143804196
+mitotic spindle pole (GO:0097431)	0.371565636433909
+perinuclear region of cytoplasm (GO:0048471)	0.371040117304914
+dendrite membrane (GO:0032590)	0.955210535336584
+axon (GO:0030424)	0.853077071137076
+COPII-coated ER to Golgi transport vesicle (GO:0030134)	0.267114183468421
+Cul2-RING ubiquitin ligase complex (GO:0031462)	0.218134402003932
+ficolin-1-rich granule lumen (GO:1904813)	0.849149183888239
+endoplasmic reticulum-Golgi intermediate compartment membrane (GO:0033116)	0.230439955907107
+nuclear transcription factor complex (GO:0044798)	0.252170886211934
+cytoplasmic microtubule (GO:0005881)	0.601542449398831
+dendrite (GO:0030425)	0.866939038315832
+nuclear matrix (GO:0016363)	0.286231994811753
+transcriptionally active chromatin (GO:0035327)	0.355579231891225
+nuclear chromatin (GO:0000790)	0.613276263378099
+ionotropic glutamate receptor complex (GO:0008328)	0.926817135300145
+nuclear DNA-directed RNA polymerase complex (GO:0055029)	0.0510998127804487
+acetylcholine-gated channel complex (GO:0005892)	0.10321953923571
+lytic vacuole (GO:0000323)	0.917378004166082
+tertiary granule lumen (GO:1904724)	0.296280572698628
+microtubule cytoskeleton (GO:0015630)	0.853968255211226
+azurophil granule membrane (GO:0035577)	0.319316066292583
+melanosome (GO:0042470)	0.46724146753397
+cytoplasmic dynein complex (GO:0005868)	0.609470204014761
+condensed chromosome kinetochore (GO:0000777)	0.69470650697156
+INO80-type complex (GO:0097346)	0.706226624878349
+nucleoplasm part (GO:0044451)	0.205802995212653
+preribosome, large subunit precursor (GO:0030687)	0.694087992320873
+trans-Golgi network membrane (GO:0032588)	0.286386443751864
+P granule (GO:0043186)	0.133095886940072
+integral component of plasma membrane (GO:0005887)	0.0313311505150662
+late endosome (GO:0005770)	0.227440466504327
+Ino80 complex (GO:0031011)	0.925835425690168
+myofibril (GO:0030016)	0.398548036471652
+clathrin adaptor complex (GO:0030131)	0.142831129156026
+peroxisome (GO:0005777)	0.614364071301021
+condensed chromosome, centromeric region (GO:0000779)	0.432018033958929
+intrinsic component of mitochondrial outer membrane (GO:0031306)	0.621268227224194
+small-subunit processome (GO:0032040)	0.185403724986135
+specific granule membrane (GO:0035579)	0.282801919418038
+fibrillar center (GO:0001650)	0.0340053161565529
+DNA-directed RNA polymerase III complex (GO:0005666)	0.15105319129559
+vesicle coat (GO:0030120)	0.939383536648103
+Cul4-RING E3 ubiquitin ligase complex (GO:0080008)	0.962872586915092
+cytoskeleton (GO:0005856)	0.536485031027396
+90S preribosome (GO:0030686)	0.133776980517249
+endoplasmic reticulum lumen (GO:0005788)	0.98780159343676
+nuclear inner membrane (GO:0005637)	0.515986789435635
+endocytic vesicle lumen (GO:0071682)	0.818795582741723
+nuclear cyclin-dependent protein kinase holoenzyme complex (GO:0019908)	0.075665545540366
+platelet alpha granule lumen (GO:0031093)	0.984067346212897
+nucleolus (GO:0005730)	0.170299063576817
+site of double-strand break (GO:0035861)	0.459437612727467
+Cajal body (GO:0015030)	0.140672891125582
+striated muscle thin filament (GO:0005865)	0.500269625240427
+centriolar satellite (GO:0034451)	0.236432672539915
+chromatin (GO:0000785)	0.66047045378019
+clathrin-coated vesicle (GO:0030136)	0.490976398871407
+integral component of endoplasmic reticulum membrane (GO:0030176)	0.0148293349722303
+ER to Golgi transport vesicle membrane (GO:0012507)	0.708768531204462
+spindle pole (GO:0000922)	0.285663486658563
+tertiary granule (GO:0070820)	0.672502540837993
+spliceosomal snRNP complex (GO:0097525)	0.178452849960157
+integral component of lumenal side of endoplasmic reticulum membrane (GO:0071556)	0.545129696855293
+rough endoplasmic reticulum (GO:0005791)	0.874626787705172
+spliceosomal tri-snRNP complex (GO:0097526)	0.3339347259977
+MLL1 complex (GO:0071339)	0.785850061332893
+NuRD complex (GO:0016581)	0.617725087048118
+spindle microtubule (GO:0005876)	0.882240823181306
+U2-type catalytic step 2 spliceosome (GO:0071007)	0.448476781524674
+pericentriolar material (GO:0000242)	0.926426510380022
+intrinsic component of external side of plasma membrane (GO:0031233)	0.712225604554011
+U1 snRNP (GO:0005685)	0.500351321727028
+contractile fiber (GO:0043292)	0.143606931757475
+mitochondrial envelope (GO:0005740)	0.191077601478108
+DNA-directed RNA polymerase II, holoenzyme (GO:0016591)	0.46228929721903
+actin-based cell projection (GO:0098858)	0.848202001945344
+cytoplasmic exosome (RNase complex) (GO:0000177)	0.00702487663257057
+nuclear chromosome (GO:0000228)	0.101977036385076
+ribonucleoprotein granule (GO:0035770)	0.381579113553801
+cytoplasmic stress granule (GO:0010494)	0.186524032739009
+early endosome (GO:0005769)	0.68122304770267
+condensed chromosome (GO:0000793)	0.818036917453192
+exocytic vesicle (GO:0070382)	0.1645061392525
+mitochondrial inner membrane (GO:0005743)	0.203776418782941
+DNA-directed RNA polymerase II, core complex (GO:0005665)	0.0367741967140231
+mitochondrial respiratory chain complex I (GO:0005747)	0.366523301225278
+microbody (GO:0042579)	0.614364071301021
+kinesin complex (GO:0005871)	0.309228202185985
+microtubule organizing center (GO:0005815)	0.884873662335265
+chromosome, centromeric region (GO:0000775)	0.523982711235925
+replication fork (GO:0005657)	0.829930859109103
+Golgi cis cisterna (GO:0000137)	0.798525427122325
+ruffle membrane (GO:0032587)	0.163028798306239
+peroxisomal matrix (GO:0005782)	0.243113972205704
+mitochondrion (GO:0005739)	0.991944499795999
+mitochondrial intermembrane space (GO:0005758)	0.0787456181382591
+cytosolic large ribosomal subunit (GO:0022625)	0.656213213843417
+ribosome (GO:0005840)	0.617360189891941
+recycling endosome (GO:0055037)	0.881574269462528
