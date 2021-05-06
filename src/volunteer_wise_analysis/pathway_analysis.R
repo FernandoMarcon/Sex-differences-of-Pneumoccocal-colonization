@@ -18,6 +18,7 @@ loadEnrichementData <- function(gtm.db, basedir, p.thrs = 0.01, vol.perc = .7) {
     }) %>% unlist %>% unique
 
   return(nes[selected.pathways, ])
+    # return(nes)
 }
 
 # dataset.names <- c('Adults1','Adults2','Adults3','Elderly1')
@@ -30,18 +31,18 @@ pheno <- read.delim(file.path('intermediate/volunteer_wise_analysis/logFC_pheno.
   unite('group', carriage, sex, sep = '_', remove = F)
 
 #--- Kruskal-Wallis rank sum test
-krustal.all <- lapply(gtm.dbs, function(gtm.db) {#
-  gtm.db = gtm.dbs[1]
+krustal.all <- lapply(gtm.dbs, function(gtm.db) {#  gtm.db = gtm.dbs[1]
   basedir <- file.path('intermediate/volunteer_wise_analysis/ssGSEA',gtm.db)
 
   nes <- loadEnrichementData(gtm.db, basedir)
 
   nes.full = nes %>% rownames_to_column('pathway') %>% gather('volunteer_id','nes',-pathway)
   nes.full = pheno %>% rownames_to_column('volunteer_id') %>% merge(., nes.full, by = 'volunteer_id', all.y = T)
-  nes.full = nes.full %>% group_by(pathway) %>% kruskal_test(nes ~ sex) %>% mutate(.y. = gtm.db) %>% rename(DB = '.y.')
-  write.table(nes.full, file.path(basedir, 'sexDiff_kurstallTest.csv'), sep ='\t', row.names = F, quote =F)
+  nes.full = nes.full %>% group_by(dataset, pathway) %>% kruskal_test(nes ~ sex) %>% mutate(.y. = gtm.db) %>% rename(DB = '.y.')
+  # write.table(nes.full, file.path(basedir, 'sexDiff_kurstallTest.csv'), sep ='\t', row.names = F, quote =F)
   nes.full
 })
+
 pval.thrs = 0.01
 temp = Reduce(rbind, krustal.all) %>% filter(p < pval.thrs) %>% mutate(p = -log10(p)) %>%
         mutate(pathway = gsub(' \\(.*','',pathway), pathway = gsub(' Homo.*','',pathway),
@@ -56,7 +57,7 @@ plt.krustal <- ggplot(temp, aes(p,reorder(pathway, p), fill = DB)) + geom_bar(st
   labs(y = '', x = '-log10(pvalue)', title = 'Female vs Male', subtitle = 'Krustal-Wallis Test') +
   theme_linedraw() + theme(panel.grid = element_blank())
 
-pdf(paste0('intermediate/volunteer_wise_analysis/ssGSEA/sexDiff_kustalTest_selectedPathways_p',pval.thrs,'.pdf'),height = 5)
+pdf(paste0('intermediate/volunteer_wise_analysis/ssGSEA/sexDiff_kustalTest_selectedPathways_p',pval.thrs,'.pdf'),height = 15)
 plt.krustal
 dev.off()
 
