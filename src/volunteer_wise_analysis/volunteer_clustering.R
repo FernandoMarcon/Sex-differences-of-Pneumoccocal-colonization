@@ -32,9 +32,11 @@ kurstal.test = nes.full %>% group_by(cluster, pathway) %>% kruskal_test(nes ~ se
 selected.pathways <- kurstal.test %>% filter(p < 0.01) %>% .$pathway %>% unique
 kurstal.test %>% filter(pathway %in% selected.pathways) %>% mutate(p = -log10(p)) %>%
   ggplot(aes(p, reorder(pathway, p), fill = cluster)) + geom_bar(stat = 'identity', show.legend = F) + facet_grid(.~cluster)
-head(kurstal.test)
+head(nes.full)
 
-
+nes.full %>% filter(pathway == selected.pathways[1]) %>% mutate(cluster = as.factor(cluster)) %>%
+  ggplot(aes(sex,nes)) + geom_boxplot(show.legend =F)   + geom_jitter(show.legend =F, aes(col = cluster)) +
+    facet_grid(dataset~carriage) + theme_linedraw()
 
 library(biclustermd)
 bc <- biclustermd(data = nes, col_clusters = 2, row_clusters = 4)
