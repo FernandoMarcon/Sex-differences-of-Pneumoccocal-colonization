@@ -1,5 +1,5 @@
 rm(list = ls())
-pkgs <- c('tidyverse','rstatix','cluster','factoextra')
+pkgs <- c('tidyverse','rstatix','cluster','factoextra','ggrepel')
 suppressPackageStartupMessages(sapply(pkgs, require, character.only = T))
 
 #--- Settings
@@ -29,22 +29,39 @@ ggplot(cluster.summary, aes(class, num_vol, fill = class)) + geom_bar(stat = 'id
 nes.full <- nes %>% rownames_to_column('pathway') %>% gather('volunteer_id','nes',-pathway)
 nes.full = nes.full %>% merge(pheno,., by = 'volunteer_id',all.y = T)
 nes.full = nes.full %>% separate(class, c('dataset','carriage','sex'), sep = '_')
+nes.full = nes.full %>% separate(pathway, c('pathway','path_code'), sep = ' WP') %>% mutate(path_code = paste0('WP',path_code))
+head(nes.full)
 
 kurstal.test = nes.full %>% group_by(cluster, pathway) %>% kruskal_test(nes ~ sex) %>% mutate(.y. = gtm.db) %>% rename(DB = '.y.')
 selected.pathways <- kurstal.test %>% filter(p < 0.01) %>% .$pathway %>% unique
-kurstal.test %>% filter(pathway %in% selected.pathways) %>% mutate(p = -log10(p)) %>%
+plt.barplot <- kurstal.test %>% filter(pathway %in% selected.pathways) %>% mutate(p = -log10(p)) %>%
   ggplot(aes(p, reorder(pathway, p), fill = cluster)) + geom_bar(stat = 'identity', show.legend = F) + facet_grid(.~cluster) +
-    labs(x = '-log10(p-value)',y = '', title = 'Female vs Male', subtitle = gtm.db) + theme_linedraw()
+    labs(x = '-log10(p-value)',y = '', title = 'Female vs Male', subtitle = gtm.db) + theme_linedraw() +
+    geom_vline(xintercept = -log10(.01), col= 'red', linetype = 'dashed') +
+    geom_vline(xintercept = -log10(.05), col= 'red', linetype = 'dotted') +
+    theme(panel.grid = element_blank())
+plt.barplot
 
-head(kurstal.test)
 path.clusters <- kurstal.test %>% select(pathway, cluster, p) %>% filter(p < 0.1) %>% mutate(p = -log10(p)) %>%
   spread(cluster,p, fill = 1) %>% column_to_rownames('pathway') %>%
   setNames(paste0('cluster',colnames(.))) %>% rownames_to_column('pathway')
-ggplot(path.clusters, aes(cluster1, cluster2)) + geom_point() + geom_text(aes(label = pathway))
-nes.full %>% filter(pathway == selected.pathways[1]) %>% mutate(cluster = as.factor(cluster)) %>%
-  ggplot(aes(sex,nes)) + geom_boxplot(show.legend =F)   + geom_jitter(show.legend =F, aes(col = cluster)) +
-    facet_grid(dataset~carriage) + theme_linedraw()
 
+pdf(file.path(basedir, 'ssGSEA',gtm.db,'selectedPathways_byCluster_barplot.pdf'))
+plt.barplot
+# ggplot(path.clusters, aes(cluster1, cluster2)) + geom_point() + geom_text_repel(aes(label = pathway))
+lapply(selected.pathways, function(pathway.name){
+  nes.full %>% filter(pathway == pathway.name) %>% mutate(cluster = as.factor(cluster)) %>%
+    ggplot(aes(sex,nes, fill = sex)) + geom_boxplot(show.legend =F, alpha = .5)   + geom_jitter(show.legend =F, aes(col = cluster)) +
+      facet_grid(.~carriage) + theme_linedraw() + labs(title = pathway.name) + theme(panel.grid = element_blank())
+  })
+dev.off()
+
+nes.full %>% filter(pathway == selected.pathways[1]) %>% mutate(cluster = paste0('cluster',cluster)) %>%
+  spread(cluster,nes) 
+
+nes.full %>% filter(pathway %in% selected.pathways) %>% mutate(cluster = as.factor(cluster), group = paste0(carriage, '_',sex)) %>%
+  ggplot(aes(group,nes, fill = group, col = group)) + geom_boxplot(show.legend =F)   + geom_jitter(show.legend =F) +
+    facet_grid(.~pathway) + theme_linedraw()
 
 
 
