@@ -68,14 +68,52 @@ nes.full %>% filter(pathway %in% selected.pathways) %>% mutate(cluster = as.fact
 
 
 #--- Cross with luminex values
-luminex <- read.delim(file.path(basedir, 'logFC_luminex.csv'))
+luminex <- read.delim(file.path(basedir, 'logFC_luminex.csv')) %>%
+  mutate(study = sapply(strsplit(volunteer_id,'\\/'), `[[`,2)) %>%
+  unite('group', study, timepoint) %>%
+  filter(group %in% c('015_D2','016_D9','019_D2')) %>%
+  separate(group, c('study', 'timepoint')) %>%
+  select(-study, -timepoint)
+
+luminex = merge(pheno, luminex, by = 'volunteer_id')
 head(luminex)
 
-cytokine <- luminex %>% select(volunteer_id, timepoint, IL_7) %>%
-  merge(pheno,.,by='volunteer_id',all.y=T)
-head(cytokine)
-ggplot(cytokine, aes(sex, IL_7)) + geom_boxplot() + geom_point() +
+cytokine.name = c('IL_7','IL_6','IL_11','IL_9')
+pathway.name <- paste0(c('IL-7','IL-6','IL-11','IL-9'),' Signaling Pathway')
+
+i = 2
+cytokine.df <- luminex[,c('volunteer_id', 'class', 'cluster', cytokine.name[i])]
+colnames(cytokine.df)[4] <- 'cytokine'
+
+cytokine.df %>% separate(class, c('dataset', 'carriage','sex'), sep = '_') %>%
+  mutate(cluster = as.character(cluster)) %>%
+  ggplot(aes(sex, cytokine, col = sex, fill = sex)) + geom_boxplot(alpha = .5, show.legend = F) +
+  geom_jitter(size = 3, aes(shape = cluster)) + theme_minimal() + theme(legend.position = 'top')
+
+cytokine.df %>% separate(class, c('dataset', 'carriage','sex'), sep = '_') %>%
+  mutate(cluster = as.character(cluster)) %>%
+  ggplot(aes(sex, cytokine, col = sex, fill = sex)) + geom_boxplot(alpha = .5, show.legend = F) +
+  geom_jitter(size = 3, aes(shape = cluster)) + theme_minimal() + theme(legend.position = 'top') +
   facet_grid(.~carriage)
+
+cytokine.df <- nes[pathway.name[i],] %>% t %>% as.data.frame %>% setNames('NES') %>% rownames_to_column('volunteer_id') %>%
+  merge(cytokine.df, ., by = 'volunteer_id') %>%
+  separate(class, c('dataset','carriage', 'sex'), sep = '_') %>%
+  mutate(cluster = as.character(cluster))
+head(cytokine.df)
+
+ggplot(cytokine.df, aes(NES, cytokine, col = sex)) + geom_point(size = 3) +
+  theme_minimal() + theme(legend.position = 'top')
+
+cytokine.df %>% unite('group', carriage, sex) %>% ggplot(aes(NES, cytokine, col = group, shape = cluster)) + geom_point(size = 3) +
+  theme_minimal() + theme(legend.position = 'top')
+
+
+ggplot(cytokine.df, aes(sex, cytokine, col = sex, fill = sex)) + geom_boxplot(alpha = .5, show.legend = F) +
+ geom_jitter(size = 3, aes(shape = cluster)) + theme_minimal() + theme(legend.position = 'top')
+
+ggplot(cytokine.df, aes(sex, cytokine, col = sex, fill = sex)) + geom_boxplot(alpha = .5, show.legend = F) + geom_jitter(size = 3, aes(shape = cluster)) +
+    facet_grid(.~carriage) + theme_linedraw() + theme(legend.position = 'top')
 
 #### ===== BiClustering +++++ ####
 # https://cran.r-project.org/web/packages/biclustermd/vignettes/Airports.html
