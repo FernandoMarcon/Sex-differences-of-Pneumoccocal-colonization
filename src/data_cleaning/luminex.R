@@ -35,10 +35,13 @@ cytokine.all <- Reduce(function(x,y) merge(x, y, by = c('sample_id', 'cytokine')
 head(cytokine.all)
 temp = cytokine.all %>% unite('sample_id', sample_id, cytokine, sep = '|') %>% column_to_rownames('sample_id')
 
-apply(temp, 1, function(x) {
-  # x = as.numeric(x)
-  if(length(unique(x[!is.na(x)])) == 2) return(x)
-  })# %>% table
+final <- apply(temp, 1, function(x) {
+  x = unique(x[!is.na(x)])
+  if(length(x) > 1) return(x)
+  })
+final
+
+
 
 logFC <- read.delim('intermediate/volunteer_wise_analysis/logFC_pheno.csv')
 head(logFC)
