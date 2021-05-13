@@ -64,6 +64,13 @@ nes.full %>% filter(pathway %in% selected.pathways) %>% mutate(cluster = as.fact
     facet_grid(.~pathway) + theme_linedraw()
 
 
+
+#--- Cross with luminex values
+luminex <- read.delim(file.path(basedir, 'logFC_luminex.csv'))
+head(luminex)
+
+
+
 #### ===== BiClustering +++++ ####
 # https://cran.r-project.org/web/packages/biclustermd/vignettes/Airports.html
 
