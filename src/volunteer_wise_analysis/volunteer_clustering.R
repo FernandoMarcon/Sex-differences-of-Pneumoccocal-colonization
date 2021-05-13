@@ -8,9 +8,11 @@ gtm.db <- 'WikiPathways_2019_Human'
 
 #--- Load Data
 pheno <- read.delim(file.path(basedir, 'logFC_pheno.csv'))
+head(pheno)
 
 nes <- read.delim(file.path(basedir,'ssGSEA', gtm.db, 'NES_logFC_geneClean.csv'), row.names = 1)
 colnames(nes) <- gsub('\\.','\\/',gsub('X','',colnames(nes)))
+head(nes)
 
 #--- K-means
 nes.t <- nes %>% t %>% as.data.frame
@@ -60,7 +62,7 @@ nes.full %>% filter(pathway == selected.pathways[1]) %>% mutate(cluster = paste0
   spread(cluster,nes)
 
 nes.full %>% filter(pathway %in% selected.pathways) %>% mutate(cluster = as.factor(cluster), group = paste0(carriage, '_',sex)) %>%
-  ggplot(aes(group,nes, fill = group, col = group)) + geom_boxplot(show.legend =F)   + geom_jitter(show.legend =F) +
+  ggplot(aes(group,nes, fill = group, col = group)) + geom_boxplot(show.legend =F)   + https://masternodes.online/geom_jitter(show.legend =F) +
     facet_grid(.~pathway) + theme_linedraw()
 
 
@@ -69,7 +71,11 @@ nes.full %>% filter(pathway %in% selected.pathways) %>% mutate(cluster = as.fact
 luminex <- read.delim(file.path(basedir, 'logFC_luminex.csv'))
 head(luminex)
 
-
+cytokine <- luminex %>% select(volunteer_id, timepoint, IL_7) %>%
+  merge(pheno,.,by='volunteer_id',all.y=T)
+head(cytokine)
+ggplot(cytokine, aes(sex, IL_7)) + geom_boxplot() + geom_point() +
+  facet_grid(.~carriage)
 
 #### ===== BiClustering +++++ ####
 # https://cran.r-project.org/web/packages/biclustermd/vignettes/Airports.html
