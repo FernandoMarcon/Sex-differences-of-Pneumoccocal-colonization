@@ -10,29 +10,35 @@ cytokine.names <- toupper(colnames(data))
 
 all.filenames <- list.files(basedir, recursive = T, full.names = T)
 all.filenames <- grep('tsv|csv|txt',all.filenames, value = T)
+all.filenames <- all.filenames[-grep('count|rnaseq',all.filenames)]
 
 luminex.files <- lapply(all.filenames, function(filename){
   df <- fread(filename, nrows = 1)
-  idx = sapply(cytokine.names, function(x) grep(paste0('^',x,'$'), colnames(df), ignore.case = T))
+  idx = sapply(cytokine.names, function(x) grep(paste0('^',x,'$'), colnames(df), ignore.case = T, value= T)) %>% unlist
   if(length(idx) == length(cytokine.names)) return(filename)
 }) %>% unlist
-length(luminex.files)
-sapply(basename(luminex.files), print)
 
 #--- Combine all Luminex data
 luminex.fname <- luminex.files[1]
 luminex.all <- lapply(luminex.files, function(luminex.fname) {
-  message(luminex.fname)
   data <- read.delim(luminex.fname, row.names = 'sample_id')
   idx = sapply(cytokine.names, function(x) grep(paste0('^',x,'$'), colnames(data), ignore.case = T))
-  data[,idx]
+  data <- data[,idx] %>% rownames_to_column('sample_id') %>% gather('cytokine', 'value', -sample_id, na.rm = T) %>%
+    mutate(cytokine = toupper(cytokine))
+  colnames(data)[3] <- basename(luminex.fname)
+  data
   })
-head()
-colnames(data) <- toupper(colnames(data))
+# Reduce(rbind, luminex.all) %>% with(.,table(cytokine))
+lapply(luminex.all, head)
 
+cytokine.all <- Reduce(function(x,y) merge(x, y, by = c('sample_id', 'cytokine'), all = T), luminex.all)
+head(cytokine.all)
+temp = cytokine.all %>% unite('sample_id', sample_id, cytokine, sep = '|') %>% column_to_rownames('sample_id')
 
-
-
+apply(temp, 1, function(x) {
+  # x = as.numeric(x)
+  if(length(unique(x[!is.na(x)])) == 2) return(x)
+  })# %>% table
 
 logFC <- read.delim('intermediate/volunteer_wise_analysis/logFC_pheno.csv')
 head(logFC)

@@ -57,13 +57,15 @@ lapply(selected.pathways, function(pathway.name){
 dev.off()
 
 nes.full %>% filter(pathway == selected.pathways[1]) %>% mutate(cluster = paste0('cluster',cluster)) %>%
-  spread(cluster,nes) 
+  spread(cluster,nes)
 
 nes.full %>% filter(pathway %in% selected.pathways) %>% mutate(cluster = as.factor(cluster), group = paste0(carriage, '_',sex)) %>%
   ggplot(aes(group,nes, fill = group, col = group)) + geom_boxplot(show.legend =F)   + geom_jitter(show.legend =F) +
     facet_grid(.~pathway) + theme_linedraw()
 
 
+#### ===== BiClustering +++++ ####
+# https://cran.r-project.org/web/packages/biclustermd/vignettes/Airports.html
 
 # library(biclustermd)
 # bc <- biclustermd(data = nes, col_clusters = 2, row_clusters = 4)
