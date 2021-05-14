@@ -34,10 +34,10 @@ nes.full = nes.full %>% separate(class, c('dataset','carriage','sex'), sep = '_'
 nes.full = nes.full %>% separate(pathway, c('pathway','path_code'), sep = ' WP') %>% mutate(path_code = paste0('WP',path_code))
 head(nes.full)
 
-kurstal.test = nes.full %>% group_by(cluster, pathway) %>% kruskal_test(nes ~ sex) %>% mutate(.y. = gtm.db) %>% rename(DB = '.y.')
+kurstal.test = nes.full %>% group_by(cluster,dataset, pathway) %>% kruskal_test(nes ~ sex) %>% mutate(.y. = gtm.db) %>% rename(DB = '.y.')
 selected.pathways <- kurstal.test %>% filter(p < 0.01) %>% .$pathway %>% unique
 plt.barplot <- kurstal.test %>% filter(pathway %in% selected.pathways) %>% mutate(p = -log10(p)) %>%
-  ggplot(aes(p, reorder(pathway, p), fill = cluster)) + geom_bar(stat = 'identity', show.legend = F) + facet_grid(.~cluster) +
+  ggplot(aes(p, reorder(pathway, p), fill = cluster)) + geom_bar(stat = 'identity', show.legend = F) + facet_grid(dataset~cluster) +
     labs(x = '-log10(p-value)',y = '', title = 'Female vs Male', subtitle = gtm.db) + theme_linedraw() +
     geom_vline(xintercept = -log10(.01), col= 'red', linetype = 'dashed') +
     geom_vline(xintercept = -log10(.05), col= 'red', linetype = 'dotted') +
@@ -80,7 +80,7 @@ head(luminex)
 
 cytokine.name = c('IL_7','IL_6','IL_11','IL_9')
 pathway.name <- paste0(c('IL-7','IL-6','IL-11','IL-9'),' Signaling Pathway')
-
+grep('IL_9',colnames(luminex), value = T)
 i = 2
 cytokine.df <- luminex[,c('volunteer_id', 'class', 'cluster', cytokine.name[i])]
 colnames(cytokine.df)[4] <- 'cytokine'
@@ -88,13 +88,14 @@ colnames(cytokine.df)[4] <- 'cytokine'
 cytokine.df %>% separate(class, c('dataset', 'carriage','sex'), sep = '_') %>%
   mutate(cluster = as.character(cluster)) %>%
   ggplot(aes(sex, cytokine, col = sex, fill = sex)) + geom_boxplot(alpha = .5, show.legend = F) +
-  geom_jitter(size = 3, aes(shape = cluster)) + theme_minimal() + theme(legend.position = 'top')
+  geom_jitter(size = 3, aes(shape = cluster)) + theme_minimal() + theme(legend.position = 'top') +
+  labs(x = '', y = paste0(cytokine.name[i],' Level'), title = pathway.name[i])
 
 cytokine.df %>% separate(class, c('dataset', 'carriage','sex'), sep = '_') %>%
   mutate(cluster = as.character(cluster)) %>%
   ggplot(aes(sex, cytokine, col = sex, fill = sex)) + geom_boxplot(alpha = .5, show.legend = F) +
   geom_jitter(size = 3, aes(shape = cluster)) + theme_minimal() + theme(legend.position = 'top') +
-  facet_grid(.~carriage)
+  facet_grid(.~carriage) + labs(x = '', y = paste0(cytokine.name[i],' Level'), title = pathway.name[i])
 
 cytokine.df <- nes[pathway.name[i],] %>% t %>% as.data.frame %>% setNames('NES') %>% rownames_to_column('volunteer_id') %>%
   merge(cytokine.df, ., by = 'volunteer_id') %>%
