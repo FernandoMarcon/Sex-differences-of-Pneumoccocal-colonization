@@ -51,4 +51,4 @@ for index, row in ora.iterrows():
             CREATE (p)-[:ENRICHED]->(m)
             ''', parameters = {'mod':row['Module'], 'path':row['ID']})
 tx.commit()
-a
+# a
